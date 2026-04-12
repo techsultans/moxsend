@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <pattern id="g" width="44" height="44" patternUnits="userSpaceOnUse">
+      <path d="M 44 0 L 0 0 0 44" fill="none" stroke="#38BDF8" stroke-width="0.4" opacity="0.07"/>
+    </pattern>
+    <linearGradient id="hl1" x1="1" y1="0" x2="0" y2="0">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.20"/>
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#060D1F"/>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <rect x="40" y="40" width="1120" height="550" fill="#090F20" opacity="0.55"/>
+  <rect x="0" y="0" width="1200" height="4" fill="#38BDF8"/>
+  <rect x="0" y="0" width="4" height="630" fill="#38BDF8"/>
+  <rect x="0" y="626" width="1200" height="4" fill="#38BDF8" opacity="0.25"/>
+
+  <!-- Ghost mark -->
+  <g transform="translate(950,315)">
+    <circle cx="0" cy="0" r="260" fill="none" stroke="#38BDF8" stroke-width="7" opacity="0.09"/>
+    <circle cx="0" cy="0" r="200" fill="none" stroke="#38BDF8" stroke-width="4" opacity="0.06"/>
+    <circle cx="0" cy="0" r="135" fill="none" stroke="#38BDF8" stroke-width="3" opacity="0.05"/>
+    <path d="M -205,96 Q 0,-246 205,96" fill="none" stroke="#38BDF8" stroke-width="46" stroke-linecap="round" opacity="0.15"/>
+    <polygon points="109,-68 219,0 109,68 144,0" fill="#38BDF8" opacity="0.18"/>
+    <circle cx="0" cy="110" r="35" fill="#38BDF8" opacity="0.17"/>
+  </g>
+
+  <rect x="680" y="200" width="480" height="1" fill="url(#hl1)"/>
+  <rect x="680" y="380" width="480" height="1" fill="url(#hl1)"/>
+  <rect x="680" y="520" width="480" height="1" fill="url(#hl1)"/>
+
+  <!-- Logo -->
+  <g transform="translate(90,72)">
+    <circle cx="0" cy="0" r="30" fill="none" stroke="#38BDF8" stroke-width="2.5"/>
+    <path d="M -22,11 Q 0,-26 22,11" fill="none" stroke="#38BDF8" stroke-width="5.2" stroke-linecap="round"/>
+    <polygon points="11,-8 21,0 11,8 14,0" fill="#FFFFFF"/>
+    <circle cx="0" cy="12" r="4" fill="#38BDF8"/>
+  </g>
+  <text x="132" y="64" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="19" font-weight="800" letter-spacing="4" fill="#EEF2FF">MOX<tspan fill="#38BDF8">SEND</tspan></text>
+  <text x="132" y="81" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="9" font-weight="400" letter-spacing="1.5" fill="#38BDF8" opacity="0.38">moxsend.ai</text>
+  <rect x="60" y="118" width="580" height="0.8" fill="#38BDF8" opacity="0.12"/>
+
+  <!-- Coming soon specific copy -->
+  <text x="60" y="162" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="600" letter-spacing="4" fill="#38BDF8" opacity="0.60">SOMETHING BIG IS COMING</text>
+
+  <text x="60" y="252" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="74" font-weight="900" letter-spacing="-2" fill="#EEF2FF">Cold email,</text>
+  <text x="60" y="340" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="74" font-weight="900" letter-spacing="-2" fill="#38BDF8">finally evolved.</text>
+
+  <rect x="60" y="362" width="72" height="2" fill="#38BDF8"/>
+
+  <text x="60" y="402" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#EEF2FF" opacity="0.42">The AI outreach platform for founders and closers.</text>
+  <text x="60" y="428" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#EEF2FF" opacity="0.42">Launching soon.</text>
+
+  <!-- Waitlist pill -->
+  <rect x="60" y="470" width="280" height="42" rx="21" fill="#38BDF8"/>
+  <text x="200" y="496" text-anchor="middle" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="14" font-weight="700" fill="#060D1F">Join the waitlist →</text>
+
+  <rect x="356" y="470" width="200" height="42" rx="21" fill="rgba(56,189,248,0.08)" stroke="#38BDF8" stroke-width="0.8"/>
+  <text x="456" y="496" text-anchor="middle" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="12" font-weight="500" fill="#38BDF8" opacity="0.75">hello@moxsend.ai</text>
+
+  <!-- Bottom bar -->
+  <rect x="0" y="570" width="1200" height="60" fill="#070E22"/>
+  <rect x="0" y="570" width="1200" height="1" fill="#38BDF8" opacity="0.10"/>
+  <text x="60" y="607" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="14" font-weight="700" fill="#EEF2FF">Stop spraying. <tspan fill="#38BDF8">Start converting.</tspan></text>
+  <text x="1140" y="607" text-anchor="end" font-family="'Helvetica Neue',Helvetica,Arial,sans-serif" font-size="11" font-weight="400" letter-spacing="1" fill="#38BDF8" opacity="0.30">moxsend.ai</text>
+</svg>

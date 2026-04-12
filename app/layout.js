@@ -40,11 +40,18 @@ export const metadata = {
       'Stop spraying. Start converting. The AI outreach platform for founders and closers.',
     images: [
       {
-        url: '/logos/moxsend_logo_dark_3200x1120.png',
-        width: 3200,
-        height: 1120,
+        url: '/images/moxsend_og_comingsoon_1200x630.svg',
+        width: 1200,
+        height: 630,
+        alt: 'Moxsend — Cold email that actually converts · Coming soon',
+        type: 'image/svg+xml',
+      },
+      {
+        url: '/images/moxsend_og_1200x630.svg',
+        width: 1200,
+        height: 630,
         alt: 'Moxsend — Cold email that actually converts',
-        type: 'image/png',
+        type: 'image/svg+xml',
       },
     ],
   },
@@ -54,7 +61,14 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'Moxsend — Cold email that actually converts',
     description: 'Stop spraying. Start converting.',
-    images: ['/logos/moxsend_logo_dark_3200x1120.png'],
+    images: [
+      {
+        url: '/images/moxsend_og_twitter_1200x628.svg',
+        width: 1200,
+        height: 628,
+        alt: 'Moxsend — Cold email that actually converts',
+      },
+    ],
     creator: '@moxsend',
     site: '@moxsend',
   },
