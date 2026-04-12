@@ -32,7 +32,7 @@ export default function Hero() {
       {/* Descriptor */}
       <p
         className="type-body max-w-[460px] mx-auto mb-12"
-        style={{ color: 'rgba(238,242,255,0.38)' }}
+        style={{ color: 'var(--text-muted)' }}
       >
         Stop spraying. Start converting. The AI outreach platform built for founders and closers who refuse to lose deals in the inbox.
       </p>

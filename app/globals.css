@@ -96,75 +96,78 @@
 
 /* ══════════════════════════════════════════
    LIGHT THEME  [data-theme="light"]
+   Brand guideline: White (#FFFFFF) primary bg,
+   Ice (#F2F6FA) for surfaces, Deep Navy (#0A1628)
+   for text, Mox Blue (#0EA5E9) for accents.
    ══════════════════════════════════════════ */
 [data-theme="light"] {
   /* Backgrounds */
-  --bg:               #F2F6FA;
-  --bg-card:          rgba(255, 255, 255, 0.95);
-  --bg-surface:       rgba(255, 255, 255, 0.80);
+  --bg:               #FFFFFF;          /* Crisp white — premium base */
+  --bg-card:          #FFFFFF;          /* Cards: white (shadow applied separately) */
+  --bg-surface:       #FFFFFF;          /* Inputs: white */
   --bg-chip:          rgba(14, 165, 233, 0.07);
-  --bg-feat-row:      rgba(14, 165, 233, 0.04);
-  --bg-meshdex-bar:   rgba(10, 22, 40, 0.025);
+  --bg-feat-row:      #F2F6FA;          /* Ice — feature row tray */
+  --bg-meshdex-bar:   rgba(10, 22, 40, 0.025); /* barely-there tint, same as footer */
   --bg-toggle:        rgba(10, 22, 40, 0.06);
   --bg-toggle-hover:  rgba(10, 22, 40, 0.10);
 
-  /* Text */
-  --text:             #0A1628;
-  --text-muted:       rgba(10, 22, 40, 0.55);
-  --text-subtle:      rgba(10, 22, 40, 0.38);
-  --text-faint:       rgba(10, 22, 40, 0.28);
-  --text-dim:         rgba(10, 22, 40, 0.45);
-  --text-status:      rgba(14, 165, 233, 0.80);
-  --text-meshdex-label: rgba(10, 22, 40, 0.38);
+  /* Text — Deep Navy based, full opacity for readability */
+  --text:             #0A1628;          /* Deep Navy — primary */
+  --text-muted:       rgba(10, 22, 40, 0.65);   /* Descriptor / secondary */
+  --text-subtle:      rgba(10, 22, 40, 0.50);   /* Placeholder */
+  --text-faint:       rgba(10, 22, 40, 0.45);   /* Footer links */
+  --text-dim:         rgba(10, 22, 40, 0.58);   /* Dimmed body */
+  --text-status:      #0EA5E9;                  /* Mox Blue — full opacity nav status */
+  --text-meshdex-label: rgba(10, 22, 40, 0.40);
   --text-meshdex-name:  #0A1628;
   --text-meshdex-tag:   rgba(14, 165, 233, 0.55);
   --text-meshdex-badge: rgba(14, 165, 233, 0.65);
-  --text-brand:         rgba(14, 165, 233, 0.55);
+  --text-brand:         #0EA5E9;               /* Mox Blue — footer "moxsend.ai" */
 
   /* Borders */
-  --border-nav:       rgba(10, 22, 40, 0.08);
-  --border-card:      rgba(10, 22, 40, 0.06);
-  --border-feat:      rgba(10, 22, 40, 0.08);
-  --border-cyan:      rgba(14, 165, 233, 0.20);
-  --border-cyan-md:   rgba(14, 165, 233, 0.30);
-  --border-cyan-lg:   rgba(14, 165, 233, 0.60);
-  --border-chip:      rgba(14, 165, 233, 0.25);
-  --border-chip-dot:  rgba(14, 165, 233, 0.35);
-  --border-toggle:    rgba(10, 22, 40, 0.12);
-  --border-meshdex:   rgba(10, 22, 40, 0.07);
-  --border-meshdex-badge: rgba(14, 165, 233, 0.18);
+  --border-nav:       rgba(10, 22, 40, 0.10);
+  --border-card:      rgba(10, 22, 40, 0.08);
+  --border-feat:      rgba(10, 22, 40, 0.09);
+  --border-cyan:      rgba(14, 165, 233, 0.25);
+  --border-cyan-md:   rgba(14, 165, 233, 0.35);
+  --border-cyan-lg:   rgba(14, 165, 233, 0.65);
+  --border-chip:      rgba(14, 165, 233, 0.28);
+  --border-chip-dot:  rgba(14, 165, 233, 0.38);
+  --border-toggle:    rgba(10, 22, 40, 0.14);
+  --border-meshdex:        rgba(10, 22, 40, 0.08);
+  --border-meshdex-badge:  rgba(14, 165, 233, 0.20);
 
   /* Countdown */
-  --cd-label:         rgba(14, 165, 233, 0.60);
-  --cd-colon:         rgba(14, 165, 233, 0.30);
-  --cd-midline:       rgba(14, 165, 233, 0.10);
+  --cd-label:         #0EA5E9;              /* Mox Blue — fully visible label */
+  --cd-colon:         rgba(14, 165, 233, 0.35);
+  --cd-midline:       rgba(14, 165, 233, 0.12);
 
   /* Feature cards */
   --feat-icon-bg:     rgba(14, 165, 233, 0.08);
-  --feat-icon-border: rgba(14, 165, 233, 0.22);
-  --feat-desc:        rgba(10, 22, 40, 0.45);
+  --feat-icon-border: rgba(14, 165, 233, 0.24);
+  --feat-desc:        rgba(10, 22, 40, 0.62);   /* Was 0.45 — much more readable */
 
   /* MeshDex */
   --meshdex-dot:      rgba(14, 165, 233, 0.30);
   --meshdex-badge-bg: rgba(14, 165, 233, 0.06);
 
-  /* Orbs (softer on light bg) */
-  --orb-1: radial-gradient(circle, rgba(56, 189, 248, 0.10) 0%, transparent 70%);
-  --orb-2: radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, transparent 70%);
-  --orb-3: radial-gradient(circle, rgba(56, 189, 248, 0.06) 0%, transparent 70%);
+  /* Orbs — gentle tints on white */
+  --orb-1: radial-gradient(circle, rgba(56, 189, 248, 0.08) 0%, transparent 70%);
+  --orb-2: radial-gradient(circle, rgba(14, 165, 233, 0.06) 0%, transparent 70%);
+  --orb-3: radial-gradient(circle, rgba(56, 189, 248, 0.05) 0%, transparent 70%);
 
   /* Canvas dot grid */
-  --grid-dot: rgba(14, 165, 233, 0.12);
+  --grid-dot: rgba(14, 165, 233, 0.10);
 
-  /* Button */
-  --btn-text: #FFFFFF;
+  /* Button — keep Midnight text on Cyan (best contrast, same as dark mode) */
+  --btn-text: #060D1F;
 
   /* Logo visibility */
   --logo-dark-show:  none;
   --logo-light-show: block;
 
   /* Toggle icon */
-  --toggle-icon-color: rgba(10, 22, 40, 0.55);
+  --toggle-icon-color: rgba(10, 22, 40, 0.60);
 }
 
 /* ══════════════════════════════════════════
@@ -583,8 +586,8 @@ body {
    ══════════════════════════════════════════ */
 @layer components {
   .meshdex-bar {
-    border-bottom: 1px solid var(--border-meshdex);
     background: var(--bg-meshdex-bar);
+    border-top: 1px solid var(--border-meshdex);
     padding: 10px 48px;
     transition: background 0.3s ease, border-color 0.3s ease;
   }
@@ -654,6 +657,35 @@ body {
     padding: 4px 10px 4px 8px;
     transition: color 0.3s ease, background 0.3s ease, border-color 0.3s ease;
   }
+}
+
+/* ══════════════════════════════════════════
+   LIGHT MODE — PREMIUM SURFACE DETAILS
+   Box shadows & gradients can't be expressed
+   as CSS variables alone, so they live here.
+   ══════════════════════════════════════════ */
+
+/* Page: subtle gradient for depth (white → ice → ghost-white tint) */
+[data-theme="light"] .page-root {
+  background: linear-gradient(165deg, #FFFFFF 0%, #F2F6FA 55%, #EEF2FF 100%);
+}
+
+/* Feature cards: crisp white lift on ice background */
+[data-theme="light"] .feat {
+  background: #FFFFFF;
+  box-shadow: 0 1px 3px rgba(10, 22, 40, 0.07), 0 1px 2px rgba(10, 22, 40, 0.04);
+}
+
+/* Waitlist form: white input with gentle lift */
+[data-theme="light"] .form-inner {
+  background: #FFFFFF;
+  box-shadow: 0 1px 4px rgba(10, 22, 40, 0.08);
+}
+
+/* Countdown boxes: white tiles with subtle shadow */
+[data-theme="light"] .cd-box {
+  background: #FFFFFF;
+  box-shadow: 0 2px 6px rgba(10, 22, 40, 0.08), 0 1px 2px rgba(10, 22, 40, 0.05);
 }
 
 /* ══════════════════════════════════════════

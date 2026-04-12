@@ -8,7 +8,6 @@ export default function BottomBar() {
         <div className="flex gap-6 items-center">
           <a href="#" className="bottom-link">Privacy</a>
           <a href="mailto:hello@moxsend.ai" className="bottom-link">Contact</a>
-          <a href="mailto:hello@moxsend.ai" className="bottom-link">hello@moxsend.ai</a>
           <span className="bottom-link hidden sm:inline">Stop spraying. Start converting.</span>
         </div>
       </div>
