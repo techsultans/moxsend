@@ -35,7 +35,7 @@ export default function Countdown() {
   ]
 
   return (
-    <div className="flex items-center gap-1.5 mb-12">
+    <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-4 mb-12">
       {units.map((unit, i) => (
         <div key={unit.label} className="flex items-center gap-1.5">
           <div className="flex flex-col items-center gap-1.5">

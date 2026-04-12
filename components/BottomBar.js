@@ -3,9 +3,9 @@ export default function BottomBar() {
     <footer className="relative z-10 bottom-bar">
 
       {/* ── Bottom links row ── */}
-      <div className="flex items-center justify-between px-12 py-[18px]">
+      <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-3 px-6 sm:px-12 py-[18px] text-center sm:text-left">
         <span className="bottom-brand">moxsend.ai</span>
-        <div className="flex gap-6 items-center">
+        <div className="flex flex-wrap justify-center sm:justify-end gap-4 sm:gap-6 items-center">
           <a href="#" className="bottom-link">Privacy</a>
           <a href="mailto:hello@moxsend.ai" className="bottom-link">Contact</a>
           <span className="bottom-link hidden sm:inline">Stop spraying. Start converting.</span>

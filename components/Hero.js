@@ -4,7 +4,7 @@ import FeatureCards from './FeatureCards'
 
 export default function Hero() {
   return (
-    <main className="relative z-5 flex-1 flex flex-col items-center justify-center px-12 pt-[60px] pb-10 text-center">
+    <main className="relative z-5 flex-1 flex flex-col items-center justify-center px-6 sm:px-12 pt-10 sm:pt-[60px] pb-10 text-center">
 
       {/* Badge chip */}
       <div className="chip mb-9">
