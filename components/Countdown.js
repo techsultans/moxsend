@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react'
 
-// Update this date to set the launch countdown target
-const TARGET = new Date('2025-09-01T00:00:00Z')
+// Launch date: 4th May 2026
+const TARGET = new Date('2026-05-04T00:00:00Z')
 
 function pad(n) {
   return String(Math.floor(n)).padStart(2, '0')

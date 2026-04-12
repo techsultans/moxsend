@@ -13,6 +13,12 @@ export default function GridCanvas() {
     let W, H, offset = 0
     let animId
 
+    function getDotColor() {
+      return document.documentElement.getAttribute('data-theme') === 'light'
+        ? 'rgba(14,165,233,0.12)'
+        : 'rgba(56,189,248,0.10)'
+    }
+
     function resize() {
       W = cv.offsetWidth
       H = cv.offsetHeight
@@ -24,7 +30,7 @@ export default function GridCanvas() {
     function drawGrid() {
       ctx.clearRect(0, 0, W, H)
       const sp = 40
-      ctx.fillStyle = 'rgba(56,189,248,0.10)'
+      ctx.fillStyle = getDotColor()
       const yo = offset % sp
       for (let x = 0; x < W + sp; x += sp) {
         for (let y = -sp + yo; y < H + sp; y += sp) {
@@ -41,17 +47,21 @@ export default function GridCanvas() {
       animId = requestAnimationFrame(animate)
     }
 
-    function handleResize() {
-      resize()
-    }
+    // Re-draw immediately when theme changes
+    const observer = new MutationObserver(() => drawGrid())
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['data-theme'],
+    })
 
-    window.addEventListener('resize', handleResize)
+    window.addEventListener('resize', resize)
     resize()
     animate()
 
     return () => {
-      window.removeEventListener('resize', handleResize)
+      window.removeEventListener('resize', resize)
       cancelAnimationFrame(animId)
+      observer.disconnect()
     }
   }, [])
 

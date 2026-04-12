@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1600" height="560" viewBox="0 0 1600 560">
+
+  <rect width="1600" height="560" fill="#060D1F"/>
+
+  <!-- ══ ICON MARK  (88×88 coordinate space scaled to 560px) ══ -->
+  <svg x="40" y="0" width="560" height="560"
+       viewBox="0 0 88 88" overflow="visible">
+
+    <!-- Outer ring -->
+    <circle cx="44" cy="44" r="38"
+            fill="none"
+            stroke="#38BDF8"
+            stroke-width="3"/>
+
+    <!-- Upward arc: M14,58  Q44,8  74,58 -->
+    <path d="M 14,58 Q 44,8 74,58"
+          fill="none"
+          stroke="#38BDF8"
+          stroke-width="6"
+          stroke-linecap="round"/>
+
+    <!-- Send arrow: M60,34 L76,44 L60,54 L65,44 Z -->
+    <polygon points="60,34 76,44 60,54 65,44"
+             fill="#FFFFFF"/>
+
+    <!-- Anchor dot -->
+    <circle cx="44" cy="60" r="5"
+            fill="#38BDF8"/>
+
+  </svg>
+
+  <!-- ══ WORDMARK ══ -->
+  <text x="660" y="218"
+        font-family="Poppins"
+        font-weight="700"
+        font-size="160"
+        letter-spacing="8">
+    <tspan fill="#EEF2FF">MOX</tspan><tspan fill="#38BDF8">SEND</tspan>
+  </text>
+
+  <!-- ══ TAGLINE ══ -->
+  <text x="660" y="318"
+        font-family="Poppins"
+        font-weight="400"
+        font-size="34"
+        letter-spacing="5"
+        fill="#38BDF8"
+        opacity="0.55">STOP SPRAYING.  START CONVERTING.</text>
+
+</svg>

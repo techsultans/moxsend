@@ -4,51 +4,201 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ═══════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════════════
    MOXSEND BRAND DESIGN SYSTEM
-   ═══════════════════════════════════════════════ */
+   Dark theme is the default. Light theme via [data-theme="light"].
+   ═══════════════════════════════════════════════════════════════ */
 
+/* ── Brand constants (never change between themes) ── */
 :root {
-  /* ── Colour System ── */
-  --midnight:      #060D1F;   /* Primary BG */
-  --arctic-cyan:   #38BDF8;   /* Brand accent */
-  --mox-blue:      #0EA5E9;   /* Active / CTA */
-  --ghost-white:   #EEF2FF;   /* Body text */
-  --deep-navy:     #0A1628;   /* Deep Navy */
-  --sky:           #7DD3FC;   /* Sky */
-  --white:         #FFFFFF;
-  --ice:           #F2F6FA;   /* Ice surface */
-  --cyan-glow:     rgba(56, 189, 248, 0.12); /* Glow tint Cyan 12% */
-
-  /* ── Opacity variants used throughout ── */
-  --cyan-border:   rgba(56, 189, 248, 0.14);
-  --cyan-border-md:rgba(56, 189, 248, 0.20);
-  --cyan-border-lg:rgba(56, 189, 248, 0.50);
-  --ghost-dim:     rgba(238, 242, 255, 0.38);
-  --ghost-muted:   rgba(238, 242, 255, 0.22);
-  --ghost-subtle:  rgba(238, 242, 255, 0.20);
-  --ghost-faint:   rgba(238, 242, 255, 0.18);
+  --arctic-cyan:  #38BDF8;
+  --mox-blue:     #0EA5E9;
+  --sky:          #7DD3FC;
+  --white:        #FFFFFF;
+  --midnight:     #060D1F;
+  --ghost-white:  #EEF2FF;
+  --deep-navy:    #0A1628;
+  --ice:          #F2F6FA;
 }
 
-/* ── Base reset ── */
-*, *::before, *::after {
-  box-sizing: border-box;
+/* ══════════════════════════════════════════
+   DARK THEME (default)
+   ══════════════════════════════════════════ */
+:root {
+  /* Backgrounds */
+  --bg:               #060D1F;
+  --bg-card:          rgba(6, 13, 31, 0.92);
+  --bg-surface:       rgba(255, 255, 255, 0.03);
+  --bg-chip:          rgba(56, 189, 248, 0.08);
+  --bg-feat-row:      rgba(56, 189, 248, 0.06);
+  --bg-meshdex-bar:   rgba(255, 255, 255, 0.015);
+  --bg-toggle:        rgba(56, 189, 248, 0.08);
+  --bg-toggle-hover:  rgba(56, 189, 248, 0.14);
+
+  /* Text */
+  --text:             #EEF2FF;
+  --text-muted:       rgba(238, 242, 255, 0.38);
+  --text-subtle:      rgba(238, 242, 255, 0.22);
+  --text-faint:       rgba(238, 242, 255, 0.18);
+  --text-dim:         rgba(238, 242, 255, 0.32);
+  --text-status:      rgba(56, 189, 248, 0.65);
+  --text-meshdex-label: rgba(238, 242, 255, 0.22);
+  --text-meshdex-name:  #EEF2FF;
+  --text-meshdex-tag:   rgba(56, 189, 248, 0.30);
+  --text-meshdex-badge: rgba(56, 189, 248, 0.40);
+  --text-brand:         rgba(56, 189, 248, 0.35);
+
+  /* Borders */
+  --border-nav:       rgba(56, 189, 248, 0.07);
+  --border-card:      rgba(56, 189, 248, 0.08);
+  --border-feat:      rgba(56, 189, 248, 0.10);
+  --border-cyan:      rgba(56, 189, 248, 0.14);
+  --border-cyan-md:   rgba(56, 189, 248, 0.20);
+  --border-cyan-lg:   rgba(56, 189, 248, 0.50);
+  --border-chip:      rgba(56, 189, 248, 0.20);
+  --border-chip-dot:  rgba(56, 189, 248, 0.30);
+  --border-toggle:    rgba(56, 189, 248, 0.15);
+  --border-meshdex:   rgba(56, 189, 248, 0.06);
+  --border-meshdex-badge: rgba(56, 189, 248, 0.10);
+
+  /* Countdown */
+  --cd-label:         rgba(56, 189, 248, 0.40);
+  --cd-colon:         rgba(56, 189, 248, 0.20);
+  --cd-midline:       rgba(56, 189, 248, 0.08);
+
+  /* Feature cards */
+  --feat-icon-bg:     rgba(56, 189, 248, 0.10);
+  --feat-icon-border: rgba(56, 189, 248, 0.18);
+  --feat-desc:        rgba(238, 242, 255, 0.32);
+
+  /* MeshDex */
+  --meshdex-dot:      rgba(56, 189, 248, 0.25);
+  --meshdex-badge-bg: rgba(56, 189, 248, 0.05);
+
+  /* Orbs */
+  --orb-1: radial-gradient(circle, rgba(56, 189, 248, 0.07) 0%, transparent 70%);
+  --orb-2: radial-gradient(circle, rgba(14, 165, 233, 0.06) 0%, transparent 70%);
+  --orb-3: radial-gradient(circle, rgba(56, 189, 248, 0.04) 0%, transparent 70%);
+
+  /* Canvas dot grid */
+  --grid-dot: rgba(56, 189, 248, 0.10);
+
+  /* Button */
+  --btn-text: #060D1F;
+
+  /* Logo visibility */
+  --logo-dark-show:  block;
+  --logo-light-show: none;
+
+  /* Toggle icon */
+  --toggle-icon-color: rgba(56, 189, 248, 0.70);
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
+/* ══════════════════════════════════════════
+   LIGHT THEME  [data-theme="light"]
+   ══════════════════════════════════════════ */
+[data-theme="light"] {
+  /* Backgrounds */
+  --bg:               #F2F6FA;
+  --bg-card:          rgba(255, 255, 255, 0.95);
+  --bg-surface:       rgba(255, 255, 255, 0.80);
+  --bg-chip:          rgba(14, 165, 233, 0.07);
+  --bg-feat-row:      rgba(14, 165, 233, 0.04);
+  --bg-meshdex-bar:   rgba(10, 22, 40, 0.025);
+  --bg-toggle:        rgba(10, 22, 40, 0.06);
+  --bg-toggle-hover:  rgba(10, 22, 40, 0.10);
+
+  /* Text */
+  --text:             #0A1628;
+  --text-muted:       rgba(10, 22, 40, 0.55);
+  --text-subtle:      rgba(10, 22, 40, 0.38);
+  --text-faint:       rgba(10, 22, 40, 0.28);
+  --text-dim:         rgba(10, 22, 40, 0.45);
+  --text-status:      rgba(14, 165, 233, 0.80);
+  --text-meshdex-label: rgba(10, 22, 40, 0.38);
+  --text-meshdex-name:  #0A1628;
+  --text-meshdex-tag:   rgba(14, 165, 233, 0.55);
+  --text-meshdex-badge: rgba(14, 165, 233, 0.65);
+  --text-brand:         rgba(14, 165, 233, 0.55);
+
+  /* Borders */
+  --border-nav:       rgba(10, 22, 40, 0.08);
+  --border-card:      rgba(10, 22, 40, 0.06);
+  --border-feat:      rgba(10, 22, 40, 0.08);
+  --border-cyan:      rgba(14, 165, 233, 0.20);
+  --border-cyan-md:   rgba(14, 165, 233, 0.30);
+  --border-cyan-lg:   rgba(14, 165, 233, 0.60);
+  --border-chip:      rgba(14, 165, 233, 0.25);
+  --border-chip-dot:  rgba(14, 165, 233, 0.35);
+  --border-toggle:    rgba(10, 22, 40, 0.12);
+  --border-meshdex:   rgba(10, 22, 40, 0.07);
+  --border-meshdex-badge: rgba(14, 165, 233, 0.18);
+
+  /* Countdown */
+  --cd-label:         rgba(14, 165, 233, 0.60);
+  --cd-colon:         rgba(14, 165, 233, 0.30);
+  --cd-midline:       rgba(14, 165, 233, 0.10);
+
+  /* Feature cards */
+  --feat-icon-bg:     rgba(14, 165, 233, 0.08);
+  --feat-icon-border: rgba(14, 165, 233, 0.22);
+  --feat-desc:        rgba(10, 22, 40, 0.45);
+
+  /* MeshDex */
+  --meshdex-dot:      rgba(14, 165, 233, 0.30);
+  --meshdex-badge-bg: rgba(14, 165, 233, 0.06);
+
+  /* Orbs (softer on light bg) */
+  --orb-1: radial-gradient(circle, rgba(56, 189, 248, 0.10) 0%, transparent 70%);
+  --orb-2: radial-gradient(circle, rgba(14, 165, 233, 0.08) 0%, transparent 70%);
+  --orb-3: radial-gradient(circle, rgba(56, 189, 248, 0.06) 0%, transparent 70%);
+
+  /* Canvas dot grid */
+  --grid-dot: rgba(14, 165, 233, 0.12);
+
+  /* Button */
+  --btn-text: #FFFFFF;
+
+  /* Logo visibility */
+  --logo-dark-show:  none;
+  --logo-light-show: block;
+
+  /* Toggle icon */
+  --toggle-icon-color: rgba(10, 22, 40, 0.55);
 }
+
+/* ══════════════════════════════════════════
+   BASE
+   ══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
 
 body {
   font-family: 'Inter', sans-serif;
-  background: var(--midnight);
-  color: var(--ghost-white);
+  background: var(--bg);
+  color: var(--text);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* ═══════════════════════════════════════════════
+/* ══════════════════════════════════════════
+   PAGE ROOT
+   ══════════════════════════════════════════ */
+@layer components {
+  .page-root {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: var(--bg);
+    transition: background 0.3s ease;
+  }
+}
+
+/* ══════════════════════════════════════════
    TYPOGRAPHY SCALE
    Display  500 · 48px · −1px
    Headline 500 · 28px · −0.5px
@@ -56,50 +206,19 @@ body {
    Body     400 · 15px · 1.7lh
    Label    500 · 11px · +0.1em
    Mono     mono · 12px
-   ═══════════════════════════════════════════════ */
-
+   ══════════════════════════════════════════ */
 @layer components {
-  .type-display {
-    font-weight: 500;
-    font-size: 48px;
-    letter-spacing: -1px;
-  }
-
-  .type-headline {
-    font-weight: 500;
-    font-size: 28px;
-    letter-spacing: -0.5px;
-  }
-
-  .type-subhead {
-    font-weight: 500;
-    font-size: 18px;
-    letter-spacing: 0px;
-  }
-
-  .type-body {
-    font-weight: 400;
-    font-size: 15px;
-    line-height: 1.7;
-  }
-
-  .type-label {
-    font-weight: 500;
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
-
-  .type-mono {
-    font-family: ui-monospace, monospace;
-    font-size: 12px;
-  }
+  .type-display  { font-weight: 500; font-size: 48px; letter-spacing: -1px; }
+  .type-headline { font-weight: 500; font-size: 28px; letter-spacing: -0.5px; }
+  .type-subhead  { font-weight: 500; font-size: 18px; letter-spacing: 0px; }
+  .type-body     { font-weight: 400; font-size: 15px; line-height: 1.7; }
+  .type-label    { font-weight: 500; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .type-mono     { font-family: ui-monospace, monospace; font-size: 12px; }
 }
 
-/* ═══════════════════════════════════════════════
-   HERO HEADLINE — large display with text effects
-   ═══════════════════════════════════════════════ */
-
+/* ══════════════════════════════════════════
+   HERO HEADLINE
+   ══════════════════════════════════════════ */
 @layer components {
   .h1-line {
     display: block;
@@ -107,66 +226,93 @@ body {
     font-weight: 900;
     letter-spacing: -3px;
     line-height: 0.95;
-    color: var(--ghost-white);
+    color: var(--text);
+    transition: color 0.3s ease;
   }
 
-  /* Outline / ghost text */
   .h1-line-outline {
     color: transparent;
     -webkit-text-stroke: 1.5px var(--arctic-cyan);
   }
 
-  /* Solid cyan fill */
   .h1-line-filled {
     color: var(--arctic-cyan);
   }
 }
 
-/* ═══════════════════════════════════════════════
-   BACKGROUND — glow orbs
-   ═══════════════════════════════════════════════ */
-
+/* ══════════════════════════════════════════
+   GLOW ORBS
+   ══════════════════════════════════════════ */
 @layer components {
   .orb {
     position: absolute;
     border-radius: 50%;
     pointer-events: none;
     z-index: 0;
+    transition: background 0.3s ease;
   }
-
   .orb-1 {
-    width: 600px;
-    height: 600px;
-    top: -200px;
-    left: 50%;
+    width: 600px; height: 600px;
+    top: -200px; left: 50%;
     transform: translateX(-50%);
-    background: radial-gradient(circle, rgba(56, 189, 248, 0.07) 0%, transparent 70%);
+    background: var(--orb-1);
   }
-
   .orb-2 {
-    width: 400px;
-    height: 400px;
-    bottom: -100px;
-    right: -100px;
-    background: radial-gradient(circle, rgba(14, 165, 233, 0.06) 0%, transparent 70%);
+    width: 400px; height: 400px;
+    bottom: -100px; right: -100px;
+    background: var(--orb-2);
   }
-
   .orb-3 {
-    width: 300px;
-    height: 300px;
-    bottom: 0;
-    left: -50px;
-    background: radial-gradient(circle, rgba(56, 189, 248, 0.04) 0%, transparent 70%);
+    width: 300px; height: 300px;
+    bottom: 0; left: -50px;
+    background: var(--orb-3);
   }
 }
 
-/* ═══════════════════════════════════════════════
-   NAV
-   ═══════════════════════════════════════════════ */
+/* ══════════════════════════════════════════
+   THEME TOGGLE
+   ══════════════════════════════════════════ */
+@layer components {
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    border: 1px solid var(--border-toggle);
+    background: var(--bg-toggle);
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    color: var(--toggle-icon-color);
+    flex-shrink: 0;
+  }
 
+  .theme-toggle:hover {
+    background: var(--bg-toggle-hover);
+    transform: scale(1.05);
+  }
+
+  .theme-toggle:active {
+    transform: scale(0.95);
+  }
+}
+
+/* ══════════════════════════════════════════
+   LOGO — dual (dark/light)
+   ══════════════════════════════════════════ */
+@layer components {
+  .logo-for-dark  { display: var(--logo-dark-show); }
+  .logo-for-light { display: var(--logo-light-show); }
+}
+
+/* ══════════════════════════════════════════
+   NAV
+   ══════════════════════════════════════════ */
 @layer components {
   .nav-border {
-    border-bottom: 1px solid rgba(56, 189, 248, 0.07);
+    border-bottom: 1px solid var(--border-nav);
+    transition: border-color 0.3s ease;
   }
 
   .logo-text {
@@ -174,7 +320,8 @@ body {
     font-weight: 800;
     letter-spacing: 4px;
     text-transform: uppercase;
-    color: var(--ghost-white);
+    color: var(--text);
+    transition: color 0.3s ease;
   }
 
   .logo-text em {
@@ -185,9 +332,10 @@ body {
   .nav-status {
     font-size: 11px;
     font-weight: 500;
-    color: rgba(56, 189, 248, 0.65);
+    color: var(--text-status);
     letter-spacing: 1.5px;
     text-transform: uppercase;
+    transition: color 0.3s ease;
   }
 
   .status-dot {
@@ -199,31 +347,31 @@ body {
   }
 }
 
-/* ═══════════════════════════════════════════════
+/* ══════════════════════════════════════════
    CHIP / BADGE
-   ═══════════════════════════════════════════════ */
-
+   ══════════════════════════════════════════ */
 @layer components {
   .chip {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(56, 189, 248, 0.08);
-    border: 1px solid rgba(56, 189, 248, 0.20);
+    background: var(--bg-chip);
+    border: 1px solid var(--border-chip);
     border-radius: 100px;
     padding: 6px 16px 6px 8px;
+    transition: background 0.3s ease, border-color 0.3s ease;
   }
 
   .chip-dot {
-    width: 20px;
-    height: 20px;
+    width: 20px; height: 20px;
     border-radius: 50%;
-    background: rgba(56, 189, 248, 0.15);
-    border: 1px solid rgba(56, 189, 248, 0.3);
+    background: var(--bg-chip);
+    border: 1px solid var(--border-chip-dot);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    transition: background 0.3s ease;
   }
 
   .chip-text {
@@ -235,34 +383,33 @@ body {
   }
 }
 
-/* ═══════════════════════════════════════════════
+/* ══════════════════════════════════════════
    COUNTDOWN
-   ═══════════════════════════════════════════════ */
-
+   ══════════════════════════════════════════ */
 @layer components {
   .cd-box {
     width: 72px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid var(--cyan-border);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-cyan);
     border-radius: 10px;
     padding: 12px 0 10px;
     font-size: 36px;
     font-weight: 800;
-    color: var(--ghost-white);
+    color: var(--text);
     letter-spacing: -1px;
     text-align: center;
     position: relative;
     overflow: hidden;
+    transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
   }
 
   .cd-box::after {
     content: '';
     position: absolute;
-    left: 0;
-    right: 0;
-    top: 50%;
+    left: 0; right: 0; top: 50%;
     height: 1px;
-    background: rgba(56, 189, 248, 0.08);
+    background: var(--cd-midline);
+    transition: background 0.3s ease;
   }
 
   .cd-lbl {
@@ -270,36 +417,37 @@ body {
     font-weight: 600;
     letter-spacing: 3px;
     text-transform: uppercase;
-    color: rgba(56, 189, 248, 0.40);
+    color: var(--cd-label);
+    transition: color 0.3s ease;
   }
 
   .cd-colon {
     font-size: 28px;
     font-weight: 300;
-    color: rgba(56, 189, 248, 0.20);
+    color: var(--cd-colon);
     margin-bottom: 18px;
     align-self: flex-start;
     margin-top: 16px;
+    transition: color 0.3s ease;
   }
 }
 
-/* ═══════════════════════════════════════════════
+/* ══════════════════════════════════════════
    WAITLIST FORM
-   ═══════════════════════════════════════════════ */
-
+   ══════════════════════════════════════════ */
 @layer components {
   .form-inner {
     display: flex;
     align-items: center;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid var(--cyan-border-md);
+    background: var(--bg-surface);
+    border: 1px solid var(--border-cyan-md);
     border-radius: 14px;
     padding: 5px 5px 5px 20px;
-    transition: border-color 0.2s;
+    transition: border-color 0.2s, background 0.3s ease;
   }
 
   .form-inner:focus-within {
-    border-color: var(--cyan-border-lg);
+    border-color: var(--border-cyan-lg);
   }
 
   .form-input {
@@ -309,18 +457,19 @@ body {
     outline: none;
     font-size: 14px;
     font-family: 'Inter', sans-serif;
-    color: var(--ghost-white);
+    color: var(--text);
     letter-spacing: 0.2px;
     min-width: 0;
+    transition: color 0.3s ease;
   }
 
   .form-input::placeholder {
-    color: var(--ghost-muted);
+    color: var(--text-subtle);
   }
 
   .form-btn {
     background: var(--arctic-cyan);
-    color: var(--midnight);
+    color: var(--btn-text);
     border: none;
     border-radius: 10px;
     padding: 12px 24px;
@@ -330,97 +479,94 @@ body {
     letter-spacing: 0.3px;
     cursor: pointer;
     white-space: nowrap;
-    transition: all 0.15s;
+    transition: background 0.15s, color 0.3s ease;
     flex-shrink: 0;
   }
 
-  .form-btn:hover {
-    background: var(--sky);
-  }
-
-  .form-btn:active {
-    transform: scale(0.98);
-  }
+  .form-btn:hover  { background: var(--sky); }
+  .form-btn:active { transform: scale(0.98); }
 }
 
-/* ═══════════════════════════════════════════════
+/* ══════════════════════════════════════════
    FEATURE CARDS
-   ═══════════════════════════════════════════════ */
-
+   ══════════════════════════════════════════ */
 @layer components {
   .feat-row {
     display: flex;
     gap: 1px;
-    border: 1px solid rgba(56, 189, 248, 0.10);
+    border: 1px solid var(--border-feat);
     border-radius: 16px;
     overflow: hidden;
     width: 100%;
     max-width: 680px;
     margin: 0 auto;
-    background: rgba(56, 189, 248, 0.06);
+    background: var(--bg-feat-row);
+    transition: border-color 0.3s ease, background 0.3s ease;
   }
 
   .feat {
     flex: 1;
     padding: 20px 20px 18px;
-    background: rgba(6, 13, 31, 0.9);
+    background: var(--bg-card);
     display: flex;
     flex-direction: column;
     gap: 8px;
-    border-right: 1px solid rgba(56, 189, 248, 0.08);
+    border-right: 1px solid var(--border-card);
+    transition: background 0.3s ease, border-color 0.3s ease;
   }
 
-  .feat:last-child {
-    border-right: none;
-  }
+  .feat:last-child { border-right: none; }
 
   .feat-icon {
-    width: 28px;
-    height: 28px;
-    background: rgba(56, 189, 248, 0.10);
-    border: 1px solid rgba(56, 189, 248, 0.18);
+    width: 28px; height: 28px;
+    background: var(--feat-icon-bg);
+    border: 1px solid var(--feat-icon-border);
     border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    transition: background 0.3s ease, border-color 0.3s ease;
   }
 
   .feat-name {
     font-size: 12px;
     font-weight: 700;
-    color: var(--ghost-white);
+    color: var(--text);
     letter-spacing: 0.3px;
+    transition: color 0.3s ease;
   }
 
   .feat-desc {
     font-size: 11px;
     font-weight: 400;
-    color: rgba(238, 242, 255, 0.32);
+    color: var(--feat-desc);
     line-height: 1.5;
+    transition: color 0.3s ease;
   }
 }
 
-/* ═══════════════════════════════════════════════
+/* ══════════════════════════════════════════
    BOTTOM BAR
-   ═══════════════════════════════════════════════ */
-
+   ══════════════════════════════════════════ */
 @layer components {
   .bottom-bar {
-    border-top: 1px solid rgba(56, 189, 248, 0.07);
+    border-top: 1px solid var(--border-nav);
+    transition: border-color 0.3s ease;
   }
 
   .bottom-brand {
     font-size: 11px;
     font-weight: 500;
-    color: rgba(56, 189, 248, 0.35);
+    color: var(--text-brand);
     letter-spacing: 2px;
     text-transform: uppercase;
+    transition: color 0.3s ease;
   }
 
   .bottom-link {
     font-size: 11px;
-    color: var(--ghost-faint);
+    color: var(--text-faint);
     text-decoration: none;
     letter-spacing: 0.5px;
     cursor: pointer;
@@ -428,14 +574,91 @@ body {
   }
 
   .bottom-link:hover {
-    color: rgba(56, 189, 248, 0.60);
+    color: var(--arctic-cyan);
   }
 }
 
-/* ═══════════════════════════════════════════════
-   ANIMATIONS
-   ═══════════════════════════════════════════════ */
+/* ══════════════════════════════════════════
+   MESHDEX PARENT BRAND BAR
+   ══════════════════════════════════════════ */
+@layer components {
+  .meshdex-bar {
+    border-bottom: 1px solid var(--border-meshdex);
+    background: var(--bg-meshdex-bar);
+    padding: 10px 48px;
+    transition: background 0.3s ease, border-color 0.3s ease;
+  }
 
+  .meshdex-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .meshdex-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .meshdex-label {
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--text-meshdex-label);
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+  }
+
+  .meshdex-name {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--text-meshdex-name);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .meshdex-name:hover { color: var(--arctic-cyan); }
+
+  .meshdex-dot {
+    width: 3px; height: 3px;
+    border-radius: 50%;
+    background: var(--meshdex-dot);
+    flex-shrink: 0;
+    transition: background 0.3s ease;
+  }
+
+  .meshdex-tagline {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--text-meshdex-tag);
+    transition: color 0.3s ease;
+  }
+
+  .meshdex-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--text-meshdex-badge);
+    background: var(--meshdex-badge-bg);
+    border: 1px solid var(--border-meshdex-badge);
+    border-radius: 100px;
+    padding: 4px 10px 4px 8px;
+    transition: color 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+  }
+}
+
+/* ══════════════════════════════════════════
+   ANIMATIONS
+   ══════════════════════════════════════════ */
 @keyframes pulse {
   0%, 100% { opacity: 1; transform: scale(1); }
   50%       { opacity: 0.4; transform: scale(0.8); }
