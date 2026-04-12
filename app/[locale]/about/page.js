@@ -1,11 +1,15 @@
 import PageShell from '@/components/PageShell'
-import { defaultLocale, getDictionary } from '@/lib/i18n'
+import { getDictionary, isValidLocale } from '@/lib/i18n'
+import { notFound } from 'next/navigation'
 
-export default function AboutPage() {
-  const t = getDictionary(defaultLocale)
+export default async function LocalizedAbout({ params }) {
+  const { locale } = await params
+  if (!isValidLocale(locale)) notFound()
+  const t = getDictionary(locale)
   const about = t.about
+
   return (
-    <PageShell locale={defaultLocale} t={t}>
+    <PageShell locale={locale} t={t}>
       <main className="relative z-5 flex-1 px-6 sm:px-12 pt-12 sm:pt-16 pb-16">
         <div className="about-wrap">
           <div className="chip mb-8">
@@ -25,7 +29,7 @@ export default function AboutPage() {
 
           <h1 className="about-title">{about.title}</h1>
 
-          {about.paragraphs.map((p, i) => (
+          {about.paragraphs.map((p) => (
             <p className="type-body about-copy" key={p}>
               {p.includes('hello@moxsend.ai') ? (
                 <>

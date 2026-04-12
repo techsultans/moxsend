@@ -1,20 +1,11 @@
-import GridCanvas from '@/components/GridCanvas'
-import Nav from '@/components/Nav'
-import BottomBar from '@/components/BottomBar'
+import PageShell from '@/components/PageShell'
+import { defaultLocale, getDictionary } from '@/lib/i18n'
 
 export default function ContactPage() {
+  const t = getDictionary(defaultLocale)
+  const contact = t.contact
   return (
-    <div className="page-root">
-      {/* Glow orbs */}
-      <div className="orb orb-1" />
-      <div className="orb orb-2" />
-      <div className="orb orb-3" />
-
-      {/* Animated dot grid — theme-aware */}
-      <GridCanvas />
-
-      <Nav />
-
+    <PageShell locale={defaultLocale} t={t}>
       <main className="relative z-5 flex-1 px-6 sm:px-12 pt-12 sm:pt-16 pb-16">
         <div className="about-wrap">
           <div className="chip mb-8">
@@ -29,18 +20,22 @@ export default function ContactPage() {
                 <polygon points="60,34 76,44 60,54 65,44" fill="#38BDF8" />
               </svg>
             </div>
-            <span className="chip-text">Contact</span>
+            <span className="chip-text">{contact.chip}</span>
           </div>
 
-          <h1 className="about-title">Let&apos;s talk.</h1>
+          <h1 className="about-title">{contact.title}</h1>
           <p className="type-body about-copy">
-            Reach us at{' '}
-            <a href="mailto:hello@moxsend.ai" className="about-link">hello@moxsend.ai</a>
+            {contact.body.includes('hello@moxsend.ai') ? (
+              <>
+                {contact.body.replace('hello@moxsend.ai', '')}
+                <a href="mailto:hello@moxsend.ai" className="about-link">hello@moxsend.ai</a>
+              </>
+            ) : (
+              contact.body
+            )}
           </p>
         </div>
       </main>
-
-      <BottomBar />
-    </div>
+    </PageShell>
   )
 }

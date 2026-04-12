@@ -1,10 +1,15 @@
 "use client"
 
+'use client'
+
 import { useState } from 'react'
+import { getPath } from '@/lib/i18n'
+import LanguageSwitcher from './LanguageSwitcher'
 import ThemeToggle from './ThemeToggle'
 
-export default function Nav() {
+export default function Nav({ locale = 'en', t }) {
   const [menuOpen, setMenuOpen] = useState(false)
+  const nav = t?.nav
 
   return (
     <nav className="relative z-10 flex flex-col sm:flex-row items-center sm:justify-between gap-3 sm:gap-4 px-6 sm:px-12 py-3 sm:py-6 nav-border">
@@ -12,7 +17,7 @@ export default function Nav() {
       {/* Top row: logo (left) + menu icon (right on mobile) */}
       <div className="w-full sm:w-auto flex items-center justify-between sm:justify-start">
         {/* Logo — icon mark swaps based on theme via CSS, wordmark uses CSS var */}
-        <a href="/" className="flex items-center gap-3">
+        <a href={getPath(locale, '/')} className="flex items-center gap-3">
           {/* Dark theme icon (Arctic Cyan on transparent) */}
           <img
             src="/logos/moxsend_icon_dark_transparent.svg"
@@ -35,11 +40,12 @@ export default function Nav() {
             Mox<em>send</em>
           </span>
         </a>
-        <div className="flex items-center gap-3 sm:hidden">
+        <div className="flex items-center gap-2 sm:hidden">
+          <LanguageSwitcher compact />
           <ThemeToggle />
           <button
             className="menu-btn"
-            aria-label="Toggle menu"
+            aria-label={nav?.menuLabel || 'Toggle menu'}
             aria-expanded={menuOpen}
             onClick={() => setMenuOpen((v) => !v)}
           >
@@ -57,18 +63,21 @@ export default function Nav() {
         <div className="hidden sm:flex">
           <ThemeToggle />
         </div>
+        <div className="hidden sm:flex">
+          <LanguageSwitcher />
+        </div>
         <div className="nav-links hidden sm:flex items-center gap-6">
-          <a href="/about" className="nav-link">About</a>
-          <a href="/pricing" className="nav-link">Pricing</a>
-          <a href="/contact" className="nav-link">Contact</a>
+          <a href={getPath(locale, '/about')} className="nav-link">{nav?.about || 'About'}</a>
+          <a href={getPath(locale, '/pricing')} className="nav-link">{nav?.pricing || 'Pricing'}</a>
+          <a href={getPath(locale, '/contact')} className="nav-link">{nav?.contact || 'Contact'}</a>
         </div>
       </div>
 
       {/* Mobile menu */}
       <div className={`mobile-menu sm:hidden ${menuOpen ? 'is-open' : ''}`}>
-        <a href="/about" className="nav-link">About</a>
-        <a href="/pricing" className="nav-link">Pricing</a>
-        <a href="/contact" className="nav-link">Contact</a>
+        <a href={getPath(locale, '/about')} className="nav-link">{nav?.about || 'About'}</a>
+        <a href={getPath(locale, '/pricing')} className="nav-link">{nav?.pricing || 'Pricing'}</a>
+        <a href={getPath(locale, '/contact')} className="nav-link">{nav?.contact || 'Contact'}</a>
       </div>
 
     </nav>

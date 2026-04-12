@@ -9,7 +9,7 @@ function pad(n) {
   return String(Math.floor(n)).padStart(2, '0')
 }
 
-export default function Countdown() {
+export default function Countdown({ labels }) {
   const [time, setTime] = useState({ d: '00', h: '00', m: '00', s: '00' })
 
   useEffect(() => {
@@ -28,10 +28,10 @@ export default function Countdown() {
   }, [])
 
   const units = [
-    { value: time.d, label: 'Days' },
-    { value: time.h, label: 'Hours' },
-    { value: time.m, label: 'Mins' },
-    { value: time.s, label: 'Secs' },
+    { value: time.d, label: labels?.days || 'Days' },
+    { value: time.h, label: labels?.hours || 'Hours' },
+    { value: time.m, label: labels?.mins || 'Mins' },
+    { value: time.s, label: labels?.secs || 'Secs' },
   ]
 
   return (

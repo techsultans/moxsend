@@ -386,6 +386,107 @@ body {
     transform: scale(0.96);
   }
 
+  .lang-switcher {
+    position: relative;
+  }
+
+  .lang-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 34px;
+    padding: 0 10px 0 8px;
+    border-radius: 10px;
+    border: 1px solid var(--border-toggle);
+    background: var(--bg-toggle);
+    color: var(--text);
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  }
+
+  .lang-switcher.is-compact .lang-trigger {
+    height: 30px;
+    gap: 6px;
+    padding: 0 8px 0 6px;
+  }
+
+  .lang-trigger:hover {
+    background: var(--bg-toggle-hover);
+    transform: translateY(-1px);
+  }
+
+  .lang-trigger:active {
+    transform: translateY(0);
+  }
+
+  .lang-flag {
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--arctic-cyan);
+  }
+
+  .lang-name {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    color: var(--text-dim);
+    white-space: nowrap;
+  }
+
+  .lang-caret {
+    width: 12px;
+    height: 12px;
+    color: var(--text-dim);
+  }
+
+  .lang-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    min-width: 170px;
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px;
+    border-radius: 12px;
+    border: 1px solid var(--border-cyan);
+    background: var(--bg-card);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    z-index: 20;
+  }
+
+  .lang-switcher.is-open .lang-menu {
+    display: flex;
+  }
+
+  .lang-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+
+  .lang-option .lang-name {
+    color: var(--text);
+  }
+
+  .lang-option:hover {
+    background: var(--bg-surface);
+  }
+
+  .lang-option.is-active {
+    background: rgba(56, 189, 248, 0.10);
+  }
+
+  .lang-option.is-active .lang-name {
+    color: var(--arctic-cyan);
+  }
+
   .mobile-menu {
     width: 100%;
     display: none;
@@ -906,4 +1007,11 @@ body {
   .bottom-link {
     letter-spacing: 0.3px;
   }
+}
+
+/* ══════════════════════════════════════════
+   RTL SUPPORT
+   ══════════════════════════════════════════ */
+.locale-root[dir="rtl"] {
+  direction: rtl;
 }

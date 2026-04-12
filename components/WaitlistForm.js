@@ -1,25 +1,28 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-const DEFAULT_NOTE = 'Join the waitlist · First access when we launch'
-
-export default function WaitlistForm() {
+export default function WaitlistForm({ strings }) {
+  const DEFAULT_NOTE = strings?.noteDefault || 'Join the waitlist · First access when we launch'
   const [email, setEmail] = useState('')
   const [note, setNote] = useState({ text: DEFAULT_NOTE, color: 'rgba(238,242,255,0.20)' })
+
+  useEffect(() => {
+    setNote({ text: DEFAULT_NOTE, color: 'rgba(238,242,255,0.20)' })
+  }, [DEFAULT_NOTE])
 
   function join() {
     const v = email.trim()
     if (!v || !v.includes('@')) {
       setNote({
-        text: 'Please enter a valid email address.',
+        text: strings?.noteInvalid || 'Please enter a valid email address.',
         color: 'rgba(226,75,74,0.85)',
       })
       return
     }
     setEmail('')
     setNote({
-      text: "You're in. We'll reach out before anyone else.",
+      text: strings?.noteSuccess || "You're in. We'll reach out before anyone else.",
       color: 'rgba(56,189,248,0.80)',
     })
   }
@@ -34,14 +37,14 @@ export default function WaitlistForm() {
         <input
           type="email"
           className="form-input"
-          placeholder="your@company.com"
+          placeholder={strings?.placeholder || 'your@company.com'}
           autoComplete="off"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           onKeyDown={handleKeyDown}
         />
         <button className="form-btn" onClick={join}>
-          Join waitlist
+          {strings?.button || 'Join waitlist'}
         </button>
       </div>
       <p

@@ -2,7 +2,8 @@ import Countdown from './Countdown'
 import WaitlistForm from './WaitlistForm'
 import FeatureCards from './FeatureCards'
 
-export default function Hero() {
+export default function Hero({ t }) {
+  const hero = t?.hero
   return (
     <main className="relative z-5 flex-1 flex flex-col items-center justify-center px-6 sm:px-12 pt-10 sm:pt-[60px] pb-10 text-center">
 
@@ -19,14 +20,14 @@ export default function Hero() {
             <polygon points="60,34 76,44 60,54 65,44" fill="#38BDF8" />
           </svg>
         </div>
-        <span className="chip-text">Private beta · Coming soon</span>
+        <span className="chip-text">{hero?.chip || 'Private beta · Coming soon'}</span>
       </div>
 
       {/* Headline */}
       <div className="mb-5">
-        <span className="h1-line">Cold email</span>
-        <span className="h1-line h1-line-outline">that actually</span>
-        <span className="h1-line h1-line-filled">converts.</span>
+        <span className="h1-line">{hero?.headline?.[0] || 'Cold email'}</span>
+        <span className="h1-line h1-line-outline">{hero?.headline?.[1] || 'that actually'}</span>
+        <span className="h1-line h1-line-filled">{hero?.headline?.[2] || 'converts.'}</span>
       </div>
 
       {/* Descriptor */}
@@ -34,17 +35,17 @@ export default function Hero() {
         className="type-body max-w-[460px] mx-auto mb-12"
         style={{ color: 'var(--text-muted)' }}
       >
-        Stop spraying. Start converting. The AI outreach platform built for founders and closers who refuse to lose deals in the inbox.
+        {hero?.description || 'Stop spraying. Start converting. The AI outreach platform built for founders and closers who refuse to lose deals in the inbox.'}
       </p>
 
       {/* Countdown */}
-      <Countdown />
+      <Countdown labels={t?.countdown} />
 
       {/* Waitlist form */}
-      <WaitlistForm />
+      <WaitlistForm strings={t?.waitlist} />
 
       {/* Feature cards */}
-      <FeatureCards />
+      <FeatureCards features={t?.features} />
 
     </main>
   )
