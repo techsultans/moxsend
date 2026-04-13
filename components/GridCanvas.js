@@ -14,9 +14,8 @@ export default function GridCanvas() {
     let animId
 
     function getDotColor() {
-      return document.documentElement.getAttribute('data-theme') === 'light'
-        ? 'rgba(14,165,233,0.12)'
-        : 'rgba(56,189,248,0.10)'
+      const v = getComputedStyle(document.documentElement).getPropertyValue('--grid-dot').trim()
+      return v || 'rgba(56,189,248,0.14)'
     }
 
     function resize() {
