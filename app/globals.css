@@ -329,6 +329,12 @@ body {
   .logo-for-light { display: var(--logo-light-show); }
 }
 
+/* Explicit theme overrides to ensure correct swap */
+[data-theme="dark"] .logo-for-dark  { display: block; }
+[data-theme="dark"] .logo-for-light { display: none; }
+[data-theme="light"] .logo-for-dark { display: none; }
+[data-theme="light"] .logo-for-light { display: block; }
+
 /* ══════════════════════════════════════════
    NAV
    ══════════════════════════════════════════ */

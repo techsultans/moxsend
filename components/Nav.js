@@ -1,5 +1,3 @@
-"use client"
-
 'use client'
 
 import { useState } from 'react'
@@ -20,21 +18,19 @@ export default function Nav({ locale = 'en', t }) {
         <a href={getPath(locale, '/')} className="flex items-center gap-3">
           {/* Dark theme icon (Arctic Cyan on transparent) */}
           <img
-            src="/logos/moxsend_icon_dark_transparent.svg"
+            src="/logos/moxsend_icon_dark.svg"
             alt="Moxsend"
             width={32}
             height={32}
             className="logo-for-dark"
-            style={{ display: 'block' }}
           />
           {/* Light theme icon (Mox Blue on transparent) */}
           <img
-            src="/logos/moxsend_icon_light_transparent.svg"
+            src="/logos/moxsend_icon_light.svg"
             alt="Moxsend"
             width={32}
             height={32}
             className="logo-for-light"
-            style={{ display: 'none' }}
           />
           <span className="logo-text">
             Mox<em>send</em>
