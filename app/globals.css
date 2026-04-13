@@ -41,6 +41,12 @@
   --text-muted:       rgba(238, 242, 255, 0.38);
   --text-subtle:      rgba(238, 242, 255, 0.22);
   --text-faint:       rgba(238, 242, 255, 0.18);
+  --text-footer-email: rgba(56, 189, 248, 0.50);
+  --text-footer-email-hover: rgba(56, 189, 248, 0.90);
+  --text-footer-link: rgba(56, 189, 248, 0.40);
+  --text-footer-link-hover: rgba(56, 189, 248, 0.70);
+  --text-tagline-muted: rgba(238, 242, 255, 0.60);
+  --text-tagline-accent: rgba(56, 189, 248, 0.70);
   --text-footer-legal: rgba(238, 242, 255, 0.22);
   --text-footer-power: rgba(238, 242, 255, 0.14);
   --text-dim:         rgba(238, 242, 255, 0.32);
@@ -121,6 +127,12 @@
   --text-muted:       rgba(10, 22, 40, 0.65);   /* Descriptor / secondary */
   --text-subtle:      rgba(10, 22, 40, 0.50);   /* Placeholder */
   --text-faint:       rgba(10, 22, 40, 0.45);   /* Footer links */
+  --text-footer-email: rgba(14, 165, 233, 0.65);
+  --text-footer-email-hover: rgba(14, 165, 233, 1.00);
+  --text-footer-link: rgba(14, 165, 233, 0.55);
+  --text-footer-link-hover: rgba(14, 165, 233, 0.85);
+  --text-tagline-muted: rgba(6, 13, 31, 0.65);
+  --text-tagline-accent: rgba(14, 165, 233, 0.85);
   --text-footer-legal: rgba(6, 13, 31, 0.35);
   --text-footer-power: rgba(6, 13, 31, 0.22);
   --text-dim:         rgba(10, 22, 40, 0.58);   /* Dimmed body */
@@ -752,9 +764,9 @@ body {
   }
 
   .bottom-brand {
-    font-size: 11px;
+    font-size: 13px;
     font-weight: 500;
-    color: var(--text-brand);
+    color: var(--text-footer-link-hover);
     letter-spacing: 2px;
     text-transform: uppercase;
     transition: color 0.3s ease;
@@ -762,7 +774,7 @@ body {
 
   .bottom-link {
     font-size: 11px;
-    color: var(--text-faint);
+    color: var(--text-footer-link);
     text-decoration: none;
     letter-spacing: 0.5px;
     cursor: pointer;
@@ -770,7 +782,34 @@ body {
   }
 
   .bottom-link:hover {
-    color: var(--arctic-cyan);
+    color: var(--text-footer-link-hover);
+  }
+
+  .bottom-email {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--text-footer-email);
+    text-decoration: none;
+    letter-spacing: 0.4px;
+    transition: color 0.2s;
+  }
+
+  .bottom-email:hover {
+    color: var(--text-footer-email-hover);
+  }
+
+  .bottom-tagline {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+  }
+
+  .bottom-tagline-muted {
+    color: var(--text);
+  }
+
+  .bottom-tagline-accent {
+    color: var(--text-tagline-accent);
   }
 }
 
@@ -864,13 +903,13 @@ body {
   .meshdex-foot span:first-child {
     font-size: 11px;
     font-weight: 400;
-    color: var(--text-footer-legal);
+    color: var(--text);
   }
 
   .meshdex-foot span:last-child {
     font-size: 10px;
     font-weight: 400;
-    color: var(--text-footer-power);
+    color: var(--text);
   }
 }
 

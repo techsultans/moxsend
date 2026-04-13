@@ -11,8 +11,11 @@ export default function BottomBar({ t }) {
           <a href="/terms" className="bottom-link">{bottom?.terms || 'Terms'}</a>
           <a href="#" className="bottom-link">{bottom?.privacy || 'Privacy'}</a>
           <a href="/contact" className="bottom-link">{bottom?.contact || 'Contact'}</a>
-          <a href="mailto:hello@moxsend.ai" className="bottom-link">hello@moxsend.ai</a>
-          <span className="bottom-link hidden sm:inline">{bottom?.tagline || 'Stop spraying. Start converting.'}</span>
+          <a href="mailto:hello@moxsend.ai" className="bottom-email">hello@moxsend.ai</a>
+          <span className="bottom-tagline hidden sm:inline">
+            <span className="bottom-tagline-muted">Stop spraying.</span>
+            <span className="bottom-tagline-accent"> Start converting.</span>
+          </span>
         </div>
       </div>
 
