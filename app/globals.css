@@ -29,9 +29,10 @@
   --bg:               #060D1F;
   --bg-card:          rgba(6, 13, 31, 0.92);
   --bg-surface:       rgba(255, 255, 255, 0.03);
+  --bg-footer:        #040A16;
   --bg-chip:          rgba(56, 189, 248, 0.08);
   --bg-feat-row:      rgba(56, 189, 248, 0.06);
-  --bg-meshdex-bar:   rgba(255, 255, 255, 0.015);
+  --bg-meshdex-bar:   #040A16;
   --bg-toggle:        rgba(56, 189, 248, 0.08);
   --bg-toggle-hover:  rgba(56, 189, 248, 0.14);
 
@@ -40,6 +41,8 @@
   --text-muted:       rgba(238, 242, 255, 0.38);
   --text-subtle:      rgba(238, 242, 255, 0.22);
   --text-faint:       rgba(238, 242, 255, 0.18);
+  --text-footer-legal: rgba(238, 242, 255, 0.22);
+  --text-footer-power: rgba(238, 242, 255, 0.14);
   --text-dim:         rgba(238, 242, 255, 0.32);
   --text-status:      rgba(56, 189, 248, 0.65);
   --text-meshdex-label: rgba(238, 242, 255, 0.22);
@@ -50,6 +53,7 @@
 
   /* Borders */
   --border-nav:       rgba(56, 189, 248, 0.07);
+  --border-footer:    rgba(56, 189, 248, 0.08);
   --border-card:      rgba(56, 189, 248, 0.08);
   --border-feat:      rgba(56, 189, 248, 0.10);
   --border-cyan:      rgba(56, 189, 248, 0.14);
@@ -105,9 +109,10 @@
   --bg:               #FFFFFF;          /* Crisp white — premium base */
   --bg-card:          #FFFFFF;          /* Cards: white (shadow applied separately) */
   --bg-surface:       #FFFFFF;          /* Inputs: white */
+  --bg-footer:        #F2F6FA;
   --bg-chip:          rgba(14, 165, 233, 0.07);
   --bg-feat-row:      #F2F6FA;          /* Ice — feature row tray */
-  --bg-meshdex-bar:   rgba(10, 22, 40, 0.025); /* barely-there tint, same as footer */
+  --bg-meshdex-bar:   #F2F6FA;
   --bg-toggle:        rgba(10, 22, 40, 0.06);
   --bg-toggle-hover:  rgba(10, 22, 40, 0.10);
 
@@ -116,6 +121,8 @@
   --text-muted:       rgba(10, 22, 40, 0.65);   /* Descriptor / secondary */
   --text-subtle:      rgba(10, 22, 40, 0.50);   /* Placeholder */
   --text-faint:       rgba(10, 22, 40, 0.45);   /* Footer links */
+  --text-footer-legal: rgba(6, 13, 31, 0.35);
+  --text-footer-power: rgba(6, 13, 31, 0.22);
   --text-dim:         rgba(10, 22, 40, 0.58);   /* Dimmed body */
   --text-status:      #0EA5E9;                  /* Mox Blue — full opacity nav status */
   --text-meshdex-label: rgba(10, 22, 40, 0.40);
@@ -126,6 +133,7 @@
 
   /* Borders */
   --border-nav:       rgba(10, 22, 40, 0.10);
+  --border-footer:    rgba(14, 165, 233, 0.12);
   --border-card:      rgba(10, 22, 40, 0.08);
   --border-feat:      rgba(10, 22, 40, 0.09);
   --border-cyan:      rgba(14, 165, 233, 0.25);
@@ -712,6 +720,7 @@ body {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
+    align-self: center;
     transition: background 0.3s ease, border-color 0.3s ease;
   }
 
@@ -737,7 +746,8 @@ body {
    ══════════════════════════════════════════ */
 @layer components {
   .bottom-bar {
-    border-top: 1px solid var(--border-nav);
+    background: var(--bg-footer);
+    border-top: 1px solid var(--border-footer);
     transition: border-color 0.3s ease;
   }
 
@@ -770,7 +780,7 @@ body {
 @layer components {
   .meshdex-bar {
     background: var(--bg-meshdex-bar);
-    border-top: 1px solid var(--border-meshdex);
+    border-top: 1px solid var(--border-footer);
     padding: 10px 48px;
     transition: background 0.3s ease, border-color 0.3s ease;
   }
@@ -839,6 +849,28 @@ body {
     border-radius: 100px;
     padding: 4px 10px 4px 8px;
     transition: color 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+  }
+
+  .meshdex-foot {
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px 16px;
+    text-transform: uppercase;
+    letter-spacing: 1.1px;
+  }
+
+  .meshdex-foot span:first-child {
+    font-size: 11px;
+    font-weight: 400;
+    color: var(--text-footer-legal);
+  }
+
+  .meshdex-foot span:last-child {
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--text-footer-power);
   }
 }
 
