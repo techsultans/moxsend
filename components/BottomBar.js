@@ -9,7 +9,7 @@ export default function BottomBar({ t }) {
         <span className="bottom-brand">{bottom?.brand || 'moxsend.ai'}</span>
         <div className="flex flex-wrap justify-center sm:justify-end gap-4 sm:gap-6 items-center">
           <a href="/terms" className="bottom-link">{bottom?.terms || 'Terms'}</a>
-          <a href="#" className="bottom-link">{bottom?.privacy || 'Privacy'}</a>
+          <a href="/privacy" className="bottom-link">{bottom?.privacy || 'Privacy'}</a>
           <a href="/contact" className="bottom-link">{bottom?.contact || 'Contact'}</a>
           <a href="mailto:hello@moxsend.ai" className="bottom-email">hello@moxsend.ai</a>
           <span className="bottom-tagline hidden sm:inline">
