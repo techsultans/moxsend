@@ -91,7 +91,7 @@
   --orb-3: radial-gradient(circle, rgba(56, 189, 248, 0.04) 0%, transparent 70%);
 
   /* Canvas dot grid */
-  --grid-dot: rgba(56, 189, 248, 0.18);
+  --grid-dot: rgba(56, 189, 248, 0.22);
 
   /* Button */
   --btn-text: #060D1F;
@@ -177,7 +177,7 @@
   --orb-3: radial-gradient(circle, rgba(56, 189, 248, 0.05) 0%, transparent 70%);
 
   /* Canvas dot grid */
-  --grid-dot: rgba(14, 165, 233, 0.20);
+  --grid-dot: rgba(14, 165, 233, 0.30);
 
   /* Button — keep Midnight text on Cyan (best contrast, same as dark mode) */
   --btn-text: #060D1F;

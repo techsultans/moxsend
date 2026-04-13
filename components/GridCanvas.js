@@ -34,7 +34,7 @@ export default function GridCanvas() {
       for (let x = 0; x < W + sp; x += sp) {
         for (let y = -sp + yo; y < H + sp; y += sp) {
           ctx.beginPath()
-          ctx.arc(x, y, 1.1, 0, Math.PI * 2)
+          ctx.arc(x, y, 1.6, 0, Math.PI * 2)
           ctx.fill()
         }
       }
