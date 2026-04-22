@@ -6,7 +6,7 @@ export default function BottomBar({ t }) {
 
       {/* ── Bottom links row ── */}
       <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-3 px-6 sm:px-12 py-[18px] text-center sm:text-left">
-        <span className="bottom-brand">{bottom?.brand || 'moxsend.ai'}</span>
+        <span className="bottom-brand"> MOXSEND.AI • A Part of Mox Suite </span>
         <div className="flex flex-wrap justify-center sm:justify-end gap-4 sm:gap-6 items-center">
           <a href="/terms" className="bottom-link">{bottom?.terms || 'Terms'}</a>
           <a href="/privacy" className="bottom-link">{bottom?.privacy || 'Privacy'}</a>
