@@ -6,7 +6,6 @@ import { defaultLocale, locales, getPath, getDir } from '@/lib/i18n'
 
 const LABELS = {
   en: { short: 'EN', name: 'English' },
-  fr: { short: 'FR', name: 'Français' },
   ar: { short: 'AR', name: 'العربية' },
 }
 

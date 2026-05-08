@@ -43,7 +43,7 @@ export const metadata = {
         url: '/images/moxsend_og_comingsoon_1200x630.png',
         width: 1200,
         height: 630,
-        alt: 'Moxsend — Cold email that actually converts · Coming soon',
+        alt: 'Moxsend — Cold email that actually converts · Beta released',
         type: 'image/png',
       },
       {

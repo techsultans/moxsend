@@ -20,7 +20,7 @@ export default function Hero({ t }) {
             <polygon points="60,34 76,44 60,54 65,44" fill="#38BDF8" />
           </svg>
         </div>
-        <span className="chip-text">{hero?.chip || 'Private beta · Coming soon'}</span>
+        <span className="chip-text">{hero?.chip || 'Beta released · Limited access'}</span>
       </div>
 
       {/* Headline */}

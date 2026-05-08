@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 
 export default function WaitlistForm({ strings }) {
   const DEFAULT_NOTE =
-    strings?.noteDefault || 'Join the waitlist · First access when we launch'
+    strings?.noteDefault || 'Beta is live · Request access with your work email'
 
   const [email, setEmail] = useState('')
   const [note, setNote] = useState({
@@ -41,7 +41,7 @@ export default function WaitlistForm({ strings }) {
           },
           body: JSON.stringify({
             email: v,
-            message: 'Waitlist signup',
+            message: 'Beta access request',
           }),
         }
       )
@@ -90,8 +90,8 @@ export default function WaitlistForm({ strings }) {
           disabled={loading}
         >
           {loading
-            ? strings?.loading || 'Joining...'
-            : strings?.button || 'Join waitlist'}
+            ? strings?.loading || 'Requesting...'
+            : strings?.button || 'Get beta access'}
         </button>
       </div>
 
