@@ -2,8 +2,8 @@
 
 import { useState, useEffect } from 'react'
 
-// Launch date: 4th May 2026
-const TARGET = new Date('2026-05-04T00:00:00Z')
+// Launch date: 4th August 2026
+const TARGET = new Date('2026-08-04T00:00:00Z')
 
 function pad(n) {
   return String(Math.floor(n)).padStart(2, '0')
