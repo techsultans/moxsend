@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Moxsend — Pricing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#03050C;
+  --bg2:#060D1F;
+  --bg3:#0C1428;
+  --s1:rgba(255,255,255,.04);
+  --s2:rgba(255,255,255,.07);
+  --b0:rgba(255,255,255,.07);
+  --b1:rgba(255,255,255,.12);
+  --b2:rgba(255,255,255,.18);
+  --cyan:#38BDF8;
+  --cyan-d:#0EA5E9;
+  --cyan-dd:#0284C7;
+  --indigo:#818CF8;
+  --indigo-d:#6366F1;
+  --rose:#D4537E;
+  --emerald:#10B981;
+  --amber:#F59E0B;
+  --violet:#7F77DD;
+  --t0:#EEF2FF;
+  --t1:rgba(238,242,255,.80);
+  --t2:rgba(238,242,255,.50);
+  --t3:rgba(238,242,255,.28);
+  --t4:rgba(238,242,255,.14);
+  --mono:'JetBrains Mono',monospace;
+}
+
+html{background:var(--bg);scroll-behavior:smooth;}
+body{
+  font-family:'Plus Jakarta Sans',sans-serif;
+  background:var(--bg);
+  color:var(--t0);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  height:58px;
+  display:flex;align-items:center;padding:0 40px;
+  background:rgba(3,5,12,.85);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--b0);
+}
+.nav-logo{display:flex;align-items:center;gap:10px;margin-right:40px;text-decoration:none;}
+.nav-mark{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--cyan),var(--indigo));display:flex;align-items:center;justify-content:center;}
+.nav-mark svg{width:17px;height:17px;}
+.nav-wm{font-size:16px;font-weight:800;letter-spacing:-.03em;color:var(--t0);}
+.nav-wm em{color:var(--cyan);font-style:normal;}
+.nav-links{display:flex;gap:6px;margin-right:auto;}
+.nl{padding:5px 12px;border-radius:7px;font-size:13px;font-weight:500;color:var(--t2);cursor:pointer;transition:all .14s;text-decoration:none;}
+.nl:hover{color:var(--t0);background:var(--s1);}
+.nl.on{color:var(--t0);font-weight:600;}
+.nav-r{display:flex;align-items:center;gap:8px;}
+.btn{height:32px;padding:0 16px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;border:none;transition:all .16s;display:inline-flex;align-items:center;gap:6px;text-decoration:none;}
+.btn svg{width:13px;height:13px;flex-shrink:0;}
+.btn-ghost{background:var(--s1);border:1px solid var(--b1);color:var(--t1);}
+.btn-ghost:hover{background:var(--s2);border-color:var(--b2);}
+.btn-pri{background:var(--cyan);color:#03050C;font-weight:700;}
+.btn-pri:hover{background:#60CFFA;box-shadow:0 0 24px rgba(56,189,248,.35);}
+.btn-lg{height:44px;padding:0 26px;border-radius:10px;font-size:15px;}
+.btn-xl{height:52px;padding:0 32px;border-radius:12px;font-size:15px;font-weight:800;}
+
+/* ── HERO ── */
+.hero{
+  padding:152px 40px 80px;
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+/* mesh gradient background */
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 800px 500px at 50% -100px,rgba(56,189,248,.09) 0%,transparent 70%),
+    radial-gradient(ellipse 600px 400px at 0% 60%,rgba(129,140,248,.06) 0%,transparent 60%),
+    radial-gradient(ellipse 500px 400px at 100% 40%,rgba(212,83,126,.05) 0%,transparent 60%);
+  pointer-events:none;
+}
+/* subtle grid */
+.hero::after{
+  content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:radial-gradient(ellipse 900px 600px at 50% 0%,black 0%,transparent 80%);
+  pointer-events:none;
+}
+
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--cyan);opacity:.75;
+  margin-bottom:24px;position:relative;
+}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:32px;height:1px;background:currentColor;opacity:.4;}
+.hero-h1{
+  font-size:clamp(42px,6.5vw,78px);
+  font-weight:900;letter-spacing:-.05em;line-height:.96;
+  color:var(--t0);margin-bottom:18px;position:relative;
+}
+.hero-h1 em{
+  font-style:normal;
+  background:linear-gradient(135deg,var(--cyan),var(--indigo));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.hero-sub{
+  font-size:18px;font-weight:400;color:var(--t2);
+  max-width:520px;margin:0 auto 40px;line-height:1.7;position:relative;
+}
+
+/* ── BILLING TOGGLE ── */
+.billing-wrap{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:56px;position:relative;}
+.billing-toggle{
+  display:flex;background:var(--s1);
+  border:1px solid var(--b1);border-radius:99px;padding:4px;gap:4px;
+}
+.bt-opt{
+  font-size:13px;font-weight:500;padding:7px 20px;border-radius:99px;
+  cursor:pointer;color:var(--t2);transition:all .2s;
+  display:flex;align-items:center;gap:6px;
+}
+.bt-opt.on{background:var(--t0);color:#03050C;font-weight:700;}
+.bt-save{
+  font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  background:rgba(16,185,129,.14);color:var(--emerald);
+  border:1px solid rgba(16,185,129,.25);
+  padding:4px 10px;border-radius:99px;
+}
+
+/* ── TIER GRID ── */
+.tiers{
+  max-width:1080px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr 1fr;
+  gap:16px;padding:0 40px;
+  position:relative;
+}
+
+/* TIER CARD */
+.tier{
+  border-radius:20px;padding:32px 28px;
+  position:relative;overflow:hidden;
+  transition:transform .22s,box-shadow .22s;
+  display:flex;flex-direction:column;
+}
+.tier:hover{transform:translateY(-4px);}
+
+.tier-base{
+  background:var(--bg2);
+  border:1px solid var(--b0);
+}
+.tier-base:hover{box-shadow:0 20px 60px rgba(0,0,0,.4);}
+
+.tier-hero{
+  background:var(--bg2);
+  border:1.5px solid rgba(56,189,248,.35);
+  box-shadow:0 0 0 1px rgba(56,189,248,.08) inset,0 8px 40px rgba(56,189,248,.10);
+}
+.tier-hero:hover{box-shadow:0 0 0 1px rgba(56,189,248,.12) inset,0 24px 64px rgba(56,189,248,.18);}
+/* Cyan top glow bar */
+.tier-hero::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--cyan),transparent);
+}
+
+/* Popular badge */
+.tier-badge{
+  position:absolute;top:20px;right:20px;
+  font-size:10px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  background:var(--cyan);color:#03050C;
+  padding:4px 10px;border-radius:99px;
+}
+
+.tier-name{
+  font-size:11px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--t3);margin-bottom:14px;
+}
+.tier-price-row{display:flex;align-items:baseline;gap:5px;margin-bottom:5px;}
+.tier-amt{
+  font-size:58px;font-weight:900;letter-spacing:-.06em;line-height:1;
+  color:var(--t0);
+}
+.tier-per{font-size:15px;font-weight:500;color:var(--t3);}
+.tier-cr{
+  font-size:14px;font-weight:600;color:var(--t2);
+  margin-bottom:6px;
+}
+.tier-cr strong{color:var(--cyan);}
+.tier-orig{
+  font-size:13px;color:var(--t3);
+  text-decoration:line-through;margin-bottom:20px;
+}
+.tier-divider{height:1px;background:var(--b0);margin:20px 0;}
+
+/* features */
+.tier-feats{display:flex;flex-direction:column;gap:10px;flex:1;}
+.tf{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:13.5px;color:var(--t2);line-height:1.45;
+}
+.tf-ic{
+  width:18px;height:18px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:1px;
+}
+.tf.on .tf-ic{background:rgba(56,189,248,.14);}
+.tf.on .tf-ic svg{color:var(--cyan);}
+.tf.off .tf-ic{background:var(--s1);}
+.tf.off .tf-ic svg{color:var(--t3);}
+.tf.on{color:var(--t1);}
+.tf.hi{color:var(--t0);}
+.tf.hi .tf-ic{background:rgba(56,189,248,.20);}
+.tf.hi .tf-ic svg{color:var(--cyan);}
+
+.tier-feats-more{
+  font-size:12px;color:var(--t3);
+  margin-top:4px;padding-left:28px;
+}
+
+.tier-cta-wrap{margin-top:24px;}
+.tier-btn{
+  width:100%;height:46px;border-radius:11px;border:none;cursor:pointer;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:14.5px;font-weight:700;
+  transition:all .18s;display:flex;align-items:center;justify-content:center;gap:7px;
+}
+.tier-btn svg{width:14px;height:14px;}
+.tb-pri{
+  background:linear-gradient(135deg,var(--cyan),var(--cyan-d));
+  color:#03050C;
+  box-shadow:0 4px 20px rgba(56,189,248,.28);
+}
+.tb-pri:hover{
+  background:linear-gradient(135deg,#60CFFA,var(--cyan));
+  box-shadow:0 6px 28px rgba(56,189,248,.42);
+  transform:translateY(-1px);
+}
+.tb-ghost{
+  background:var(--s1);border:1px solid var(--b1);color:var(--t0);
+}
+.tb-ghost:hover{background:var(--s2);border-color:var(--b2);}
+
+.tier-trial{font-size:11.5px;color:var(--t3);text-align:center;margin-top:10px;}
+.tier-trial a{color:var(--cyan);text-decoration:none;}
+
+/* ── BELOW TIERS — secondary paths ── */
+.below-tiers{
+  max-width:1080px;margin:28px auto 0;padding:0 40px;
+  display:flex;align-items:center;justify-content:center;gap:0;
+}
+.bt-path{
+  display:flex;align-items:center;gap:8px;
+  padding:14px 28px;
+  font-size:13px;color:var(--t3);cursor:pointer;
+  border-top:1px solid var(--b0);
+  flex:1;transition:color .14s;
+  text-align:center;justify-content:center;
+}
+.bt-path:hover{color:var(--t1);}
+.bt-path svg{width:14px;height:14px;flex-shrink:0;}
+.bt-path-sep{width:1px;background:var(--b0);height:40px;flex-shrink:0;}
+
+/* ── CREDIT TABLE ── */
+.credit-section{
+  max-width:1080px;margin:100px auto 0;padding:0 40px;
+}
+.cs-header{text-align:center;margin-bottom:48px;}
+.cs-eye{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--t3);margin-bottom:12px;}
+.cs-title{font-size:36px;font-weight:800;letter-spacing:-.04em;color:var(--t0);margin-bottom:8px;}
+.cs-sub{font-size:15px;color:var(--t2);line-height:1.65;}
+
+.credit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;}
+.cg-card{
+  background:var(--bg2);border:1px solid var(--b0);border-radius:14px;
+  padding:18px 20px;
+}
+.cg-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);margin-bottom:10px;}
+.cg-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:9px 0;border-bottom:1px solid var(--b0);
+}
+.cg-row:last-child{border-bottom:none;}
+.cg-action{font-size:13px;color:var(--t1);}
+.cg-credit{
+  font-family:var(--mono);font-size:13px;font-weight:600;
+  padding:2px 9px;border-radius:6px;
+}
+.cr-g{background:rgba(16,185,129,.10);color:var(--emerald);border:1px solid rgba(16,185,129,.18);}
+.cr-b{background:rgba(56,189,248,.10);color:var(--cyan);border:1px solid rgba(56,189,248,.18);}
+.cr-v{background:rgba(129,140,248,.10);color:var(--indigo);border:1px solid rgba(129,140,248,.18);}
+.cr-a{background:rgba(245,158,11,.10);color:var(--amber);border:1px solid rgba(245,158,11,.18);}
+.cr-n{background:var(--s1);color:var(--t2);border:1px solid var(--b0);}
+
+/* ── FAQ ── */
+.faq-section{max-width:720px;margin:100px auto 0;padding:0 40px;}
+.faq-header{text-align:center;margin-bottom:44px;}
+.faq-title{font-size:36px;font-weight:800;letter-spacing:-.04em;color:var(--t0);margin-bottom:8px;}
+.faq-sub{font-size:15px;color:var(--t2);}
+
+.faq-item{
+  border-bottom:1px solid var(--b0);
+  overflow:hidden;
+}
+.faq-q{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 0;cursor:pointer;gap:16px;
+}
+.fq-text{font-size:15px;font-weight:600;color:var(--t1);line-height:1.4;}
+.fq-icon{
+  width:24px;height:24px;border-radius:50%;
+  background:var(--s1);border:1px solid var(--b1);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  transition:all .2s;
+}
+.fq-icon svg{width:12px;height:12px;color:var(--t2);transition:transform .25s;}
+.faq-item.open .fq-icon{background:rgba(56,189,248,.12);border-color:rgba(56,189,248,.25);}
+.faq-item.open .fq-icon svg{transform:rotate(45deg);color:var(--cyan);}
+.faq-a{
+  max-height:0;overflow:hidden;transition:max-height .3s ease;
+}
+.faq-item.open .faq-a{max-height:300px;}
+.fa-inner{padding:0 0 20px;}
+.fa-inner p{font-size:14px;color:var(--t2);line-height:1.75;}
+.fa-inner p + p{margin-top:8px;}
+.fa-inner strong{color:var(--t1);}
+
+/* ── ENTERPRISE CTA (Stage 6 anchor) ── */
+.enterprise-section{
+  max-width:1080px;margin:100px auto 0;padding:0 40px;
+}
+.ent-card{
+  background:var(--bg2);
+  border:1px solid var(--b0);
+  border-radius:24px;
+  padding:60px 64px;
+  display:grid;grid-template-columns:1fr auto;
+  gap:48px;align-items:center;
+  position:relative;overflow:hidden;
+}
+.ent-card::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 600px 400px at 0% 50%,rgba(190,18,60,.05) 0%,transparent 60%),
+             radial-gradient(ellipse 400px 300px at 100% 50%,rgba(56,189,248,.04) 0%,transparent 60%);
+  pointer-events:none;
+}
+/* rose left accent bar */
+.ent-card::after{
+  content:'';position:absolute;top:0;left:0;bottom:0;width:3px;
+  background:linear-gradient(180deg,#D4537E,#818CF8);
+  border-radius:24px 0 0 24px;
+}
+.ec-eye{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#D4537E;opacity:.75;margin-bottom:14px;}
+.ec-title{font-size:30px;font-weight:800;letter-spacing:-.04em;color:var(--t0);margin-bottom:10px;line-height:1.1;}
+.ec-sub{font-size:15px;color:var(--t2);line-height:1.70;max-width:520px;}
+.ec-options{display:flex;gap:16px;margin-top:22px;}
+.eco{
+  display:flex;align-items:center;gap:8px;
+  font-size:13px;color:var(--t2);
+}
+.eco-dot{width:6px;height:6px;border-radius:50%;background:#D4537E;flex-shrink:0;}
+.ent-right{display:flex;flex-direction:column;gap:12px;align-items:center;flex-shrink:0;}
+.ent-btn{
+  white-space:nowrap;
+  height:52px;padding:0 36px;border-radius:12px;border:none;cursor:pointer;
+  font-family:'Plus Jakarta Sans',sans-serif;
+  font-size:15px;font-weight:800;
+  background:linear-gradient(135deg,#D4537E,#BE185D);
+  color:#fff;
+  box-shadow:0 6px 24px rgba(212,83,126,.30);
+  transition:all .18s;display:flex;align-items:center;gap:8px;
+  text-decoration:none;
+}
+.ent-btn:hover{
+  background:linear-gradient(135deg,#E05C87,#D4537E);
+  box-shadow:0 10px 36px rgba(212,83,126,.45);
+  transform:translateY(-2px);
+}
+.ent-btn svg{width:16px;height:16px;}
+.ent-note{font-size:12px;color:var(--t3);text-align:center;}
+
+/* ── STAGE 6 ENTERPRISE FORM (anchored) ── */
+.stage6-section{
+  max-width:1080px;margin:80px auto 0;padding:0 40px;
+  scroll-margin-top:80px;
+}
+.s6-card{
+  background:var(--bg2);
+  border:1.5px solid rgba(212,83,126,.22);
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow:0 0 0 1px rgba(212,83,126,.06) inset;
+}
+.s6-top{
+  display:grid;grid-template-columns:1fr 1fr;
+}
+.s6-left{
+  padding:56px 52px;
+  border-right:1px solid var(--b0);
+  position:relative;overflow:hidden;
+}
+.s6-left::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,#D4537E,#818CF8,#38BDF8);
+}
+.s6-eyebrow{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:10px;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+  color:#D4537E;opacity:.80;margin-bottom:20px;
+}
+.s6-num{
+  font-size:10px;font-weight:700;letter-spacing:.14em;
+  color:var(--t3);margin-bottom:4px;font-family:var(--mono);
+}
+.s6-title{
+  font-size:34px;font-weight:900;letter-spacing:-.04em;
+  color:var(--t0);line-height:1.05;margin-bottom:12px;
+}
+.s6-sub{font-size:14px;color:var(--t2);line-height:1.72;margin-bottom:32px;}
+.s6-plans{display:flex;flex-direction:column;gap:10px;}
+.s6-plan{
+  display:flex;align-items:center;gap:14px;
+  padding:14px 18px;border-radius:12px;
+  border:1px solid var(--b0);background:var(--s1);
+  cursor:pointer;transition:all .15s;
+}
+.s6-plan:hover{border-color:rgba(212,83,126,.30);background:rgba(212,83,126,.04);}
+.s6-plan.sel{border-color:rgba(212,83,126,.40);background:rgba(212,83,126,.06);}
+.sp-ic{
+  width:36px;height:36px;border-radius:9px;
+  background:rgba(212,83,126,.10);border:1px solid rgba(212,83,126,.18);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.sp-ic svg{width:16px;height:16px;color:#D4537E;}
+.sp-info{flex:1;}
+.sp-name{font-size:13px;font-weight:700;color:var(--t1);}
+.sp-desc{font-size:11.5px;color:var(--t3);margin-top:2px;}
+.sp-price{font-size:13px;font-weight:700;color:#D4537E;white-space:nowrap;}
+
+.s6-right{padding:56px 52px;display:flex;flex-direction:column;justify-content:center;}
+.s6-form-title{font-size:18px;font-weight:700;color:var(--t0);margin-bottom:4px;}
+.s6-form-sub{font-size:13px;color:var(--t3);margin-bottom:28px;}
+.s6-form{display:flex;flex-direction:column;gap:14px;}
+.sf-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.sf-label{font-size:11.5px;font-weight:600;color:var(--t3);margin-bottom:5px;}
+.sf-input{
+  width:100%;height:42px;
+  background:rgba(255,255,255,.05);border:1px solid var(--b1);
+  border-radius:9px;padding:0 14px;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:13.5px;color:var(--t0);
+  outline:none;transition:border-color .15s;
+}
+.sf-input:focus{border-color:rgba(212,83,126,.45);}
+.sf-input::placeholder{color:var(--t3);}
+.sf-select{
+  width:100%;height:42px;
+  background:rgba(255,255,255,.05);border:1px solid var(--b1);
+  border-radius:9px;padding:0 14px;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:13.5px;color:var(--t2);
+  outline:none;cursor:pointer;
+}
+.sf-select option{background:#0C1428;color:var(--t0);}
+.sf-cta{
+  width:100%;height:48px;border-radius:11px;border:none;cursor:pointer;
+  font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:800;
+  background:linear-gradient(135deg,#D4537E,#BE185D);
+  color:#fff;
+  box-shadow:0 6px 24px rgba(212,83,126,.28);
+  transition:all .18s;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.sf-cta:hover{box-shadow:0 10px 36px rgba(212,83,126,.42);transform:translateY(-1px);}
+.sf-cta svg{width:16px;height:16px;}
+.sf-fine{font-size:11.5px;color:var(--t3);text-align:center;line-height:1.6;}
+
+/* S6 bottom bar */
+.s6-bottom{
+  padding:18px 52px;background:rgba(212,83,126,.04);border-top:1px solid var(--b0);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.s6b-item{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--t2);}
+.s6b-item svg{width:14px;height:14px;color:#D4537E;}
+
+/* ── FOOTER ── */
+footer{
+  max-width:1080px;margin:100px auto 0;padding:40px 40px 60px;
+  border-top:1px solid var(--b0);
+  display:flex;align-items:center;justify-content:space-between;
+}
+.footer-logo{display:flex;align-items:center;gap:10px;}
+.footer-wm{font-size:15px;font-weight:800;letter-spacing:-.03em;color:var(--t0);}
+.footer-wm em{color:var(--cyan);font-style:normal;}
+.footer-links{display:flex;gap:24px;}
+.footer-link{font-size:13px;color:var(--t3);text-decoration:none;transition:color .14s;}
+.footer-link:hover{color:var(--t1);}
+.footer-copy{font-size:12px;color:var(--t3);}
+
+/* ── UTILS ── */
+.dot5{width:5px;height:5px;border-radius:50%;flex-shrink:0;}
+.pulse{animation:pa 1.5s ease-in-out infinite;}
+@keyframes pa{0%,100%{opacity:1;}50%{opacity:.35;}}
+
+/* FADE IN ON LOAD */
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
+.fade-1{animation:fadeUp .7s ease both;}
+.fade-2{animation:fadeUp .7s .12s ease both;}
+.fade-3{animation:fadeUp .7s .22s ease both;}
+.fade-4{animation:fadeUp .7s .32s ease both;}
+.fade-5{animation:fadeUp .7s .44s ease both;}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="nav-mark">
+      <svg viewBox="0 0 88 88" fill="none">
+        <circle cx="44" cy="44" r="36" stroke="#fff" stroke-width="4.5"/>
+        <path d="M16,56 Q44,10 72,56" fill="none" stroke="#fff" stroke-width="7.5" stroke-linecap="round"/>
+        <polygon points="59,33 75,44 59,55 64,44" fill="#fff"/>
+        <circle cx="44" cy="59" r="4" fill="#fff" opacity=".9"/>
+      </svg>
+    </div>
+    <div class="nav-wm">MOX<em>SEND</em></div>
+  </a>
+  <div class="nav-links">
+    <a class="nl" href="#">Product</a>
+    <a class="nl on" href="#">Pricing</a>
+    <a class="nl" href="#">Docs</a>
+    <a class="nl" href="#">Blog</a>
+    <a class="nl" href="#">Changelog</a>
+  </div>
+  <div class="nav-r">
+    <a class="btn btn-ghost" href="#">Sign in</a>
+    <a class="btn btn-pri" href="#">Start free →</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="hero-eyebrow fade-1">Simple, honest pricing</div>
+  <h1 class="hero-h1 fade-2">
+    Send more.<br>Spend <em>less.</em>
+  </h1>
+  <p class="hero-sub fade-3">No per-seat charges. No hidden add-ons. Credits roll when you renew. Cancel any time with one click.</p>
+
+  <!-- BILLING TOGGLE -->
+  <div class="billing-wrap fade-4">
+    <div class="billing-toggle">
+      <div class="bt-opt" id="btn-monthly" onclick="setMonthly()">Monthly</div>
+      <div class="bt-opt on" id="btn-annual" onclick="setAnnual()">Annual</div>
+    </div>
+    <div class="bt-save">Save 20% — 2 months free</div>
+  </div>
+
+  <!-- TIERS -->
+  <div class="tiers fade-5">
+
+    <!-- STARTER -->
+    <div class="tier tier-base">
+      <div class="tier-name">Starter</div>
+      <div class="tier-price-row">
+        <div class="tier-amt" id="price-starter">$39</div>
+        <div class="tier-per">/month</div>
+      </div>
+      <div class="tier-cr"><strong>3,000 credits</strong> / month</div>
+      <div class="tier-orig" id="orig-starter">Billed annually · $468/yr</div>
+      <div class="tier-divider"></div>
+      <div class="tier-feats">
+        <div class="tf on"><div class="tf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>3,000 emails per month</div>
+        <div class="tf on"><div class="tf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>1,000 email verifications included</div>
+        <div class="tf on"><div class="tf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>1 domain warmup</div>
+        <div class="tf on"><div class="tf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>Basic AI personalisation</div>
+        <div class="tf on"><div class="tf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>GCC timezone + calendar aware</div>
+        <div class="tf off"><div class="tf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>Credits do not roll over</div>
+        <div class="tf off"><div class="tf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>API access</div>
+      </div>
+      <div class="tier-cta-wrap">
+        <button class="tier-btn tb-ghost" onclick="location.href='#'">Start free trial</button>
+        <div class="tier-trial">No card required · <a href="#">300 free credits</a></div>
+      </div>
+    </div>
+
+    <!-- GROWTH — HERO -->
+    <div class="tier tier-hero">
+      <div class="tier-badge">Most popular</div>
+      <div class="tier-name">Growth</div>
+      <div class="tier-price-row">
+        <div class="tier-amt" id="price-growth">$79</div>
+        <div class="tier-per">/month</div>
+      </div>
+      <div class="tier-cr"><strong>8,000 credits</strong> / month</div>
+      <div class="tier-orig" id="orig-growth">Billed annually · $948/yr</div>
+      <div class="tier-divider"></div>
+      <div class="tier-feats">
+        <div class="tf hi"><div class="tf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>8,000 emails per month</div>
+        <div class="tf hi"><div class="tf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>5,000 email verifications included</div>
+        <div class="tf hi"><div class="tf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>3 domains warmup</div>
+        <div class="tf hi"><div class="tf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>Full AI suite — all 8 AI actions</div>
+        <div class="tf hi"><div class="tf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>Credits roll when you renew</div>
+        <div class="tf hi"><div class="tf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>GCC timezone + Ramadan aware</div>
+        <div class="tf off"><div class="tf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>API access</div>
+      </div>
+      <div class="tier-cta-wrap">
+        <button class="tier-btn tb-pri" onclick="location.href='#'">
+          Start free trial
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+        <div class="tier-trial">No card required · <a href="#">300 free credits</a></div>
+      </div>
+    </div>
+
+    <!-- SCALE -->
+    <div class="tier tier-base">
+      <div class="tier-name">Scale</div>
+      <div class="tier-price-row">
+        <div class="tier-amt" id="price-scale">$119</div>
+        <div class="tier-per">/month</div>
+      </div>
+      <div class="tier-cr"><strong>20,000 credits</strong> / month</div>
+      <div class="tier-orig" id="orig-scale">Billed annually · $1,428/yr</div>
+      <div class="tier-divider"></div>
+      <div class="tier-feats">
+        <div class="tf on"><div class="tf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>20,000 emails per month</div>
+        <div class="tf on"><div class="tf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>20,000 email verifications included</div>
+        <div class="tf on"><div class="tf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>Unlimited domains warmup</div>
+        <div class="tf on"><div class="tf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>Full AI suite + priority processing</div>
+        <div class="tf on"><div class="tf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>Credits roll when you renew</div>
+        <div class="tf on"><div class="tf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>GCC timezone + Ramadan aware</div>
+        <div class="tf on"><div class="tf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>Full API access</div>
+      </div>
+      <div class="tier-cta-wrap">
+        <button class="tier-btn tb-ghost" onclick="location.href='#'">Start free trial</button>
+        <div class="tier-trial">No card required · <a href="#">300 free credits</a></div>
+      </div>
+    </div>
+
+  </div><!-- /tiers -->
+
+  <!-- BELOW TIERS — secondary paths -->
+  <div class="below-tiers fade-5">
+    <div class="bt-path" onclick="document.getElementById('stage6').scrollIntoView({behavior:'smooth'})">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+      Enterprise or custom deployment
+    </div>
+    <div class="bt-path-sep"></div>
+    <div class="bt-path">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Lifetime credit packs
+    </div>
+    <div class="bt-path-sep"></div>
+    <div class="bt-path">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+      Just Moxcheck or Moxwarm
+    </div>
+  </div>
+</section>
+
+<!-- ── CREDIT TABLE ── -->
+<section class="credit-section">
+  <div class="cs-header">
+    <div class="cs-eye">How credits work</div>
+    <div class="cs-title">One credit. Every product.</div>
+    <div class="cs-sub">The same credits work across Moxsend, Moxcheck, and Moxwarm.<br>AI actions cost a few extra credits — always shown before you confirm.</div>
+  </div>
+  <div class="credit-grid">
+
+    <!-- Sending -->
+    <div class="cg-card">
+      <div class="cg-label" style="color:var(--cyan);">Moxsend — Sending</div>
+      <div class="cg-row"><div class="cg-action">1 email sent</div><div class="cg-credit cr-g">1 credit</div></div>
+      <div class="cg-row"><div class="cg-action">AI subject line (5 variants)</div><div class="cg-credit cr-b">+2 credits</div></div>
+      <div class="cg-row"><div class="cg-action">AI personalised email</div><div class="cg-credit cr-b">+5 credits</div></div>
+      <div class="cg-row"><div class="cg-action">AI send time prediction</div><div class="cg-credit cr-b">+2 credits</div></div>
+      <div class="cg-row"><div class="cg-action">AI reply draft</div><div class="cg-credit cr-v">+8 credits</div></div>
+      <div class="cg-row"><div class="cg-action">Follow-up sequence (3 emails)</div><div class="cg-credit cr-v">+10 credits</div></div>
+    </div>
+
+    <!-- Verification -->
+    <div class="cg-card">
+      <div class="cg-label" style="color:var(--violet);">Moxcheck — Verification</div>
+      <div class="cg-row"><div class="cg-action">1 email verified</div><div class="cg-credit cr-n">5 credits</div></div>
+      <div class="cg-row"><div class="cg-action">MX record check</div><div class="cg-credit cr-n">Included</div></div>
+      <div class="cg-row"><div class="cg-action">SMTP handshake</div><div class="cg-credit cr-n">Included</div></div>
+      <div class="cg-row"><div class="cg-action">Spam trap detection</div><div class="cg-credit cr-n">Included</div></div>
+      <div class="cg-row"><div class="cg-action">Blacklist check (42 lists)</div><div class="cg-credit cr-n">Included</div></div>
+      <div class="cg-row"><div class="cg-action">Disposable domain check</div><div class="cg-credit cr-n">Included</div></div>
+    </div>
+
+    <!-- Warmup -->
+    <div class="cg-card">
+      <div class="cg-label" style="color:var(--rose);">Moxwarm — Domain Warmup</div>
+      <div class="cg-row"><div class="cg-action">1 domain · 1 day warmup</div><div class="cg-credit cr-a">10 credits</div></div>
+      <div class="cg-row"><div class="cg-action">Inbox placement test</div><div class="cg-credit cr-a">5 credits</div></div>
+      <div class="cg-row"><div class="cg-action">Domain reputation check</div><div class="cg-credit cr-a">3 credits</div></div>
+      <div class="cg-row"><div class="cg-action">Blacklist monitoring</div><div class="cg-credit cr-n">Included</div></div>
+      <div class="cg-row"><div class="cg-action">SPF / DKIM / DMARC check</div><div class="cg-credit cr-n">Included</div></div>
+      <div class="cg-row"><div class="cg-action">GCC SLA calendar</div><div class="cg-credit cr-n">Included</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ENTERPRISE CTA ── -->
+<section class="enterprise-section">
+  <div class="ent-card">
+    <div>
+      <div class="ec-eye">Enterprise</div>
+      <div class="ec-title">Unlimited credits.<br>Your infrastructure. Your data.</div>
+      <div class="ec-sub">For banks, government entities, and enterprises with compliance, data residency, or volume requirements that standard plans cannot cover. Moxwarm and Moxcheck are bundled in. Arabic RTL and GCC compliance included.</div>
+      <div class="ec-options">
+        <div class="eco"><div class="eco-dot"></div>Our Cloud — from $499/mo</div>
+        <div class="eco"><div class="eco-dot"></div>Your Cloud — from $799/mo</div>
+        <div class="eco"><div class="eco-dot"></div>On-Premise — custom</div>
+      </div>
+    </div>
+    <div class="ent-right">
+      <a class="ent-btn" href="#stage6" onclick="document.getElementById('stage6').scrollIntoView({behavior:'smooth'});return false;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        Talk to enterprise team
+      </a>
+      <div class="ent-note">We respond within 4 hours · GCC timezone</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="faq-section">
+  <div class="faq-header">
+    <div class="faq-title">Common questions</div>
+    <div class="faq-sub">Everything you need to know before you commit.</div>
+  </div>
+
+  <div class="faq-item open">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <div class="fq-text">What is a credit and how do I know how many I need?</div>
+      <div class="fq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+    </div>
+    <div class="faq-a">
+      <div class="fa-inner">
+        <p>One credit equals one email sent. Verifying one email costs 5 credits. Warming one domain for one day costs 10 credits. AI features cost 2–10 additional credits per action.</p>
+        <p>A typical Growth user sends <strong>200 emails/day with AI personalisation</strong> and verifies 500 addresses per month. That is roughly 6,000–8,000 credits per month — exactly what the Growth plan covers.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <div class="fq-text">Do unused credits roll over to the next month?</div>
+      <div class="fq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+    </div>
+    <div class="faq-a">
+      <div class="fa-inner">
+        <p>On the <strong>Growth and Scale plans</strong>, unused credits roll to the next month as long as you renew on time (within 3 days of expiry). On the Starter plan, credits do not roll over.</p>
+        <p>We send renewal reminders 7 days, 48 hours, and 24 hours before expiry so you are never surprised.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <div class="fq-text">Is Moxwarm and Moxcheck included in the subscription?</div>
+      <div class="fq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+    </div>
+    <div class="faq-a">
+      <div class="fa-inner">
+        <p>Yes — every Moxsend plan includes Moxcheck verifications and Moxwarm domain warmup. They share the same credit pool. There is no separate subscription for either.</p>
+        <p>If you only need Moxcheck or Moxwarm without Moxsend, standalone plans are available separately.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <div class="fq-text">Does Moxsend work for Arabic and GCC markets?</div>
+      <div class="fq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+    </div>
+    <div class="faq-a">
+      <div class="fa-inner">
+        <p>Moxsend is built for the GCC market first. The interface supports full Arabic RTL layout with one click. The AI personalisation engine is trained on Gulf communication patterns — it knows that a short reply is not low intent, and that Friday silence is not disengagement.</p>
+        <p>Sending schedules automatically respect <strong>Friday prayer windows, GCC national holidays, and Ramadan working hours</strong> across UAE, Saudi Arabia, Bahrain, Qatar, and Kuwait.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <div class="fq-text">What happens if I cancel my subscription?</div>
+      <div class="fq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+    </div>
+    <div class="faq-a">
+      <div class="fa-inner">
+        <p>Cancel any time. Your plan runs until the end of the billing period you already paid for. After that, unused credits expire and your account moves to a read-only state — you can still access all your campaign data, contacts, and reports.</p>
+        <p>If you reactivate within 90 days, your campaign data is restored. After 90 days, it is archived.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <div class="fq-text">Can I try before buying? Is there a free trial?</div>
+      <div class="fq-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+    </div>
+    <div class="faq-a">
+      <div class="fa-inner">
+        <p>Every plan starts with a <strong>300-credit free trial</strong>. No credit card required. 300 credits is enough to verify 60 email addresses, warm one domain for three days, and send 10 fully personalised cold emails.</p>
+        <p>That is the complete Moxsend stack — verify, warm, send — experienced in under an hour.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════
+     STAGE 6 — ENTERPRISE CONTACT FORM
+     Scrolled to from the enterprise CTA button
+══════════════════════════════════ -->
+<section class="enterprise-section" style="margin-top:100px;" id="stage6">
+  <div class="s6-card">
+    <div class="s6-top">
+
+      <!-- LEFT -->
+      <div class="s6-left">
+        <div class="s6-num">Stage 06 of 06 · Enterprise</div>
+        <div class="s6-eyebrow">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          Enterprise & Custom Deployment
+        </div>
+        <div class="s6-title">Unlimited credits.<br>Your infrastructure.<br>Your data.</div>
+        <div class="s6-sub">For banks, government entities, large enterprises, and organisations with compliance, data residency, or security requirements. Moxwarm + Moxcheck bundled. Arabic RTL and GCC compliance standard.</div>
+        <div class="s6-plans">
+          <div class="s6-plan sel" onclick="selectPlan(this)">
+            <div class="sp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+            <div class="sp-info">
+              <div class="sp-name">Our Cloud</div>
+              <div class="sp-desc">Hosted on Moxsuite · UAE + India regions · fastest to deploy</div>
+            </div>
+            <div class="sp-price">From $499/mo</div>
+          </div>
+          <div class="s6-plan" onclick="selectPlan(this)">
+            <div class="sp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+            <div class="sp-info">
+              <div class="sp-name">Your Cloud</div>
+              <div class="sp-desc">Deploy on your AWS / Azure / GCP · you own the data</div>
+            </div>
+            <div class="sp-price">From $799/mo</div>
+          </div>
+          <div class="s6-plan" onclick="selectPlan(this)">
+            <div class="sp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
+            <div class="sp-info">
+              <div class="sp-name">On-Premise</div>
+              <div class="sp-desc">Full source licence · installed on your servers · air-gapped option</div>
+            </div>
+            <div class="sp-price">Custom</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT — FORM -->
+      <div class="s6-right">
+        <div class="s6-form-title">Talk to our enterprise team</div>
+        <div class="s6-form-sub">We respond within 4 business hours · GCC timezone preferred</div>
+        <div class="s6-form">
+          <div class="sf-row">
+            <div>
+              <div class="sf-label">Full name</div>
+              <input class="sf-input" type="text" placeholder="Ahmed Al-Rashid"/>
+            </div>
+            <div>
+              <div class="sf-label">Work email</div>
+              <input class="sf-input" type="email" placeholder="ahmed@company.ae"/>
+            </div>
+          </div>
+          <div class="sf-row">
+            <div>
+              <div class="sf-label">Company</div>
+              <input class="sf-input" type="text" placeholder="Gulf Trade Solutions"/>
+            </div>
+            <div>
+              <div class="sf-label">Country</div>
+              <select class="sf-select">
+                <option>United Arab Emirates</option>
+                <option>Saudi Arabia</option>
+                <option>Bahrain</option>
+                <option>Qatar</option>
+                <option>Kuwait</option>
+                <option>India</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="sf-row">
+            <div>
+              <div class="sf-label">Team size</div>
+              <select class="sf-select">
+                <option>1–10 people</option>
+                <option>11–50</option>
+                <option>51–200</option>
+                <option>200+</option>
+              </select>
+            </div>
+            <div>
+              <div class="sf-label">Monthly email volume</div>
+              <select class="sf-select">
+                <option>Under 100,000</option>
+                <option>100K – 500K</option>
+                <option>500K – 2M</option>
+                <option>2M+</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <div class="sf-label">Deployment preference</div>
+            <select class="sf-select">
+              <option>Our Cloud (fastest to deploy)</option>
+              <option>Your Cloud (AWS / Azure / GCP)</option>
+              <option>On-Premise (your servers)</option>
+              <option>Not sure yet — need guidance</option>
+            </select>
+          </div>
+          <button class="sf-cta">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            Request enterprise demo
+          </button>
+          <div class="sf-fine">
+            We will respond within 4 hours<br>
+            hello@moxsuite.ai · moxsend.ai
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTTOM BAR -->
+    <div class="s6-bottom">
+      <div class="s6b-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        SOC 2 Type II compliant
+      </div>
+      <div class="s6b-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+        GCC data residency available
+      </div>
+      <div class="s6b-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 15z"/></svg>
+        Dedicated account manager
+      </div>
+      <div class="s6b-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        99.9% uptime SLA
+      </div>
+      <div class="s6b-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        Arabic RTL interface included
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">
+    <div class="nav-mark" style="width:24px;height:24px;border-radius:7px;">
+      <svg viewBox="0 0 88 88" fill="none" style="width:13px;height:13px;">
+        <circle cx="44" cy="44" r="36" stroke="#fff" stroke-width="5.5"/>
+        <path d="M16,56 Q44,10 72,56" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round"/>
+        <polygon points="59,33 75,44 59,55 64,44" fill="#fff"/>
+      </svg>
+    </div>
+    <div class="footer-wm">MOX<em>SEND</em></div>
+  </div>
+  <div class="footer-links">
+    <a class="footer-link" href="#">Privacy</a>
+    <a class="footer-link" href="#">Terms</a>
+    <a class="footer-link" href="#">Security</a>
+    <a class="footer-link" href="#">Status</a>
+    <a class="footer-link" href="#">hello@moxsend.ai</a>
+  </div>
+  <div class="footer-copy">© 2025 EaseHawk Technologies. All rights reserved.</div>
+</footer>
+
+<script>
+// ── BILLING TOGGLE ──
+var isAnnual = true;
+var prices = {
+  starter:  {monthly:49,  annual:39},
+  growth:   {monthly:99,  annual:79},
+  scale:    {monthly:149, annual:119}
+};
+var annualYearly = {
+  starter: 468,
+  growth:  948,
+  scale:   1428
+};
+
+function setAnnual(){
+  isAnnual = true;
+  document.getElementById('btn-annual').classList.add('on');
+  document.getElementById('btn-monthly').classList.remove('on');
+  updatePrices();
+}
+function setMonthly(){
+  isAnnual = false;
+  document.getElementById('btn-monthly').classList.add('on');
+  document.getElementById('btn-annual').classList.remove('on');
+  updatePrices();
+}
+function updatePrices(){
+  ['starter','growth','scale'].forEach(function(p){
+    var amt = isAnnual ? prices[p].annual : prices[p].monthly;
+    document.getElementById('price-'+p).textContent = '$' + amt;
+    var orig = document.getElementById('orig-'+p);
+    if(isAnnual){
+      orig.textContent = 'Billed annually · $' + annualYearly[p] + '/yr';
+      orig.style.opacity = '1';
+    } else {
+      orig.textContent = 'Switch to annual and save 20%';
+      orig.style.opacity = '.5';
+    }
+  });
+}
+updatePrices();
+
+// ── FAQ TOGGLE ──
+function toggleFaq(el){
+  var item = el.parentElement;
+  var wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');});
+  if(!wasOpen) item.classList.add('open');
+}
+
+// ── PLAN SELECTOR ──
+function selectPlan(el){
+  document.querySelectorAll('.s6-plan').forEach(function(p){p.classList.remove('sel');});
+  el.classList.add('sel');
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="160" viewBox="0 0 600 160">
+
+  <!-- Background -->
+  <rect width="600" height="160" fill="#FFFFFF"/>
+
+  <defs>
+    <linearGradient id="gOL" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#0284C7"/>
+      <stop offset="33%"  stop-color="#4F46E5"/>
+      <stop offset="66%"  stop-color="#9D174D"/>
+      <stop offset="100%" stop-color="#0284C7"/>
+    </linearGradient>
+    <linearGradient id="gWL" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#000000" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.01"/>
+    </linearGradient>
+    <radialGradient id="gCL" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#0284C7" stop-opacity="0.14"/>
+      <stop offset="100%" stop-color="#0284C7" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gWML" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#0F172A"/>
+      <stop offset="55%"  stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#0284C7"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ── NEXUS MARK — same geometry, lighter palette ── -->
+  <g transform="translate(24,24) scale(0.2828) translate(-202,-218)">
+
+    <!-- core glow -->
+    <circle cx="400" cy="416" r="58" fill="url(#gCL)" opacity="0.95"/>
+
+    <!-- outer diamond -->
+    <polygon points="400,218 598,416 400,614 202,416"
+      fill="none" stroke="url(#gOL)" stroke-width="5" opacity="0.55"/>
+
+    <!-- 4 cardinal facets -->
+    <polygon points="400,218 366,335 434,335"
+      fill="url(#gWL)" stroke="#0284C7" stroke-width="3.2" opacity="0.65"/>
+    <polygon points="598,416 481,382 481,450"
+      fill="url(#gWL)" stroke="#4F46E5" stroke-width="3.2" opacity="0.55"/>
+    <polygon points="400,614 434,497 366,497"
+      fill="url(#gWL)" stroke="#9D174D" stroke-width="3.2" opacity="0.55"/>
+    <polygon points="202,416 319,450 319,382"
+      fill="url(#gWL)" stroke="#0284C7" stroke-width="3.2" opacity="0.60"/>
+
+    <!-- 4 kite facets -->
+    <polygon points="400,218 598,416 481,382 434,335"
+      fill="none" stroke="#4F46E5" stroke-width="1.8" opacity="0.22"/>
+    <polygon points="598,416 400,614 434,497 481,450"
+      fill="none" stroke="#9D174D" stroke-width="1.8" opacity="0.18"/>
+    <polygon points="400,614 202,416 319,450 366,497"
+      fill="none" stroke="#9D174D" stroke-width="1.8" opacity="0.18"/>
+    <polygon points="202,416 400,218 366,335 319,382"
+      fill="none" stroke="#0284C7" stroke-width="1.8" opacity="0.22"/>
+
+    <!-- inner octagon -->
+    <polygon points="481,382 481,450 434,497 366,497 319,450 319,382 366,335 434,335"
+      fill="rgba(2,132,199,0.06)" stroke="#0284C7" stroke-width="3.5" opacity="0.45"/>
+
+    <!-- core diamond outer -->
+    <polygon points="400,374 442,416 400,458 358,416"
+      fill="rgba(2,132,199,0.09)"
+      stroke="url(#gOL)" stroke-width="5.5" stroke-linejoin="round" opacity="0.88"/>
+
+    <!-- core diamond inner -->
+    <polygon points="400,390 426,416 400,442 374,416"
+      fill="rgba(2,132,199,0.18)"
+      stroke="#0284C7" stroke-width="4.5" stroke-linejoin="round" opacity="0.85"/>
+
+    <!-- centre dot -->
+    <circle cx="400" cy="416" r="19" fill="#0284C7" opacity="0.92"/>
+    <!-- specular on white: white highlight inside -->
+    <circle cx="395" cy="411" r="8"  fill="#FFFFFF"  opacity="0.85"/>
+
+    <!-- family dot -->
+    <circle cx="400" cy="590" r="22" fill="#0284C7" opacity="0.60"/>
+
+  </g>
+
+  <!-- ── DIVIDER ── -->
+  <line x1="148" y1="28" x2="148" y2="132"
+    stroke="rgba(2,132,199,0.18)" stroke-width="1"/>
+
+  <!-- ── TEXT BLOCK ── -->
+
+  <!-- MOXSUITE wordmark -->
+  <text x="164" y="72"
+    font-family="'Helvetica Neue',Helvetica,Arial,sans-serif"
+    font-size="44" font-weight="900" letter-spacing="-1.8"
+    fill="url(#gWML)">MOXSUITE</text>
+
+  <!-- Tagline -->
+  <text x="165" y="100"
+    font-family="'Helvetica Neue',Helvetica,Arial,sans-serif"
+    font-size="11.5" font-weight="400" letter-spacing="3.5"
+    fill="#0F172A" opacity="0.32">The Enterprise Operating System</text>
+
+  <!-- Sub line -->
+  <text x="166" y="120"
+    font-family="'Helvetica Neue',Helvetica,Arial,sans-serif"
+    font-size="9.5" font-weight="600" letter-spacing="3"
+    fill="#0284C7" opacity="0.50">35 Products. One Roof.</text>
+
+  <!-- Founding trio dots -->
+  <circle cx="166" cy="138" r="3"   fill="#7F77DD" opacity="0.55"/>
+  <circle cx="176" cy="138" r="3"   fill="#0284C7" opacity="0.62"/>
+  <circle cx="186" cy="138" r="3"   fill="#D4537E" opacity="0.55"/>
+
+</svg>

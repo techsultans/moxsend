@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="160" viewBox="0 0 600 160">
+
+  <!-- Background -->
+  <rect width="600" height="160" fill="#03050C"/>
+
+  <defs>
+    <linearGradient id="gO" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#38BDF8"/>
+      <stop offset="33%"  stop-color="#818CF8"/>
+      <stop offset="66%"  stop-color="#D4537E"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+    <linearGradient id="gW" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%"   stop-color="#FFFFFF" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.03"/>
+    </linearGradient>
+    <radialGradient id="gC" cx="50%" cy="50%" r="50%">
+      <stop offset="0%"   stop-color="#38BDF8" stop-opacity="0.42"/>
+      <stop offset="45%"  stop-color="#818CF8" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#38BDF8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gWM" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#EEF2FF"/>
+      <stop offset="58%"  stop-color="#EEF2FF"/>
+      <stop offset="100%" stop-color="#38BDF8"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ── NEXUS MARK — icon centred at (80, 80), mark radius ~56px ──
+       Original viewBox 202,218 to 598,614  → width=396 height=396
+       Scale to fit 112px box: scale = 112/396 = 0.2828
+       Translate: x_offset = 24, y_offset = 24
+       Transform: translate(24,24) scale(0.2828) translate(-202,-218)
+  -->
+  <g transform="translate(24,24) scale(0.2828) translate(-202,-218)">
+
+    <!-- core glow -->
+    <circle cx="400" cy="416" r="58" fill="url(#gC)" opacity="0.90"/>
+
+    <!-- outer diamond -->
+    <polygon points="400,218 598,416 400,614 202,416"
+      fill="none" stroke="url(#gO)" stroke-width="5" opacity="0.68"/>
+
+    <!-- 4 cardinal facets -->
+    <polygon points="400,218 366,335 434,335"
+      fill="url(#gW)" stroke="#38BDF8" stroke-width="3.2" opacity="0.78"/>
+    <polygon points="598,416 481,382 481,450"
+      fill="url(#gW)" stroke="#818CF8" stroke-width="3.2" opacity="0.68"/>
+    <polygon points="400,614 434,497 366,497"
+      fill="url(#gW)" stroke="#D4537E" stroke-width="3.2" opacity="0.68"/>
+    <polygon points="202,416 319,450 319,382"
+      fill="url(#gW)" stroke="#38BDF8" stroke-width="3.2" opacity="0.72"/>
+
+    <!-- 4 kite facets -->
+    <polygon points="400,218 598,416 481,382 434,335"
+      fill="none" stroke="#818CF8" stroke-width="1.8" opacity="0.28"/>
+    <polygon points="598,416 400,614 434,497 481,450"
+      fill="none" stroke="#D4537E" stroke-width="1.8" opacity="0.22"/>
+    <polygon points="400,614 202,416 319,450 366,497"
+      fill="none" stroke="#D4537E" stroke-width="1.8" opacity="0.22"/>
+    <polygon points="202,416 400,218 366,335 319,382"
+      fill="none" stroke="#38BDF8" stroke-width="1.8" opacity="0.28"/>
+
+    <!-- inner octagon -->
+    <polygon points="481,382 481,450 434,497 366,497 319,450 319,382 366,335 434,335"
+      fill="rgba(56,189,248,0.05)" stroke="#38BDF8" stroke-width="3.5" opacity="0.55"/>
+
+    <!-- radiant lines -->
+    <g stroke="#FFFFFF" stroke-width="1.4" opacity="0.11" stroke-linecap="round">
+      <line x1="481" y1="382" x2="400" y2="416"/>
+      <line x1="481" y1="450" x2="400" y2="416"/>
+      <line x1="434" y1="497" x2="400" y2="416"/>
+      <line x1="366" y1="497" x2="400" y2="416"/>
+      <line x1="319" y1="450" x2="400" y2="416"/>
+      <line x1="319" y1="382" x2="400" y2="416"/>
+      <line x1="366" y1="335" x2="400" y2="416"/>
+      <line x1="434" y1="335" x2="400" y2="416"/>
+    </g>
+
+    <!-- core diamond outer -->
+    <polygon points="400,374 442,416 400,458 358,416"
+      fill="rgba(56,189,248,0.08)"
+      stroke="url(#gO)" stroke-width="5.5" stroke-linejoin="round" opacity="0.95"/>
+
+    <!-- core diamond inner -->
+    <polygon points="400,390 426,416 400,442 374,416"
+      fill="rgba(56,189,248,0.26)"
+      stroke="#38BDF8" stroke-width="4.5" stroke-linejoin="round" opacity="0.92"/>
+
+    <!-- centre dot -->
+    <circle cx="400" cy="416" r="19" fill="#38BDF8" opacity="0.94"/>
+    <circle cx="395" cy="411" r="8"  fill="#FFFFFF"  opacity="0.95"/>
+
+    <!-- family dot -->
+    <circle cx="400" cy="590" r="22" fill="#38BDF8" opacity="0.72"/>
+
+  </g>
+
+  <!-- ── DIVIDER LINE between icon and text ── -->
+  <line x1="148" y1="28" x2="148" y2="132"
+    stroke="rgba(56,189,248,0.18)" stroke-width="1"/>
+
+  <!-- ── TEXT BLOCK — starts at x=164 ── -->
+
+  <!-- MOXSUITE wordmark -->
+  <text x="164" y="72"
+    font-family="'Helvetica Neue',Helvetica,Arial,sans-serif"
+    font-size="44" font-weight="900" letter-spacing="-1.8"
+    fill="url(#gWM)">MOXSUITE</text>
+
+  <!-- Tagline -->
+  <text x="165" y="100"
+    font-family="'Helvetica Neue',Helvetica,Arial,sans-serif"
+    font-size="11.5" font-weight="400" letter-spacing="3.5"
+    fill="#EEF2FF" opacity="0.30">The Enterprise Operating System</text>
+
+  <!-- Sub line -->
+  <text x="166" y="120"
+    font-family="'Helvetica Neue',Helvetica,Arial,sans-serif"
+    font-size="9.5" font-weight="600" letter-spacing="3"
+    fill="#38BDF8" opacity="0.38">35 Products. One Roof.</text>
+
+  <!-- Founding trio dots aligned with text -->
+  <circle cx="166" cy="138" r="3"   fill="#7F77DD" opacity="0.55"/>
+  <circle cx="176" cy="138" r="3"   fill="#38BDF8" opacity="0.60"/>
+  <circle cx="186" cy="138" r="3"   fill="#D4537E" opacity="0.55"/>
+
+</svg>

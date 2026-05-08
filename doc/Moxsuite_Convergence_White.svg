@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="860" viewBox="0 0 800 860">
+
+  <rect width="800" height="860" fill="#FFFFFF"/>
+
+  <defs>
+    <linearGradient id="arc1w" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0EA5E9" stop-opacity="0.0"/>
+      <stop offset="85%" stop-color="#0EA5E9" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#0EA5E9" stop-opacity="1.0"/>
+    </linearGradient>
+    <linearGradient id="arc2w" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#6366F1" stop-opacity="0.0"/>
+      <stop offset="85%" stop-color="#6366F1" stop-opacity="0.80"/>
+      <stop offset="100%" stop-color="#6366F1" stop-opacity="1.0"/>
+    </linearGradient>
+    <linearGradient id="arc3w" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#BE185D" stop-opacity="0.0"/>
+      <stop offset="85%" stop-color="#BE185D" stop-opacity="0.80"/>
+      <stop offset="100%" stop-color="#BE185D" stop-opacity="1.0"/>
+    </linearGradient>
+    <linearGradient id="arc4w" x1="100%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#059669" stop-opacity="0.0"/>
+      <stop offset="85%" stop-color="#059669" stop-opacity="0.75"/>
+      <stop offset="100%" stop-color="#059669" stop-opacity="1.0"/>
+    </linearGradient>
+    <linearGradient id="arc5w" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D97706" stop-opacity="0.0"/>
+      <stop offset="85%" stop-color="#D97706" stop-opacity="0.70"/>
+      <stop offset="100%" stop-color="#D97706" stop-opacity="1.0"/>
+    </linearGradient>
+    <linearGradient id="arc6w" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#DB2777" stop-opacity="0.0"/>
+      <stop offset="85%" stop-color="#DB2777" stop-opacity="0.70"/>
+      <stop offset="100%" stop-color="#DB2777" stop-opacity="1.0"/>
+    </linearGradient>
+    <radialGradient id="coreGloww" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0EA5E9" stop-opacity="0.12"/>
+      <stop offset="100%" stop-color="#0EA5E9" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="outerGloww" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0EA5E9" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#0EA5E9" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="wordGradw" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="55%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#0284C7"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ambient glow — subtle on white -->
+  <ellipse cx="400" cy="300" rx="260" ry="260" fill="url(#outerGloww)"/>
+  <ellipse cx="400" cy="300" rx="80"  ry="80"  fill="url(#coreGloww)"/>
+
+  <!-- SIX PRIMARY ARCS — slightly thicker on white for visibility -->
+  <path d="M 150,80  C 190,140 260,200 400,300" fill="none" stroke="url(#arc1w)" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="150" cy="80"  r="2.8" fill="#0EA5E9" opacity="0.40"/>
+
+  <path d="M 650,80  C 610,140 540,200 400,300" fill="none" stroke="url(#arc2w)" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="650" cy="80"  r="2.8" fill="#6366F1" opacity="0.40"/>
+
+  <path d="M 108,280 C 180,270 280,275 400,300" fill="none" stroke="url(#arc3w)" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="108" cy="280" r="2.8" fill="#BE185D" opacity="0.40"/>
+
+  <path d="M 692,280 C 620,270 520,275 400,300" fill="none" stroke="url(#arc4w)" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="692" cy="280" r="2.8" fill="#059669" opacity="0.40"/>
+
+  <path d="M 160,520 C 220,450 300,370 400,300" fill="none" stroke="url(#arc5w)" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="160" cy="520" r="2.8" fill="#D97706" opacity="0.40"/>
+
+  <path d="M 640,520 C 580,450 500,370 400,300" fill="none" stroke="url(#arc6w)" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="640" cy="520" r="2.8" fill="#DB2777" opacity="0.40"/>
+
+  <!-- SECONDARY ARCS -->
+  <path d="M 400,55  C 400,130 400,210 400,300" fill="none" stroke="#0EA5E9" stroke-width="1.0" stroke-linecap="round" opacity="0.20"/>
+  <circle cx="400" cy="55"  r="2.0" fill="#0EA5E9" opacity="0.25"/>
+
+  <path d="M 400,545 C 400,470 400,390 400,300" fill="none" stroke="#6366F1" stroke-width="1.0" stroke-linecap="round" opacity="0.18"/>
+  <circle cx="400" cy="545" r="2.0" fill="#6366F1" opacity="0.22"/>
+
+  <path d="M 250,62  C 290,130 340,200 400,300" fill="none" stroke="#0EA5E9" stroke-width="0.8" stroke-linecap="round" opacity="0.15"/>
+  <path d="M 550,62  C 510,130 460,200 400,300" fill="none" stroke="#6366F1" stroke-width="0.8" stroke-linecap="round" opacity="0.15"/>
+
+  <!-- CONVERGENCE POINT -->
+  <circle cx="400" cy="300" r="28" fill="none" stroke="#0EA5E9" stroke-width="0.5" opacity="0.18"/>
+  <circle cx="400" cy="300" r="18" fill="none" stroke="#0EA5E9" stroke-width="0.5" opacity="0.25"/>
+  <!-- core bg white -->
+  <circle cx="400" cy="300" r="11" fill="#FFFFFF"/>
+  <circle cx="400" cy="300" r="9"  fill="#0EA5E9" opacity="0.10"/>
+  <circle cx="400" cy="300" r="9"  fill="none" stroke="#0EA5E9" stroke-width="2.0" opacity="0.90"/>
+  <circle cx="400" cy="300" r="4.5" fill="#0EA5E9" opacity="0.95"/>
+  <!-- specular on white: use dark dot offset -->
+  <circle cx="401.5" cy="301.5" r="1.5" fill="#FFFFFF" opacity="0.85"/>
+
+  <!-- FAMILY DOT -->
+  <circle cx="400" cy="572" r="4.5" fill="#0EA5E9" opacity="0.55"/>
+
+  <!-- RULE -->
+  <line x1="260" y1="620" x2="540" y2="620" stroke="#0F172A" stroke-width="0.5" opacity="0.12"/>
+
+  <!-- WORDMARK -->
+  <text x="400" y="680"
+    text-anchor="middle"
+    font-family="'Helvetica Neue',Helvetica,Arial,sans-serif"
+    font-size="74" font-weight="900" letter-spacing="-2.5"
+    fill="url(#wordGradw)">MOXSUITE</text>
+
+  <!-- TAGLINE -->
+  <text x="400" y="722"
+    text-anchor="middle"
+    font-family="'Helvetica Neue',Helvetica,Arial,sans-serif"
+    font-size="11" font-weight="400" letter-spacing="7"
+    fill="#0F172A" opacity="0.30">THE ENTERPRISE OPERATING SYSTEM</text>
+
+  <!-- FOUNDING DOTS -->
+  <circle cx="376" cy="754" r="3" fill="#7F77DD" opacity="0.60"/>
+  <circle cx="400" cy="754" r="3" fill="#0EA5E9" opacity="0.60"/>
+  <circle cx="424" cy="754" r="3" fill="#D4537E" opacity="0.60"/>
+
+</svg>

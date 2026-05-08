@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Moxwarm — UI/UX Screens</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#FBF8F3;
+  --s0:#FFFFFF;
+  --s1:#FDF9F4;
+  --s2:#F5EFE5;
+  --s3:#EDE4D5;
+  --b0:#E8DFD0;
+  --b1:#D4C8B4;
+  --ink:#1A1208;
+  --t1:#3D3020;
+  --t2:#7A6848;
+  --t3:#A89070;
+  --t4:#C8B090;
+
+  --fire:#C2410C;
+  --fire2:#EA580C;
+  --amber:#D97706;
+  --amber2:#F59E0B;
+  --gold:#B45309;
+  --warm:#92400E;
+  --green:#065F46;
+  --green2:#059669;
+  --green3:#34D399;
+  --red:#991B1B;
+  --red2:#EF4444;
+  --blue:#1E40AF;
+  --blue2:#3B82F6;
+  --slate:#475569;
+
+  --sh0:0 1px 3px rgba(26,18,8,.07);
+  --sh1:0 3px 10px rgba(26,18,8,.09),0 1px 3px rgba(26,18,8,.05);
+  --sh2:0 8px 28px rgba(26,18,8,.11),0 2px 6px rgba(26,18,8,.05);
+  --sh3:0 28px 70px rgba(26,18,8,.14),0 8px 18px rgba(26,18,8,.06);
+}
+
+html{background:#1E1408;}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:#1E1408;
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  padding:52px 36px 96px;
+}
+
+/* ── PAGE LABELS ── */
+.pg{max-width:1140px;margin:0 auto 24px;}
+.pg-eye{font-size:10px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:8px;}
+.pg-title{font-size:26px;font-weight:800;letter-spacing:-.04em;color:#FDF8F0;margin-bottom:5px;}
+.pg-desc{font-size:13px;color:rgba(253,248,240,.38);line-height:1.7;max-width:700px;}
+.divider{max-width:1140px;margin:64px auto;height:1px;background:linear-gradient(90deg,transparent,rgba(255,200,100,.10),transparent);}
+
+/* ── SCREEN WRAP ── */
+.screen{max-width:1140px;margin:0 auto;border-radius:16px;overflow:hidden;box-shadow:var(--sh3);}
+
+/* ── CHROME ── */
+.chrome{background:#1A1208;border-radius:16px 16px 0 0;padding:11px 16px;display:flex;align-items:center;gap:10px;}
+.c-dots{display:flex;gap:5px;}
+.c-dot{width:10px;height:10px;border-radius:50%;}
+.c-url{flex:1;background:rgba(255,255,255,.05);border-radius:5px;padding:5px 12px;font-size:11px;color:rgba(255,255,255,.25);font-family:'DM Mono',monospace;}
+.c-badge{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;border-radius:99px;}
+
+/* ── APP SHELL ── */
+.app{display:grid;background:var(--bg);}
+.a3{grid-template-columns:52px 224px 1fr;}
+.ah{height:700px;}
+
+/* ── RAIL ── */
+.rail{background:var(--ink);display:flex;flex-direction:column;align-items:center;padding:16px 0;gap:4px;}
+.rl{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.18);cursor:pointer;transition:all .14s;}
+.rl:hover{background:rgba(255,255,255,.08);color:rgba(255,255,255,.60);}
+.rl.on{background:rgba(194,65,12,.22);color:#FB923C;}
+.rl svg{width:15px;height:15px;stroke-width:1.8;}
+.rg{flex:1;}
+.rav{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#44403C,#78716C);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;margin-top:8px;}
+
+/* ── SIDEBAR ── */
+.sb{background:var(--s0);border-right:1px solid var(--b0);display:flex;flex-direction:column;overflow:hidden;}
+.sb-head{padding:16px 14px 12px;border-bottom:1px solid var(--b0);}
+.sb-logo{display:flex;align-items:center;gap:9px;margin-bottom:12px;}
+.sb-icon{width:26px;height:26px;border-radius:7px;background:var(--ink);display:flex;align-items:center;justify-content:center;}
+.sb-brand{font-size:14px;font-weight:800;letter-spacing:-.03em;color:var(--ink);}
+.sb-brand em{color:var(--fire2);font-style:normal;}
+.sb-srch{background:var(--s2);border:1px solid var(--b0);border-radius:8px;padding:7px 10px;display:flex;align-items:center;gap:7px;font-size:12px;color:var(--t3);}
+.sb-srch svg{width:12px;height:12px;flex-shrink:0;}
+.sb-sec{font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);padding:14px 14px 5px;}
+.ni{display:flex;align-items:center;gap:9px;padding:8px 14px;font-size:12.5px;font-weight:500;color:var(--t2);cursor:pointer;border-left:2px solid transparent;transition:all .12s;}
+.ni svg{width:14px;height:14px;flex-shrink:0;stroke-width:1.8;}
+.ni:hover{color:var(--ink);background:var(--s2);}
+.ni.on{color:var(--fire);background:rgba(194,65,12,.06);border-left-color:var(--fire);font-weight:600;}
+.ni.on svg{color:var(--fire2);}
+.nb{margin-left:auto;font-size:9.5px;font-weight:700;padding:1px 7px;border-radius:99px;}
+.nb-f{background:rgba(194,65,12,.10);color:var(--fire2);border:1px solid rgba(194,65,12,.18);}
+.nb-g{background:rgba(5,150,105,.10);color:var(--green2);border:1px solid rgba(5,150,105,.18);}
+.nb-a{background:rgba(217,119,6,.10);color:var(--amber);border:1px solid rgba(217,119,6,.18);}
+
+/* ── MAIN ── */
+.main{display:flex;flex-direction:column;overflow:hidden;}
+.topbar{height:52px;background:var(--s0);border-bottom:1px solid var(--b0);display:flex;align-items:center;padding:0 22px;gap:10px;flex-shrink:0;box-shadow:var(--sh0);}
+.tb-t{font-size:14.5px;font-weight:700;color:var(--ink);letter-spacing:-.02em;}
+.chip{font-size:9.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:3px 9px;border-radius:99px;}
+.cf{background:rgba(194,65,12,.08);color:var(--fire);border:1px solid rgba(194,65,12,.18);}
+.cg{background:rgba(5,150,105,.08);color:var(--green2);border:1px solid rgba(5,150,105,.18);}
+.ca{background:rgba(217,119,6,.08);color:var(--amber);border:1px solid rgba(217,119,6,.18);}
+.cn{background:var(--s2);color:var(--t2);border:1px solid var(--b0);}
+.tb-r{margin-left:auto;display:flex;align-items:center;gap:7px;}
+.btn{height:30px;padding:0 14px;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;border:none;transition:all .15s;display:inline-flex;align-items:center;gap:5px;}
+.btn svg{width:12px;height:12px;}
+.btn-g{background:transparent;border:1px solid var(--b1);color:var(--t2);}
+.btn-g:hover{background:var(--s2);}
+.btn-p{background:var(--ink);color:#fff;}
+.btn-fire{background:var(--fire);color:#fff;}
+.btn-fire:hover{background:var(--fire2);box-shadow:0 4px 14px rgba(194,65,12,.30);}
+.body{flex:1;overflow-y:auto;padding:20px 22px;}
+.body::-webkit-scrollbar{width:3px;}
+.body::-webkit-scrollbar-thumb{background:var(--b1);}
+
+/* ── CARDS ── */
+.card{background:var(--s0);border:1px solid var(--b0);border-radius:13px;padding:16px 18px;box-shadow:var(--sh0);}
+.card:hover{box-shadow:var(--sh1);transition:box-shadow .15s;}
+.lbl{font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);}
+.tag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:6px;display:inline-flex;align-items:center;gap:4px;}
+.tg{background:rgba(5,150,105,.09);color:var(--green2);border:1px solid rgba(5,150,105,.18);}
+.ta{background:rgba(217,119,6,.09);color:var(--amber);border:1px solid rgba(217,119,6,.18);}
+.tf{background:rgba(234,88,12,.09);color:var(--fire2);border:1px solid rgba(234,88,12,.18);}
+.tr{background:rgba(153,27,27,.08);color:var(--red);border:1px solid rgba(153,27,27,.16);}
+.tb{background:rgba(30,64,175,.08);color:var(--blue);border:1px solid rgba(30,64,175,.16);}
+.tn{background:var(--s2);color:var(--t2);border:1px solid var(--b0);}
+.pbar{height:5px;background:var(--s2);border-radius:99px;overflow:hidden;}
+.pfill{height:100%;border-radius:99px;}
+.dot5{width:5px;height:5px;border-radius:50%;flex-shrink:0;}
+.divl{height:1px;background:var(--b0);margin:12px 0;}
+.mono{font-family:'DM Mono',monospace;}
+
+/* ── HEAT BADGE ── */
+.heat{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;flex-shrink:0;}
+
+/* ── PULSE ── */
+.pulse{animation:pa 1.6s ease-in-out infinite;}
+@keyframes pa{0%,100%{opacity:1;}50%{opacity:.30;}}
+
+/* ── FLAME ICON ── */
+.flame{font-size:14px;}
+
+/* ── MINI CHART BARS ── */
+.mini-bars{display:flex;align-items:flex-end;gap:3px;height:28px;}
+.mb{border-radius:2px 2px 0 0;flex:1;min-width:4px;}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════
+     SCREEN 1 — WARMUP DASHBOARD
+════════════════════════════════ -->
+<div class="pg">
+  <div class="pg-eye">Screen 01 of 03 · Moxwarm</div>
+  <div class="pg-title">Warmup Dashboard</div>
+  <div class="pg-desc">Every domain at a glance. Heat score, sending volume, days into warmup, inbox placement rate, and a mini chart showing the trajectory. One view tells the whole story — which domains are ready to send, which are warming, which need attention. The flame intensity is your reputation score made visual.</div>
+</div>
+
+<div class="screen">
+<div class="chrome">
+  <div class="c-dots"><div class="c-dot" style="background:#FF5F57;"></div><div class="c-dot" style="background:#FFBD2E;"></div><div class="c-dot" style="background:#28C840;"></div></div>
+  <div class="c-url">app.moxwarm.ai/dashboard</div>
+  <div class="c-badge" style="background:rgba(234,88,12,.12);color:#EA580C;border:1px solid rgba(234,88,12,.22);">5 domains warming</div>
+</div>
+<div class="app a3 ah">
+
+  <!-- RAIL -->
+  <div class="rail">
+    <!-- Moxwarm logo mark -->
+    <div class="rl" style="margin-bottom:6px;">
+      <svg width="18" height="18" viewBox="0 0 400 400" fill="none">
+        <circle cx="200" cy="192" r="118" stroke="#FB923C" stroke-width="7"/>
+        <rect x="166" y="168" width="28" height="68" rx="14" fill="#FB923C" opacity=".55"/>
+        <rect x="206" y="140" width="28" height="96" rx="14" fill="#FB923C" opacity=".78"/>
+        <rect x="246" y="128" width="28" height="108" rx="14" fill="#FB923C"/>
+        <circle cx="200" cy="346" r="12" fill="#FB923C" opacity=".75"/>
+      </svg>
+    </div>
+    <div class="rl on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+    <div class="rl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+    <div class="rl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
+    <div class="rl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+    <div class="rl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22 2 11 13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg></div>
+    <div class="rg"></div>
+    <div class="rav">RC</div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sb">
+    <div class="sb-head">
+      <div class="sb-logo">
+        <div class="sb-icon">
+          <svg width="14" height="14" viewBox="0 0 400 400" fill="none">
+            <circle cx="200" cy="192" r="118" stroke="#FB923C" stroke-width="10"/>
+            <rect x="206" y="140" width="28" height="96" rx="14" fill="#FB923C" opacity=".7"/>
+            <rect x="246" y="128" width="28" height="108" rx="14" fill="#FB923C"/>
+          </svg>
+        </div>
+        <div class="sb-brand">MOX<em>WARM</em></div>
+      </div>
+      <div class="sb-srch">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        Search domains...
+      </div>
+    </div>
+
+    <div class="sb-sec">Domains</div>
+    <div class="ni on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>All Domains<span class="nb nb-f">5</span></div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Ready to Send<span class="nb nb-g">2</span></div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Warming<span class="nb nb-f">2</span></div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Needs Attention<span class="nb nb-a">1</span></div>
+    <div class="sb-sec">Settings</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>Warmup Schedule</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>Email Pools</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22 2 11 13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>Send to Moxsend</div>
+
+    <!-- Workspace -->
+    <div style="margin:auto 12px 12px;background:linear-gradient(135deg,rgba(194,65,12,.08),rgba(217,119,6,.06));border:1px solid rgba(194,65,12,.16);border-radius:10px;padding:12px 14px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:var(--fire);margin-bottom:6px;">Daily send quota</div>
+      <div style="display:flex;align-items:baseline;gap:4px;margin-bottom:5px;">
+        <span style="font-size:20px;font-weight:800;color:var(--ink);letter-spacing:-.03em;">1,240</span>
+        <span style="font-size:12px;color:var(--t3);">/ 2,000 used</span>
+      </div>
+      <div class="pbar"><div class="pfill" style="width:62%;background:linear-gradient(90deg,var(--fire),var(--amber2));"></div></div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div class="topbar">
+      <div class="tb-t">Domain Dashboard</div>
+      <div class="chip cf">5 domains active</div>
+      <div class="tb-r">
+        <div style="display:flex;align-items:center;gap:5px;padding:4px 10px;background:rgba(5,150,105,.07);border:1px solid rgba(5,150,105,.18);border-radius:99px;">
+          <div class="dot5" style="background:var(--green2);" ></div>
+          <span style="font-size:11px;font-weight:600;color:var(--green2);">2 domains ready to send</span>
+        </div>
+        <button class="btn btn-g">+ Add domain</button>
+        <button class="btn btn-fire">Send to Moxsend</button>
+      </div>
+    </div>
+
+    <div class="body">
+
+      <!-- KPI ROW -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px;">
+        <div class="card" style="padding:14px 16px;">
+          <div class="lbl" style="margin-bottom:8px;">Avg inbox rate</div>
+          <div style="font-size:30px;font-weight:800;letter-spacing:-.05em;color:var(--green2);">87%</div>
+          <div style="font-size:11px;color:var(--t3);margin-top:3px;">↑ 12% this week</div>
+        </div>
+        <div class="card" style="padding:14px 16px;">
+          <div class="lbl" style="margin-bottom:8px;">Emails sent today</div>
+          <div style="font-size:30px;font-weight:800;letter-spacing:-.05em;color:var(--ink);">1,240</div>
+          <div style="font-size:11px;color:var(--t3);margin-top:3px;">across 5 domains</div>
+        </div>
+        <div class="card" style="padding:14px 16px;">
+          <div class="lbl" style="margin-bottom:8px;">Avg heat score</div>
+          <div style="font-size:30px;font-weight:800;letter-spacing:-.05em;color:var(--fire2);">74</div>
+          <div style="font-size:11px;color:var(--t3);margin-top:3px;">of 100 · warming</div>
+        </div>
+        <div class="card" style="padding:14px 16px;">
+          <div class="lbl" style="margin-bottom:8px;">Spam rate (avg)</div>
+          <div style="font-size:30px;font-weight:800;letter-spacing:-.05em;color:var(--green2);">0.3%</div>
+          <div style="font-size:11px;color:var(--t3);margin-top:3px;">well below 1% safe zone</div>
+        </div>
+      </div>
+
+      <!-- DOMAIN CARDS -->
+      <div style="display:flex;flex-direction:column;gap:10px;">
+
+        <!-- DOMAIN 1 — READY -->
+        <div style="background:var(--s0);border:1px solid var(--b0);border-radius:14px;padding:0;overflow:hidden;box-shadow:var(--sh0);border-left:4px solid var(--green2);">
+          <div style="padding:16px 20px;display:grid;grid-template-columns:48px 1fr 130px 120px 120px 110px 120px;gap:12px;align-items:center;">
+            <!-- Heat badge -->
+            <div class="heat" style="background:rgba(5,150,105,.10);border:1px solid rgba(5,150,105,.20);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2c0 0-6 6-6 12a6 6 0 0012 0c0-3-2-6-2-6s-1 3-3 3c-1 0-2-1-2-2 0-2 1-4 1-7z" fill="#059669" opacity=".3"/>
+                <path d="M12 2c0 0-6 6-6 12a6 6 0 0012 0c0-3-2-6-2-6s-1 3-3 3c-1 0-2-1-2-2 0-2 1-4 1-7z" fill="none" stroke="#059669" stroke-width="1.5" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <!-- Domain info -->
+            <div>
+              <div style="font-size:13.5px;font-weight:700;color:var(--ink);font-family:'DM Mono',monospace;">moxsend.ai</div>
+              <div style="font-size:11px;color:var(--t3);margin-top:2px;">Google Workspace · moxsend@moxsend.ai</div>
+            </div>
+            <!-- Status -->
+            <div><span class="tag tg">✓ Ready to send</span></div>
+            <!-- Heat score -->
+            <div>
+              <div style="font-size:11px;color:var(--t3);margin-bottom:3px;">Heat score</div>
+              <div style="display:flex;align-items:center;gap:6px;">
+                <div style="font-size:18px;font-weight:800;color:var(--green2);letter-spacing:-.03em;">96</div>
+                <div class="pbar" style="flex:1;"><div class="pfill" style="width:96%;background:linear-gradient(90deg,var(--green2),var(--green3));"></div></div>
+              </div>
+            </div>
+            <!-- Volume -->
+            <div>
+              <div style="font-size:11px;color:var(--t3);margin-bottom:3px;">Today's volume</div>
+              <div style="font-size:14px;font-weight:700;color:var(--ink);">500 <span style="font-size:11px;color:var(--t3);font-weight:400;">/ 500</span></div>
+            </div>
+            <!-- Day -->
+            <div>
+              <div style="font-size:11px;color:var(--t3);margin-bottom:3px;">Warmup day</div>
+              <div style="font-size:14px;font-weight:700;color:var(--ink);">Day 28 <span style="font-size:11px;color:var(--green2);font-weight:500;">Complete</span></div>
+            </div>
+            <!-- Trend -->
+            <div>
+              <div style="font-size:11px;color:var(--t3);margin-bottom:4px;">7-day trend</div>
+              <div class="mini-bars">
+                <div class="mb" style="height:40%;background:rgba(5,150,105,.35);"></div>
+                <div class="mb" style="height:55%;background:rgba(5,150,105,.45);"></div>
+                <div class="mb" style="height:65%;background:rgba(5,150,105,.55);"></div>
+                <div class="mb" style="height:78%;background:rgba(5,150,105,.65);"></div>
+                <div class="mb" style="height:85%;background:rgba(5,150,105,.75);"></div>
+                <div class="mb" style="height:92%;background:rgba(5,150,105,.85);"></div>
+                <div class="mb" style="height:100%;background:var(--green2);"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DOMAIN 2 — READY -->
+        <div style="background:var(--s0);border:1px solid var(--b0);border-radius:14px;overflow:hidden;box-shadow:var(--sh0);border-left:4px solid var(--green2);">
+          <div style="padding:16px 20px;display:grid;grid-template-columns:48px 1fr 130px 120px 120px 110px 120px;gap:12px;align-items:center;">
+            <div class="heat" style="background:rgba(5,150,105,.10);border:1px solid rgba(5,150,105,.20);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2c0 0-6 6-6 12a6 6 0 0012 0c0-3-2-6-2-6s-1 3-3 3c-1 0-2-1-2-2 0-2 1-4 1-7z" fill="#059669" opacity=".3"/><path d="M12 2c0 0-6 6-6 12a6 6 0 0012 0c0-3-2-6-2-6s-1 3-3 3c-1 0-2-1-2-2 0-2 1-4 1-7z" fill="none" stroke="#059669" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <div style="font-size:13.5px;font-weight:700;color:var(--ink);font-family:'DM Mono',monospace;">getmoxsend.com</div>
+              <div style="font-size:11px;color:var(--t3);margin-top:2px;">Microsoft 365 · hello@getmoxsend.com</div>
+            </div>
+            <div><span class="tag tg">✓ Ready to send</span></div>
+            <div>
+              <div style="font-size:11px;color:var(--t3);margin-bottom:3px;">Heat score</div>
+              <div style="display:flex;align-items:center;gap:6px;">
+                <div style="font-size:18px;font-weight:800;color:var(--green2);">91</div>
+                <div class="pbar" style="flex:1;"><div class="pfill" style="width:91%;background:linear-gradient(90deg,var(--green2),var(--green3));"></div></div>
+              </div>
+            </div>
+            <div><div style="font-size:11px;color:var(--t3);margin-bottom:3px;">Today's volume</div><div style="font-size:14px;font-weight:700;color:var(--ink);">400 <span style="font-size:11px;color:var(--t3);font-weight:400;">/ 450</span></div></div>
+            <div><div style="font-size:11px;color:var(--t3);margin-bottom:3px;">Warmup day</div><div style="font-size:14px;font-weight:700;color:var(--ink);">Day 24 <span style="font-size:11px;color:var(--green2);font-weight:500;">Complete</span></div></div>
+            <div><div style="font-size:11px;color:var(--t3);margin-bottom:4px;">7-day trend</div><div class="mini-bars"><div class="mb" style="height:55%;background:rgba(5,150,105,.35);"></div><div class="mb" style="height:62%;background:rgba(5,150,105,.45);"></div><div class="mb" style="height:70%;background:rgba(5,150,105,.55);"></div><div class="mb" style="height:80%;background:rgba(5,150,105,.65);"></div><div class="mb" style="height:86%;background:rgba(5,150,105,.75);"></div><div class="mb" style="height:91%;background:rgba(5,150,105,.85);"></div><div class="mb" style="height:97%;background:var(--green2);"></div></div></div>
+          </div>
+        </div>
+
+        <!-- DOMAIN 3 — WARMING -->
+        <div style="background:var(--s0);border:1px solid var(--b0);border-radius:14px;overflow:hidden;box-shadow:var(--sh0);border-left:4px solid var(--fire2);">
+          <div style="padding:16px 20px;display:grid;grid-template-columns:48px 1fr 130px 120px 120px 110px 120px;gap:12px;align-items:center;">
+            <div class="heat" style="background:rgba(234,88,12,.10);border:1px solid rgba(234,88,12,.20);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2c0 0-6 6-6 12a6 6 0 0012 0c0-3-2-6-2-6s-1 3-3 3c-1 0-2-1-2-2 0-2 1-4 1-7z" fill="#EA580C" opacity=".25"/><path d="M12 2c0 0-6 6-6 12a6 6 0 0012 0c0-3-2-6-2-6s-1 3-3 3c-1 0-2-1-2-2 0-2 1-4 1-7z" fill="none" stroke="#EA580C" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <div style="font-size:13.5px;font-weight:700;color:var(--ink);font-family:'DM Mono',monospace;">moxsend.co</div>
+              <div style="font-size:11px;color:var(--t3);margin-top:2px;">Google Workspace · send@moxsend.co</div>
+            </div>
+            <div><span class="tag tf">🔥 Warming</span></div>
+            <div>
+              <div style="font-size:11px;color:var(--t3);margin-bottom:3px;">Heat score</div>
+              <div style="display:flex;align-items:center;gap:6px;">
+                <div style="font-size:18px;font-weight:800;color:var(--fire2);">68</div>
+                <div class="pbar" style="flex:1;"><div class="pfill" style="width:68%;background:linear-gradient(90deg,var(--amber),var(--fire2));"></div></div>
+              </div>
+            </div>
+            <div><div style="font-size:11px;color:var(--t3);margin-bottom:3px;">Today's volume</div><div style="font-size:14px;font-weight:700;color:var(--ink);">220 <span style="font-size:11px;color:var(--t3);font-weight:400;">/ 220</span></div></div>
+            <div><div style="font-size:11px;color:var(--t3);margin-bottom:3px;">Warmup day</div><div style="font-size:14px;font-weight:700;color:var(--ink);">Day 14 <span style="font-size:11px;color:var(--fire2);font-weight:500;">14 left</span></div></div>
+            <div><div style="font-size:11px;color:var(--t3);margin-bottom:4px;">7-day trend</div><div class="mini-bars"><div class="mb" style="height:25%;background:rgba(234,88,12,.30);"></div><div class="mb" style="height:35%;background:rgba(234,88,12,.40);"></div><div class="mb" style="height:42%;background:rgba(234,88,12,.50);"></div><div class="mb" style="height:52%;background:rgba(234,88,12,.60);"></div><div class="mb" style="height:58%;background:rgba(234,88,12,.70);"></div><div class="mb" style="height:63%;background:rgba(234,88,12,.80);"></div><div class="mb" style="height:68%;background:var(--fire2);"></div></div></div>
+          </div>
+        </div>
+
+        <!-- DOMAIN 4 — WARMING DAY 7 -->
+        <div style="background:var(--s0);border:1px solid var(--b0);border-radius:14px;overflow:hidden;box-shadow:var(--sh0);border-left:4px solid var(--amber);">
+          <div style="padding:16px 20px;display:grid;grid-template-columns:48px 1fr 130px 120px 120px 110px 120px;gap:12px;align-items:center;">
+            <div class="heat" style="background:rgba(217,119,6,.10);border:1px solid rgba(217,119,6,.20);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 2c0 0-6 6-6 12a6 6 0 0012 0c0-3-2-6-2-6s-1 3-3 3c-1 0-2-1-2-2 0-2 1-4 1-7z" fill="#D97706" opacity=".20"/><path d="M12 2c0 0-6 6-6 12a6 6 0 0012 0c0-3-2-6-2-6s-1 3-3 3c-1 0-2-1-2-2 0-2 1-4 1-7z" fill="none" stroke="#D97706" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <div style="font-size:13.5px;font-weight:700;color:var(--ink);font-family:'DM Mono',monospace;">trymoxsend.com</div>
+              <div style="font-size:11px;color:var(--t3);margin-top:2px;">Microsoft 365 · outreach@trymoxsend.com</div>
+            </div>
+            <div><span class="tag ta">Warming · Early</span></div>
+            <div>
+              <div style="font-size:11px;color:var(--t3);margin-bottom:3px;">Heat score</div>
+              <div style="display:flex;align-items:center;gap:6px;">
+                <div style="font-size:18px;font-weight:800;color:var(--amber);">38</div>
+                <div class="pbar" style="flex:1;"><div class="pfill" style="width:38%;background:linear-gradient(90deg,var(--amber2),var(--amber));"></div></div>
+              </div>
+            </div>
+            <div><div style="font-size:11px;color:var(--t3);margin-bottom:3px;">Today's volume</div><div style="font-size:14px;font-weight:700;color:var(--ink);">80 <span style="font-size:11px;color:var(--t3);font-weight:400;">/ 80</span></div></div>
+            <div><div style="font-size:11px;color:var(--t3);margin-bottom:3px;">Warmup day</div><div style="font-size:14px;font-weight:700;color:var(--ink);">Day 7 <span style="font-size:11px;color:var(--amber);font-weight:500;">21 left</span></div></div>
+            <div><div style="font-size:11px;color:var(--t3);margin-bottom:4px;">7-day trend</div><div class="mini-bars"><div class="mb" style="height:10%;background:rgba(217,119,6,.30);"></div><div class="mb" style="height:16%;background:rgba(217,119,6,.38);"></div><div class="mb" style="height:22%;background:rgba(217,119,6,.46);"></div><div class="mb" style="height:28%;background:rgba(217,119,6,.54);"></div><div class="mb" style="height:32%;background:rgba(217,119,6,.62);"></div><div class="mb" style="height:35%;background:rgba(217,119,6,.72);"></div><div class="mb" style="height:38%;background:var(--amber);"></div></div></div>
+          </div>
+        </div>
+
+        <!-- DOMAIN 5 — NEEDS ATTENTION -->
+        <div style="background:rgba(153,27,27,.02);border:1px solid rgba(153,27,27,.18);border-radius:14px;overflow:hidden;box-shadow:var(--sh0);border-left:4px solid var(--red2);">
+          <div style="padding:16px 20px;display:grid;grid-template-columns:48px 1fr 130px 120px 120px 110px 120px;gap:12px;align-items:center;">
+            <div class="heat" style="background:rgba(239,68,68,.10);border:1px solid rgba(239,68,68,.20);">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" stroke="#EF4444" stroke-width="1.5" stroke-linejoin="round"/><line x1="12" y1="9" x2="12" y2="13" stroke="#EF4444" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="17" x2="12.01" y2="17" stroke="#EF4444" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <div>
+              <div style="font-size:13.5px;font-weight:700;color:var(--ink);font-family:'DM Mono',monospace;">easehawk.io</div>
+              <div style="font-size:11px;color:var(--red);margin-top:2px;font-weight:500;">⚠ Spam rate 2.1% — paused automatically</div>
+            </div>
+            <div><span class="tag tr">⚠ Attention needed</span></div>
+            <div>
+              <div style="font-size:11px;color:var(--t3);margin-bottom:3px;">Heat score</div>
+              <div style="display:flex;align-items:center;gap:6px;">
+                <div style="font-size:18px;font-weight:800;color:var(--red2);">24</div>
+                <div class="pbar" style="flex:1;"><div class="pfill" style="width:24%;background:var(--red2);"></div></div>
+              </div>
+            </div>
+            <div><div style="font-size:11px;color:var(--t3);margin-bottom:3px;">Today's volume</div><div style="font-size:14px;font-weight:700;color:var(--red);">0 <span style="font-size:11px;color:var(--red);font-weight:500;">Paused</span></div></div>
+            <div><div style="font-size:11px;color:var(--t3);margin-bottom:3px;">Warmup day</div><div style="font-size:14px;font-weight:700;color:var(--ink);">Day 5 <span style="font-size:11px;color:var(--red);font-weight:500;">Paused</span></div></div>
+            <div><button class="btn btn-fire" style="height:28px;font-size:11px;">Fix now</button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ════════════════════════════════
+     SCREEN 2 — DOMAIN DEEP DIVE
+════════════════════════════════ -->
+<div class="pg">
+  <div class="pg-eye">Screen 02 of 03 · Moxwarm</div>
+  <div class="pg-title">Domain Deep Dive</div>
+  <div class="pg-desc">Single domain view. Day-by-day warmup schedule showing past and future send volumes. Reputation signals live. Inbox vs spam placement broken down by provider. Bounce rate, unsubscribe rate, reply rate — every metric your domain's deliverability depends on, in one place.</div>
+</div>
+
+<div class="screen">
+<div class="chrome">
+  <div class="c-dots"><div class="c-dot" style="background:#FF5F57;"></div><div class="c-dot" style="background:#FFBD2E;"></div><div class="c-dot" style="background:#28C840;"></div></div>
+  <div class="c-url">app.moxwarm.ai/domain/moxsend.ai</div>
+  <div class="c-badge" style="background:rgba(5,150,105,.10);color:#059669;border:1px solid rgba(5,150,105,.20);">Heat: 96 · Ready to send</div>
+</div>
+<div class="app a3 ah">
+  <div class="rail">
+    <div class="rl" style="margin-bottom:6px;"><svg width="18" height="18" viewBox="0 0 400 400" fill="none"><circle cx="200" cy="192" r="118" stroke="#FB923C" stroke-width="7"/><rect x="206" y="140" width="28" height="96" rx="14" fill="#FB923C" opacity=".7"/><rect x="246" y="128" width="28" height="108" rx="14" fill="#FB923C"/></svg></div>
+    <div class="rl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+    <div class="rl on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+    <div class="rl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
+    <div class="rg"></div><div class="rav">RC</div>
+  </div>
+  <div class="sb">
+    <div class="sb-head">
+      <div class="sb-logo"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 400 400" fill="none"><circle cx="200" cy="192" r="118" stroke="#FB923C" stroke-width="10"/><rect x="206" y="140" width="28" height="96" rx="14" fill="#FB923C" opacity=".7"/><rect x="246" y="128" width="28" height="108" rx="14" fill="#FB923C"/></svg></div><div class="sb-brand">MOX<em>WARM</em></div></div>
+      <div class="sb-srch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Search...</div>
+    </div>
+    <div class="sb-sec">Domain</div>
+    <div class="ni on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>moxsend.ai</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>Send History</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>Inbox Placement</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Reputation Signals</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>Settings</div>
+    <div class="sb-sec">Other Domains</div>
+    <div class="ni" style="font-size:11.5px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2c0 0-6 6-6 12a6 6 0 0012 0c0-3-2-6-2-6s-1 3-3 3c-1 0-2-1-2-2 0-2 1-4 1-7z" stroke-width="1.7"/></svg>getmoxsend.com<span class="nb nb-g" style="margin-left:auto;">91</span></div>
+    <div class="ni" style="font-size:11.5px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2c0 0-6 6-6 12a6 6 0 0012 0c0-3-2-6-2-6s-1 3-3 3c-1 0-2-1-2-2 0-2 1-4 1-7z" stroke-width="1.7"/></svg>moxsend.co<span class="nb nb-f" style="margin-left:auto;">68</span></div>
+    <div class="ni" style="font-size:11.5px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" stroke-width="1.7"/></svg>easehawk.io<span style="margin-left:auto;font-size:9.5px;font-weight:700;color:var(--red);">⚠</span></div>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="font-size:13px;font-weight:700;color:var(--ink);font-family:'DM Mono',monospace;">moxsend.ai</div>
+        <div class="chip cg">Heat 96 · Ready</div>
+        <div class="chip cn">Google Workspace · Day 28</div>
+      </div>
+      <div class="tb-r">
+        <button class="btn btn-g">Pause warmup</button>
+        <button class="btn btn-fire">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 2 11 13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          Send to Moxsend
+        </button>
+      </div>
+    </div>
+
+    <div class="body" style="display:grid;grid-template-columns:1fr 260px;gap:14px;align-content:start;">
+
+      <!-- LEFT -->
+      <div style="display:flex;flex-direction:column;gap:12px;">
+
+        <!-- HEAT SCORE HERO -->
+        <div style="background:var(--ink);border-radius:14px;padding:20px 22px;display:flex;align-items:center;gap:20px;">
+          <!-- Flame visual -->
+          <svg width="64" height="80" viewBox="0 0 64 80" fill="none" style="flex-shrink:0;">
+            <ellipse cx="32" cy="72" rx="18" ry="6" fill="rgba(234,88,12,.12)"/>
+            <path d="M32 8 C32 8 10 30 10 52 C10 64 20 72 32 72 C44 72 54 64 54 52 C54 30 32 8 32 8Z" fill="url(#flameGrad)" opacity=".9"/>
+            <path d="M32 28 C32 28 20 42 20 54 C20 60 25 66 32 66 C39 66 44 60 44 54 C44 42 32 28 32 28Z" fill="rgba(251,146,60,.5)"/>
+            <path d="M32 42 C32 42 26 50 26 56 C26 60 29 64 32 64 C35 64 38 60 38 56 C38 50 32 42 32 42Z" fill="rgba(253,186,116,.7)"/>
+            <circle cx="32" cy="58" r="5" fill="#FEF3C7" opacity=".9"/>
+            <defs>
+              <linearGradient id="flameGrad" x1="32" y1="8" x2="32" y2="72" gradientUnits="userSpaceOnUse">
+                <stop offset="0%" stop-color="#EF4444" stop-opacity=".5"/>
+                <stop offset="40%" stop-color="#EA580C"/>
+                <stop offset="70%" stop-color="#F59E0B"/>
+                <stop offset="100%" stop-color="#FEF3C7"/>
+              </linearGradient>
+            </defs>
+          </svg>
+          <div>
+            <div style="font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.30);margin-bottom:6px;">Domain Heat Score</div>
+            <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:4px;">
+              <span style="font-size:52px;font-weight:900;letter-spacing:-.05em;color:#34D399;line-height:1;">96</span>
+              <span style="font-size:18px;color:rgba(52,211,153,.45);font-weight:700;">/100</span>
+            </div>
+            <div style="font-size:13px;font-weight:600;color:rgba(255,255,255,.65);">Warm · Highly deliverable · Safe to launch campaigns</div>
+          </div>
+          <div style="margin-left:auto;display:grid;grid-template-columns:1fr 1fr;gap:10px;text-align:center;">
+            <div style="background:rgba(255,255,255,.05);border-radius:9px;padding:10px 12px;">
+              <div style="font-size:18px;font-weight:800;color:#34D399;">94%</div>
+              <div style="font-size:10px;color:rgba(255,255,255,.28);margin-top:2px;">Inbox rate</div>
+            </div>
+            <div style="background:rgba(255,255,255,.05);border-radius:9px;padding:10px 12px;">
+              <div style="font-size:18px;font-weight:800;color:#FCD34D;">0.2%</div>
+              <div style="font-size:10px;color:rgba(255,255,255,.28);margin-top:2px;">Spam rate</div>
+            </div>
+            <div style="background:rgba(255,255,255,.05);border-radius:9px;padding:10px 12px;">
+              <div style="font-size:18px;font-weight:800;color:rgba(255,255,255,.75);">28</div>
+              <div style="font-size:10px;color:rgba(255,255,255,.28);margin-top:2px;">Days warmed</div>
+            </div>
+            <div style="background:rgba(255,255,255,.05);border-radius:9px;padding:10px 12px;">
+              <div style="font-size:18px;font-weight:800;color:rgba(255,255,255,.75);">14,000</div>
+              <div style="font-size:10px;color:rgba(255,255,255,.28);margin-top:2px;">Emails sent</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- WARMUP SCHEDULE CHART — bar chart showing daily volumes -->
+        <div class="card">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+            <div>
+              <div style="font-size:13px;font-weight:700;color:var(--ink);">Warmup Schedule · 28-Day Progress</div>
+              <div style="font-size:11px;color:var(--t3);margin-top:2px;">Volume ramps from 10 → 500 emails/day following AI-optimised curve</div>
+            </div>
+            <div style="display:flex;gap:10px;align-items:center;">
+              <div style="display:flex;align-items:center;gap:5px;"><div class="dot5" style="background:var(--green2);"></div><span style="font-size:11px;color:var(--t2);">Completed</span></div>
+              <div style="display:flex;align-items:center;gap:5px;"><div class="dot5" style="background:var(--b1);"></div><span style="font-size:11px;color:var(--t2);">Scheduled</span></div>
+            </div>
+          </div>
+          <!-- The chart bars — 28 completed + 2 future shown -->
+          <div style="display:flex;align-items:flex-end;gap:3px;height:90px;border-bottom:1px solid var(--b0);padding-bottom:8px;margin-bottom:8px;">
+            <!-- Day bars — volumes: 10,15,20,25,30,35,40,50,60,70,80,90,100,110,125,140,155,170,185,200,230,260,300,340,390,440,480,500 -->
+            <!-- simplified as percentages of 500 -->
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;"><div style="height:2%;background:var(--green2);border-radius:2px 2px 0 0;min-height:3px;"></div></div>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;"><div style="height:3%;background:var(--green2);border-radius:2px 2px 0 0;min-height:3px;"></div></div>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;"><div style="height:4%;background:var(--green2);border-radius:2px 2px 0 0;min-height:4px;"></div></div>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;"><div style="height:5%;background:var(--green2);border-radius:2px 2px 0 0;min-height:4px;"></div></div>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;"><div style="height:6%;background:var(--green2);border-radius:2px 2px 0 0;min-height:5px;"></div></div>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;"><div style="height:7%;background:var(--green2);border-radius:2px 2px 0 0;min-height:6px;"></div></div>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;"><div style="height:8%;background:var(--green2);border-radius:2px 2px 0 0;min-height:7px;"></div></div>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;"><div style="height:10%;background:var(--green2);border-radius:2px 2px 0 0;"></div></div>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;"><div style="height:12%;background:var(--green2);border-radius:2px 2px 0 0;"></div></div>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;"><div style="height:14%;background:var(--green2);border-radius:2px 2px 0 0;"></div></div>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;"><div style="height:16%;background:var(--green2);border-radius:2px 2px 0 0;"></div></div>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;"><div style="height:18%;background:var(--green2);border-radius:2px 2px 0 0;"></div></div>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;"><div style="height:20%;background:var(--green2);border-radius:2px 2px 0 0;"></div></div>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;"><div style="height:22%;background:var(--green2);border-radius:2px 2px 0 0;"></div></div>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;"><div style="height:25%;background:var(--green2);border-radius:2px 2px 0 0;"></div></div>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;"><div style="height:28%;background:var(--green2);border-radius:2px 2px 0 0;"></div></div>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;"><div style="height:31%;background:var(--green2);border-radius:2px 2px 0 0;"></div></div>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;"><div style="height:34%;background:var(--green2);border-radius:2px 2px 0 0;"></div></div>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;"><div style="height:37%;background:var(--green2);border-radius:2px 2px 0 0;"></div></div>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;"><div style="height:40%;background:var(--green2);border-radius:2px 2px 0 0;"></div></div>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;"><div style="height:46%;background:var(--green2);border-radius:2px 2px 0 0;"></div></div>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;"><div style="height:52%;background:var(--green2);border-radius:2px 2px 0 0;"></div></div>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;"><div style="height:60%;background:var(--green2);border-radius:2px 2px 0 0;"></div></div>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;"><div style="height:68%;background:var(--green2);border-radius:2px 2px 0 0;"></div></div>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;"><div style="height:78%;background:var(--green2);border-radius:2px 2px 0 0;"></div></div>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;"><div style="height:88%;background:var(--green2);border-radius:2px 2px 0 0;"></div></div>
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;"><div style="height:96%;background:var(--green2);border-radius:2px 2px 0 0;"></div></div>
+            <!-- TODAY — day 28 highlighted -->
+            <div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;position:relative;">
+              <div style="height:100%;background:linear-gradient(180deg,var(--green3),var(--green2));border-radius:2px 2px 0 0;box-shadow:0 0 8px rgba(52,211,153,.40);"></div>
+              <div style="position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:9px;font-weight:700;color:var(--green2);white-space:nowrap;">Today</div>
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;font-size:10px;color:var(--t3);">
+            <span>Day 1</span><span>Day 7</span><span>Day 14</span><span>Day 21</span><span>Day 28</span>
+          </div>
+        </div>
+
+        <!-- REPUTATION SIGNALS -->
+        <div class="card">
+          <div style="font-size:13px;font-weight:700;color:var(--ink);margin-bottom:12px;">Reputation Signals</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;">
+            <div style="padding:10px 12px;background:rgba(5,150,105,.06);border:1px solid rgba(5,150,105,.16);border-radius:9px;text-align:center;">
+              <div style="font-size:16px;font-weight:800;color:var(--green2);">0.2%</div>
+              <div style="font-size:10px;color:var(--t3);margin-top:3px;">Spam rate<br><span style="color:var(--green2);">Excellent</span></div>
+            </div>
+            <div style="padding:10px 12px;background:rgba(5,150,105,.06);border:1px solid rgba(5,150,105,.16);border-radius:9px;text-align:center;">
+              <div style="font-size:16px;font-weight:800;color:var(--green2);">0.4%</div>
+              <div style="font-size:10px;color:var(--t3);margin-top:3px;">Bounce rate<br><span style="color:var(--green2);">Excellent</span></div>
+            </div>
+            <div style="padding:10px 12px;background:rgba(5,150,105,.06);border:1px solid rgba(5,150,105,.16);border-radius:9px;text-align:center;">
+              <div style="font-size:16px;font-weight:800;color:var(--green2);">18%</div>
+              <div style="font-size:10px;color:var(--t3);margin-top:3px;">Reply rate<br><span style="color:var(--green2);">Strong</span></div>
+            </div>
+            <div style="padding:10px 12px;background:rgba(5,150,105,.06);border:1px solid rgba(5,150,105,.16);border-radius:9px;text-align:center;">
+              <div style="font-size:16px;font-weight:800;color:var(--green2);">0.1%</div>
+              <div style="font-size:10px;color:var(--t3);margin-top:3px;">Unsub rate<br><span style="color:var(--green2);">Excellent</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT PANEL -->
+      <div style="display:flex;flex-direction:column;gap:10px;">
+
+        <div class="card">
+          <div class="lbl" style="margin-bottom:10px;">Today's schedule</div>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <div style="display:flex;justify-content:space-between;padding:8px 10px;background:var(--green-l,rgba(5,150,105,.06));border:1px solid rgba(5,150,105,.16);border-radius:8px;">
+              <span style="font-size:12px;color:var(--ink);font-weight:500;">Volume</span>
+              <span style="font-size:13px;font-weight:800;color:var(--green2);">500</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:8px 10px;background:var(--s2);border-radius:8px;">
+              <span style="font-size:12px;color:var(--t1);">Sent so far</span>
+              <span style="font-size:12px;font-weight:700;color:var(--ink);">500 ✓</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:8px 10px;background:var(--s2);border-radius:8px;">
+              <span style="font-size:12px;color:var(--t1);">Send window</span>
+              <span style="font-size:12px;font-weight:700;color:var(--ink);">8AM–6PM GST</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:8px 10px;background:var(--s2);border-radius:8px;">
+              <span style="font-size:12px;color:var(--t1);">Intervals</span>
+              <span style="font-size:12px;font-weight:700;color:var(--ink);">Every 70 mins</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="lbl" style="margin-bottom:10px;">Domain health</div>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <div style="display:flex;justify-content:space-between;padding:7px 10px;background:var(--s2);border-radius:7px;align-items:center;">
+              <span style="font-size:11.5px;color:var(--t1);">SPF</span>
+              <span class="tag tg" style="font-size:9.5px;">Configured ✓</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:7px 10px;background:var(--s2);border-radius:7px;align-items:center;">
+              <span style="font-size:11.5px;color:var(--t1);">DKIM</span>
+              <span class="tag tg" style="font-size:9.5px;">Configured ✓</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:7px 10px;background:var(--s2);border-radius:7px;align-items:center;">
+              <span style="font-size:11.5px;color:var(--t1);">DMARC</span>
+              <span class="tag tg" style="font-size:9.5px;">p=reject ✓</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:7px 10px;background:var(--s2);border-radius:7px;align-items:center;">
+              <span style="font-size:11.5px;color:var(--t1);">Blacklists</span>
+              <span class="tag tg" style="font-size:9.5px;">0/42 clean ✓</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;padding:7px 10px;background:var(--s2);border-radius:7px;align-items:center;">
+              <span style="font-size:11.5px;color:var(--t1);">Google Postmaster</span>
+              <span class="tag tg" style="font-size:9.5px;">High ✓</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="padding:14px 16px;background:rgba(5,150,105,.06);border:1px solid rgba(5,150,105,.18);border-radius:12px;">
+          <div style="font-size:11.5px;font-weight:700;color:var(--green2);margin-bottom:6px;">✓ Ready to launch</div>
+          <div style="font-size:12px;color:var(--t1);line-height:1.6;margin-bottom:10px;">This domain has completed warmup and is ready for full campaign volume in Moxsend.</div>
+          <button class="btn btn-fire" style="width:100%;height:32px;justify-content:center;font-size:12px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 2 11 13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Send to Moxsend
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ════════════════════════════════
+     SCREEN 3 — INBOX PLACEMENT MONITOR
+════════════════════════════════ -->
+<div class="pg">
+  <div class="pg-eye">Screen 03 of 03 · Moxwarm</div>
+  <div class="pg-title">Inbox Placement Monitor</div>
+  <div class="pg-desc">Where do your emails actually land? Gmail, Outlook, Yahoo, Apple Mail, Hotmail — every major inbox provider tested and shown separately. Inbox vs spam vs missing, per provider, per day. This is the screen that proves your warmup is working — and the first warning signal when something goes wrong.</div>
+</div>
+
+<div class="screen">
+<div class="chrome">
+  <div class="c-dots"><div class="c-dot" style="background:#FF5F57;"></div><div class="c-dot" style="background:#FFBD2E;"></div><div class="c-dot" style="background:#28C840;"></div></div>
+  <div class="c-url">app.moxwarm.ai/domain/moxsend.ai/placement</div>
+  <div class="c-badge" style="background:rgba(5,150,105,.10);color:#059669;border:1px solid rgba(5,150,105,.20);">Overall inbox: 94%</div>
+</div>
+<div class="app a3 ah">
+  <div class="rail">
+    <div class="rl" style="margin-bottom:6px;"><svg width="18" height="18" viewBox="0 0 400 400" fill="none"><circle cx="200" cy="192" r="118" stroke="#FB923C" stroke-width="7"/><rect x="206" y="140" width="28" height="96" rx="14" fill="#FB923C" opacity=".7"/><rect x="246" y="128" width="28" height="108" rx="14" fill="#FB923C"/></svg></div>
+    <div class="rl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+    <div class="rl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+    <div class="rl on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
+    <div class="rg"></div><div class="rav">RC</div>
+  </div>
+  <div class="sb">
+    <div class="sb-head">
+      <div class="sb-logo"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 400 400" fill="none"><circle cx="200" cy="192" r="118" stroke="#FB923C" stroke-width="10"/><rect x="206" y="140" width="28" height="96" rx="14" fill="#FB923C" opacity=".7"/><rect x="246" y="128" width="28" height="108" rx="14" fill="#FB923C"/></svg></div><div class="sb-brand">MOX<em>WARM</em></div></div>
+      <div class="sb-srch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Search...</div>
+    </div>
+    <div class="sb-sec">Domain</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Overview</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>Send History</div>
+    <div class="ni on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>Inbox Placement</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Reputation</div>
+    <div class="sb-sec">Providers</div>
+    <div class="ni" style="font-size:11.5px;padding:6px 14px;">
+      <div style="width:14px;height:14px;border-radius:3px;background:#EA4335;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" fill="white"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+      Gmail<span class="nb nb-g" style="margin-left:auto;">97%</span>
+    </div>
+    <div class="ni" style="font-size:11.5px;padding:6px 14px;">
+      <div style="width:14px;height:14px;border-radius:3px;background:#0078D4;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" fill="white"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+      Outlook<span class="nb nb-g" style="margin-left:auto;">92%</span>
+    </div>
+    <div class="ni" style="font-size:11.5px;padding:6px 14px;">
+      <div style="width:14px;height:14px;border-radius:3px;background:#6001D2;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" fill="white"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+      Yahoo<span class="nb nb-a" style="margin-left:auto;">88%</span>
+    </div>
+    <div class="ni" style="font-size:11.5px;padding:6px 14px;">
+      <div style="width:14px;height:14px;border-radius:3px;background:#555;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><svg width="9" height="9" viewBox="0 0 24 24" fill="white"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></div>
+      Apple Mail<span class="nb nb-g" style="margin-left:auto;">99%</span>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="tb-t">Inbox Placement · moxsend.ai</div>
+      <div class="chip cg">94% overall inbox rate</div>
+      <div class="tb-r">
+        <div style="display:flex;gap:8px;align-items:center;">
+          <div style="display:flex;gap:4px;">
+            <div style="padding:4px 10px;background:var(--s2);border:1px solid var(--b0);border-radius:6px;font-size:11px;font-weight:500;color:var(--t2);cursor:pointer;">7 days</div>
+            <div style="padding:4px 10px;background:var(--ink);border-radius:6px;font-size:11px;font-weight:600;color:#fff;cursor:pointer;">14 days</div>
+            <div style="padding:4px 10px;background:var(--s2);border:1px solid var(--b0);border-radius:6px;font-size:11px;font-weight:500;color:var(--t2);cursor:pointer;">28 days</div>
+          </div>
+        </div>
+        <button class="btn btn-g">Export report</button>
+      </div>
+    </div>
+
+    <div class="body">
+
+      <!-- OVERALL SCORE STRIP -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px;">
+        <!-- GMAIL -->
+        <div style="background:var(--s0);border:1px solid var(--b0);border-radius:12px;padding:14px 16px;box-shadow:var(--sh0);">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+            <div style="width:28px;height:28px;border-radius:7px;background:#EA4335;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </div>
+            <div style="font-size:12px;font-weight:700;color:var(--ink);">Gmail</div>
+          </div>
+          <div style="font-size:26px;font-weight:800;color:var(--green2);letter-spacing:-.04em;">97%</div>
+          <div style="font-size:10.5px;color:var(--t3);margin-top:3px;">inbox placement</div>
+          <div class="pbar" style="margin-top:8px;"><div class="pfill" style="width:97%;background:var(--green2);"></div></div>
+          <div style="display:flex;justify-content:space-between;margin-top:5px;font-size:10px;color:var(--t3);">
+            <span>Spam: 2%</span><span>Missing: 1%</span>
+          </div>
+        </div>
+
+        <!-- OUTLOOK -->
+        <div style="background:var(--s0);border:1px solid var(--b0);border-radius:12px;padding:14px 16px;box-shadow:var(--sh0);">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+            <div style="width:28px;height:28px;border-radius:7px;background:#0078D4;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </div>
+            <div style="font-size:12px;font-weight:700;color:var(--ink);">Outlook</div>
+          </div>
+          <div style="font-size:26px;font-weight:800;color:var(--green2);letter-spacing:-.04em;">92%</div>
+          <div style="font-size:10.5px;color:var(--t3);margin-top:3px;">inbox placement</div>
+          <div class="pbar" style="margin-top:8px;"><div class="pfill" style="width:92%;background:var(--green2);"></div></div>
+          <div style="display:flex;justify-content:space-between;margin-top:5px;font-size:10px;color:var(--t3);">
+            <span>Spam: 5%</span><span>Missing: 3%</span>
+          </div>
+        </div>
+
+        <!-- YAHOO -->
+        <div style="background:var(--s0);border:1px solid rgba(217,119,6,.20);border-radius:12px;padding:14px 16px;box-shadow:var(--sh0);">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+            <div style="width:28px;height:28px;border-radius:7px;background:#6001D2;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </div>
+            <div style="font-size:12px;font-weight:700;color:var(--ink);">Yahoo</div>
+            <span class="tag ta" style="font-size:9px;margin-left:auto;">Watch</span>
+          </div>
+          <div style="font-size:26px;font-weight:800;color:var(--amber);letter-spacing:-.04em;">88%</div>
+          <div style="font-size:10.5px;color:var(--t3);margin-top:3px;">inbox placement</div>
+          <div class="pbar" style="margin-top:8px;"><div class="pfill" style="width:88%;background:var(--amber);"></div></div>
+          <div style="display:flex;justify-content:space-between;margin-top:5px;font-size:10px;color:var(--t3);">
+            <span>Spam: 8%</span><span>Missing: 4%</span>
+          </div>
+        </div>
+
+        <!-- APPLE MAIL -->
+        <div style="background:var(--s0);border:1px solid var(--b0);border-radius:12px;padding:14px 16px;box-shadow:var(--sh0);">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+            <div style="width:28px;height:28px;border-radius:7px;background:#1C1C1E;display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            </div>
+            <div style="font-size:12px;font-weight:700;color:var(--ink);">Apple Mail</div>
+          </div>
+          <div style="font-size:26px;font-weight:800;color:var(--green2);letter-spacing:-.04em;">99%</div>
+          <div style="font-size:10.5px;color:var(--t3);margin-top:3px;">inbox placement</div>
+          <div class="pbar" style="margin-top:8px;"><div class="pfill" style="width:99%;background:var(--green2);"></div></div>
+          <div style="display:flex;justify-content:space-between;margin-top:5px;font-size:10px;color:var(--t3);">
+            <span>Spam: 0.5%</span><span>Missing: 0.5%</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- PLACEMENT HISTORY TABLE — per provider per day -->
+      <div class="card" style="padding:0;overflow:hidden;">
+        <div style="padding:14px 18px;border-bottom:1px solid var(--b0);display:flex;align-items:center;justify-content:space-between;">
+          <div style="font-size:13px;font-weight:700;color:var(--ink);">Placement history · last 7 days</div>
+          <div style="display:flex;gap:10px;font-size:11px;">
+            <div style="display:flex;align-items:center;gap:5px;"><div class="dot5" style="background:var(--green2);"></div>Inbox</div>
+            <div style="display:flex;align-items:center;gap:5px;"><div class="dot5" style="background:var(--amber);"></div>Spam</div>
+            <div style="display:flex;align-items:center;gap:5px;"><div class="dot5" style="background:var(--t4);"></div>Missing</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:120px repeat(7,1fr);gap:0;font-size:10.5px;">
+          <!-- Header -->
+          <div style="padding:9px 18px;background:var(--s1);font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--t3);border-bottom:1px solid var(--b0);">Provider</div>
+          <div style="padding:9px 12px;background:var(--s1);font-weight:600;color:var(--t2);text-align:center;border-bottom:1px solid var(--b0);">Apr 26</div>
+          <div style="padding:9px 12px;background:var(--s1);font-weight:600;color:var(--t2);text-align:center;border-bottom:1px solid var(--b0);">Apr 27</div>
+          <div style="padding:9px 12px;background:var(--s1);font-weight:600;color:var(--t2);text-align:center;border-bottom:1px solid var(--b0);">Apr 28</div>
+          <div style="padding:9px 12px;background:var(--s1);font-weight:600;color:var(--t2);text-align:center;border-bottom:1px solid var(--b0);">Apr 29</div>
+          <div style="padding:9px 12px;background:var(--s1);font-weight:600;color:var(--t2);text-align:center;border-bottom:1px solid var(--b0);">Apr 30</div>
+          <div style="padding:9px 12px;background:var(--s1);font-weight:600;color:var(--t2);text-align:center;border-bottom:1px solid var(--b0);">May 1</div>
+          <div style="padding:9px 12px;background:var(--s1);font-weight:700;color:var(--ink);text-align:center;border-bottom:1px solid var(--b0);">Today</div>
+
+          <!-- Gmail row -->
+          <div style="padding:11px 18px;border-bottom:1px solid var(--b0);border-right:1px solid var(--b0);display:flex;align-items:center;gap:7px;"><div style="width:10px;height:10px;border-radius:2px;background:#EA4335;flex-shrink:0;"></div><span style="font-weight:600;color:var(--ink);">Gmail</span></div>
+          <div style="padding:11px 12px;border-bottom:1px solid var(--b0);text-align:center;color:var(--green2);font-weight:700;">94%</div>
+          <div style="padding:11px 12px;border-bottom:1px solid var(--b0);text-align:center;color:var(--green2);font-weight:700;">95%</div>
+          <div style="padding:11px 12px;border-bottom:1px solid var(--b0);text-align:center;color:var(--green2);font-weight:700;">95%</div>
+          <div style="padding:11px 12px;border-bottom:1px solid var(--b0);text-align:center;color:var(--green2);font-weight:700;">96%</div>
+          <div style="padding:11px 12px;border-bottom:1px solid var(--b0);text-align:center;color:var(--green2);font-weight:700;">97%</div>
+          <div style="padding:11px 12px;border-bottom:1px solid var(--b0);text-align:center;color:var(--green2);font-weight:700;">97%</div>
+          <div style="padding:11px 12px;border-bottom:1px solid var(--b0);text-align:center;background:rgba(5,150,105,.06);"><span style="font-size:13px;font-weight:800;color:var(--green2);">97%</span></div>
+
+          <!-- Outlook row -->
+          <div style="padding:11px 18px;border-bottom:1px solid var(--b0);border-right:1px solid var(--b0);display:flex;align-items:center;gap:7px;"><div style="width:10px;height:10px;border-radius:2px;background:#0078D4;flex-shrink:0;"></div><span style="font-weight:600;color:var(--ink);">Outlook</span></div>
+          <div style="padding:11px 12px;border-bottom:1px solid var(--b0);text-align:center;color:var(--green2);font-weight:700;">88%</div>
+          <div style="padding:11px 12px;border-bottom:1px solid var(--b0);text-align:center;color:var(--green2);font-weight:700;">89%</div>
+          <div style="padding:11px 12px;border-bottom:1px solid var(--b0);text-align:center;color:var(--green2);font-weight:700;">90%</div>
+          <div style="padding:11px 12px;border-bottom:1px solid var(--b0);text-align:center;color:var(--green2);font-weight:700;">91%</div>
+          <div style="padding:11px 12px;border-bottom:1px solid var(--b0);text-align:center;color:var(--green2);font-weight:700;">91%</div>
+          <div style="padding:11px 12px;border-bottom:1px solid var(--b0);text-align:center;color:var(--green2);font-weight:700;">92%</div>
+          <div style="padding:11px 12px;border-bottom:1px solid var(--b0);text-align:center;background:rgba(5,150,105,.06);"><span style="font-size:13px;font-weight:800;color:var(--green2);">92%</span></div>
+
+          <!-- Yahoo row — WATCH -->
+          <div style="padding:11px 18px;border-bottom:1px solid var(--b0);border-right:1px solid var(--b0);display:flex;align-items:center;gap:7px;background:rgba(217,119,6,.03);"><div style="width:10px;height:10px;border-radius:2px;background:#6001D2;flex-shrink:0;"></div><span style="font-weight:600;color:var(--ink);">Yahoo</span></div>
+          <div style="padding:11px 12px;border-bottom:1px solid var(--b0);text-align:center;color:var(--amber);font-weight:700;background:rgba(217,119,6,.03);">80%</div>
+          <div style="padding:11px 12px;border-bottom:1px solid var(--b0);text-align:center;color:var(--amber);font-weight:700;background:rgba(217,119,6,.03);">82%</div>
+          <div style="padding:11px 12px;border-bottom:1px solid var(--b0);text-align:center;color:var(--amber);font-weight:700;background:rgba(217,119,6,.03);">83%</div>
+          <div style="padding:11px 12px;border-bottom:1px solid var(--b0);text-align:center;color:var(--amber);font-weight:700;background:rgba(217,119,6,.03);">85%</div>
+          <div style="padding:11px 12px;border-bottom:1px solid var(--b0);text-align:center;color:var(--amber);font-weight:700;background:rgba(217,119,6,.03);">87%</div>
+          <div style="padding:11px 12px;border-bottom:1px solid var(--b0);text-align:center;color:var(--amber);font-weight:700;background:rgba(217,119,6,.03);">88%</div>
+          <div style="padding:11px 12px;border-bottom:1px solid var(--b0);text-align:center;background:rgba(217,119,6,.08);"><span style="font-size:13px;font-weight:800;color:var(--amber);">88%</span></div>
+
+          <!-- Apple row -->
+          <div style="padding:11px 18px;border-right:1px solid var(--b0);display:flex;align-items:center;gap:7px;"><div style="width:10px;height:10px;border-radius:2px;background:#1C1C1E;flex-shrink:0;"></div><span style="font-weight:600;color:var(--ink);">Apple Mail</span></div>
+          <div style="padding:11px 12px;text-align:center;color:var(--green2);font-weight:700;">98%</div>
+          <div style="padding:11px 12px;text-align:center;color:var(--green2);font-weight:700;">98%</div>
+          <div style="padding:11px 12px;text-align:center;color:var(--green2);font-weight:700;">99%</div>
+          <div style="padding:11px 12px;text-align:center;color:var(--green2);font-weight:700;">99%</div>
+          <div style="padding:11px 12px;text-align:center;color:var(--green2);font-weight:700;">99%</div>
+          <div style="padding:11px 12px;text-align:center;color:var(--green2);font-weight:700;">99%</div>
+          <div style="padding:11px 12px;text-align:center;background:rgba(5,150,105,.06);"><span style="font-size:13px;font-weight:800;color:var(--green2);">99%</span></div>
+        </div>
+
+        <!-- Yahoo insight note -->
+        <div style="padding:12px 18px;background:rgba(217,119,6,.04);border-top:1px solid rgba(217,119,6,.16);display:flex;align-items:center;gap:10px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span style="font-size:12px;color:var(--amber);font-weight:500;">Yahoo inbox rate is improving (+8% over 7 days) but still below 90% threshold. Moxwarm is increasing reply engagement to lift Yahoo's sender reputation. Expected to reach 92%+ by Day 30.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+</body>
+</html>

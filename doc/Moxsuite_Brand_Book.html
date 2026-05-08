@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Moxsuite Brand Book 2025</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --cyan:#38BDF8;--cyan-d:#0EA5E9;--indigo:#818CF8;--rose:#D4537E;
+  --navy:#060D1F;--ink:#0F172A;--muted:#64748B;
+}
+body{font-family:'Inter',sans-serif;background:#FAFAFA;color:var(--ink);-webkit-font-smoothing:antialiased;}
+@media print{body{background:#fff;} .page-break{page-break-before:always;}}
+
+/* ── SHARED ── */
+.section{max-width:1100px;margin:0 auto;padding:80px 48px;}
+.section-label{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:12px;}
+.section-title{font-size:38px;font-weight:900;letter-spacing:-.04em;color:var(--ink);margin-bottom:10px;line-height:1.1;}
+.section-sub{font-size:16px;color:var(--muted);line-height:1.7;max-width:640px;margin-bottom:48px;}
+.rule{height:1px;background:rgba(0,0,0,.07);margin:0;}
+.chip{display:inline-flex;align-items:center;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 12px;border-radius:99px;}
+
+/* ── COVER ── */
+.cover{
+  width:100%;min-height:100vh;
+  background:#03050C;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:80px 48px;text-align:center;position:relative;overflow:hidden;
+}
+.cover::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 40%, rgba(56,189,248,.07) 0%, transparent 65%),
+             radial-gradient(ellipse at 20% 80%, rgba(129,140,248,.05) 0%, transparent 50%),
+             radial-gradient(ellipse at 80% 20%, rgba(212,83,126,.05) 0%, transparent 50%);
+}
+.cover-eyebrow{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(56,189,248,.55);margin-bottom:40px;position:relative;}
+.cover-title{font-size:80px;font-weight:900;letter-spacing:-.05em;color:#EEF2FF;line-height:.95;margin-bottom:20px;position:relative;}
+.cover-title em{color:var(--cyan);font-style:normal;}
+.cover-tagline{font-size:22px;font-weight:400;color:rgba(238,242,255,.45);letter-spacing:.02em;margin-bottom:8px;position:relative;}
+.cover-subline{font-size:16px;font-weight:500;color:rgba(238,242,255,.25);letter-spacing:.08em;position:relative;}
+.cover-footer{
+  position:absolute;bottom:32px;left:0;right:0;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 48px;font-size:11px;font-weight:500;letter-spacing:.08em;
+  color:rgba(238,242,255,.18);
+}
+.cover-dots{display:flex;gap:10px;align-items:center;position:relative;margin-top:40px;}
+.cdot{width:8px;height:8px;border-radius:50%;}
+
+/* ── LOGO VERSIONS ── */
+.logo-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:48px;}
+.logo-card{
+  border-radius:20px;padding:56px 40px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:32px;position:relative;overflow:hidden;
+  min-height:280px;
+}
+.logo-card-label{
+  position:absolute;bottom:16px;left:50%;transform:translateX(-50%);
+  font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  white-space:nowrap;
+}
+.lc-dark{background:#03050C;border:1px solid rgba(255,255,255,.06);}
+.lc-dark .logo-card-label{color:rgba(255,255,255,.22);}
+.lc-black{background:#000000;border:1px solid rgba(255,255,255,.04);}
+.lc-black .logo-card-label{color:rgba(255,255,255,.20);}
+.lc-light{background:#F0F4FF;border:1px solid rgba(14,165,233,.12);}
+.lc-light .logo-card-label{color:rgba(15,23,42,.30);}
+.lc-white{background:#FFFFFF;border:1px solid rgba(0,0,0,.08);}
+.lc-white .logo-card-label{color:rgba(15,23,42,.30);}
+
+/* ── WORDMARK ── */
+.wm{display:flex;align-items:center;gap:16px;flex-direction:column;}
+.wm-text{font-size:48px;font-weight:900;letter-spacing:-.05em;line-height:1;}
+.wm-tag{font-size:10px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;opacity:.35;}
+.wm-sub{font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;opacity:.22;}
+
+/* ── ICON GRID ── */
+.icon-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:48px;}
+.icon-card{
+  border-radius:16px;padding:32px 20px 20px;
+  display:flex;flex-direction:column;align-items:center;gap:12px;
+  position:relative;overflow:hidden;
+}
+.icon-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;text-align:center;}
+.ic-dark{background:#03050C;border:1px solid rgba(255,255,255,.06);}
+.ic-dark .icon-label{color:rgba(255,255,255,.25);}
+.ic-black{background:#000;border:1px solid rgba(255,255,255,.04);}
+.ic-black .icon-label{color:rgba(255,255,255,.22);}
+.ic-light{background:#F0F4FF;border:1px solid rgba(14,165,233,.12);}
+.ic-light .icon-label{color:rgba(15,23,42,.35);}
+.ic-white{background:#FFF;border:1px solid rgba(0,0,0,.08);}
+.ic-white .icon-label{color:rgba(15,23,42,.30);}
+
+/* ── COLOUR PALETTE ── */
+.colour-row{display:flex;gap:12px;margin-bottom:32px;flex-wrap:wrap;}
+.colour-swatch{border-radius:14px;overflow:hidden;flex:1;min-width:140px;}
+.cs-block{height:100px;}
+.cs-info{padding:14px 16px;background:#fff;border:1px solid rgba(0,0,0,.07);border-top:none;border-radius:0 0 14px 14px;}
+.cs-name{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.cs-hex{font-size:11px;font-weight:600;color:var(--muted);font-family:'SF Mono','Fira Code',monospace;}
+.cs-use{font-size:10px;color:var(--muted);margin-top:4px;}
+
+/* ── TYPOGRAPHY ── */
+.type-row{margin-bottom:40px;padding:32px;background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:16px;}
+.type-meta{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);margin-bottom:8px;}
+
+/* ── CLEAR SPACE ── */
+.clearspace-wrap{padding:40px;background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:16px;display:flex;align-items:center;justify-content:center;margin-bottom:32px;}
+
+/* ── DO / DONT ── */
+.dd-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:48px;}
+.dd-card{border-radius:16px;padding:28px;border:1.5px solid;}
+.dd-do{border-color:rgba(16,185,129,.25);background:rgba(16,185,129,.03);}
+.dd-dont{border-color:rgba(239,68,68,.22);background:rgba(239,68,68,.02);}
+.dd-label{font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;}
+.dd-do .dd-label{color:#059669;}
+.dd-dont .dd-label{color:#DC2626;}
+.dd-rule{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:8px;display:flex;gap:8px;}
+.dd-rule::before{flex-shrink:0;margin-top:2px;font-size:11px;}
+.dd-do .dd-rule::before{content:'✓';color:#059669;font-weight:800;}
+.dd-dont .dd-rule::before{content:'✗';color:#DC2626;font-weight:800;}
+
+/* ── TAGLINE PAGE ── */
+.tagline-hero{
+  background:var(--navy);border-radius:24px;padding:72px 56px;
+  text-align:center;margin-bottom:24px;
+}
+.th-small{font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(56,189,248,.45);margin-bottom:24px;}
+.th-main{font-size:48px;font-weight:900;letter-spacing:-.04em;color:#EEF2FF;margin-bottom:12px;line-height:1.1;}
+.th-main em{color:var(--cyan);font-style:normal;}
+.th-sub{font-size:20px;font-weight:400;color:rgba(238,242,255,.40);letter-spacing:.05em;}
+.th-dots{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:28px;}
+
+/* ── PRODUCT LOGOS ── */
+.product-section{padding:48px;background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:20px;margin-bottom:20px;}
+.ps-header{display:flex;align-items:center;gap:14px;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid rgba(0,0,0,.06);}
+.ps-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
+.ps-title{font-size:16px;font-weight:700;color:var(--ink);}
+.products-row{display:flex;gap:12px;flex-wrap:wrap;}
+.p-item{display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 12px;border-radius:12px;background:#FAFAFA;border:1px solid rgba(0,0,0,.06);min-width:80px;}
+.p-name{font-size:10px;font-weight:700;letter-spacing:.05em;text-align:center;}
+.p-tagline{font-size:9px;color:var(--muted);text-align:center;line-height:1.4;max-width:80px;}
+
+/* ── PAGES ── */
+.page-sep{height:2px;background:linear-gradient(90deg,var(--cyan),var(--indigo),var(--rose));margin:0;}
+.page-num{text-align:right;font-size:10px;font-weight:600;letter-spacing:.1em;color:rgba(0,0,0,.18);padding:16px 48px;}
+
+/* NEXUS MARK INLINE SVG - used across multiple versions */
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════
+     PAGE 1 — COVER
+════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-eyebrow">Brand Identity Guidelines · 2025</div>
+
+  <!-- THE NEXUS MARK — large -->
+  <svg width="220" height="220" viewBox="130 180 540 480" fill="none" style="position:relative;z-index:1;margin-bottom:36px;">
+    <defs>
+      <linearGradient id="cg1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#38BDF8"/><stop offset="33%" stop-color="#818CF8"/><stop offset="66%" stop-color="#D4537E"/><stop offset="100%" stop-color="#38BDF8"/></linearGradient>
+      <linearGradient id="cw1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#FFFFFF" stop-opacity=".16"/><stop offset="100%" stop-color="#FFFFFF" stop-opacity=".03"/></linearGradient>
+      <radialGradient id="cc1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#38BDF8" stop-opacity=".45"/><stop offset="40%" stop-color="#818CF8" stop-opacity=".18"/><stop offset="100%" stop-color="#38BDF8" stop-opacity="0"/></radialGradient>
+    </defs>
+    <ellipse cx="400" cy="420" rx="200" ry="200" fill="url(#cc1)" opacity=".6"/>
+    <polygon points="400,218 598,416 400,614 202,416" fill="none" stroke="url(#cg1)" stroke-width="1.4" opacity=".65"/>
+    <polygon points="400,218 366,335 434,335" fill="url(#cw1)" stroke="#38BDF8" stroke-width=".9" opacity=".75"/>
+    <polygon points="598,416 481,382 481,450" fill="url(#cw1)" stroke="#818CF8" stroke-width=".9" opacity=".65"/>
+    <polygon points="400,614 434,497 366,497" fill="url(#cw1)" stroke="#D4537E" stroke-width=".9" opacity=".65"/>
+    <polygon points="202,416 319,450 319,382" fill="url(#cw1)" stroke="#38BDF8" stroke-width=".9" opacity=".70"/>
+    <polygon points="400,218 598,416 481,382 434,335" fill="none" stroke="#818CF8" stroke-width=".5" opacity=".28"/>
+    <polygon points="598,416 400,614 434,497 481,450" fill="none" stroke="#D4537E" stroke-width=".5" opacity=".22"/>
+    <polygon points="400,614 202,416 319,450 366,497" fill="none" stroke="#D4537E" stroke-width=".5" opacity=".22"/>
+    <polygon points="202,416 400,218 366,335 319,382" fill="none" stroke="#38BDF8" stroke-width=".5" opacity=".28"/>
+    <polygon points="481,382 481,450 434,497 366,497 319,450 319,382 366,335 434,335" fill="rgba(56,189,248,0.05)" stroke="#38BDF8" stroke-width="1" opacity=".55"/>
+    <g stroke="#FFFFFF" stroke-width=".4" opacity=".12" stroke-linecap="round">
+      <line x1="481" y1="382" x2="400" y2="416"/><line x1="481" y1="450" x2="400" y2="416"/>
+      <line x1="434" y1="497" x2="400" y2="416"/><line x1="366" y1="497" x2="400" y2="416"/>
+      <line x1="319" y1="450" x2="400" y2="416"/><line x1="319" y1="382" x2="400" y2="416"/>
+      <line x1="366" y1="335" x2="400" y2="416"/><line x1="434" y1="335" x2="400" y2="416"/>
+    </g>
+    <circle cx="400" cy="416" r="55" fill="url(#cc1)" opacity=".85"/>
+    <polygon points="400,374 442,416 400,458 358,416" fill="rgba(56,189,248,0.07)" stroke="url(#cg1)" stroke-width="1.6" stroke-linejoin="round" opacity=".95"/>
+    <polygon points="400,390 426,416 400,442 374,416" fill="rgba(56,189,248,0.25)" stroke="#38BDF8" stroke-width="1.3" stroke-linejoin="round" opacity=".90"/>
+    <circle cx="400" cy="416" r="5.5" fill="#38BDF8" opacity=".92"/>
+    <circle cx="400" cy="416" r="2.5" fill="#FFFFFF"/>
+    <line x1="400" y1="218" x2="400" y2="168" stroke="#38BDF8" stroke-width="1" stroke-linecap="round" opacity=".30"/>
+    <line x1="598" y1="416" x2="648" y2="416" stroke="#818CF8" stroke-width="1" stroke-linecap="round" opacity=".25"/>
+    <line x1="400" y1="614" x2="400" y2="652" stroke="#D4537E" stroke-width="1" stroke-linecap="round" opacity=".22"/>
+    <line x1="202" y1="416" x2="152" y2="416" stroke="#38BDF8" stroke-width="1" stroke-linecap="round" opacity=".25"/>
+    <circle cx="400" cy="590" r="6" fill="#38BDF8" opacity=".68"/>
+  </svg>
+
+  <div class="cover-title" style="position:relative;">MOX<em>SUITE</em></div>
+  <div class="cover-tagline" style="position:relative;">The Enterprise Operating System</div>
+  <div class="cover-subline" style="position:relative;">35 Products. One Roof.</div>
+  <div class="cover-dots">
+    <div class="cdot" style="background:#7F77DD;opacity:.6;"></div>
+    <div class="cdot" style="background:#38BDF8;opacity:.7;"></div>
+    <div class="cdot" style="background:#D4537E;opacity:.6;"></div>
+  </div>
+  <div class="cover-footer">
+    <span>EaseHawk Technologies &amp; Meshdex Developers</span>
+    <span>Confidential · 2025</span>
+    <span>moxsuite.ai</span>
+  </div>
+</div>
+
+<div class="page-sep"></div>
+<div class="page-num">02</div>
+
+<!-- ════════════════════════════════
+     PAGE 2 — LOGO VERSIONS: DARK + BLACK
+════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">The Mark</div>
+  <div class="section-title">Logo Versions</div>
+  <div class="section-sub">The Moxsuite mark — the Nexus — in all four approved versions. Use each on its designated background only. Never place a dark-background version on a light surface or vice versa.</div>
+
+  <div class="logo-grid">
+
+    <!-- DARK VERSION -->
+    <div class="logo-card lc-dark">
+      <svg width="160" height="100" viewBox="130 200 540 460" fill="none">
+        <defs>
+          <linearGradient id="ld1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#38BDF8"/><stop offset="33%" stop-color="#818CF8"/><stop offset="66%" stop-color="#D4537E"/><stop offset="100%" stop-color="#38BDF8"/></linearGradient>
+          <radialGradient id="lcd1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#38BDF8" stop-opacity=".40"/><stop offset="100%" stop-color="#38BDF8" stop-opacity="0"/></radialGradient>
+        </defs>
+        <circle cx="400" cy="416" r="60" fill="url(#lcd1)" opacity=".8"/>
+        <polygon points="400,218 598,416 400,614 202,416" fill="none" stroke="url(#ld1)" stroke-width="1.4" opacity=".65"/>
+        <polygon points="400,218 366,335 434,335" fill="rgba(255,255,255,.06)" stroke="#38BDF8" stroke-width=".9" opacity=".75"/>
+        <polygon points="598,416 481,382 481,450" fill="rgba(255,255,255,.06)" stroke="#818CF8" stroke-width=".9" opacity=".65"/>
+        <polygon points="400,614 434,497 366,497" fill="rgba(255,255,255,.06)" stroke="#D4537E" stroke-width=".9" opacity=".65"/>
+        <polygon points="202,416 319,450 319,382" fill="rgba(255,255,255,.06)" stroke="#38BDF8" stroke-width=".9" opacity=".70"/>
+        <polygon points="481,382 481,450 434,497 366,497 319,450 319,382 366,335 434,335" fill="rgba(56,189,248,0.04)" stroke="#38BDF8" stroke-width="1" opacity=".55"/>
+        <polygon points="400,374 442,416 400,458 358,416" fill="rgba(56,189,248,0.07)" stroke="url(#ld1)" stroke-width="1.5" stroke-linejoin="round" opacity=".92"/>
+        <polygon points="400,390 426,416 400,442 374,416" fill="rgba(56,189,248,0.24)" stroke="#38BDF8" stroke-width="1.2" stroke-linejoin="round" opacity=".88"/>
+        <circle cx="400" cy="416" r="5" fill="#38BDF8" opacity=".92"/>
+        <circle cx="400" cy="416" r="2.2" fill="#FFF"/>
+        <circle cx="400" cy="584" r="5.5" fill="#38BDF8" opacity=".68"/>
+      </svg>
+      <div style="text-align:center;">
+        <div style="font-size:28px;font-weight:900;letter-spacing:-.04em;color:#EEF2FF;">MOX<span style="color:#38BDF8;">SUITE</span></div>
+        <div style="font-size:8px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(238,242,255,.28);margin-top:5px;">The Enterprise Operating System</div>
+        <div style="font-size:7px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(238,242,255,.16);margin-top:3px;">35 Products. One Roof.</div>
+      </div>
+      <div class="logo-card-label" style="color:rgba(255,255,255,.22);">Dark Version — Use on #03050C or navy backgrounds</div>
+    </div>
+
+    <!-- BLACK VERSION -->
+    <div class="logo-card lc-black">
+      <svg width="160" height="100" viewBox="130 200 540 460" fill="none">
+        <defs>
+          <linearGradient id="lb1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#38BDF8"/><stop offset="33%" stop-color="#818CF8"/><stop offset="66%" stop-color="#D4537E"/><stop offset="100%" stop-color="#38BDF8"/></linearGradient>
+        </defs>
+        <polygon points="400,218 598,416 400,614 202,416" fill="none" stroke="url(#lb1)" stroke-width="1.4" opacity=".70"/>
+        <polygon points="400,218 366,335 434,335" fill="rgba(255,255,255,.05)" stroke="#38BDF8" stroke-width=".9" opacity=".80"/>
+        <polygon points="598,416 481,382 481,450" fill="rgba(255,255,255,.05)" stroke="#818CF8" stroke-width=".9" opacity=".70"/>
+        <polygon points="400,614 434,497 366,497" fill="rgba(255,255,255,.05)" stroke="#D4537E" stroke-width=".9" opacity=".70"/>
+        <polygon points="202,416 319,450 319,382" fill="rgba(255,255,255,.05)" stroke="#38BDF8" stroke-width=".9" opacity=".75"/>
+        <polygon points="481,382 481,450 434,497 366,497 319,450 319,382 366,335 434,335" fill="rgba(56,189,248,0.05)" stroke="#38BDF8" stroke-width="1" opacity=".55"/>
+        <polygon points="400,374 442,416 400,458 358,416" fill="rgba(56,189,248,0.08)" stroke="url(#lb1)" stroke-width="1.5" stroke-linejoin="round" opacity=".92"/>
+        <polygon points="400,390 426,416 400,442 374,416" fill="rgba(56,189,248,0.28)" stroke="#38BDF8" stroke-width="1.2" stroke-linejoin="round" opacity=".90"/>
+        <circle cx="400" cy="416" r="5" fill="#38BDF8" opacity=".95"/>
+        <circle cx="400" cy="416" r="2.2" fill="#FFF"/>
+        <circle cx="400" cy="584" r="5.5" fill="#38BDF8" opacity=".70"/>
+      </svg>
+      <div style="text-align:center;">
+        <div style="font-size:28px;font-weight:900;letter-spacing:-.04em;color:#FFFFFF;">MOX<span style="color:#38BDF8;">SUITE</span></div>
+        <div style="font-size:8px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-top:5px;">The Enterprise Operating System</div>
+        <div style="font-size:7px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.16);margin-top:3px;">35 Products. One Roof.</div>
+      </div>
+      <div class="logo-card-label" style="color:rgba(255,255,255,.20);">Black Version — Use on #000000 backgrounds</div>
+    </div>
+
+    <!-- LIGHT VERSION -->
+    <div class="logo-card lc-light">
+      <svg width="160" height="100" viewBox="130 200 540 460" fill="none">
+        <defs>
+          <linearGradient id="ll1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0EA5E9"/><stop offset="33%" stop-color="#6366F1"/><stop offset="66%" stop-color="#BE185D"/><stop offset="100%" stop-color="#0EA5E9"/></linearGradient>
+          <radialGradient id="lcl1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#0EA5E9" stop-opacity=".15"/><stop offset="100%" stop-color="#0EA5E9" stop-opacity="0"/></radialGradient>
+        </defs>
+        <circle cx="400" cy="416" r="55" fill="url(#lcl1)" opacity=".9"/>
+        <polygon points="400,218 598,416 400,614 202,416" fill="none" stroke="url(#ll1)" stroke-width="1.4" opacity=".55"/>
+        <polygon points="400,218 366,335 434,335" fill="rgba(0,0,0,.03)" stroke="#0EA5E9" stroke-width=".9" opacity=".65"/>
+        <polygon points="598,416 481,382 481,450" fill="rgba(0,0,0,.03)" stroke="#6366F1" stroke-width=".9" opacity=".55"/>
+        <polygon points="400,614 434,497 366,497" fill="rgba(0,0,0,.03)" stroke="#BE185D" stroke-width=".9" opacity=".55"/>
+        <polygon points="202,416 319,450 319,382" fill="rgba(0,0,0,.03)" stroke="#0EA5E9" stroke-width=".9" opacity=".60"/>
+        <polygon points="481,382 481,450 434,497 366,497 319,450 319,382 366,335 434,335" fill="rgba(14,165,233,0.06)" stroke="#0EA5E9" stroke-width="1" opacity=".45"/>
+        <polygon points="400,374 442,416 400,458 358,416" fill="rgba(14,165,233,0.10)" stroke="url(#ll1)" stroke-width="1.5" stroke-linejoin="round" opacity=".88"/>
+        <polygon points="400,390 426,416 400,442 374,416" fill="rgba(14,165,233,0.20)" stroke="#0EA5E9" stroke-width="1.2" stroke-linejoin="round" opacity=".85"/>
+        <circle cx="400" cy="416" r="5" fill="#0EA5E9" opacity=".90"/>
+        <circle cx="400" cy="416" r="2.2" fill="#FFF"/>
+        <circle cx="400" cy="584" r="5.5" fill="#0EA5E9" opacity=".62"/>
+      </svg>
+      <div style="text-align:center;">
+        <div style="font-size:28px;font-weight:900;letter-spacing:-.04em;color:#0F172A;">MOX<span style="color:#0284C7;">SUITE</span></div>
+        <div style="font-size:8px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(15,23,42,.35);margin-top:5px;">The Enterprise Operating System</div>
+        <div style="font-size:7px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(15,23,42,.22);margin-top:3px;">35 Products. One Roof.</div>
+      </div>
+      <div class="logo-card-label" style="color:rgba(15,23,42,.28);">Light Version — Use on light blue or tinted backgrounds</div>
+    </div>
+
+    <!-- WHITE VERSION -->
+    <div class="logo-card lc-white">
+      <svg width="160" height="100" viewBox="130 200 540 460" fill="none">
+        <defs>
+          <linearGradient id="lw1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0284C7"/><stop offset="33%" stop-color="#4F46E5"/><stop offset="66%" stop-color="#9D174D"/><stop offset="100%" stop-color="#0284C7"/></linearGradient>
+          <radialGradient id="lcw1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#0284C7" stop-opacity=".12"/><stop offset="100%" stop-color="#0284C7" stop-opacity="0"/></radialGradient>
+        </defs>
+        <circle cx="400" cy="416" r="55" fill="url(#lcw1)" opacity=".9"/>
+        <polygon points="400,218 598,416 400,614 202,416" fill="none" stroke="url(#lw1)" stroke-width="1.4" opacity=".50"/>
+        <polygon points="400,218 366,335 434,335" fill="rgba(0,0,0,.02)" stroke="#0284C7" stroke-width=".9" opacity=".60"/>
+        <polygon points="598,416 481,382 481,450" fill="rgba(0,0,0,.02)" stroke="#4F46E5" stroke-width=".9" opacity=".50"/>
+        <polygon points="400,614 434,497 366,497" fill="rgba(0,0,0,.02)" stroke="#9D174D" stroke-width=".9" opacity=".50"/>
+        <polygon points="202,416 319,450 319,382" fill="rgba(0,0,0,.02)" stroke="#0284C7" stroke-width=".9" opacity=".55"/>
+        <polygon points="481,382 481,450 434,497 366,497 319,450 319,382 366,335 434,335" fill="rgba(2,132,199,0.05)" stroke="#0284C7" stroke-width="1" opacity=".40"/>
+        <polygon points="400,374 442,416 400,458 358,416" fill="rgba(2,132,199,0.08)" stroke="url(#lw1)" stroke-width="1.5" stroke-linejoin="round" opacity=".85"/>
+        <polygon points="400,390 426,416 400,442 374,416" fill="rgba(2,132,199,0.16)" stroke="#0284C7" stroke-width="1.2" stroke-linejoin="round" opacity=".82"/>
+        <circle cx="400" cy="416" r="5" fill="#0284C7" opacity=".88"/>
+        <circle cx="400" cy="416" r="2.2" fill="#FFF"/>
+        <circle cx="400" cy="584" r="5.5" fill="#0284C7" opacity=".58"/>
+      </svg>
+      <div style="text-align:center;">
+        <div style="font-size:28px;font-weight:900;letter-spacing:-.04em;color:#0F172A;">MOX<span style="color:#0284C7;">SUITE</span></div>
+        <div style="font-size:8px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(15,23,42,.30);margin-top:5px;">The Enterprise Operating System</div>
+        <div style="font-size:7px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:rgba(15,23,42,.18);margin-top:3px;">35 Products. One Roof.</div>
+      </div>
+      <div class="logo-card-label" style="color:rgba(15,23,42,.28);">White Version — Primary for print, documents, white backgrounds</div>
+    </div>
+  </div>
+</div>
+
+<div class="rule"></div><div class="page-num">03</div>
+
+<!-- ════════════════════════════════
+     PAGE 3 — ICON MARK VERSIONS
+════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">Icon Mark</div>
+  <div class="section-title">The Nexus — All Versions</div>
+  <div class="section-sub">The icon mark used independently — for app icons, favicons, social avatars, and anywhere the wordmark cannot fit. Always use the version matched to its background.</div>
+
+  <div class="icon-grid">
+    <!-- Dark icon -->
+    <div class="icon-card ic-dark">
+      <svg width="80" height="80" viewBox="180 230 440 440" fill="none">
+        <defs><linearGradient id="id1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#38BDF8"/><stop offset="33%" stop-color="#818CF8"/><stop offset="66%" stop-color="#D4537E"/><stop offset="100%" stop-color="#38BDF8"/></linearGradient><radialGradient id="idc1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#38BDF8" stop-opacity=".40"/><stop offset="100%" stop-color="#38BDF8" stop-opacity="0"/></radialGradient></defs>
+        <circle cx="400" cy="416" r="58" fill="url(#idc1)" opacity=".85"/>
+        <polygon points="400,218 598,416 400,614 202,416" fill="none" stroke="url(#id1)" stroke-width="1.8" opacity=".68"/>
+        <polygon points="400,218 366,335 434,335" fill="rgba(255,255,255,.06)" stroke="#38BDF8" stroke-width="1.1" opacity=".78"/>
+        <polygon points="598,416 481,382 481,450" fill="rgba(255,255,255,.06)" stroke="#818CF8" stroke-width="1.1" opacity=".68"/>
+        <polygon points="400,614 434,497 366,497" fill="rgba(255,255,255,.06)" stroke="#D4537E" stroke-width="1.1" opacity=".68"/>
+        <polygon points="202,416 319,450 319,382" fill="rgba(255,255,255,.06)" stroke="#38BDF8" stroke-width="1.1" opacity=".72"/>
+        <polygon points="481,382 481,450 434,497 366,497 319,450 319,382 366,335 434,335" fill="rgba(56,189,248,0.05)" stroke="#38BDF8" stroke-width="1.2" opacity=".55"/>
+        <polygon points="400,374 442,416 400,458 358,416" fill="rgba(56,189,248,0.08)" stroke="url(#id1)" stroke-width="1.8" stroke-linejoin="round" opacity=".95"/>
+        <polygon points="400,390 426,416 400,442 374,416" fill="rgba(56,189,248,0.26)" stroke="#38BDF8" stroke-width="1.5" stroke-linejoin="round" opacity=".92"/>
+        <circle cx="400" cy="416" r="6" fill="#38BDF8" opacity=".95"/>
+        <circle cx="400" cy="416" r="2.8" fill="#FFF"/>
+        <circle cx="400" cy="590" r="7" fill="#38BDF8" opacity=".70"/>
+      </svg>
+      <div class="icon-label" style="color:rgba(255,255,255,.30);">Dark</div>
+    </div>
+
+    <!-- Black icon -->
+    <div class="icon-card ic-black">
+      <svg width="80" height="80" viewBox="180 230 440 440" fill="none">
+        <defs><linearGradient id="ib1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#38BDF8"/><stop offset="33%" stop-color="#818CF8"/><stop offset="66%" stop-color="#D4537E"/><stop offset="100%" stop-color="#38BDF8"/></linearGradient></defs>
+        <polygon points="400,218 598,416 400,614 202,416" fill="none" stroke="url(#ib1)" stroke-width="1.8" opacity=".72"/>
+        <polygon points="400,218 366,335 434,335" fill="rgba(255,255,255,.06)" stroke="#38BDF8" stroke-width="1.1" opacity=".82"/>
+        <polygon points="598,416 481,382 481,450" fill="rgba(255,255,255,.06)" stroke="#818CF8" stroke-width="1.1" opacity=".72"/>
+        <polygon points="400,614 434,497 366,497" fill="rgba(255,255,255,.06)" stroke="#D4537E" stroke-width="1.1" opacity=".72"/>
+        <polygon points="202,416 319,450 319,382" fill="rgba(255,255,255,.06)" stroke="#38BDF8" stroke-width="1.1" opacity=".76"/>
+        <polygon points="481,382 481,450 434,497 366,497 319,450 319,382 366,335 434,335" fill="rgba(56,189,248,0.06)" stroke="#38BDF8" stroke-width="1.2" opacity=".58"/>
+        <polygon points="400,374 442,416 400,458 358,416" fill="rgba(56,189,248,0.09)" stroke="url(#ib1)" stroke-width="1.8" stroke-linejoin="round" opacity=".96"/>
+        <polygon points="400,390 426,416 400,442 374,416" fill="rgba(56,189,248,0.30)" stroke="#38BDF8" stroke-width="1.5" stroke-linejoin="round" opacity=".93"/>
+        <circle cx="400" cy="416" r="6" fill="#38BDF8" opacity=".97"/>
+        <circle cx="400" cy="416" r="2.8" fill="#FFF"/>
+        <circle cx="400" cy="590" r="7" fill="#38BDF8" opacity=".72"/>
+      </svg>
+      <div class="icon-label" style="color:rgba(255,255,255,.28);">Black</div>
+    </div>
+
+    <!-- Light icon -->
+    <div class="icon-card ic-light">
+      <svg width="80" height="80" viewBox="180 230 440 440" fill="none">
+        <defs><linearGradient id="il1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0EA5E9"/><stop offset="33%" stop-color="#6366F1"/><stop offset="66%" stop-color="#BE185D"/><stop offset="100%" stop-color="#0EA5E9"/></linearGradient><radialGradient id="ilc1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#0EA5E9" stop-opacity=".14"/><stop offset="100%" stop-color="#0EA5E9" stop-opacity="0"/></radialGradient></defs>
+        <circle cx="400" cy="416" r="55" fill="url(#ilc1)" opacity=".9"/>
+        <polygon points="400,218 598,416 400,614 202,416" fill="none" stroke="url(#il1)" stroke-width="1.8" opacity=".58"/>
+        <polygon points="400,218 366,335 434,335" fill="rgba(0,0,0,.03)" stroke="#0EA5E9" stroke-width="1.1" opacity=".68"/>
+        <polygon points="598,416 481,382 481,450" fill="rgba(0,0,0,.03)" stroke="#6366F1" stroke-width="1.1" opacity=".58"/>
+        <polygon points="400,614 434,497 366,497" fill="rgba(0,0,0,.03)" stroke="#BE185D" stroke-width="1.1" opacity=".58"/>
+        <polygon points="202,416 319,450 319,382" fill="rgba(0,0,0,.03)" stroke="#0EA5E9" stroke-width="1.1" opacity=".62"/>
+        <polygon points="481,382 481,450 434,497 366,497 319,450 319,382 366,335 434,335" fill="rgba(14,165,233,0.06)" stroke="#0EA5E9" stroke-width="1.2" opacity=".48"/>
+        <polygon points="400,374 442,416 400,458 358,416" fill="rgba(14,165,233,0.10)" stroke="url(#il1)" stroke-width="1.8" stroke-linejoin="round" opacity=".90"/>
+        <polygon points="400,390 426,416 400,442 374,416" fill="rgba(14,165,233,0.22)" stroke="#0EA5E9" stroke-width="1.5" stroke-linejoin="round" opacity=".87"/>
+        <circle cx="400" cy="416" r="6" fill="#0EA5E9" opacity=".92"/>
+        <circle cx="400" cy="416" r="2.8" fill="#FFF"/>
+        <circle cx="400" cy="590" r="7" fill="#0EA5E9" opacity=".64"/>
+      </svg>
+      <div class="icon-label" style="color:rgba(15,23,42,.32);">Light</div>
+    </div>
+
+    <!-- White icon -->
+    <div class="icon-card ic-white">
+      <svg width="80" height="80" viewBox="180 230 440 440" fill="none">
+        <defs><linearGradient id="iw1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0284C7"/><stop offset="33%" stop-color="#4F46E5"/><stop offset="66%" stop-color="#9D174D"/><stop offset="100%" stop-color="#0284C7"/></linearGradient><radialGradient id="iwc1" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#0284C7" stop-opacity=".10"/><stop offset="100%" stop-color="#0284C7" stop-opacity="0"/></radialGradient></defs>
+        <circle cx="400" cy="416" r="55" fill="url(#iwc1)" opacity=".9"/>
+        <polygon points="400,218 598,416 400,614 202,416" fill="none" stroke="url(#iw1)" stroke-width="1.8" opacity=".52"/>
+        <polygon points="400,218 366,335 434,335" fill="rgba(0,0,0,.02)" stroke="#0284C7" stroke-width="1.1" opacity=".62"/>
+        <polygon points="598,416 481,382 481,450" fill="rgba(0,0,0,.02)" stroke="#4F46E5" stroke-width="1.1" opacity=".52"/>
+        <polygon points="400,614 434,497 366,497" fill="rgba(0,0,0,.02)" stroke="#9D174D" stroke-width="1.1" opacity=".52"/>
+        <polygon points="202,416 319,450 319,382" fill="rgba(0,0,0,.02)" stroke="#0284C7" stroke-width="1.1" opacity=".56"/>
+        <polygon points="481,382 481,450 434,497 366,497 319,450 319,382 366,335 434,335" fill="rgba(2,132,199,0.05)" stroke="#0284C7" stroke-width="1.2" opacity=".42"/>
+        <polygon points="400,374 442,416 400,458 358,416" fill="rgba(2,132,199,0.08)" stroke="url(#iw1)" stroke-width="1.8" stroke-linejoin="round" opacity=".87"/>
+        <polygon points="400,390 426,416 400,442 374,416" fill="rgba(2,132,199,0.18)" stroke="#0284C7" stroke-width="1.5" stroke-linejoin="round" opacity=".84"/>
+        <circle cx="400" cy="416" r="6" fill="#0284C7" opacity=".90"/>
+        <circle cx="400" cy="416" r="2.8" fill="#FFF"/>
+        <circle cx="400" cy="590" r="7" fill="#0284C7" opacity=".60"/>
+      </svg>
+      <div class="icon-label" style="color:rgba(15,23,42,.28);">White</div>
+    </div>
+  </div>
+
+  <!-- SIZE SCALE -->
+  <div class="section-label" style="margin-top:16px;">Icon Mark at Scale</div>
+  <div style="background:#03050C;border-radius:16px;padding:40px;display:flex;align-items:flex-end;justify-content:center;gap:40px;margin-bottom:48px;">
+    <!-- sizes: 16, 24, 32, 48, 64, 96 -->
+    <div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
+      <svg width="16" height="16" viewBox="200 250 400 360" fill="none"><defs><linearGradient id="sz1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#38BDF8"/><stop offset="50%" stop-color="#818CF8"/><stop offset="100%" stop-color="#D4537E"/></linearGradient></defs><polygon points="400,218 598,416 400,614 202,416" fill="none" stroke="url(#sz1)" stroke-width="3" opacity=".70"/><polygon points="481,382 481,450 434,497 366,497 319,450 319,382 366,335 434,335" fill="rgba(56,189,248,0.06)" stroke="#38BDF8" stroke-width="2.5" opacity=".55"/><polygon points="400,374 442,416 400,458 358,416" fill="rgba(56,189,248,0.10)" stroke="url(#sz1)" stroke-width="3" stroke-linejoin="round" opacity=".95"/><polygon points="400,390 426,416 400,442 374,416" fill="rgba(56,189,248,0.30)" stroke="#38BDF8" stroke-width="2.5" stroke-linejoin="round" opacity=".92"/><circle cx="400" cy="416" r="8" fill="#38BDF8" opacity=".95"/><circle cx="400" cy="416" r="4" fill="#FFF"/><circle cx="400" cy="590" r="9" fill="#38BDF8" opacity=".70"/></svg>
+      <span style="font-size:9px;font-weight:600;letter-spacing:.08em;color:rgba(255,255,255,.22);">16px</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
+      <svg width="24" height="24" viewBox="200 250 400 360" fill="none"><defs><linearGradient id="sz2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#38BDF8"/><stop offset="50%" stop-color="#818CF8"/><stop offset="100%" stop-color="#D4537E"/></linearGradient></defs><polygon points="400,218 598,416 400,614 202,416" fill="none" stroke="url(#sz2)" stroke-width="2.5" opacity=".70"/><polygon points="481,382 481,450 434,497 366,497 319,450 319,382 366,335 434,335" fill="rgba(56,189,248,0.06)" stroke="#38BDF8" stroke-width="2" opacity=".55"/><polygon points="400,374 442,416 400,458 358,416" fill="rgba(56,189,248,0.10)" stroke="url(#sz2)" stroke-width="2.5" stroke-linejoin="round" opacity=".95"/><polygon points="400,390 426,416 400,442 374,416" fill="rgba(56,189,248,0.28)" stroke="#38BDF8" stroke-width="2" stroke-linejoin="round" opacity=".90"/><circle cx="400" cy="416" r="8" fill="#38BDF8" opacity=".95"/><circle cx="400" cy="416" r="3.5" fill="#FFF"/><circle cx="400" cy="590" r="8" fill="#38BDF8" opacity=".70"/></svg>
+      <span style="font-size:9px;font-weight:600;letter-spacing:.08em;color:rgba(255,255,255,.22);">24px</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
+      <svg width="32" height="32" viewBox="200 250 400 360" fill="none"><defs><linearGradient id="sz3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#38BDF8"/><stop offset="50%" stop-color="#818CF8"/><stop offset="100%" stop-color="#D4537E"/></linearGradient></defs><polygon points="400,218 598,416 400,614 202,416" fill="none" stroke="url(#sz3)" stroke-width="2" opacity=".70"/><polygon points="400,218 366,335 434,335" fill="rgba(255,255,255,.05)" stroke="#38BDF8" stroke-width="1.5" opacity=".75"/><polygon points="598,416 481,382 481,450" fill="rgba(255,255,255,.05)" stroke="#818CF8" stroke-width="1.5" opacity=".65"/><polygon points="400,614 434,497 366,497" fill="rgba(255,255,255,.05)" stroke="#D4537E" stroke-width="1.5" opacity=".65"/><polygon points="202,416 319,450 319,382" fill="rgba(255,255,255,.05)" stroke="#38BDF8" stroke-width="1.5" opacity=".70"/><polygon points="481,382 481,450 434,497 366,497 319,450 319,382 366,335 434,335" fill="rgba(56,189,248,0.05)" stroke="#38BDF8" stroke-width="1.8" opacity=".55"/><polygon points="400,374 442,416 400,458 358,416" fill="rgba(56,189,248,0.09)" stroke="url(#sz3)" stroke-width="2" stroke-linejoin="round" opacity=".95"/><polygon points="400,390 426,416 400,442 374,416" fill="rgba(56,189,248,0.26)" stroke="#38BDF8" stroke-width="1.6" stroke-linejoin="round" opacity=".90"/><circle cx="400" cy="416" r="6.5" fill="#38BDF8" opacity=".95"/><circle cx="400" cy="416" r="3" fill="#FFF"/><circle cx="400" cy="590" r="7.5" fill="#38BDF8" opacity=".70"/></svg>
+      <span style="font-size:9px;font-weight:600;letter-spacing:.08em;color:rgba(255,255,255,.22);">32px</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
+      <svg width="48" height="48" viewBox="180 220 440 450" fill="none"><defs><linearGradient id="sz4" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#38BDF8"/><stop offset="50%" stop-color="#818CF8"/><stop offset="100%" stop-color="#D4537E"/></linearGradient></defs><polygon points="400,218 598,416 400,614 202,416" fill="none" stroke="url(#sz4)" stroke-width="2" opacity=".68"/><polygon points="400,218 366,335 434,335" fill="rgba(255,255,255,.06)" stroke="#38BDF8" stroke-width="1.2" opacity=".76"/><polygon points="598,416 481,382 481,450" fill="rgba(255,255,255,.06)" stroke="#818CF8" stroke-width="1.2" opacity=".66"/><polygon points="400,614 434,497 366,497" fill="rgba(255,255,255,.06)" stroke="#D4537E" stroke-width="1.2" opacity=".66"/><polygon points="202,416 319,450 319,382" fill="rgba(255,255,255,.06)" stroke="#38BDF8" stroke-width="1.2" opacity=".70"/><polygon points="481,382 481,450 434,497 366,497 319,450 319,382 366,335 434,335" fill="rgba(56,189,248,0.05)" stroke="#38BDF8" stroke-width="1.2" opacity=".55"/><polygon points="400,374 442,416 400,458 358,416" fill="rgba(56,189,248,0.08)" stroke="url(#sz4)" stroke-width="2" stroke-linejoin="round" opacity=".94"/><polygon points="400,390 426,416 400,442 374,416" fill="rgba(56,189,248,0.25)" stroke="#38BDF8" stroke-width="1.5" stroke-linejoin="round" opacity=".90"/><circle cx="400" cy="416" r="5.5" fill="#38BDF8" opacity=".94"/><circle cx="400" cy="416" r="2.5" fill="#FFF"/><circle cx="400" cy="590" r="6.5" fill="#38BDF8" opacity=".68"/></svg>
+      <span style="font-size:9px;font-weight:600;letter-spacing:.08em;color:rgba(255,255,255,.22);">48px</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
+      <svg width="64" height="64" viewBox="160 210 480 470" fill="none"><defs><linearGradient id="sz5" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#38BDF8"/><stop offset="33%" stop-color="#818CF8"/><stop offset="66%" stop-color="#D4537E"/><stop offset="100%" stop-color="#38BDF8"/></linearGradient><radialGradient id="szc5" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#38BDF8" stop-opacity=".35"/><stop offset="100%" stop-color="#38BDF8" stop-opacity="0"/></radialGradient></defs><circle cx="400" cy="416" r="55" fill="url(#szc5)" opacity=".8"/><polygon points="400,218 598,416 400,614 202,416" fill="none" stroke="url(#sz5)" stroke-width="1.6" opacity=".66"/><polygon points="400,218 366,335 434,335" fill="rgba(255,255,255,.06)" stroke="#38BDF8" stroke-width="1" opacity=".76"/><polygon points="598,416 481,382 481,450" fill="rgba(255,255,255,.06)" stroke="#818CF8" stroke-width="1" opacity=".66"/><polygon points="400,614 434,497 366,497" fill="rgba(255,255,255,.06)" stroke="#D4537E" stroke-width="1" opacity=".66"/><polygon points="202,416 319,450 319,382" fill="rgba(255,255,255,.06)" stroke="#38BDF8" stroke-width="1" opacity=".70"/><polygon points="481,382 481,450 434,497 366,497 319,450 319,382 366,335 434,335" fill="rgba(56,189,248,0.05)" stroke="#38BDF8" stroke-width="1.1" opacity=".55"/><polygon points="400,374 442,416 400,458 358,416" fill="rgba(56,189,248,0.07)" stroke="url(#sz5)" stroke-width="1.6" stroke-linejoin="round" opacity=".94"/><polygon points="400,390 426,416 400,442 374,416" fill="rgba(56,189,248,0.24)" stroke="#38BDF8" stroke-width="1.3" stroke-linejoin="round" opacity=".90"/><circle cx="400" cy="416" r="5.2" fill="#38BDF8" opacity=".94"/><circle cx="400" cy="416" r="2.4" fill="#FFF"/><circle cx="400" cy="590" r="6" fill="#38BDF8" opacity=".68"/></svg>
+      <span style="font-size:9px;font-weight:600;letter-spacing:.08em;color:rgba(255,255,255,.22);">64px</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:10px;">
+      <svg width="96" height="96" viewBox="140 190 520 500" fill="none"><defs><linearGradient id="sz6" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#38BDF8"/><stop offset="33%" stop-color="#818CF8"/><stop offset="66%" stop-color="#D4537E"/><stop offset="100%" stop-color="#38BDF8"/></linearGradient><radialGradient id="szc6" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#38BDF8" stop-opacity=".40"/><stop offset="40%" stop-color="#818CF8" stop-opacity=".16"/><stop offset="100%" stop-color="#38BDF8" stop-opacity="0"/></radialGradient></defs><circle cx="400" cy="416" r="58" fill="url(#szc6)" opacity=".85"/><polygon points="400,218 598,416 400,614 202,416" fill="none" stroke="url(#sz6)" stroke-width="1.5" opacity=".66"/><polygon points="400,218 366,335 434,335" fill="rgba(255,255,255,.06)" stroke="#38BDF8" stroke-width=".95" opacity=".76"/><polygon points="598,416 481,382 481,450" fill="rgba(255,255,255,.06)" stroke="#818CF8" stroke-width=".95" opacity=".66"/><polygon points="400,614 434,497 366,497" fill="rgba(255,255,255,.06)" stroke="#D4537E" stroke-width=".95" opacity=".66"/><polygon points="202,416 319,450 319,382" fill="rgba(255,255,255,.06)" stroke="#38BDF8" stroke-width=".95" opacity=".70"/><polygon points="400,218 598,416 481,382 434,335" fill="none" stroke="#818CF8" stroke-width=".5" opacity=".27"/><polygon points="598,416 400,614 434,497 481,450" fill="none" stroke="#D4537E" stroke-width=".5" opacity=".22"/><polygon points="400,614 202,416 319,450 366,497" fill="none" stroke="#D4537E" stroke-width=".5" opacity=".22"/><polygon points="202,416 400,218 366,335 319,382" fill="none" stroke="#38BDF8" stroke-width=".5" opacity=".27"/><polygon points="481,382 481,450 434,497 366,497 319,450 319,382 366,335 434,335" fill="rgba(56,189,248,0.05)" stroke="#38BDF8" stroke-width="1.05" opacity=".55"/><g stroke="#FFF" stroke-width=".35" opacity=".10" stroke-linecap="round"><line x1="481" y1="382" x2="400" y2="416"/><line x1="481" y1="450" x2="400" y2="416"/><line x1="434" y1="497" x2="400" y2="416"/><line x1="366" y1="497" x2="400" y2="416"/><line x1="319" y1="450" x2="400" y2="416"/><line x1="319" y1="382" x2="400" y2="416"/><line x1="366" y1="335" x2="400" y2="416"/><line x1="434" y1="335" x2="400" y2="416"/></g><circle cx="400" cy="416" r="55" fill="url(#szc6)" opacity=".5"/><polygon points="400,374 442,416 400,458 358,416" fill="rgba(56,189,248,0.07)" stroke="url(#sz6)" stroke-width="1.6" stroke-linejoin="round" opacity=".94"/><polygon points="400,390 426,416 400,442 374,416" fill="rgba(56,189,248,0.25)" stroke="#38BDF8" stroke-width="1.3" stroke-linejoin="round" opacity=".90"/><circle cx="400" cy="416" r="5.5" fill="#38BDF8" opacity=".94"/><circle cx="400" cy="416" r="2.5" fill="#FFF"/><circle cx="400" cy="590" r="6.5" fill="#38BDF8" opacity=".68"/></svg>
+      <span style="font-size:9px;font-weight:600;letter-spacing:.08em;color:rgba(255,255,255,.22);">96px</span>
+    </div>
+  </div>
+</div>
+
+<div class="rule"></div><div class="page-num">04</div>
+
+<!-- ════════════════════════════════
+     PAGE 4 — COLOUR PALETTE
+════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">Colour System</div>
+  <div class="section-title">Brand Palette</div>
+  <div class="section-sub">The Moxsuite colour system is built on three primary brand colours — Arctic Cyan, Nexus Indigo, and Signal Rose — matched to the three founding products. Secondary and neutral tones support the full product suite.</div>
+
+  <div class="section-label" style="margin-top:0;margin-bottom:12px;">Primary Colours</div>
+  <div class="colour-row">
+    <div class="colour-swatch">
+      <div class="cs-block" style="background:#38BDF8;"></div>
+      <div class="cs-info"><div class="cs-name">Arctic Cyan</div><div class="cs-hex">#38BDF8</div><div class="cs-use">Primary · Moxsend · Links · CTAs</div></div>
+    </div>
+    <div class="colour-swatch">
+      <div class="cs-block" style="background:#818CF8;"></div>
+      <div class="cs-info"><div class="cs-name">Nexus Indigo</div><div class="cs-hex">#818CF8</div><div class="cs-use">Intelligence · AI · Platform layer</div></div>
+    </div>
+    <div class="colour-swatch">
+      <div class="cs-block" style="background:#D4537E;"></div>
+      <div class="cs-info"><div class="cs-name">Signal Rose</div><div class="cs-hex">#D4537E</div><div class="cs-use">Moxwarm · People · Customer</div></div>
+    </div>
+    <div class="colour-swatch">
+      <div class="cs-block" style="background:#7F77DD;"></div>
+      <div class="cs-info"><div class="cs-name">Verify Violet</div><div class="cs-hex">#7F77DD</div><div class="cs-use">Moxcheck · Verification</div></div>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-bottom:12px;">Suite Colours</div>
+  <div class="colour-row">
+    <div class="colour-swatch">
+      <div class="cs-block" style="background:#10B981;"></div>
+      <div class="cs-info"><div class="cs-name">Emerald</div><div class="cs-hex">#10B981</div><div class="cs-use">Operations · Supply · Finance</div></div>
+    </div>
+    <div class="colour-swatch">
+      <div class="cs-block" style="background:#F59E0B;"></div>
+      <div class="cs-info"><div class="cs-name">Amber</div><div class="cs-hex">#F59E0B</div><div class="cs-use">Procurement · Tax · Scheduling</div></div>
+    </div>
+    <div class="colour-swatch">
+      <div class="cs-block" style="background:#F43F5E;"></div>
+      <div class="cs-info"><div class="cs-name">Rose Red</div><div class="cs-hex">#F43F5E</div><div class="cs-use">Alerts · Errors · Critical states</div></div>
+    </div>
+    <div class="colour-swatch">
+      <div class="cs-block" style="background:#34D399;"></div>
+      <div class="cs-info"><div class="cs-name">Mint</div><div class="cs-hex">#34D399</div><div class="cs-use">Success · Verified · Complete</div></div>
+    </div>
+  </div>
+
+  <div class="section-label" style="margin-bottom:12px;">Backgrounds &amp; Neutrals</div>
+  <div class="colour-row">
+    <div class="colour-swatch">
+      <div class="cs-block" style="background:#03050C;border:1px solid rgba(0,0,0,.08);"></div>
+      <div class="cs-info"><div class="cs-name">Deep Space</div><div class="cs-hex">#03050C</div><div class="cs-use">Primary dark background</div></div>
+    </div>
+    <div class="colour-swatch">
+      <div class="cs-block" style="background:#060D1F;border:1px solid rgba(0,0,0,.08);"></div>
+      <div class="cs-info"><div class="cs-name">Midnight Navy</div><div class="cs-hex">#060D1F</div><div class="cs-use">Cards · Sidebar on dark</div></div>
+    </div>
+    <div class="colour-swatch">
+      <div class="cs-block" style="background:#EEF2FF;border:1px solid rgba(0,0,0,.08);"></div>
+      <div class="cs-info"><div class="cs-name">Ghost White</div><div class="cs-hex">#EEF2FF</div><div class="cs-use">Primary text on dark</div></div>
+    </div>
+    <div class="colour-swatch">
+      <div class="cs-block" style="background:#F0F4FF;border:1px solid rgba(0,0,0,.08);"></div>
+      <div class="cs-info"><div class="cs-name">Ice Blue</div><div class="cs-hex">#F0F4FF</div><div class="cs-use">Light theme background</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="rule"></div><div class="page-num">05</div>
+
+<!-- ════════════════════════════════
+     PAGE 5 — TYPOGRAPHY
+════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">Typography</div>
+  <div class="section-title">Type System</div>
+  <div class="section-sub">Inter is the Moxsuite system font — precise, legible, modern. For Arabic, use Noto Sans Arabic at the same weights. All text is set sentence case. Never ALL CAPS except in labels and eyebrows.</div>
+
+  <div class="type-row">
+    <div class="type-meta">Display · Inter 900 · −0.05em tracking</div>
+    <div style="font-size:56px;font-weight:900;letter-spacing:-.05em;color:var(--ink);line-height:1;">The Enterprise<br>Operating System</div>
+  </div>
+  <div class="type-row">
+    <div class="type-meta">Heading 1 · Inter 800 · −0.04em tracking</div>
+    <div style="font-size:36px;font-weight:800;letter-spacing:-.04em;color:var(--ink);">35 Products. One Roof.</div>
+  </div>
+  <div class="type-row">
+    <div class="type-meta">Heading 2 · Inter 700 · −0.02em tracking</div>
+    <div style="font-size:24px;font-weight:700;letter-spacing:-.02em;color:var(--ink);">Campaign performance at a glance</div>
+  </div>
+  <div class="type-row">
+    <div class="type-meta">Body · Inter 400 · 0em tracking · 1.7 line-height</div>
+    <div style="font-size:16px;font-weight:400;color:var(--muted);line-height:1.7;max-width:560px;">Moxsuite is the enterprise operating system built for the GCC market. Every module speaks natively to the way Gulf businesses run — from Hijri calendar support to WPS payroll compliance to ZATCA VAT e-invoicing.</div>
+  </div>
+  <div class="type-row">
+    <div class="type-meta">Label · Inter 700 · 0.14em tracking · UPPERCASE</div>
+    <div style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);">Email Verification · Priority 1 · Month 1</div>
+  </div>
+  <div class="type-row">
+    <div class="type-meta">Arabic — Noto Sans Arabic 700 · Direction RTL</div>
+    <div style="font-size:28px;font-weight:700;direction:rtl;font-family:'Noto Sans Arabic',Tahoma,sans-serif;color:var(--ink);">نظام تشغيل المؤسسة</div>
+    <div style="font-size:14px;color:var(--muted);margin-top:6px;direction:rtl;font-family:'Noto Sans Arabic',Tahoma,sans-serif;">٣٥ منتجاً تحت سقف واحد</div>
+  </div>
+</div>
+
+<div class="rule"></div><div class="page-num">06</div>
+
+<!-- ════════════════════════════════
+     PAGE 6 — TAGLINE USAGE
+════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">Voice &amp; Taglines</div>
+  <div class="section-title">The Words Behind the Mark</div>
+  <div class="section-sub">Three lines. Every application. Never deviate from these.</div>
+
+  <div class="tagline-hero">
+    <div class="th-small">Primary Tagline</div>
+    <div class="th-main">The Enterprise<br><em>Operating System</em></div>
+    <div class="th-sub">35 Products. One Roof.</div>
+    <div class="th-dots">
+      <div class="cdot" style="background:#7F77DD;opacity:.55;"></div>
+      <div class="cdot" style="background:#38BDF8;opacity:.65;"></div>
+      <div class="cdot" style="background:#D4537E;opacity:.55;"></div>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:48px;">
+    <div style="padding:28px;background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:16px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:12px;">Full Stack</div>
+      <div style="font-size:17px;font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:8px;">The Enterprise Operating System</div>
+      <div style="font-size:13px;color:var(--muted);">35 Products. One Roof.</div>
+    </div>
+    <div style="padding:28px;background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:16px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--indigo);margin-bottom:12px;">Short Form</div>
+      <div style="font-size:17px;font-weight:700;color:var(--ink);line-height:1.3;margin-bottom:8px;">One system.<br>Every function.</div>
+      <div style="font-size:13px;color:var(--muted);">For digital ads, OOH, social</div>
+    </div>
+    <div style="padding:28px;background:var(--navy);border:1px solid rgba(56,189,248,.12);border-radius:16px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(56,189,248,.55);margin-bottom:12px;">Arabic</div>
+      <div style="font-size:17px;font-weight:700;color:#EEF2FF;line-height:1.4;margin-bottom:8px;direction:rtl;font-family:'Noto Sans Arabic',Tahoma,sans-serif;">نظام تشغيل المؤسسة</div>
+      <div style="font-size:13px;color:rgba(238,242,255,.38);direction:rtl;font-family:'Noto Sans Arabic',Tahoma,sans-serif;">٣٥ منتجاً تحت سقف واحد</div>
+    </div>
+  </div>
+</div>
+
+<div class="rule"></div><div class="page-num">07</div>
+
+<!-- ════════════════════════════════
+     PAGE 7 — DO / DON'T
+════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">Usage Rules</div>
+  <div class="section-title">Do and Don't</div>
+  <div class="section-sub">These rules protect the mark. Every violation weakens what we are building. When in doubt, use the approved files — do not recreate the mark.</div>
+
+  <div class="dd-grid">
+    <div class="dd-card dd-do">
+      <div class="dd-label">Do</div>
+      <div class="dd-rule">Use the mark on its approved background only — dark on dark, white on white.</div>
+      <div class="dd-rule">Always maintain clear space equal to the height of the "M" in MOXSUITE on all four sides.</div>
+      <div class="dd-rule">Use the gradient wordmark on dark backgrounds. Use the dark wordmark on light.</div>
+      <div class="dd-rule">Use the family dot on all product marks — it is part of the system, not optional.</div>
+      <div class="dd-rule">Switch to Arabic RTL layout when displaying in Arabic. Use Noto Sans Arabic.</div>
+      <div class="dd-rule">Use only the four approved versions: Dark, Black, Light, and White.</div>
+      <div class="dd-rule">Scale the mark proportionally. The icon and wordmark always appear at the same ratio.</div>
+    </div>
+    <div class="dd-card dd-dont">
+      <div class="dd-label">Don't</div>
+      <div class="dd-rule">Never recreate the Nexus mark. Use only the approved SVG files.</div>
+      <div class="dd-rule">Never alter the brand colours. Do not substitute Pantone, CMYK, or approximate values.</div>
+      <div class="dd-rule">Never stretch, skew, rotate, or distort the mark in any direction.</div>
+      <div class="dd-rule">Never add a drop shadow, glow, emboss, or any effect to the mark.</div>
+      <div class="dd-rule">Never place the mark on a patterned, photographic, or coloured background without approval.</div>
+      <div class="dd-rule">Never display the wordmark without the icon mark on primary brand applications.</div>
+      <div class="dd-rule">Never use the tagline without proper capitalisation: The Enterprise Operating System — not THE ENTERPRISE OPERATING SYSTEM.</div>
+    </div>
+  </div>
+</div>
+
+<div class="rule"></div><div class="page-num">08</div>
+
+<!-- ════════════════════════════════
+     PAGE 8 — PRODUCT SUITE MARKS
+════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">The Product Suite</div>
+  <div class="section-title">35 Products. One Family.</div>
+  <div class="section-sub">Every product in the Moxsuite ecosystem carries the family dot and follows the wordmark convention — Mox + product name, with the product name in the brand colour. All icons are built on the same geometric language as the master mark.</div>
+
+  <!-- PIPELINE -->
+  <div class="product-section">
+    <div class="ps-header">
+      <div style="width:10px;height:24px;border-radius:2px;background:linear-gradient(180deg,#38BDF8,#7F77DD);flex-shrink:0;"></div>
+      <div><div class="ps-label">Layer 1</div><div class="ps-title">Pipeline — Find, Verify, Warm, Convert</div></div>
+    </div>
+    <div class="products-row">
+      <div class="p-item">
+        <svg width="40" height="40" viewBox="0 0 400 400" fill="none"><path d="M200,78 L306,135 L306,249 L200,306 L94,249 L94,135 Z" stroke="#7F77DD" stroke-width="7" stroke-linejoin="round"/><path d="M142,196 L178,240 L262,148" stroke="#7F77DD" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/><circle cx="200" cy="346" r="12" fill="#7F77DD" opacity=".75"/></svg>
+        <div class="p-name" style="color:#7F77DD;">Moxcheck</div>
+        <div class="p-tagline">Every address verified</div>
+      </div>
+      <div class="p-item">
+        <svg width="40" height="40" viewBox="0 0 400 400" fill="none"><circle cx="200" cy="192" r="118" stroke="#D4537E" stroke-width="7"/><rect x="126" y="206" width="28" height="40" rx="14" fill="#D4537E" opacity=".32"/><rect x="166" y="178" width="28" height="68" rx="14" fill="#D4537E" opacity=".55"/><rect x="206" y="150" width="28" height="96" rx="14" fill="#D4537E" opacity=".78"/><rect x="246" y="138" width="28" height="108" rx="14" fill="#D4537E"/><circle cx="200" cy="346" r="12" fill="#D4537E" opacity=".75"/></svg>
+        <div class="p-name" style="color:#D4537E;">Moxwarm</div>
+        <div class="p-tagline">Warm your domain</div>
+      </div>
+      <div class="p-item">
+        <svg width="40" height="40" viewBox="0 0 200 200" fill="none"><circle cx="100" cy="100" r="88" stroke="#38BDF8" stroke-width="8"/><path d="M32,122 Q100,68 168,122" fill="none" stroke="#38BDF8" stroke-width="14" stroke-linecap="round"/><polygon points="136,78 172,100 136,122 146,100" fill="#FFF"/><circle cx="100" cy="136" r="9" fill="#38BDF8" opacity=".9"/></svg>
+        <div class="p-name" style="color:#38BDF8;">Moxsend</div>
+        <div class="p-tagline">Stop spraying</div>
+      </div>
+      <div class="p-item">
+        <svg width="40" height="40" viewBox="0 0 100 100" fill="none"><rect x="18" y="12" width="64" height="76" rx="9" stroke="#4ADE80" stroke-width="5"/><line x1="30" y1="35" x2="70" y2="35" stroke="#4ADE80" stroke-width="4" stroke-linecap="round"/><line x1="30" y1="50" x2="70" y2="50" stroke="#4ADE80" stroke-width="4" stroke-linecap="round" opacity=".6"/><circle cx="74" cy="74" r="14" fill="#FFF" stroke="#4ADE80" stroke-width="4"/><path d="M69,74 L72,77 L79,70" stroke="#4ADE80" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="p-name" style="color:#4ADE80;">Moxquote</div>
+        <div class="p-tagline">Price it right</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLOSE -->
+  <div class="product-section">
+    <div class="ps-header">
+      <div style="width:10px;height:24px;border-radius:2px;background:linear-gradient(180deg,#60A5FA,#C084FC);flex-shrink:0;"></div>
+      <div><div class="ps-label">Layer 2</div><div class="ps-title">Close — CRM, Marketing, Meetings</div></div>
+    </div>
+    <div class="products-row">
+      <div class="p-item">
+        <svg width="36" height="36" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="32" r="14" stroke="#60A5FA" stroke-width="5"/><circle cx="22" cy="68" r="10" stroke="#60A5FA" stroke-width="4" opacity=".6"/><circle cx="78" cy="68" r="10" stroke="#60A5FA" stroke-width="4" opacity=".6"/><line x1="50" y1="46" x2="28" y2="60" stroke="#60A5FA" stroke-width="3" stroke-linecap="round" opacity=".7"/><line x1="50" y1="46" x2="72" y2="60" stroke="#60A5FA" stroke-width="3" stroke-linecap="round" opacity=".7"/></svg>
+        <div class="p-name" style="color:#60A5FA;">Moxcrm</div><div class="p-tagline">Every relationship</div>
+      </div>
+      <div class="p-item">
+        <svg width="36" height="36" viewBox="0 0 100 100" fill="none"><rect x="10" y="22" width="60" height="52" rx="9" stroke="#2DD4BF" stroke-width="5"/><path d="M70,38 L90,28 L90,72 L70,62 Z" stroke="#2DD4BF" stroke-width="4" stroke-linejoin="round"/><circle cx="35" cy="48" r="9" stroke="#2DD4BF" stroke-width="3.5" opacity=".7"/></svg>
+        <div class="p-name" style="color:#2DD4BF;">Moxmeet</div><div class="p-tagline">Book. Propose. Sign.</div>
+      </div>
+      <div class="p-item">
+        <svg width="36" height="36" viewBox="0 0 100 100" fill="none"><path d="M15,70 L30,42 L50,55 L68,28 L85,48" fill="none" stroke="#C084FC" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="85" cy="48" r="6" fill="#C084FC"/></svg>
+        <div class="p-name" style="color:#C084FC;">Moxmarket</div><div class="p-tagline">Campaigns that reach</div>
+      </div>
+      <div class="p-item">
+        <svg width="36" height="36" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="14" stroke="#34D399" stroke-width="5"/><circle cx="18" cy="30" r="9" stroke="#34D399" stroke-width="4" opacity=".7"/><circle cx="82" cy="30" r="9" stroke="#34D399" stroke-width="4" opacity=".7"/><circle cx="18" cy="70" r="9" stroke="#34D399" stroke-width="4" opacity=".7"/><circle cx="82" cy="70" r="9" stroke="#34D399" stroke-width="4" opacity=".7"/><line x1="36" y1="43" x2="27" y2="37" stroke="#34D399" stroke-width="3" stroke-linecap="round"/><line x1="64" y1="43" x2="73" y2="37" stroke="#34D399" stroke-width="3" stroke-linecap="round"/><line x1="36" y1="57" x2="27" y2="63" stroke="#34D399" stroke-width="3" stroke-linecap="round"/><line x1="64" y1="57" x2="73" y2="63" stroke="#34D399" stroke-width="3" stroke-linecap="round"/></svg>
+        <div class="p-name" style="color:#34D399;">Moxaffiliate</div><div class="p-tagline">Your network grows</div>
+      </div>
+      <div class="p-item">
+        <svg width="36" height="36" viewBox="0 0 100 100" fill="none"><rect x="10" y="10" width="36" height="36" rx="10" stroke="#FB923C" stroke-width="5"/><rect x="54" y="10" width="36" height="36" rx="10" stroke="#FB923C" stroke-width="5" opacity=".6"/><rect x="10" y="54" width="36" height="36" rx="10" stroke="#FB923C" stroke-width="5" opacity=".6"/><rect x="54" y="54" width="36" height="36" rx="10" stroke="#FB923C" stroke-width="5" opacity=".35"/></svg>
+        <div class="p-name" style="color:#FB923C;">Moxsocial</div><div class="p-tagline">Post smarter</div>
+      </div>
+      <div class="p-item">
+        <svg width="36" height="36" viewBox="0 0 100 100" fill="none"><circle cx="44" cy="44" r="28" stroke="#A3E635" stroke-width="5"/><line x1="64" y1="64" x2="88" y2="88" stroke="#A3E635" stroke-width="6" stroke-linecap="round"/></svg>
+        <div class="p-name" style="color:#A3E635;">Moxseo</div><div class="p-tagline">Rank higher</div>
+      </div>
+      <div class="p-item">
+        <svg width="36" height="36" viewBox="0 0 100 100" fill="none"><path d="M20,75 L20,50 L40,35 L40,75 Z" stroke="#F87171" stroke-width="4.5" stroke-linejoin="round"/><path d="M45,75 L45,40 L65,25 L65,75 Z" stroke="#F87171" stroke-width="4.5" stroke-linejoin="round" opacity=".7"/><path d="M70,75 L70,55 L90,45 L90,75 Z" stroke="#F87171" stroke-width="4.5" stroke-linejoin="round" opacity=".45"/></svg>
+        <div class="p-name" style="color:#F87171;">Moxads</div><div class="p-tagline">Every dirham counted</div>
+      </div>
+      <div class="p-item">
+        <svg width="36" height="36" viewBox="0 0 100 100" fill="none"><rect x="12" y="24" width="76" height="64" rx="10" stroke="#818CF8" stroke-width="5"/><line x1="12" y1="42" x2="88" y2="42" stroke="#818CF8" stroke-width="3.5" opacity=".45"/><line x1="34" y1="14" x2="34" y2="34" stroke="#818CF8" stroke-width="5" stroke-linecap="round"/><line x1="66" y1="14" x2="66" y2="34" stroke="#818CF8" stroke-width="5" stroke-linecap="round"/></svg>
+        <div class="p-name" style="color:#818CF8;">Moxevent</div><div class="p-tagline">Memorable moments</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINANCE + PEOPLE note -->
+  <div style="padding:28px;background:#F8FAFF;border:1px solid rgba(56,189,248,.12);border-radius:16px;margin-bottom:0;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);margin-bottom:8px;">Full Suite</div>
+    <div style="font-size:14px;color:var(--muted);line-height:1.7;">Layers 3–7 include: <strong style="color:var(--ink);">Moxbooks, Moxsign, Moxtax, Moxpay, Moxaudit, Moxbudget</strong> (Finance) · <strong style="color:var(--ink);">Moxpeople, Moxhire, Moxlearn, Moxperform, Moxvisa</strong> (People) · <strong style="color:var(--ink);">Moxbuy, Moxstock, Moxops, Moxlogix, Moxasset, Moxfleet, Moxfacility</strong> (Operations) · <strong style="color:var(--ink);">Moxdesk, Moxgrow, Moxchat, Moxportal, Moxloyalty, Moxreview</strong> (Customer) · <strong style="color:var(--ink);">Moxinsight, Moxvault, Moxsecure, Moxflow, Moxconnect, Moxmobile, MoxAI</strong> (Platform). Full product logo specifications are covered in the Product Brand Standards supplement.</div>
+  </div>
+</div>
+
+<div class="rule"></div><div class="page-num">09</div>
+
+<!-- ════════════════════════════════
+     PAGE 9 — CLEAR SPACE + CONTACT
+════════════════════════════════ -->
+<div class="section">
+  <div class="section-label">Clear Space &amp; Minimum Size</div>
+  <div class="section-title">Protection Zone</div>
+  <div class="section-sub">The Nexus mark must breathe. No other element — text, imagery, another logo, a border — may enter the clear space zone. The minimum size ensures the mark is always legible and never compromised.</div>
+
+  <div class="clearspace-wrap" style="margin-bottom:32px;">
+    <div style="position:relative;display:inline-block;">
+      <!-- Clear space indicator -->
+      <div style="position:absolute;inset:-32px;border:1px dashed rgba(56,189,248,.3);border-radius:4px;"></div>
+      <div style="position:absolute;top:-26px;left:50%;transform:translateX(-50%);font-size:9px;font-weight:700;letter-spacing:.1em;color:rgba(56,189,248,.55);white-space:nowrap;">Clear space = 1× M height</div>
+      <svg width="120" height="100" viewBox="180 230 440 440" fill="none">
+        <defs><linearGradient id="csm" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#38BDF8"/><stop offset="50%" stop-color="#818CF8"/><stop offset="100%" stop-color="#D4537E"/></linearGradient></defs>
+        <polygon points="400,218 598,416 400,614 202,416" fill="none" stroke="url(#csm)" stroke-width="1.6" opacity=".68"/>
+        <polygon points="400,218 366,335 434,335" fill="rgba(255,255,255,.05)" stroke="#38BDF8" stroke-width="1" opacity=".75"/>
+        <polygon points="598,416 481,382 481,450" fill="rgba(255,255,255,.05)" stroke="#818CF8" stroke-width="1" opacity=".65"/>
+        <polygon points="400,614 434,497 366,497" fill="rgba(255,255,255,.05)" stroke="#D4537E" stroke-width="1" opacity=".65"/>
+        <polygon points="202,416 319,450 319,382" fill="rgba(255,255,255,.05)" stroke="#38BDF8" stroke-width="1" opacity=".70"/>
+        <polygon points="481,382 481,450 434,497 366,497 319,450 319,382 366,335 434,335" fill="rgba(56,189,248,0.04)" stroke="#38BDF8" stroke-width="1.1" opacity=".55"/>
+        <polygon points="400,374 442,416 400,458 358,416" fill="rgba(56,189,248,0.08)" stroke="url(#csm)" stroke-width="1.6" stroke-linejoin="round" opacity=".93"/>
+        <polygon points="400,390 426,416 400,442 374,416" fill="rgba(56,189,248,0.24)" stroke="#38BDF8" stroke-width="1.3" stroke-linejoin="round" opacity=".90"/>
+        <circle cx="400" cy="416" r="5.5" fill="#38BDF8" opacity=".93"/>
+        <circle cx="400" cy="416" r="2.5" fill="#FFF"/>
+        <circle cx="400" cy="590" r="6.5" fill="#38BDF8" opacity=".68"/>
+      </svg>
+    </div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:64px;">
+    <div style="padding:24px;background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:14px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);margin-bottom:8px;">Digital minimum</div>
+      <div style="font-size:28px;font-weight:800;color:var(--ink);">32px</div>
+      <div style="font-size:13px;color:var(--muted);margin-top:4px;">Icon mark only. Below this, use text only.</div>
+    </div>
+    <div style="padding:24px;background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:14px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--indigo);margin-bottom:8px;">With wordmark minimum</div>
+      <div style="font-size:28px;font-weight:800;color:var(--ink);">120px</div>
+      <div style="font-size:13px;color:var(--muted);margin-top:4px;">Full lockup. Below 120px, use icon only.</div>
+    </div>
+    <div style="padding:24px;background:#fff;border:1px solid rgba(0,0,0,.07);border-radius:14px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--rose);margin-bottom:8px;">Print minimum</div>
+      <div style="font-size:28px;font-weight:800;color:var(--ink);">15mm</div>
+      <div style="font-size:13px;color:var(--muted);margin-top:4px;">Icon mark in print. Full lockup at 40mm+.</div>
+    </div>
+  </div>
+
+  <!-- BACK COVER -->
+  <div style="background:var(--navy);border-radius:24px;padding:60px;text-align:center;">
+    <div style="font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(56,189,248,.40);margin-bottom:28px;">Brand Enquiries</div>
+    <div style="font-size:32px;font-weight:900;letter-spacing:-.04em;color:#EEF2FF;margin-bottom:8px;">MOX<span style="color:#38BDF8;">SUITE</span></div>
+    <div style="font-size:13px;color:rgba(238,242,255,.28);letter-spacing:.05em;margin-bottom:32px;">The Enterprise Operating System</div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:40px;font-size:13px;color:rgba(238,242,255,.38);">
+      <span>hello@moxsend.ai</span>
+      <span style="opacity:.3;">·</span>
+      <span>moxsuite.ai</span>
+      <span style="opacity:.3;">·</span>
+      <span>EaseHawk Technologies &amp; Meshdex Developers</span>
+    </div>
+    <div style="display:flex;align-items:center;justify-content:center;gap:10px;margin-top:32px;">
+      <div class="cdot" style="background:#7F77DD;opacity:.5;width:7px;height:7px;"></div>
+      <div class="cdot" style="background:#38BDF8;opacity:.6;width:7px;height:7px;"></div>
+      <div class="cdot" style="background:#D4537E;opacity:.5;width:7px;height:7px;"></div>
+    </div>
+    <div style="font-size:10px;font-weight:500;letter-spacing:.1em;color:rgba(238,242,255,.15);margin-top:24px;">Confidential · Moxsuite Brand Identity Guidelines 2025 · Version 1.0</div>
+  </div>
+</div>
+
+</body>
+</html>

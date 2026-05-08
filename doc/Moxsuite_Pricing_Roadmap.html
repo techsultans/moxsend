@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Moxsuite — Pricing Roadmap</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;0,9..144,900;1,9..144,400&family=DM+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#F8F7F3;
+  --ink:#0C0A06;
+  --t1:#2E2A20;
+  --t2:#6B6248;
+  --t3:#9E9278;
+  --t4:#C8BEA8;
+  --b0:#E8E2D5;
+  --b1:#D4CBBA;
+  --s0:#FFFFFF;
+  --cyan:#0EA5E9;
+  --indigo:#4F46E5;
+  --rose:#BE123C;
+  --amber:#B45309;
+  --green:#065F46;
+  --green2:#059669;
+  --sh:0 2px 8px rgba(12,10,6,.08),0 1px 2px rgba(12,10,6,.04);
+  --sh2:0 12px 40px rgba(12,10,6,.10),0 4px 8px rgba(12,10,6,.05);
+  --sh3:0 32px 80px rgba(12,10,6,.12),0 8px 16px rgba(12,10,6,.06);
+}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* ── COVER ── */
+.cover{
+  background:var(--ink);
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:80px 48px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.cover::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse at 20% 30%,rgba(14,165,233,.08) 0%,transparent 55%),
+    radial-gradient(ellipse at 80% 70%,rgba(79,70,229,.07) 0%,transparent 55%),
+    radial-gradient(ellipse at 50% 90%,rgba(190,18,60,.05) 0%,transparent 50%);
+}
+.cover-label{
+  font-family:'DM Mono',monospace;
+  font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(255,255,255,.28);margin-bottom:28px;position:relative;
+}
+.cover-title{
+  font-family:'Fraunces',serif;
+  font-size:clamp(48px,7vw,88px);font-weight:900;letter-spacing:-.04em;
+  color:#F8F7F3;line-height:.94;margin-bottom:24px;position:relative;
+}
+.cover-title em{color:#0EA5E9;font-style:italic;}
+.cover-sub{
+  font-size:18px;font-weight:400;color:rgba(248,247,243,.40);
+  max-width:560px;line-height:1.65;margin-bottom:48px;position:relative;
+}
+.cover-timeline{
+  display:flex;align-items:center;gap:0;position:relative;
+}
+.ct-item{
+  display:flex;flex-direction:column;align-items:center;gap:8px;width:96px;
+  cursor:pointer;
+}
+.ct-dot{
+  width:36px;height:36px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:700;
+  border:1.5px solid rgba(255,255,255,.15);
+  color:rgba(255,255,255,.50);
+  background:rgba(255,255,255,.05);
+  transition:all .2s;
+}
+.ct-item:hover .ct-dot{border-color:rgba(14,165,233,.60);color:#0EA5E9;background:rgba(14,165,233,.10);}
+.ct-label{font-size:10px;font-weight:600;color:rgba(255,255,255,.28);letter-spacing:.04em;text-align:center;line-height:1.3;}
+.ct-line{width:32px;height:1px;background:rgba(255,255,255,.10);margin-bottom:26px;flex-shrink:0;}
+
+/* ── SECTION WRAPPER ── */
+.section{max-width:1100px;margin:0 auto;padding:88px 48px;}
+.stage-num{
+  font-family:'DM Mono',monospace;
+  font-size:11px;font-weight:500;letter-spacing:.20em;text-transform:uppercase;
+  color:var(--t3);margin-bottom:10px;
+}
+.stage-title{
+  font-family:'Fraunces',serif;
+  font-size:clamp(32px,5vw,52px);font-weight:700;letter-spacing:-.04em;
+  color:var(--ink);line-height:1.05;margin-bottom:14px;
+}
+.stage-title em{font-style:italic;color:var(--cyan);}
+.stage-desc{
+  font-size:16px;color:var(--t2);line-height:1.75;
+  max-width:620px;margin-bottom:52px;
+}
+.stage-divider{
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--b0),transparent);
+  margin:88px auto;max-width:1100px;
+}
+
+/* ── PRICING PAGE MOCKUP — STAGE 1 ── */
+.pricing-outer{
+  background:var(--ink);border-radius:20px;overflow:hidden;
+  box-shadow:var(--sh3);margin-bottom:40px;
+}
+.pricing-nav{
+  display:flex;align-items:center;padding:16px 28px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+  background:rgba(255,255,255,.02);
+}
+.pn-logo{
+  font-family:'Fraunces',serif;font-size:18px;font-weight:700;
+  color:#F8F7F3;letter-spacing:-.02em;margin-right:32px;
+}
+.pn-logo em{color:#0EA5E9;font-style:italic;}
+.pn-links{display:flex;gap:24px;margin-right:auto;}
+.pn-link{font-size:13px;color:rgba(255,255,255,.38);cursor:pointer;transition:color .14s;}
+.pn-link:hover{color:rgba(255,255,255,.75);}
+.pn-link.on{color:#F8F7F3;font-weight:500;}
+.pn-cta{height:32px;padding:0 16px;border-radius:7px;background:#0EA5E9;color:#0C0A06;font-family:'DM Sans',sans-serif;font-size:12.5px;font-weight:700;border:none;cursor:pointer;}
+
+.pricing-hero{padding:60px 48px 40px;text-align:center;}
+.ph-eye{font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:rgba(14,165,233,.60);margin-bottom:14px;}
+.ph-title{
+  font-family:'Fraunces',serif;font-size:48px;font-weight:800;letter-spacing:-.04em;
+  color:#F8F7F3;line-height:1;margin-bottom:12px;
+}
+.ph-sub{font-size:16px;color:rgba(248,247,243,.38);max-width:440px;margin:0 auto 28px;line-height:1.6;}
+.billing-toggle{
+  display:inline-flex;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);
+  border-radius:99px;padding:4px;gap:4px;margin-bottom:48px;
+}
+.bt{
+  font-size:12.5px;font-weight:500;padding:6px 18px;border-radius:99px;
+  cursor:pointer;color:rgba(255,255,255,.45);transition:all .2s;
+}
+.bt.on{background:#F8F7F3;color:var(--ink);font-weight:700;}
+.bt-badge{
+  font-size:9px;font-weight:700;background:#0EA5E9;color:#0C0A06;
+  padding:1px 6px;border-radius:99px;margin-left:4px;
+}
+
+/* TIER CARDS */
+.tiers{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;padding:0 28px 48px;}
+.tier{
+  border-radius:16px;padding:28px 24px;position:relative;overflow:hidden;
+  transition:transform .2s;
+}
+.tier:hover{transform:translateY(-4px);}
+.tier-ghost{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.10);
+}
+.tier-hero{
+  background:linear-gradient(145deg,rgba(14,165,233,.18),rgba(79,70,229,.14));
+  border:1.5px solid rgba(14,165,233,.30);
+}
+.tier-hero::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,#0EA5E9,#818CF8);
+}
+.tier-dark{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.10);
+}
+.tier-pop{
+  position:absolute;top:14px;right:14px;
+  font-size:9px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;
+  background:#0EA5E9;color:#0C0A06;padding:3px 9px;border-radius:99px;
+}
+.tier-name{
+  font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,255,255,.40);margin-bottom:10px;
+}
+.tier-price{
+  display:flex;align-items:baseline;gap:4px;margin-bottom:6px;
+}
+.tier-amt{
+  font-family:'Fraunces',serif;font-size:52px;font-weight:800;letter-spacing:-.05em;
+  color:#F8F7F3;line-height:1;
+}
+.tier-per{font-size:13px;color:rgba(255,255,255,.35);}
+.tier-cr{font-size:13px;color:rgba(255,255,255,.45);margin-bottom:20px;}
+.tier-cr strong{color:#0EA5E9;font-weight:700;}
+.tier-divider{height:1px;background:rgba(255,255,255,.08);margin:18px 0;}
+.tier-feat{display:flex;flex-direction:column;gap:8px;margin-bottom:22px;}
+.tf{display:flex;align-items:flex-start;gap:9px;font-size:13px;color:rgba(255,255,255,.55);line-height:1.45;}
+.tf svg{width:14px;height:14px;flex-shrink:0;margin-top:1px;}
+.tf.on{color:rgba(255,255,255,.80);}
+.tf.on svg{color:#0EA5E9;}
+.tier-btn{
+  width:100%;height:42px;border-radius:10px;border:none;cursor:pointer;
+  font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;
+  transition:all .18s;
+}
+.tb-pri{background:#0EA5E9;color:#0C0A06;}
+.tb-pri:hover{background:#38BDF8;box-shadow:0 6px 20px rgba(14,165,233,.35);}
+.tb-ghost{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#F8F7F3;}
+.tb-ghost:hover{background:rgba(255,255,255,.14);}
+
+/* BELOW TIERS — links to other options */
+.below-tiers{
+  padding:20px 28px 40px;text-align:center;
+  border-top:1px solid rgba(255,255,255,.06);
+  display:flex;align-items:center;justify-content:center;gap:32px;
+}
+.bt-link{
+  font-size:13px;color:rgba(255,255,255,.30);cursor:pointer;
+  display:flex;align-items:center;gap:6px;transition:color .14s;
+}
+.bt-link:hover{color:rgba(255,255,255,.65);}
+.bt-link svg{width:14px;height:14px;}
+
+/* ── STAGE ANNOTATIONS ── */
+.annotation{
+  display:flex;gap:14px;align-items:flex-start;
+  padding:16px 20px;background:var(--s0);border:1px solid var(--b0);
+  border-radius:12px;box-shadow:var(--sh);margin-bottom:10px;
+}
+.ann-num{
+  width:26px;height:26px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:800;flex-shrink:0;
+  background:var(--ink);color:#F8F7F3;
+}
+.ann-title{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:3px;}
+.ann-body{font-size:12.5px;color:var(--t2);line-height:1.6;}
+.ann-badge{
+  display:inline-block;font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  padding:2px 8px;border-radius:6px;margin-left:6px;vertical-align:middle;
+}
+.ab-c{background:rgba(14,165,233,.10);color:var(--cyan);}
+.ab-g{background:rgba(5,150,105,.10);color:var(--green2);}
+.ab-a{background:rgba(180,83,9,.10);color:var(--amber);}
+.ab-r{background:rgba(190,18,60,.08);color:var(--rose);}
+
+/* ── STAGE 2 — FREE TRIAL GATE ── */
+.trial-card{
+  background:var(--ink);border-radius:20px;overflow:hidden;
+  box-shadow:var(--sh3);display:grid;grid-template-columns:1fr 1fr;
+  max-height:520px;
+}
+.trial-left{
+  padding:52px 48px;
+  background:linear-gradient(145deg,rgba(14,165,233,.06),rgba(79,70,229,.04));
+  border-right:1px solid rgba(255,255,255,.06);
+}
+.trial-right{
+  padding:52px 48px;display:flex;flex-direction:column;justify-content:center;
+}
+.tl-eye{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(14,165,233,.60);margin-bottom:16px;}
+.tl-title{font-family:'Fraunces',serif;font-size:36px;font-weight:800;letter-spacing:-.04em;color:#F8F7F3;margin-bottom:10px;line-height:1.1;}
+.tl-sub{font-size:14px;color:rgba(255,255,255,.38);line-height:1.65;margin-bottom:24px;}
+.trial-perks{display:flex;flex-direction:column;gap:10px;}
+.tp-item{display:flex;align-items:center;gap:10px;font-size:13px;color:rgba(255,255,255,.55);}
+.tp-ic{width:20px;height:20px;border-radius:50%;background:rgba(5,150,105,.15);border:1px solid rgba(5,150,105,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.tp-ic svg{width:10px;height:10px;color:#34D399;}
+
+/* form */
+.trial-form{display:flex;flex-direction:column;gap:14px;}
+.tr-label{font-size:11.5px;font-weight:600;color:rgba(255,255,255,.45);margin-bottom:5px;}
+.tr-input{
+  width:100%;height:42px;background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.12);border-radius:9px;
+  padding:0 14px;font-family:'DM Sans',sans-serif;font-size:14px;color:#F8F7F3;outline:none;
+}
+.tr-input::placeholder{color:rgba(255,255,255,.22);}
+.tr-cta{
+  width:100%;height:44px;border-radius:10px;border:none;cursor:pointer;
+  background:#0EA5E9;color:#0C0A06;font-family:'DM Sans',sans-serif;
+  font-size:14.5px;font-weight:800;transition:all .18s;
+}
+.tr-cta:hover{background:#38BDF8;box-shadow:0 6px 20px rgba(14,165,233,.35);}
+.tr-fine{font-size:11px;color:rgba(255,255,255,.22);text-align:center;}
+
+/* ── STAGE 3 — IN-APP UPGRADE PROMPT ── */
+.upgrade-card{
+  background:#F8F7F3;border:1px solid var(--b0);border-radius:16px;
+  padding:28px 32px;display:flex;align-items:center;gap:24px;
+  box-shadow:var(--sh2);position:relative;overflow:hidden;
+}
+.upgrade-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,#0EA5E9,#818CF8);
+}
+.uc-icon{
+  width:52px;height:52px;border-radius:14px;
+  background:rgba(14,165,233,.10);border:1px solid rgba(14,165,233,.20);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.uc-icon svg{width:24px;height:24px;color:#0EA5E9;}
+.uc-body{flex:1;}
+.uc-title{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+.uc-sub{font-size:13px;color:var(--t2);line-height:1.55;}
+.uc-meter{margin-top:10px;}
+.uc-bar{height:6px;background:var(--b0);border-radius:99px;overflow:hidden;margin-bottom:4px;}
+.uc-fill{height:100%;border-radius:99px;}
+.uc-labels{display:flex;justify-content:space-between;font-size:11px;}
+.uc-cta{display:flex;gap:8px;flex-shrink:0;}
+
+/* ── STAGE 4 — LIFETIME CREDITS ── */
+.lifetime-wrap{
+  background:var(--ink);border-radius:20px;overflow:hidden;
+  box-shadow:var(--sh3);padding:52px 48px;
+}
+.lw-header{text-align:center;margin-bottom:44px;}
+.lw-eye{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(129,140,248,.70);margin-bottom:12px;}
+.lw-title{font-family:'Fraunces',serif;font-size:42px;font-weight:800;letter-spacing:-.04em;color:#F8F7F3;margin-bottom:8px;}
+.lw-sub{font-size:15px;color:rgba(255,255,255,.35);max-width:480px;margin:0 auto;}
+.lifetime-packs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+.lp{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.10);
+  border-radius:14px;padding:24px 22px;position:relative;transition:all .2s;
+}
+.lp:hover{background:rgba(255,255,255,.07);transform:translateY(-3px);}
+.lp.featured{border-color:rgba(129,140,248,.35);background:rgba(129,140,248,.08);}
+.lp-pop{
+  position:absolute;top:12px;right:12px;
+  font-size:9px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;
+  background:#818CF8;color:#0C0A06;padding:3px 9px;border-radius:99px;
+}
+.lp-name{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:10px;}
+.lp-price{font-family:'Fraunces',serif;font-size:44px;font-weight:800;letter-spacing:-.05em;color:#F8F7F3;line-height:1;margin-bottom:4px;}
+.lp-cr{font-size:14px;color:rgba(255,255,255,.50);margin-bottom:4px;}
+.lp-cr strong{color:#818CF8;}
+.lp-val{font-size:12px;color:rgba(255,255,255,.28);margin-bottom:18px;}
+.lp-divider{height:1px;background:rgba(255,255,255,.08);margin:16px 0;}
+.lp-feats{display:flex;flex-direction:column;gap:7px;margin-bottom:20px;}
+.lpf{font-size:12.5px;color:rgba(255,255,255,.50);display:flex;align-items:center;gap:8px;}
+.lpf::before{content:'—';color:rgba(255,255,255,.18);font-size:10px;}
+.lp-btn{
+  width:100%;height:38px;border-radius:9px;border:none;cursor:pointer;
+  font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;transition:all .18s;
+}
+.lpb-pri{background:#818CF8;color:#0C0A06;}
+.lpb-pri:hover{background:#A78BFA;box-shadow:0 6px 20px rgba(129,140,248,.30);}
+.lpb-g{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#F8F7F3;}
+.lpb-g:hover{background:rgba(255,255,255,.14);}
+.lw-note{
+  margin-top:24px;text-align:center;font-size:12px;color:rgba(255,255,255,.22);line-height:1.65;
+}
+
+/* ── STAGE 5 — STANDALONE PRODUCTS ── */
+.standalone-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.sa-card{
+  background:var(--s0);border:1px solid var(--b0);border-radius:20px;
+  overflow:hidden;box-shadow:var(--sh2);
+}
+.sa-top{padding:32px 32px 24px;}
+.sa-icon{
+  width:48px;height:48px;border-radius:13px;
+  display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+}
+.sa-name{font-family:'Fraunces',serif;font-size:28px;font-weight:700;letter-spacing:-.03em;color:var(--ink);margin-bottom:6px;}
+.sa-name em{font-style:italic;}
+.sa-desc{font-size:13.5px;color:var(--t2);line-height:1.65;margin-bottom:20px;}
+.sa-plans{display:flex;flex-direction:column;gap:8px;}
+.sa-plan{
+  display:flex;align-items:center;gap:12px;
+  padding:12px 16px;border-radius:10px;border:1px solid var(--b0);
+  background:var(--bg);cursor:pointer;transition:all .14s;
+}
+.sa-plan:hover{border-color:var(--b1);box-shadow:var(--sh);}
+.sa-plan.best{border-color:rgba(5,150,105,.25);background:rgba(5,150,105,.03);}
+.sp-name{font-size:13px;font-weight:600;color:var(--ink);flex:1;}
+.sp-detail{font-size:11px;color:var(--t3);}
+.sp-price{font-size:15px;font-weight:800;color:var(--ink);}
+.sa-bottom{padding:16px 32px;background:var(--bg);border-top:1px solid var(--b0);}
+.sab-text{font-size:12px;color:var(--t3);}
+
+/* ── STAGE 6 — ENTERPRISE ── */
+.enterprise-card{
+  background:var(--ink);border-radius:20px;overflow:hidden;
+  box-shadow:var(--sh3);display:grid;grid-template-columns:1fr 1fr;
+}
+.ec-left{padding:56px 52px;border-right:1px solid rgba(255,255,255,.06);}
+.ec-eye{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(190,18,60,.70);margin-bottom:14px;}
+.ec-title{font-family:'Fraunces',serif;font-size:38px;font-weight:800;letter-spacing:-.04em;color:#F8F7F3;line-height:1.05;margin-bottom:14px;}
+.ec-sub{font-size:14px;color:rgba(255,255,255,.38);line-height:1.70;margin-bottom:32px;}
+.ec-options{display:flex;flex-direction:column;gap:10px;}
+.ec-opt{
+  padding:14px 18px;border-radius:12px;
+  border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);
+  cursor:pointer;transition:all .15s;display:flex;align-items:center;gap:14px;
+}
+.ec-opt:hover{background:rgba(255,255,255,.07);border-color:rgba(190,18,60,.25);}
+.eco-ic{
+  width:36px;height:36px;border-radius:9px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  background:rgba(190,18,60,.12);border:1px solid rgba(190,18,60,.20);
+}
+.eco-ic svg{width:16px;height:16px;color:#F87171;}
+.eco-name{font-size:13px;font-weight:700;color:rgba(255,255,255,.75);}
+.eco-desc{font-size:11.5px;color:rgba(255,255,255,.30);}
+.eco-price{margin-left:auto;font-size:13px;font-weight:700;color:rgba(190,18,60,.80);}
+.ec-right{padding:56px 52px;display:flex;flex-direction:column;justify-content:center;}
+.ec-form{display:flex;flex-direction:column;gap:14px;}
+.ecf-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.ecf-label{font-size:11.5px;font-weight:600;color:rgba(255,255,255,.35);margin-bottom:5px;}
+.ecf-input{
+  width:100%;height:40px;background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.10);border-radius:8px;
+  padding:0 12px;font-family:'DM Sans',sans-serif;font-size:13.5px;color:#F8F7F3;outline:none;
+}
+.ecf-input::placeholder{color:rgba(255,255,255,.20);}
+.ecf-select{
+  width:100%;height:40px;background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.10);border-radius:8px;
+  padding:0 12px;font-family:'DM Sans',sans-serif;font-size:13.5px;color:rgba(255,255,255,.60);outline:none;
+}
+.ecf-cta{
+  width:100%;height:44px;border-radius:10px;border:none;cursor:pointer;
+  background:linear-gradient(135deg,#BE123C,#E11D48);color:#fff;
+  font-family:'DM Sans',sans-serif;font-size:14.5px;font-weight:800;
+  transition:all .18s;
+}
+.ecf-cta:hover{box-shadow:0 6px 20px rgba(190,18,60,.35);}
+.ecf-fine{font-size:11px;color:rgba(255,255,255,.18);text-align:center;}
+
+/* ── AI TOKENS SECTION ── */
+.tokens-wrap{background:var(--s0);border:1px solid var(--b0);border-radius:20px;overflow:hidden;box-shadow:var(--sh);}
+.tokens-head{padding:28px 32px;border-bottom:1px solid var(--b0);}
+.th-title{font-size:17px;font-weight:700;color:var(--ink);}
+.th-sub{font-size:13px;color:var(--t2);margin-top:3px;}
+.tokens-table{width:100%;border-collapse:collapse;}
+.tt-head th{padding:10px 22px;font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);text-align:left;background:var(--bg);border-bottom:1px solid var(--b0);}
+.tt-row td{padding:13px 22px;border-bottom:1px solid var(--b0);font-size:13px;color:var(--ink);}
+.tt-row:last-child td{border-bottom:none;}
+.tt-row:hover td{background:var(--bg);}
+.tt-action{font-weight:600;}
+.tt-credit{font-family:'DM Mono',monospace;font-weight:700;}
+.tt-note{font-size:11.5px;color:var(--t3);}
+
+/* ── ROADMAP TIMELINE ── */
+.roadmap-line{
+  max-width:800px;margin:0 auto;position:relative;
+  padding-left:40px;
+}
+.roadmap-line::before{
+  content:'';position:absolute;left:14px;top:0;bottom:0;
+  width:1.5px;background:linear-gradient(180deg,var(--b0),transparent);
+}
+.rl-item{position:relative;margin-bottom:36px;}
+.rl-dot{
+  position:absolute;left:-40px;top:2px;
+  width:28px;height:28px;border-radius:50%;
+  border:2px solid var(--b0);background:var(--bg);
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:800;color:var(--t2);
+}
+.rl-item.active .rl-dot{border-color:var(--cyan);background:rgba(14,165,233,.10);color:var(--cyan);}
+.rl-phase{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:4px;}
+.rl-title{font-size:16px;font-weight:700;color:var(--ink);margin-bottom:6px;}
+.rl-desc{font-size:13px;color:var(--t2);line-height:1.65;}
+.rl-metric{
+  display:inline-flex;align-items:center;gap:5px;margin-top:8px;
+  font-size:11.5px;font-weight:600;color:var(--green2);
+  background:rgba(5,150,105,.08);border:1px solid rgba(5,150,105,.16);
+  padding:3px 10px;border-radius:99px;
+}
+
+/* ── FOOTER ── */
+.footer{
+  background:var(--ink);padding:48px;text-align:center;
+  margin-top:0;
+}
+.footer-title{
+  font-family:'Fraunces',serif;font-size:32px;font-weight:700;
+  letter-spacing:-.03em;color:#F8F7F3;margin-bottom:8px;
+}
+.footer-title em{color:#0EA5E9;font-style:italic;}
+.footer-sub{font-size:14px;color:rgba(255,255,255,.30);margin-bottom:28px;}
+.footer-links{display:flex;gap:24px;justify-content:center;font-size:12px;color:rgba(255,255,255,.28);}
+
+/* scroll reveal */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .6s,transform .6s;}
+.reveal.in{opacity:1;transform:none;}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     COVER
+══════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-label">Moxsuite · Pricing Rollout Roadmap · 2025</div>
+  <div class="cover-title">
+    Six stages.<br>One revenue <em>machine.</em>
+  </div>
+  <div class="cover-sub">
+    The sequence in which customers discover, try, buy, expand, and refer. Each stage has exactly one goal and one conversion event.
+  </div>
+  <div class="cover-timeline">
+    <div class="ct-item"><div class="ct-dot">1</div><div class="ct-label">Public Pricing Page</div></div>
+    <div class="ct-line"></div>
+    <div class="ct-item"><div class="ct-dot">2</div><div class="ct-label">Free Trial Gate</div></div>
+    <div class="ct-line"></div>
+    <div class="ct-item"><div class="ct-dot">3</div><div class="ct-label">In-App Upgrade</div></div>
+    <div class="ct-line"></div>
+    <div class="ct-item"><div class="ct-dot">4</div><div class="ct-label">Lifetime Credits</div></div>
+    <div class="ct-line"></div>
+    <div class="ct-item"><div class="ct-dot">5</div><div class="ct-label">Standalone Products</div></div>
+    <div class="ct-line"></div>
+    <div class="ct-item"><div class="ct-dot">6</div><div class="ct-label">Enterprise</div></div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════
+     STAGE 1 — PUBLIC PRICING PAGE
+══════════════════════════════════════ -->
+<div class="section reveal" id="stage1">
+  <div class="stage-num">Stage 01 of 06</div>
+  <div class="stage-title">The public pricing page.<br>Three tiers. <em>One decision.</em></div>
+  <div class="stage-desc">This is the only page the world sees first. No lifetime plans. No standalone products. No enterprise matrix. One question: which plan do you start with? The goal of this page is a single conversion event — someone clicks Start Free Trial on any tier.</div>
+
+  <!-- MOCKUP -->
+  <div class="pricing-outer">
+    <div class="pricing-nav">
+      <div class="pn-logo">Mox<em>send</em></div>
+      <div class="pn-links">
+        <div class="pn-link">Product</div>
+        <div class="pn-link on">Pricing</div>
+        <div class="pn-link">Docs</div>
+        <div class="pn-link">Blog</div>
+      </div>
+      <button class="pn-cta">Start free →</button>
+    </div>
+    <div class="pricing-hero">
+      <div class="ph-eye">Simple, honest pricing</div>
+      <div class="ph-title">Start sending. Scale freely.</div>
+      <div class="ph-sub">No per-seat charges. No hidden add-ons. Credits roll if you renew. Cancel anytime.</div>
+      <div class="billing-toggle">
+        <div class="bt">Monthly</div>
+        <div class="bt on">Annual <span class="bt-badge">2 months free</span></div>
+      </div>
+    </div>
+    <div class="tiers">
+
+      <!-- STARTER -->
+      <div class="tier tier-ghost">
+        <div class="tier-name">Starter</div>
+        <div class="tier-price">
+          <div class="tier-amt">$49</div>
+          <div class="tier-per">/month</div>
+        </div>
+        <div class="tier-cr"><strong>3,000 credits</strong> per month</div>
+        <div class="tier-divider"></div>
+        <div class="tier-feat">
+          <div class="tf on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>3,000 emails / month</div>
+          <div class="tf on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>1,000 email verifications</div>
+          <div class="tf on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>1 domain warmup</div>
+          <div class="tf on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Basic AI personalisation</div>
+          <div class="tf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Credits do not roll over</div>
+          <div class="tf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>API access</div>
+        </div>
+        <button class="tier-btn tb-ghost">Start free trial</button>
+      </div>
+
+      <!-- GROWTH — HERO -->
+      <div class="tier tier-hero">
+        <div class="tier-pop">Most popular</div>
+        <div class="tier-name">Growth</div>
+        <div class="tier-price">
+          <div class="tier-amt">$99</div>
+          <div class="tier-per">/month</div>
+        </div>
+        <div class="tier-cr"><strong>8,000 credits</strong> per month</div>
+        <div class="tier-divider"></div>
+        <div class="tier-feat">
+          <div class="tf on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>8,000 emails / month</div>
+          <div class="tf on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>5,000 email verifications</div>
+          <div class="tf on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>3 domains warmup</div>
+          <div class="tf on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Full AI suite</div>
+          <div class="tf on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Credits roll on renewal</div>
+          <div class="tf"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>API access</div>
+        </div>
+        <button class="tier-btn tb-pri">Start free trial →</button>
+      </div>
+
+      <!-- SCALE -->
+      <div class="tier tier-dark">
+        <div class="tier-name">Scale</div>
+        <div class="tier-price">
+          <div class="tier-amt">$149</div>
+          <div class="tier-per">/month</div>
+        </div>
+        <div class="tier-cr"><strong>20,000 credits</strong> per month</div>
+        <div class="tier-divider"></div>
+        <div class="tier-feat">
+          <div class="tf on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>20,000 emails / month</div>
+          <div class="tf on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>20,000 email verifications</div>
+          <div class="tf on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Unlimited domains</div>
+          <div class="tf on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Full AI suite + priority</div>
+          <div class="tf on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Credits roll on renewal</div>
+          <div class="tf on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Full API access</div>
+        </div>
+        <button class="tier-btn tb-ghost">Start free trial</button>
+      </div>
+    </div>
+
+    <!-- BELOW THE FOLD LINKS — hidden pathways -->
+    <div class="below-tiers">
+      <div class="bt-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Need lifetime credits?
+      </div>
+      <div class="bt-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+        Just need Moxcheck or Moxwarm?
+      </div>
+      <div class="bt-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        Enterprise or custom deployment?
+      </div>
+    </div>
+  </div>
+
+  <!-- ANNOTATIONS -->
+  <div class="annotation">
+    <div class="ann-num">A</div>
+    <div><div class="ann-title">Annual toggle is ON by default <span class="ann-badge ab-g">Conversion</span></div><div class="ann-body">Pre-select annual billing. The "2 months free" badge makes the value obvious. Users who actively switch to monthly are signalling price sensitivity — track this as a segment for targeted offers later. Annual billing improves your cash flow by 2 months upfront per customer.</div></div>
+  </div>
+  <div class="annotation">
+    <div class="ann-num">B</div>
+    <div><div class="ann-title">Growth tier is visually dominant <span class="ann-badge ab-c">Psychology</span></div><div class="ann-body">The centre card with the gradient border, the "Most popular" badge, and the only button with an arrow (→) all point the eye to Growth. This is the anchoring effect — Starter feels limited, Scale feels expensive, Growth feels just right. This is the Goldilocks principle applied to pricing.</div></div>
+  </div>
+  <div class="annotation">
+    <div class="ann-num">C</div>
+    <div><div class="ann-title">Hidden pathways below the fold <span class="ann-badge ab-a">Discovery</span></div><div class="ann-body">Lifetime credits, standalone products, and enterprise are not hidden — they are below the fold. Customers who are ready for these options will scroll and find them. Customers who are not ready will not be confused by them. This is progressive disclosure — show complexity only to those who seek it.</div></div>
+  </div>
+</div>
+
+<div class="stage-divider"></div>
+
+<!-- ══════════════════════════════════════
+     STAGE 2 — FREE TRIAL GATE
+══════════════════════════════════════ -->
+<div class="section reveal" id="stage2">
+  <div class="stage-num">Stage 02 of 06</div>
+  <div class="stage-title">The free trial gate.<br><em>300 credits.</em> No card.</div>
+  <div class="stage-desc">When someone clicks Start Free Trial, they land here. The goal is not to collect payment — it is to get one email address and deliver one moment of value within 5 minutes. 300 credits is enough to verify a list and send 10 real emails. That is the hook.</div>
+
+  <div class="trial-card">
+    <div class="trial-left">
+      <div class="tl-eye">Free trial · No credit card</div>
+      <div class="tl-title">300 credits,<br>yours today.</div>
+      <div class="tl-sub">Verify 60 emails. Warm one domain. Send 10 personalised cold emails. See the difference in 5 minutes.</div>
+      <div class="trial-perks">
+        <div class="tp-item"><div class="tp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>300 credits · no expiry during trial</div>
+        <div class="tp-item"><div class="tp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>Moxcheck + Moxwarm + Moxsend all active</div>
+        <div class="tp-item"><div class="tp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>Full AI personalisation included</div>
+        <div class="tp-item"><div class="tp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>Arabic + English interface</div>
+        <div class="tp-item"><div class="tp-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>GCC timezone and calendar aware</div>
+      </div>
+    </div>
+    <div class="trial-right">
+      <div class="trial-form">
+        <div>
+          <div class="tr-label">Work email</div>
+          <input class="tr-input" type="email" placeholder="ahmed@gulftrade.ae" readonly/>
+        </div>
+        <div class="ecf-row">
+          <div>
+            <div class="tr-label">First name</div>
+            <input class="tr-input" type="text" placeholder="Ahmed" readonly/>
+          </div>
+          <div>
+            <div class="tr-label">Company</div>
+            <input class="tr-input" type="text" placeholder="Gulf Trade" readonly/>
+          </div>
+        </div>
+        <div>
+          <div class="tr-label">Country</div>
+          <select class="ecf-select" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.10);color:rgba(255,255,255,.60);">
+            <option>United Arab Emirates</option>
+            <option>Saudi Arabia</option>
+            <option>India</option>
+            <option>Qatar</option>
+          </select>
+        </div>
+        <button class="tr-cta">Get 300 free credits →</button>
+        <div class="tr-fine">No credit card. No commitment. Credits activate instantly.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="annotation" style="margin-top:20px;">
+    <div class="ann-num">A</div>
+    <div><div class="ann-title">Work email only — no Gmail, Yahoo, Hotmail <span class="ann-badge ab-a">Quality gate</span></div><div class="ann-body">Validate the email domain. If it is a personal email provider, show: "Please use your work email — this helps us give you the right GCC setup." This filters out low-intent signups and dramatically improves your trial-to-paid conversion rate. Enterprise buyers always use work email.</div></div>
+  </div>
+  <div class="annotation">
+    <div class="ann-num">B</div>
+    <div><div class="ann-title">Country field drives the onboarding experience <span class="ann-badge ab-c">Personalisation</span></div><div class="ann-body">UAE → show Arabic toggle on first login, set timezone to GST, show Ramadan calendar awareness. Saudi → same but ZATCA compliance note. India → show IST timezone, INR pricing option. This one field makes the product feel built for them specifically.</div></div>
+  </div>
+  <div class="annotation">
+    <div class="ann-num">C</div>
+    <div><div class="ann-title">300 credits converts to paid within 7 days — or it never does <span class="ann-badge ab-r">Urgency</span></div><div class="ann-body">Send email Day 1 (welcome + quick start), Day 3 (did you verify your list?), Day 6 (your trial has 2 days left — upgrade now and keep your credits). If they do not upgrade by Day 7, their remaining credits do not expire — they are frozen. One reactivation email at Day 30. This is the lifecycle.</div></div>
+  </div>
+</div>
+
+<div class="stage-divider"></div>
+
+<!-- ══════════════════════════════════════
+     STAGE 3 — IN-APP UPGRADE PROMPT
+══════════════════════════════════════ -->
+<div class="section reveal" id="stage3">
+  <div class="stage-num">Stage 03 of 06</div>
+  <div class="stage-title">The in-app moment.<br>Upgrade when it <em>hurts.</em></div>
+  <div class="stage-desc">The most powerful moment to show an upgrade prompt is not on the pricing page — it is the exact moment a user hits their limit. They just tried to send email 3,001. They are engaged. They want to continue. That is the moment. Show it precisely here and nowhere else.</div>
+
+  <!-- UPGRADE PROMPT VARIANTS -->
+  <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:24px;">
+
+    <!-- Credits running low -->
+    <div class="upgrade-card">
+      <div class="uc-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+      </div>
+      <div class="uc-body">
+        <div class="uc-title">You have used 2,750 of your 3,000 credits</div>
+        <div class="uc-sub">250 credits remaining · enough for approximately 12 more emails this month. Upgrade to Growth and get 8,000 credits — plus your unused credits roll to next month.</div>
+        <div class="uc-meter">
+          <div class="uc-bar"><div class="uc-fill" style="width:91.6%;background:linear-gradient(90deg,#0EA5E9,#818CF8);"></div></div>
+          <div class="uc-labels"><span style="font-size:11px;color:var(--t3);">2,750 used</span><span style="font-size:11px;color:var(--amber);font-weight:600;">250 left</span></div>
+        </div>
+      </div>
+      <div class="uc-cta">
+        <button style="height:36px;padding:0 18px;border-radius:8px;background:var(--ink);color:#fff;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;border:none;cursor:pointer;white-space:nowrap;">Upgrade to Growth →</button>
+        <button style="height:36px;padding:0 14px;border-radius:8px;background:transparent;border:1px solid var(--b1);color:var(--t2);font-family:'DM Sans',sans-serif;font-size:13px;cursor:pointer;">Later</button>
+      </div>
+    </div>
+
+    <!-- Hit the limit -->
+    <div class="upgrade-card" style="border-color:rgba(190,18,60,.20);">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#BE123C,#F43F5E);"></div>
+      <div class="uc-icon" style="background:rgba(190,18,60,.08);border-color:rgba(190,18,60,.20);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#BE123C" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
+      <div class="uc-body">
+        <div class="uc-title" style="color:var(--rose);">You have reached your monthly limit</div>
+        <div class="uc-sub">Your campaign is paused. Upgrade now and it resumes in seconds — no setup required. Your existing campaign data, contacts, and history are all preserved.</div>
+      </div>
+      <div class="uc-cta">
+        <button style="height:36px;padding:0 18px;border-radius:8px;background:var(--rose);color:#fff;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;border:none;cursor:pointer;white-space:nowrap;">Resume campaign →</button>
+      </div>
+    </div>
+
+    <!-- Feature gate -->
+    <div class="upgrade-card" style="border-color:rgba(79,70,229,.20);">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#4F46E5,#818CF8);"></div>
+      <div class="uc-icon" style="background:rgba(79,70,229,.08);border-color:rgba(79,70,229,.20);">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#4F46E5" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="uc-body">
+        <div class="uc-title">API access is available on the Scale plan</div>
+        <div class="uc-sub">Connect Moxsend directly to your CRM, Zapier, or custom workflows. Upgrade to Scale to unlock full API access — plus unlimited domain warmup and 20,000 credits.</div>
+      </div>
+      <div class="uc-cta">
+        <button style="height:36px;padding:0 18px;border-radius:8px;background:#4F46E5;color:#fff;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;border:none;cursor:pointer;white-space:nowrap;">Unlock API access</button>
+        <button style="height:36px;padding:0 14px;border-radius:8px;background:transparent;border:1px solid var(--b1);color:var(--t2);font-family:'DM Sans',sans-serif;font-size:13px;cursor:pointer;">See all Scale features</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="annotation">
+    <div class="ann-num">A</div>
+    <div><div class="ann-title">Show the prompt at 91% usage — not 100% <span class="ann-badge ab-g">Timing</span></div><div class="ann-body">At 100% they are blocked and frustrated. At 91% they are still engaged and can act before it hurts. The credit meter at 91% filled is also psychologically unsettling — most users will upgrade rather than wait for the block.</div></div>
+  </div>
+  <div class="annotation">
+    <div class="ann-num">B</div>
+    <div><div class="ann-title">Never show a pricing page — show an upgrade button <span class="ann-badge ab-c">Friction</span></div><div class="ann-body">Every click is friction that causes drop-off. The in-app upgrade prompt should collect payment and activate the new plan in the same flow — no redirection to the pricing page, no re-entering details, no confirmation screen delay. One click. Plan upgraded. Campaign resumes.</div></div>
+  </div>
+</div>
+
+<div class="stage-divider"></div>
+
+<!-- ══════════════════════════════════════
+     STAGE 4 — LIFETIME CREDITS
+══════════════════════════════════════ -->
+<div class="section reveal" id="stage4">
+  <div class="stage-num">Stage 04 of 06</div>
+  <div class="stage-title">Lifetime credits.<br>Discovered <em>inside</em> the product.</div>
+  <div class="stage-desc">Lifetime credits are never advertised publicly. They appear in two places only: a sidebar link inside the app (visible after 14 days of use), and an email sent to monthly subscribers on month 3. The goal is to convert your most engaged users into long-term committed customers before they consider churning.</div>
+
+  <div class="lifetime-wrap">
+    <div class="lw-header">
+      <div class="lw-eye">Moxsend Lifetime Access</div>
+      <div class="lw-title">Pay once. Send forever.</div>
+      <div class="lw-sub">Buy a block of credits that never expire within your validity period. No monthly bills. No renewal anxiety. Just send.</div>
+    </div>
+    <div class="lifetime-packs">
+
+      <!-- STARTER LIFETIME -->
+      <div class="lp">
+        <div class="lp-name">Starter</div>
+        <div class="lp-price">$149</div>
+        <div class="lp-cr"><strong>5,000 credits</strong> · one time</div>
+        <div class="lp-val">Valid for 3 years · $0.030 / credit</div>
+        <div class="lp-divider"></div>
+        <div class="lp-feats">
+          <div class="lpf">5,000 emails OR verifications</div>
+          <div class="lpf">Moxcheck included</div>
+          <div class="lpf">Basic AI personalisation</div>
+          <div class="lpf">3-year validity window</div>
+          <div class="lpf">Credits freeze if dormant 12m</div>
+        </div>
+        <button class="lp-btn lpb-g">Buy Starter Pack</button>
+      </div>
+
+      <!-- GROWTH LIFETIME — FEATURED -->
+      <div class="lp featured">
+        <div class="lp-pop">Best value</div>
+        <div class="lp-name">Growth</div>
+        <div class="lp-price">$349</div>
+        <div class="lp-cr"><strong>15,000 credits</strong> · one time</div>
+        <div class="lp-val">Valid for 5 years · $0.023 / credit</div>
+        <div class="lp-divider"></div>
+        <div class="lp-feats">
+          <div class="lpf">15,000 emails OR verifications</div>
+          <div class="lpf">Moxcheck + Moxwarm included</div>
+          <div class="lpf">Full AI suite</div>
+          <div class="lpf">5-year validity window</div>
+          <div class="lpf">Credits freeze if dormant 12m</div>
+        </div>
+        <button class="lp-btn lpb-pri">Buy Growth Pack</button>
+      </div>
+
+      <!-- SCALE LIFETIME -->
+      <div class="lp">
+        <div class="lp-name">Scale</div>
+        <div class="lp-price">$749</div>
+        <div class="lp-cr"><strong>40,000 credits</strong> · one time</div>
+        <div class="lp-val">Valid for 8 years · $0.019 / credit</div>
+        <div class="lp-divider"></div>
+        <div class="lp-feats">
+          <div class="lpf">40,000 emails OR verifications</div>
+          <div class="lpf">Moxcheck + Moxwarm included</div>
+          <div class="lpf">Full AI suite + API</div>
+          <div class="lpf">8-year validity window</div>
+          <div class="lpf">Credits freeze if dormant 12m</div>
+        </div>
+        <button class="lp-btn lpb-g">Buy Scale Pack</button>
+      </div>
+    </div>
+    <div class="lw-note">
+      Credits do not expire within your validity period. If you do not log in for 12 consecutive months, credits are frozen — not deleted. One reactivation email restores them instantly.<br>
+      Lifetime plans are not publicly listed. They are available only to existing Moxsend users.
+    </div>
+  </div>
+
+  <div class="annotation" style="margin-top:20px;">
+    <div class="ann-num">A</div>
+    <div><div class="ann-title">Never show lifetime plans publicly <span class="ann-badge ab-r">Strategy</span></div><div class="ann-body">Public lifetime deals attract deal hunters — people who buy once, never convert to subscription revenue, and clog your support queue. Inside the app means only genuine users who have already experienced the product see it. Their lifetime purchase price reflects real value, not desperation for cash.</div></div>
+  </div>
+  <div class="annotation">
+    <div class="ann-num">B</div>
+    <div><div class="ann-title">Send the lifetime offer at month 3 — the loyalty moment <span class="ann-badge ab-g">Timing</span></div><div class="ann-body">A customer who has paid for 3 months is a real customer. They have seen the product work. The email subject line: "As a Moxsend member for 90 days — something we only share inside." That framing makes it feel like a reward, not a promotion. Conversion rate on this email should be 15–25%.</div></div>
+  </div>
+</div>
+
+<div class="stage-divider"></div>
+
+<!-- ══════════════════════════════════════
+     STAGE 5 — STANDALONE PRODUCTS
+══════════════════════════════════════ -->
+<div class="section reveal" id="stage5">
+  <div class="stage-num">Stage 05 of 06</div>
+  <div class="stage-title">Standalone products.<br>For those who only need <em>one thing.</em></div>
+  <div class="stage-desc">Some customers already have a sending tool and only need verification. Some have great email infrastructure but cold domains. Moxcheck and Moxwarm are available as standalone products — discoverable via the "Just need one tool?" link below the pricing tiers. These pages exist but are never advertised directly.</div>
+
+  <div class="standalone-grid">
+
+    <!-- MOXCHECK STANDALONE -->
+    <div class="sa-card">
+      <div class="sa-top">
+        <div class="sa-icon" style="background:rgba(127,119,221,.10);border:1px solid rgba(127,119,221,.20);">
+          <svg width="24" height="24" viewBox="0 0 400 400" fill="none"><path d="M200,78 L306,135 L306,249 L200,306 L94,249 L94,135 Z" stroke="#7F77DD" stroke-width="9" stroke-linejoin="round"/><path d="M142,196 L178,240 L262,148" stroke="#7F77DD" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <div class="sa-name">Mox<em style="color:#7F77DD;font-style:normal;">check</em></div>
+        <div class="sa-desc">Pay only for what you verify. No subscription required. Credits never expire. Use them at your pace — bulk upload a CSV or verify one email at a time via API.</div>
+        <div class="sa-plans">
+          <div class="sa-plan">
+            <div><div class="sp-name">1,000 verifications</div><div class="sp-detail">$0.015 / email · bulk CSV upload</div></div>
+            <div class="sp-price">$15</div>
+          </div>
+          <div class="sa-plan">
+            <div><div class="sp-name">5,000 verifications</div><div class="sp-detail">$0.011 / email · CSV + API access</div></div>
+            <div class="sp-price">$55</div>
+          </div>
+          <div class="sa-plan best">
+            <div><div class="sp-name">25,000 verifications</div><div class="sp-detail">$0.008 / email · most popular · API</div></div>
+            <div class="sp-price" style="color:var(--green2);">$199</div>
+          </div>
+          <div class="sa-plan">
+            <div><div class="sp-name">100,000 verifications</div><div class="sp-detail">$0.006 / email · full API · priority</div></div>
+            <div class="sp-price">$599</div>
+          </div>
+        </div>
+      </div>
+      <div class="sa-bottom">
+        <div class="sab-text">All packs include: MX check · SMTP ping · domain reputation · spam trap detection · disposable domain check · 99.4% accuracy guarantee · results exported as CSV</div>
+      </div>
+    </div>
+
+    <!-- MOXWARM STANDALONE -->
+    <div class="sa-card">
+      <div class="sa-top">
+        <div class="sa-icon" style="background:rgba(212,83,126,.10);border:1px solid rgba(212,83,126,.20);">
+          <svg width="24" height="24" viewBox="0 0 400 400" fill="none"><circle cx="200" cy="192" r="118" stroke="#D4537E" stroke-width="9"/><rect x="166" y="178" width="28" height="68" rx="14" fill="#D4537E" opacity=".55"/><rect x="206" y="150" width="28" height="96" rx="14" fill="#D4537E" opacity=".78"/><rect x="246" y="138" width="28" height="108" rx="14" fill="#D4537E"/></svg>
+        </div>
+        <div class="sa-name">Mox<em style="color:#D4537E;font-style:normal;">warm</em></div>
+        <div class="sa-desc">Warm your domain without buying a sending tool. Connect your existing inbox — Gmail, Outlook, or custom SMTP — and let Moxwarm build your sender reputation automatically.</div>
+        <div class="sa-plans">
+          <div class="sa-plan">
+            <div><div class="sp-name">Shared · 1 domain</div><div class="sp-detail">200 warmup emails/day · shared pool · 28-day ramp</div></div>
+            <div class="sp-price">$29<span style="font-size:11px;color:var(--t3);">/mo</span></div>
+          </div>
+          <div class="sa-plan best">
+            <div><div class="sp-name">Dedicated · 3 domains</div><div class="sp-detail">500 emails/day · semi-dedicated · inbox placement test</div></div>
+            <div class="sp-price" style="color:var(--green2);">$49<span style="font-size:11px;color:var(--t3);">/mo</span></div>
+          </div>
+          <div class="sa-plan">
+            <div><div class="sp-name">Pro · Unlimited domains</div><div class="sp-detail">Unlimited/day · dedicated IP pool · agency use</div></div>
+            <div class="sp-price">$79<span style="font-size:11px;color:var(--t3);">/mo</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="sa-bottom">
+        <div class="sab-text">All plans include: automated warmup scheduling · inbox placement testing · reputation dashboard · GCC-aware sending windows · Friday prayer pause · Ramadan hours adjustment</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="annotation" style="margin-top:20px;">
+    <div class="ann-num">A</div>
+    <div><div class="ann-title">Standalone buyers are your best Moxsend leads <span class="ann-badge ab-g">Upsell</span></div><div class="ann-body">Someone buying Moxcheck knows they have a list problem. Someone buying Moxwarm knows they have a domain problem. Both of these are the exact problems Moxsend solves completely. Every standalone buyer should receive an in-app banner: "You have verified 5,000 emails — ready to send them? Try Moxsend free." This is the most natural upsell funnel you have.</div></div>
+  </div>
+</div>
+
+<div class="stage-divider"></div>
+
+<!-- ══════════════════════════════════════
+     STAGE 6 — ENTERPRISE
+══════════════════════════════════════ -->
+<div class="section reveal" id="stage6">
+  <div class="stage-num">Stage 06 of 06</div>
+  <div class="stage-title">Enterprise.<br>Contact us. <em>Always.</em></div>
+  <div class="stage-desc">Enterprise pricing is never published. This page exists for one purpose: to get a human conversation started. The form is short. The response time commitment is specific. The three hosting options give the enterprise buyer control — which is what large organisations always need to feel before they sign.</div>
+
+  <div class="enterprise-card">
+    <div class="ec-left">
+      <div class="ec-eye">Enterprise · Custom Deployment</div>
+      <div class="ec-title">Unlimited credits.<br>Your infrastructure.<br>Your data.</div>
+      <div class="ec-sub">For banks, government entities, large enterprises, and organisations with compliance, data residency, or security requirements that standard cloud plans cannot meet.</div>
+      <div class="ec-options">
+        <div class="ec-opt">
+          <div class="eco-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+          <div><div class="eco-name">Our Cloud</div><div class="eco-desc">Hosted on Moxsuite infrastructure · UAE and India regions available</div></div>
+          <div class="eco-price">From $499/mo</div>
+        </div>
+        <div class="ec-opt">
+          <div class="eco-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg></div>
+          <div><div class="eco-name">Your Cloud</div><div class="eco-desc">Deploy on your AWS / Azure / GCP account · you own the data</div></div>
+          <div class="eco-price">From $799/mo</div>
+        </div>
+        <div class="ec-opt">
+          <div class="eco-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg></div>
+          <div><div class="eco-name">On-Premise</div><div class="eco-desc">Full source licence · installed on your servers · air-gapped option</div></div>
+          <div class="eco-price">Custom</div>
+        </div>
+      </div>
+    </div>
+    <div class="ec-right">
+      <div style="margin-bottom:20px;">
+        <div style="font-size:14px;font-weight:700;color:rgba(255,255,255,.80);margin-bottom:4px;">Talk to our enterprise team</div>
+        <div style="font-size:12px;color:rgba(255,255,255,.30);">We respond within 4 business hours. GCC timezone preferred.</div>
+      </div>
+      <div class="ec-form">
+        <div class="ecf-row">
+          <div><div class="ecf-label">Full name</div><input class="ecf-input" placeholder="Ahmed Al-Rashid" readonly/></div>
+          <div><div class="ecf-label">Work email</div><input class="ecf-input" placeholder="ahmed@company.ae" readonly/></div>
+        </div>
+        <div class="ecf-row">
+          <div><div class="ecf-label">Company</div><input class="ecf-input" placeholder="Gulf Trade Solutions" readonly/></div>
+          <div><div class="ecf-label">Team size</div>
+          <select class="ecf-select"><option>1–10 people</option><option>11–50</option><option>51–200</option><option>200+</option></select></div>
+        </div>
+        <div><div class="ecf-label">Deployment preference</div>
+        <select class="ecf-select"><option>Our Cloud (fastest to deploy)</option><option>Your Cloud (AWS/Azure/GCP)</option><option>On-Premise (your servers)</option><option>Not sure yet</option></select></div>
+        <div><div class="ecf-label">Monthly email volume (estimate)</div>
+        <select class="ecf-select"><option>Under 100,000</option><option>100K – 500K</option><option>500K – 2M</option><option>2M+</option></select></div>
+        <button class="ecf-cta">Request enterprise demo →</button>
+        <div class="ecf-fine">We will respond within 4 hours · hello@moxsuite.ai · +971 XX XXX XXXX</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="annotation" style="margin-top:20px;">
+    <div class="ann-num">A</div>
+    <div><div class="ann-title">The 4-hour response commitment is your differentiator <span class="ann-badge ab-g">Trust</span></div><div class="ann-body">Salesforce, HubSpot, and Freshdesk all say "we will get back to you." Nobody specifies when. A 4-hour commitment in GCC business hours is unusual and will be remembered. It sets the tone for the entire enterprise relationship — we are fast, we are local, we are available.</div></div>
+  </div>
+  <div class="annotation">
+    <div class="ann-num">B</div>
+    <div><div class="ann-title">Never publish the enterprise price — always contact sales <span class="ann-badge ab-r">Negotiation</span></div><div class="ann-body">A UAE government entity and a 10-person agency both qualify as "enterprise" but should pay very different amounts. Published prices anchor the conversation before it starts. A conversation lets you understand their actual needs, their budget, their compliance requirements — and price accordingly. The floor is $499. The ceiling is whatever value you can demonstrate.</div></div>
+  </div>
+</div>
+
+<div class="stage-divider"></div>
+
+<!-- ══════════════════════════════════════
+     AI TOKEN TABLE
+══════════════════════════════════════ -->
+<div class="section reveal">
+  <div class="stage-num">Supporting Reference</div>
+  <div class="stage-title">AI credit consumption.<br>What costs <em>what.</em></div>
+  <div class="stage-desc">Every AI action in Moxsuite consumes credits. This table is the reference your developers and product team need to price each action correctly — keeping AI costs below 30% of credit revenue while making the features feel generous enough to use freely.</div>
+
+  <div class="tokens-wrap">
+    <div class="tokens-head">
+      <div class="th-title">AI Credit Consumption Table</div>
+      <div class="th-sub">1 credit = 1 email sent = ~1,500 AI tokens consumed internally. Customers never see tokens — they see credits.</div>
+    </div>
+    <table class="tokens-table">
+      <thead>
+        <tr><th>AI Action</th><th>Credits consumed</th><th>What the AI does</th><th>Internal token cost</th></tr>
+      </thead>
+      <tbody>
+        <tr class="tt-row"><td class="tt-action">Email subject line · 5 variants</td><td class="tt-credit" style="color:var(--green2);">2 credits</td><td class="tt-note">Generates 5 subject line options with open rate prediction</td><td class="tt-note">~800 tokens</td></tr>
+        <tr class="tt-row"><td class="tt-action">Full email personalisation · 1 email</td><td class="tt-credit" style="color:var(--green2);">5 credits</td><td class="tt-note">Reads prospect data, writes one personalised email body</td><td class="tt-note">~2,000 tokens</td></tr>
+        <tr class="tt-row"><td class="tt-action">AI send time prediction</td><td class="tt-credit" style="color:var(--green2);">2 credits</td><td class="tt-note">Calculates optimal send time for this prospect's timezone and pattern</td><td class="tt-note">~600 tokens</td></tr>
+        <tr class="tt-row"><td class="tt-action">Reply intent scoring</td><td class="tt-credit" style="color:var(--cyan);">3 credits</td><td class="tt-note">Reads reply, scores intent across 4 dimensions, outputs signal type</td><td class="tt-note">~1,200 tokens</td></tr>
+        <tr class="tt-row"><td class="tt-action">AI reply draft</td><td class="tt-credit" style="color:var(--cyan);">8 credits</td><td class="tt-note">Reads full thread context, writes a suggested reply with tone match</td><td class="tt-note">~3,500 tokens</td></tr>
+        <tr class="tt-row"><td class="tt-action">Follow-up sequence · 3 emails</td><td class="tt-credit" style="color:var(--cyan);">10 credits</td><td class="tt-note">Writes a 3-email follow-up sequence with timing recommendations</td><td class="tt-note">~4,500 tokens</td></tr>
+        <tr class="tt-row"><td class="tt-action">Deal DNA score update</td><td class="tt-credit" style="color:var(--amber);">2 credits</td><td class="tt-note">Analyses new email exchange, updates probability score</td><td class="tt-note">~900 tokens</td></tr>
+        <tr class="tt-row"><td class="tt-action">Conversation memory brief</td><td class="tt-credit" style="color:var(--amber);">10 credits</td><td class="tt-note">Reads full email history, generates pre-call brief paragraph</td><td class="tt-note">~6,000 tokens</td></tr>
+        <tr class="tt-row"><td class="tt-action">Churn prediction check</td><td class="tt-credit" style="color:var(--amber);">5 credits</td><td class="tt-note">Analyses 5 signals, outputs health score with intervention recommendation</td><td class="tt-note">~2,200 tokens</td></tr>
+        <tr class="tt-row"><td class="tt-action">Upsell moment detection</td><td class="tt-credit" style="color:var(--amber);">5 credits</td><td class="tt-note">Reads support ticket, identifies plan limitation, suggests upgrade line</td><td class="tt-note">~2,000 tokens</td></tr>
+        <tr class="tt-row" style="background:rgba(14,165,233,.02);"><td class="tt-action" style="font-weight:700;color:var(--ink);">Email send · standard</td><td class="tt-credit" style="color:var(--ink);font-size:15px;">1 credit</td><td class="tt-note">Base cost — one email delivered via Moxsend</td><td class="tt-note">No AI cost</td></tr>
+        <tr class="tt-row"><td class="tt-action" style="font-weight:700;color:var(--ink);">Email verification · 1 address</td><td class="tt-credit" style="color:var(--ink);font-size:15px;">5 credits</td><td class="tt-note">Full MX + SMTP + domain + blacklist check</td><td class="tt-note">No AI cost</td></tr>
+        <tr class="tt-row"><td class="tt-action" style="font-weight:700;color:var(--ink);">Domain warmup · per domain per day</td><td class="tt-credit" style="color:var(--ink);font-size:15px;">10 credits</td><td class="tt-note">One domain's warmup activity for one calendar day</td><td class="tt-note">No AI cost</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="stage-divider"></div>
+
+<!-- ══════════════════════════════════════
+     ROLLOUT TIMELINE
+══════════════════════════════════════ -->
+<div class="section reveal">
+  <div class="stage-num">Execution Roadmap</div>
+  <div class="stage-title">Build this in order.<br>Not all at <em>once.</em></div>
+  <div class="stage-desc">Each stage is a milestone, not a feature. Ship Stage 1 and 2 on day one. Stages 3 through 6 unlock as you hit the user milestones that make them necessary.</div>
+
+  <div class="roadmap-line">
+    <div class="rl-item active">
+      <div class="rl-dot">1</div>
+      <div class="rl-phase">Month 1 — Launch</div>
+      <div class="rl-title">Public pricing page + free trial gate</div>
+      <div class="rl-desc">Three tiers live. Free trial with 300 credits, no card required. Welcome email sequence (Day 1, 3, 6). This is all you need to start acquiring paying customers. Do not build anything else until you have 50 paying users.</div>
+      <div class="rl-metric">✓ Target: 50 paying users in Month 1</div>
+    </div>
+
+    <div class="rl-item">
+      <div class="rl-dot">2</div>
+      <div class="rl-phase">Month 2 — Conversion</div>
+      <div class="rl-title">In-app upgrade prompts at 91% credit usage</div>
+      <div class="rl-desc">Build the three upgrade prompt variants. Wire them to real credit consumption. Add annual billing option with 20% discount. This is the biggest single improvement to monthly revenue you can make — most SaaS products see 30–40% of upgrades come from in-app prompts, not the pricing page.</div>
+      <div class="rl-metric">✓ Target: 40% of upgrades from in-app prompts</div>
+    </div>
+
+    <div class="rl-item">
+      <div class="rl-dot">3</div>
+      <div class="rl-phase">Month 3 — Retention</div>
+      <div class="rl-title">Standalone Moxcheck + Moxwarm pages</div>
+      <div class="rl-desc">Launch the standalone product pages. Link from the "Just need one tool?" text below the pricing tiers. These pages serve double duty — they capture customers who would not buy Moxsend alone, and they are the most natural entry point into the full Moxsend funnel.</div>
+      <div class="rl-metric">✓ Target: 20% of standalone buyers upgrade to Moxsend</div>
+    </div>
+
+    <div class="rl-item">
+      <div class="rl-dot">4</div>
+      <div class="rl-phase">Month 4 — Loyalty</div>
+      <div class="rl-title">Lifetime credits — visible only inside the app</div>
+      <div class="rl-desc">Unlock the lifetime credits page inside the app sidebar. Send the Month 3 loyalty email to all existing subscribers. This email will convert 15–25% of your 3-month subscribers into a lifetime purchase — immediate cash and long-term commitment.</div>
+      <div class="rl-metric">✓ Target: 15% of 3-month users buy lifetime</div>
+    </div>
+
+    <div class="rl-item">
+      <div class="rl-dot">5</div>
+      <div class="rl-phase">Month 5–6 — Enterprise</div>
+      <div class="rl-title">Enterprise contact page + sales motion</div>
+      <div class="rl-desc">Build the enterprise page. Hire or designate one person to handle enterprise inquiries. The first enterprise deal will likely come from an existing Growth or Scale subscriber whose company has grown. The contact page is the last stage — but potentially the largest revenue per customer.</div>
+      <div class="rl-metric">✓ Target: First enterprise deal by Month 6</div>
+    </div>
+
+    <div class="rl-item">
+      <div class="rl-dot">6</div>
+      <div class="rl-phase">Month 6+ — Expand</div>
+      <div class="rl-title">Add Moxcrm as a paid add-on to existing plans</div>
+      <div class="rl-desc">Once Moxcrm is built, offer it as a $29/month add-on to any existing plan. Existing paying subscribers are your warmest audience. The upgrade email subject line: "Every reply from Moxsend now has a home." This is your first cross-product upsell and the beginning of the suite economics.</div>
+      <div class="rl-metric">✓ Target: 25% of Scale users add Moxcrm</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<div class="footer">
+  <div class="footer-title">Mox<em>suite</em></div>
+  <div class="footer-sub">The Enterprise Operating System · 35 Products. One Roof.</div>
+  <div class="footer-links">
+    <span>hello@moxsuite.ai</span>
+    <span>·</span>
+    <span>moxsend.ai</span>
+    <span>·</span>
+    <span>EaseHawk Technologies &amp; Meshdex Developers</span>
+  </div>
+</div>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting) { e.target.classList.add('in'); }
+  });
+}, {threshold:0.08});
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Moxsuite — Master Logo</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:#03050D;color:#EEF2FF;min-height:100vh;}
+
+.hero{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:60px 40px 40px;text-align:center;
+}
+.hero-label{
+  font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(56,189,248,.45);margin-bottom:60px;
+}
+
+/* THE MARK */
+.mark-wrap{position:relative;width:340px;height:340px;margin:0 auto 50px;}
+.mark-svg{width:100%;height:100%;}
+
+/* WORDMARK BELOW */
+.wordmark-block{margin-bottom:16px;}
+.wm-main{
+  font-size:58px;font-weight:900;letter-spacing:-.06em;
+  color:#EEF2FF;line-height:1;margin-bottom:6px;
+}
+.wm-main em{color:#38BDF8;font-style:normal;}
+.wm-tag{
+  font-size:11px;font-weight:500;letter-spacing:.32em;text-transform:uppercase;
+  color:rgba(238,242,255,.25);
+}
+.wm-dots{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:12px;}
+.wd{width:6px;height:6px;border-radius:50%;}
+
+/* VARIANTS GRID */
+.variants{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  max-width:960px;margin:60px auto 0;background:rgba(255,255,255,.06);
+  border-top:1px solid rgba(255,255,255,.06);
+}
+.variant{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:44px 32px;
+}
+.v-dark{background:#06091A;}
+.v-light{background:#F0F4FF;}
+.v-white{background:#FFFFFF;}
+.v-black{background:#000000;}
+.v-cyan{background:#0A1E2E;}
+.v-minimal{background:#03050D;}
+
+.v-label{
+  font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  margin-top:20px;opacity:.35;
+}
+.v-light .v-label, .v-white .v-label{color:#0F172A;}
+
+/* ICON SIZES ROW */
+.sizes{
+  display:flex;align-items:center;justify-content:center;gap:32px;
+  padding:48px 40px;max-width:960px;margin:0 auto;
+  border-top:1px solid rgba(255,255,255,.06);
+}
+.size-item{display:flex;flex-direction:column;align-items:center;gap:10px;}
+.size-lbl{font-size:10px;font-weight:600;letter-spacing:.12em;color:rgba(255,255,255,.25);}
+
+/* CONSTRUCTION LINES */
+.construction{
+  max-width:960px;margin:0 auto;padding:60px 40px;
+  border-top:1px solid rgba(255,255,255,.06);
+  display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;
+}
+.const-title{
+  font-size:13px;font-weight:600;color:rgba(56,189,248,.6);
+  letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;
+}
+.const-body{
+  font-size:13px;color:rgba(238,242,255,.35);line-height:1.8;
+}
+.const-body strong{color:rgba(238,242,255,.65);font-weight:600;}
+
+/* FOOTER */
+.footer{
+  text-align:center;padding:40px;border-top:1px solid rgba(255,255,255,.05);
+  font-size:11px;color:rgba(255,255,255,.18);letter-spacing:.05em;
+}
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="hero-label">The Master Mark &nbsp;·&nbsp; Moxsuite Enterprise Operating System</div>
+
+  <!-- THE MARK -->
+  <div class="mark-wrap">
+    <svg class="mark-svg" viewBox="100 180 600 530" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="gO" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#38BDF8"/>
+        <stop offset="33%" stop-color="#818CF8"/>
+        <stop offset="66%" stop-color="#D4537E"/>
+        <stop offset="100%" stop-color="#38BDF8"/>
+      </linearGradient>
+      <linearGradient id="gW" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.16"/>
+        <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0.03"/>
+      </linearGradient>
+      <radialGradient id="gC" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.40"/>
+        <stop offset="100%" stop-color="#38BDF8" stop-opacity="0"/>
+      </radialGradient>
+      <filter id="gl" x="-40%" y="-40%" width="180%" height="180%">
+        <feGaussianBlur stdDeviation="8" result="b"/>
+        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+      <filter id="sg" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="18" result="b"/>
+        <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+
+    <!-- outer glow -->
+    <polygon points="400,218 598,416 400,614 202,416" fill="none" stroke="#38BDF8" stroke-width="1.5" opacity="0.18" filter="url(#sg)"/>
+
+    <!-- outer diamond -->
+    <polygon points="400,218 598,416 400,614 202,416" fill="none" stroke="url(#gO)" stroke-width="1.4" opacity="0.65" filter="url(#gl)"/>
+
+    <!-- cardinal facets -->
+    <polygon points="400,218 366,335 434,335" fill="url(#gW)" stroke="#38BDF8" stroke-width="0.9" opacity="0.75"/>
+    <polygon points="598,416 481,382 481,450" fill="url(#gW)" stroke="#818CF8" stroke-width="0.9" opacity="0.65"/>
+    <polygon points="400,614 434,497 366,497" fill="url(#gW)" stroke="#D4537E" stroke-width="0.9" opacity="0.65"/>
+    <polygon points="202,416 319,450 319,382" fill="url(#gW)" stroke="#38BDF8" stroke-width="0.9" opacity="0.70"/>
+
+    <!-- kite facets -->
+    <polygon points="400,218 598,416 481,382 434,335" fill="none" stroke="#818CF8" stroke-width="0.5" opacity="0.28"/>
+    <polygon points="598,416 400,614 434,497 481,450" fill="none" stroke="#D4537E" stroke-width="0.5" opacity="0.22"/>
+    <polygon points="400,614 202,416 319,450 366,497" fill="none" stroke="#D4537E" stroke-width="0.5" opacity="0.22"/>
+    <polygon points="202,416 400,218 366,335 319,382" fill="none" stroke="#38BDF8" stroke-width="0.5" opacity="0.28"/>
+
+    <!-- inner octagon -->
+    <polygon points="481,382 481,450 434,497 366,497 319,450 319,382 366,335 434,335"
+      fill="rgba(56,189,248,0.05)" stroke="#38BDF8" stroke-width="1.0" opacity="0.55"/>
+
+    <!-- radiant lines -->
+    <g stroke="#FFFFFF" stroke-width="0.4" opacity="0.12" stroke-linecap="round">
+      <line x1="481" y1="382" x2="400" y2="416"/><line x1="481" y1="450" x2="400" y2="416"/>
+      <line x1="434" y1="497" x2="400" y2="416"/><line x1="366" y1="497" x2="400" y2="416"/>
+      <line x1="319" y1="450" x2="400" y2="416"/><line x1="319" y1="382" x2="400" y2="416"/>
+      <line x1="366" y1="335" x2="400" y2="416"/><line x1="434" y1="335" x2="400" y2="416"/>
+    </g>
+
+    <!-- core glow -->
+    <circle cx="400" cy="416" r="55" fill="url(#gC)" opacity="0.85"/>
+
+    <!-- core diamond outer -->
+    <polygon points="400,374 442,416 400,458 358,416"
+      fill="rgba(56,189,248,0.07)" stroke="url(#gO)" stroke-width="1.6" stroke-linejoin="round" filter="url(#gl)" opacity="0.95"/>
+
+    <!-- core diamond inner -->
+    <polygon points="400,390 426,416 400,442 374,416"
+      fill="rgba(56,189,248,0.25)" stroke="#38BDF8" stroke-width="1.3" stroke-linejoin="round" opacity="0.90"/>
+
+    <!-- centre light -->
+    <circle cx="400" cy="416" r="5.5" fill="#38BDF8" opacity="0.90" filter="url(#gl)"/>
+    <circle cx="400" cy="416" r="2.5" fill="#FFFFFF" opacity="1.0"/>
+
+    <!-- signal rays -->
+    <line x1="400" y1="218" x2="400" y2="158" stroke="#38BDF8" stroke-width="1.0" stroke-linecap="round" opacity="0.32"/>
+    <line x1="598" y1="416" x2="660" y2="416" stroke="#818CF8" stroke-width="1.0" stroke-linecap="round" opacity="0.26"/>
+    <line x1="400" y1="614" x2="400" y2="660" stroke="#D4537E" stroke-width="1.0" stroke-linecap="round" opacity="0.24"/>
+    <line x1="202" y1="416" x2="140" y2="416" stroke="#38BDF8" stroke-width="1.0" stroke-linecap="round" opacity="0.26"/>
+
+    <!-- family dot -->
+    <circle cx="400" cy="590" r="6" fill="#38BDF8" opacity="0.70"/>
+    </svg>
+  </div>
+
+  <!-- WORDMARK -->
+  <div class="wordmark-block">
+    <div class="wm-main">MOX<em>SUITE</em></div>
+    <div class="wm-tag">The Enterprise Operating System</div>
+    <div class="wm-dots">
+      <div class="wd" style="background:#7F77DD;opacity:.6;"></div>
+      <div class="wd" style="background:#38BDF8;opacity:.6;"></div>
+      <div class="wd" style="background:#D4537E;opacity:.6;"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ VARIANTS ══ -->
+<div class="variants">
+
+  <!-- Dark -->
+  <div class="variant v-dark">
+    <svg viewBox="100 180 600 470" width="180" height="140" fill="none">
+    <defs>
+      <linearGradient id="gO2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#38BDF8"/><stop offset="50%" stop-color="#818CF8"/><stop offset="100%" stop-color="#D4537E"/></linearGradient>
+      <radialGradient id="gC2" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#38BDF8" stop-opacity="0.35"/><stop offset="100%" stop-color="#38BDF8" stop-opacity="0"/></radialGradient>
+    </defs>
+    <polygon points="400,218 598,416 400,614 202,416" fill="none" stroke="url(#gO2)" stroke-width="1.5" opacity="0.60"/>
+    <polygon points="400,218 366,335 434,335" fill="rgba(255,255,255,.06)" stroke="#38BDF8" stroke-width="0.8" opacity="0.70"/>
+    <polygon points="598,416 481,382 481,450" fill="rgba(255,255,255,.06)" stroke="#818CF8" stroke-width="0.8" opacity="0.60"/>
+    <polygon points="400,614 434,497 366,497" fill="rgba(255,255,255,.06)" stroke="#D4537E" stroke-width="0.8" opacity="0.60"/>
+    <polygon points="202,416 319,450 319,382" fill="rgba(255,255,255,.06)" stroke="#38BDF8" stroke-width="0.8" opacity="0.65"/>
+    <polygon points="481,382 481,450 434,497 366,497 319,450 319,382 366,335 434,335" fill="rgba(56,189,248,0.04)" stroke="#38BDF8" stroke-width="0.8" opacity="0.50"/>
+    <circle cx="400" cy="416" r="48" fill="url(#gC2)" opacity="0.8"/>
+    <polygon points="400,374 442,416 400,458 358,416" fill="rgba(56,189,248,0.08)" stroke="url(#gO2)" stroke-width="1.5" stroke-linejoin="round" opacity="0.90"/>
+    <polygon points="400,390 426,416 400,442 374,416" fill="rgba(56,189,248,0.22)" stroke="#38BDF8" stroke-width="1.2" stroke-linejoin="round" opacity="0.88"/>
+    <circle cx="400" cy="416" r="5" fill="#38BDF8" opacity="0.90"/>
+    <circle cx="400" cy="416" r="2.2" fill="#FFFFFF"/>
+    <circle cx="400" cy="584" r="5.5" fill="#38BDF8" opacity="0.68"/>
+    </svg>
+    <span class="v-label" style="color:rgba(238,242,255,.3);">Dark</span>
+  </div>
+
+  <!-- Light -->
+  <div class="variant v-light">
+    <svg viewBox="100 180 600 470" width="180" height="140" fill="none">
+    <defs>
+      <linearGradient id="gOL" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0EA5E9"/><stop offset="50%" stop-color="#6366F1"/><stop offset="100%" stop-color="#BE185D"/></linearGradient>
+      <radialGradient id="gCL" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#0EA5E9" stop-opacity="0.20"/><stop offset="100%" stop-color="#0EA5E9" stop-opacity="0"/></radialGradient>
+    </defs>
+    <polygon points="400,218 598,416 400,614 202,416" fill="none" stroke="url(#gOL)" stroke-width="1.5" opacity="0.55"/>
+    <polygon points="400,218 366,335 434,335" fill="rgba(0,0,0,.04)" stroke="#0EA5E9" stroke-width="0.8" opacity="0.65"/>
+    <polygon points="598,416 481,382 481,450" fill="rgba(0,0,0,.04)" stroke="#6366F1" stroke-width="0.8" opacity="0.55"/>
+    <polygon points="400,614 434,497 366,497" fill="rgba(0,0,0,.04)" stroke="#BE185D" stroke-width="0.8" opacity="0.55"/>
+    <polygon points="202,416 319,450 319,382" fill="rgba(0,0,0,.04)" stroke="#0EA5E9" stroke-width="0.8" opacity="0.60"/>
+    <polygon points="481,382 481,450 434,497 366,497 319,450 319,382 366,335 434,335" fill="rgba(14,165,233,0.05)" stroke="#0EA5E9" stroke-width="0.8" opacity="0.45"/>
+    <circle cx="400" cy="416" r="48" fill="url(#gCL)" opacity="0.9"/>
+    <polygon points="400,374 442,416 400,458 358,416" fill="rgba(14,165,233,0.10)" stroke="url(#gOL)" stroke-width="1.5" stroke-linejoin="round" opacity="0.88"/>
+    <polygon points="400,390 426,416 400,442 374,416" fill="rgba(14,165,233,0.18)" stroke="#0EA5E9" stroke-width="1.2" stroke-linejoin="round" opacity="0.85"/>
+    <circle cx="400" cy="416" r="5" fill="#0EA5E9" opacity="0.88"/>
+    <circle cx="400" cy="416" r="2.2" fill="#FFFFFF"/>
+    <circle cx="400" cy="584" r="5.5" fill="#0EA5E9" opacity="0.65"/>
+    </svg>
+    <span class="v-label">Light</span>
+  </div>
+
+  <!-- White bg -->
+  <div class="variant v-white">
+    <svg viewBox="100 180 600 470" width="180" height="140" fill="none">
+    <defs>
+      <linearGradient id="gOW" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0284C7"/><stop offset="50%" stop-color="#4F46E5"/><stop offset="100%" stop-color="#9D174D"/></linearGradient>
+      <radialGradient id="gCW" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#0284C7" stop-opacity="0.15"/><stop offset="100%" stop-color="#0284C7" stop-opacity="0"/></radialGradient>
+    </defs>
+    <polygon points="400,218 598,416 400,614 202,416" fill="none" stroke="url(#gOW)" stroke-width="1.5" opacity="0.50"/>
+    <polygon points="400,218 366,335 434,335" fill="rgba(0,0,0,.03)" stroke="#0284C7" stroke-width="0.8" opacity="0.60"/>
+    <polygon points="598,416 481,382 481,450" fill="rgba(0,0,0,.03)" stroke="#4F46E5" stroke-width="0.8" opacity="0.50"/>
+    <polygon points="400,614 434,497 366,497" fill="rgba(0,0,0,.03)" stroke="#9D174D" stroke-width="0.8" opacity="0.50"/>
+    <polygon points="202,416 319,450 319,382" fill="rgba(0,0,0,.03)" stroke="#0284C7" stroke-width="0.8" opacity="0.55"/>
+    <polygon points="481,382 481,450 434,497 366,497 319,450 319,382 366,335 434,335" fill="rgba(2,132,199,0.04)" stroke="#0284C7" stroke-width="0.8" opacity="0.40"/>
+    <circle cx="400" cy="416" r="48" fill="url(#gCW)" opacity="0.9"/>
+    <polygon points="400,374 442,416 400,458 358,416" fill="rgba(2,132,199,0.08)" stroke="url(#gOW)" stroke-width="1.5" stroke-linejoin="round" opacity="0.85"/>
+    <polygon points="400,390 426,416 400,442 374,416" fill="rgba(2,132,199,0.15)" stroke="#0284C7" stroke-width="1.2" stroke-linejoin="round" opacity="0.82"/>
+    <circle cx="400" cy="416" r="5" fill="#0284C7" opacity="0.85"/>
+    <circle cx="400" cy="416" r="2.2" fill="#FFFFFF"/>
+    <circle cx="400" cy="584" r="5.5" fill="#0284C7" opacity="0.62"/>
+    </svg>
+    <span class="v-label">White</span>
+  </div>
+
+  <!-- Black -->
+  <div class="variant v-black">
+    <svg viewBox="100 180 600 470" width="180" height="140" fill="none">
+    <polygon points="400,218 598,416 400,614 202,416" fill="none" stroke="rgba(255,255,255,0.55)" stroke-width="1.4"/>
+    <polygon points="400,218 366,335 434,335" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.65)" stroke-width="0.8" opacity="0.70"/>
+    <polygon points="598,416 481,382 481,450" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.5)" stroke-width="0.8" opacity="0.60"/>
+    <polygon points="400,614 434,497 366,497" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.5)" stroke-width="0.8" opacity="0.60"/>
+    <polygon points="202,416 319,450 319,382" fill="rgba(255,255,255,.07)" stroke="rgba(255,255,255,.6)" stroke-width="0.8" opacity="0.65"/>
+    <polygon points="481,382 481,450 434,497 366,497 319,450 319,382 366,335 434,335" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.45)" stroke-width="0.8" opacity="0.50"/>
+    <polygon points="400,374 442,416 400,458 358,416" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.80)" stroke-width="1.5" stroke-linejoin="round" opacity="0.90"/>
+    <polygon points="400,390 426,416 400,442 374,416" fill="rgba(255,255,255,0.20)" stroke="#FFFFFF" stroke-width="1.2" stroke-linejoin="round" opacity="0.88"/>
+    <circle cx="400" cy="416" r="5" fill="#FFFFFF" opacity="0.92"/>
+    <circle cx="400" cy="416" r="2" fill="#000000"/>
+    <circle cx="400" cy="584" r="5.5" fill="#FFFFFF" opacity="0.68"/>
+    </svg>
+    <span class="v-label" style="color:rgba(255,255,255,.3);">Black</span>
+  </div>
+
+  <!-- Icon only — large -->
+  <div class="variant v-dark" style="grid-column:span 2;">
+    <div style="display:flex;align-items:center;justify-content:center;gap:48px;width:100%;">
+      <!-- 3 sizes -->
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+        <svg viewBox="150 230 500 420" width="80" height="67" fill="none">
+          <defs><linearGradient id="gOI3" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#38BDF8"/><stop offset="50%" stop-color="#818CF8"/><stop offset="100%" stop-color="#D4537E"/></linearGradient><radialGradient id="gCI3" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#38BDF8" stop-opacity="0.35"/><stop offset="100%" stop-color="#38BDF8" stop-opacity="0"/></radialGradient></defs>
+          <polygon points="400,218 598,416 400,614 202,416" fill="none" stroke="url(#gOI3)" stroke-width="1.5" opacity="0.65"/>
+          <polygon points="400,218 366,335 434,335" fill="rgba(255,255,255,.06)" stroke="#38BDF8" stroke-width="0.8" opacity="0.75"/>
+          <polygon points="598,416 481,382 481,450" fill="rgba(255,255,255,.06)" stroke="#818CF8" stroke-width="0.8" opacity="0.65"/>
+          <polygon points="400,614 434,497 366,497" fill="rgba(255,255,255,.06)" stroke="#D4537E" stroke-width="0.8" opacity="0.65"/>
+          <polygon points="202,416 319,450 319,382" fill="rgba(255,255,255,.06)" stroke="#38BDF8" stroke-width="0.8" opacity="0.70"/>
+          <polygon points="481,382 481,450 434,497 366,497 319,450 319,382 366,335 434,335" fill="rgba(56,189,248,0.05)" stroke="#38BDF8" stroke-width="0.9" opacity="0.55"/>
+          <circle cx="400" cy="416" r="50" fill="url(#gCI3)" opacity="0.8"/>
+          <polygon points="400,374 442,416 400,458 358,416" fill="rgba(56,189,248,0.08)" stroke="url(#gOI3)" stroke-width="1.6" stroke-linejoin="round" opacity="0.95"/>
+          <polygon points="400,390 426,416 400,442 374,416" fill="rgba(56,189,248,0.24)" stroke="#38BDF8" stroke-width="1.3" stroke-linejoin="round" opacity="0.90"/>
+          <circle cx="400" cy="416" r="5.5" fill="#38BDF8" opacity="0.92"/>
+          <circle cx="400" cy="416" r="2.5" fill="#FFFFFF"/>
+          <circle cx="400" cy="590" r="6" fill="#38BDF8" opacity="0.70"/>
+        </svg>
+        <span style="font-size:10px;color:rgba(255,255,255,.25);letter-spacing:.1em;">80px</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+        <svg viewBox="150 230 500 420" width="48" height="40" fill="none">
+          <defs><linearGradient id="gOI2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#38BDF8"/><stop offset="50%" stop-color="#818CF8"/><stop offset="100%" stop-color="#D4537E"/></linearGradient></defs>
+          <polygon points="400,218 598,416 400,614 202,416" fill="none" stroke="url(#gOI2)" stroke-width="2" opacity="0.65"/>
+          <polygon points="400,218 366,335 434,335" fill="rgba(255,255,255,.06)" stroke="#38BDF8" stroke-width="1.2" opacity="0.75"/>
+          <polygon points="598,416 481,382 481,450" fill="rgba(255,255,255,.06)" stroke="#818CF8" stroke-width="1.2" opacity="0.65"/>
+          <polygon points="400,614 434,497 366,497" fill="rgba(255,255,255,.06)" stroke="#D4537E" stroke-width="1.2" opacity="0.65"/>
+          <polygon points="202,416 319,450 319,382" fill="rgba(255,255,255,.06)" stroke="#38BDF8" stroke-width="1.2" opacity="0.70"/>
+          <polygon points="481,382 481,450 434,497 366,497 319,450 319,382 366,335 434,335" fill="rgba(56,189,248,0.05)" stroke="#38BDF8" stroke-width="1.2" opacity="0.55"/>
+          <polygon points="400,374 442,416 400,458 358,416" fill="rgba(56,189,248,0.08)" stroke="url(#gOI2)" stroke-width="2" stroke-linejoin="round" opacity="0.95"/>
+          <polygon points="400,390 426,416 400,442 374,416" fill="rgba(56,189,248,0.24)" stroke="#38BDF8" stroke-width="1.6" stroke-linejoin="round" opacity="0.90"/>
+          <circle cx="400" cy="416" r="7" fill="#38BDF8" opacity="0.92"/>
+          <circle cx="400" cy="416" r="3.5" fill="#FFFFFF"/>
+          <circle cx="400" cy="590" r="7" fill="#38BDF8" opacity="0.70"/>
+        </svg>
+        <span style="font-size:10px;color:rgba(255,255,255,.25);letter-spacing:.1em;">48px</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+        <svg viewBox="150 230 500 420" width="32" height="27" fill="none">
+          <defs><linearGradient id="gOI1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#38BDF8"/><stop offset="50%" stop-color="#818CF8"/><stop offset="100%" stop-color="#D4537E"/></linearGradient></defs>
+          <polygon points="400,218 598,416 400,614 202,416" fill="none" stroke="url(#gOI1)" stroke-width="2.5" opacity="0.70"/>
+          <polygon points="400,218 366,335 434,335" fill="rgba(255,255,255,.06)" stroke="#38BDF8" stroke-width="1.8" opacity="0.75"/>
+          <polygon points="598,416 481,382 481,450" fill="rgba(255,255,255,.06)" stroke="#818CF8" stroke-width="1.8" opacity="0.65"/>
+          <polygon points="400,614 434,497 366,497" fill="rgba(255,255,255,.06)" stroke="#D4537E" stroke-width="1.8" opacity="0.65"/>
+          <polygon points="202,416 319,450 319,382" fill="rgba(255,255,255,.06)" stroke="#38BDF8" stroke-width="1.8" opacity="0.70"/>
+          <polygon points="481,382 481,450 434,497 366,497 319,450 319,382 366,335 434,335" fill="rgba(56,189,248,0.06)" stroke="#38BDF8" stroke-width="1.6" opacity="0.55"/>
+          <polygon points="400,374 442,416 400,458 358,416" fill="rgba(56,189,248,0.10)" stroke="url(#gOI1)" stroke-width="2.5" stroke-linejoin="round" opacity="0.95"/>
+          <polygon points="400,390 426,416 400,442 374,416" fill="rgba(56,189,248,0.28)" stroke="#38BDF8" stroke-width="2" stroke-linejoin="round" opacity="0.90"/>
+          <circle cx="400" cy="416" r="9" fill="#38BDF8" opacity="0.92"/>
+          <circle cx="400" cy="416" r="4.5" fill="#FFFFFF"/>
+          <circle cx="400" cy="590" r="9" fill="#38BDF8" opacity="0.70"/>
+        </svg>
+        <span style="font-size:10px;color:rgba(255,255,255,.25);letter-spacing:.1em;">32px</span>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;">
+        <svg viewBox="150 230 500 420" width="20" height="17" fill="none">
+          <defs><linearGradient id="gOIm" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#38BDF8"/><stop offset="50%" stop-color="#818CF8"/><stop offset="100%" stop-color="#D4537E"/></linearGradient></defs>
+          <polygon points="400,218 598,416 400,614 202,416" fill="none" stroke="url(#gOIm)" stroke-width="4" opacity="0.70"/>
+          <polygon points="481,382 481,450 434,497 366,497 319,450 319,382 366,335 434,335" fill="rgba(56,189,248,0.08)" stroke="#38BDF8" stroke-width="2.5" opacity="0.55"/>
+          <polygon points="400,374 442,416 400,458 358,416" fill="rgba(56,189,248,0.12)" stroke="url(#gOIm)" stroke-width="3.5" stroke-linejoin="round" opacity="0.95"/>
+          <polygon points="400,390 426,416 400,442 374,416" fill="rgba(56,189,248,0.32)" stroke="#38BDF8" stroke-width="2.5" stroke-linejoin="round" opacity="0.90"/>
+          <circle cx="400" cy="416" r="12" fill="#38BDF8" opacity="0.92"/>
+          <circle cx="400" cy="416" r="6" fill="#FFFFFF"/>
+          <circle cx="400" cy="590" r="12" fill="#38BDF8" opacity="0.68"/>
+        </svg>
+        <span style="font-size:10px;color:rgba(255,255,255,.25);letter-spacing:.1em;">20px</span>
+      </div>
+    </div>
+    <span class="v-label" style="color:rgba(238,242,255,.25);margin-top:20px;">Icon mark at all sizes</span>
+  </div>
+</div>
+
+<!-- ══ STORY ══ -->
+<div class="construction">
+  <div>
+    <div class="const-title">The mark — The Nexus</div>
+    <div class="const-body">
+      <strong>What you are looking at:</strong> A princess-cut gem seen from directly above. Four outer points — one for each founding product in the Mox Stack. A crystalline octagon at the centre — the eight core enterprise domains. A perfect diamond core — the beating intelligence at the heart of everything.<br><br>
+      <strong>The three colours:</strong> Arctic Cyan (#38BDF8) — Moxsend, the outbound engine. Indigo (#818CF8) — intelligence, platform, AI. Rose (#D4537E) — Moxwarm, the trust layer. Each facet of the gem catches a different colour, like light refracting through real crystal.<br><br>
+      <strong>The signal rays:</strong> Four hairline beams extending from each outer diamond point — signals being sent and received. The enterprise as a transmission tower, radiating in all directions.<br><br>
+      <strong>The dot:</strong> Every Mox product carries a dot below its mark. The master mark carries it too — a quiet signal that says this belongs to the same family.
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:20px;">
+    <div style="padding:20px;background:rgba(56,189,248,.05);border:1px solid rgba(56,189,248,.12);border-radius:12px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.12em;color:#38BDF8;margin-bottom:6px;text-transform:uppercase;">Primary tagline</div>
+      <div style="font-size:15px;font-weight:600;color:#EEF2FF;letter-spacing:-.01em;">The Enterprise Operating System</div>
+    </div>
+    <div style="padding:20px;background:rgba(129,140,248,.05);border:1px solid rgba(129,140,248,.12);border-radius:12px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.12em;color:#818CF8;margin-bottom:6px;text-transform:uppercase;">Alternative tagline</div>
+      <div style="font-size:15px;font-weight:600;color:#EEF2FF;letter-spacing:-.01em;">35 products. One system.</div>
+    </div>
+    <div style="padding:20px;background:rgba(212,83,126,.05);border:1px solid rgba(212,83,126,.12);border-radius:12px;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:.12em;color:#D4537E;margin-bottom:6px;text-transform:uppercase;">Arabic tagline</div>
+      <div style="font-size:15px;font-weight:600;color:#EEF2FF;letter-spacing:0;direction:rtl;font-family:Tahoma,sans-serif;">نظام تشغيل المؤسسة</div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  Built by EaseHawk Technologies &amp; Meshdex Developers &nbsp;·&nbsp; moxsuite.ai
+</div>
+
+</body>
+</html>

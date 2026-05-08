@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Moxcrm — Six AI Features</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --navy:#07111F;
+  --navy2:#0C1A2E;
+  --navy3:#112038;
+  --navy4:#162844;
+  --surface:#FFFFFF;
+  --border:rgba(255,255,255,.07);
+  --border2:rgba(255,255,255,.12);
+  --cyan:#38BDF8;
+  --cyan-d:#0EA5E9;
+  --indigo:#6366F1;
+  --rose:#E05C82;
+  --emerald:#10B981;
+  --amber:#F59E0B;
+  --t0:#F0F4FF;
+  --t1:rgba(240,244,255,.72);
+  --t2:rgba(240,244,255,.42);
+  --t3:rgba(240,244,255,.22);
+  --t4:rgba(240,244,255,.10);
+}
+html{background:#03080F;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#03080F;color:var(--t0);-webkit-font-smoothing:antialiased;padding:48px 32px 80px;}
+
+/* ── CHAPTER HEADER ── */
+.ch{max-width:1140px;margin:0 auto 24px;}
+.ch-num{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);opacity:.55;margin-bottom:6px;}
+.ch-title{font-size:22px;font-weight:800;letter-spacing:-.03em;color:var(--t0);margin-bottom:4px;}
+.ch-desc{font-size:13px;color:var(--t2);line-height:1.6;max-width:680px;}
+.sep{max-width:1140px;margin:52px auto;height:1px;background:linear-gradient(90deg,transparent,rgba(56,189,248,.15),transparent);}
+
+/* ── SCREEN CARD ── */
+.screen{max-width:1140px;margin:0 auto 60px;border-radius:20px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.45);}
+
+/* ── BROWSER CHROME ── */
+.chrome{background:#0A1020;padding:11px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.05);}
+.dots{display:flex;gap:5px;}
+.dot{width:10px;height:10px;border-radius:50%;}
+.url{flex:1;background:rgba(255,255,255,.05);border-radius:5px;padding:5px 12px;font-size:11px;color:rgba(255,255,255,.28);font-family:'DM Mono',monospace;}
+.beta{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:rgba(56,189,248,.12);color:var(--cyan);padding:3px 8px;border-radius:99px;border:1px solid rgba(56,189,248,.20);}
+
+/* ── APP SHELL ── */
+.shell{display:grid;background:var(--navy);}
+.shell-3{grid-template-columns:52px 230px 1fr;}
+.shell-2{grid-template-columns:52px 1fr;}
+.shell-full{grid-template-columns:52px 1fr;}
+.app-h{height:680px;}
+
+/* ── ICON RAIL ── */
+.rail{background:#060E1A;border-right:1px solid var(--border);display:flex;flex-direction:column;align-items:center;padding:14px 0;gap:3px;}
+.ri{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--t3);transition:all .15s;}
+.ri:hover{background:rgba(255,255,255,.05);color:var(--t1);}
+.ri.on{background:rgba(56,189,248,.14);color:var(--cyan);}
+.ri svg{width:15px;height:15px;stroke-width:1.7;}
+.rg{flex:1;}
+.rav{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#6366F1,#A78BFA);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;margin-top:8px;}
+
+/* ── SIDEBAR ── */
+.sb{background:var(--navy2);border-right:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden;}
+.sb-head{padding:14px 14px 10px;border-bottom:1px solid var(--border);}
+.sb-logo{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+.sb-icon{width:24px;height:24px;border-radius:6px;background:linear-gradient(135deg,var(--cyan),var(--indigo));display:flex;align-items:center;justify-content:center;}
+.sb-icon svg{width:13px;height:13px;}
+.sb-brand{font-size:13px;font-weight:800;letter-spacing:-.02em;color:var(--t0);}
+.sb-brand em{color:var(--cyan);font-style:normal;}
+.sb-srch{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:7px;padding:6px 10px;display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--t3);}
+.sb-srch svg{width:12px;height:12px;flex-shrink:0;}
+.sb-sec{font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);padding:12px 14px 4px;}
+.ni{display:flex;align-items:center;gap:8px;padding:7px 14px;font-size:12.5px;font-weight:500;color:var(--t2);cursor:pointer;border-left:2px solid transparent;transition:all .12s;}
+.ni svg{width:14px;height:14px;flex-shrink:0;stroke-width:1.7;}
+.ni:hover{color:var(--t1);background:rgba(255,255,255,.025);}
+.ni.on{color:var(--t0);background:rgba(56,189,248,.07);border-left-color:var(--cyan);font-weight:600;}
+.ni.on svg{color:var(--cyan);}
+.nb{margin-left:auto;font-size:9.5px;font-weight:700;background:rgba(56,189,248,.14);color:var(--cyan);padding:1px 6px;border-radius:99px;}
+
+/* ── MAIN ── */
+.main{display:flex;flex-direction:column;overflow:hidden;background:var(--navy);}
+.topbar{height:50px;border-bottom:1px solid var(--border);display:flex;align-items:center;padding:0 20px;gap:10px;flex-shrink:0;background:rgba(12,26,46,.8);backdrop-filter:blur(10px);}
+.tb-title{font-size:14.5px;font-weight:700;color:var(--t0);letter-spacing:-.02em;}
+.tb-badge{font-size:9.5px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;padding:3px 8px;border-radius:99px;background:rgba(56,189,248,.10);color:var(--cyan);border:1px solid rgba(56,189,248,.20);}
+.tb-r{margin-left:auto;display:flex;align-items:center;gap:7px;}
+.btn{height:30px;padding:0 14px;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;border:none;transition:all .15s;display:inline-flex;align-items:center;gap:5px;}
+.btn svg{width:12px;height:12px;}
+.btn-ghost{background:rgba(255,255,255,.05);border:1px solid var(--border2);color:var(--t1);}
+.btn-ghost:hover{background:rgba(255,255,255,.08);}
+.btn-pri{background:var(--cyan);color:#07111F;font-weight:700;}
+.btn-pri:hover{background:var(--cyan-d);box-shadow:0 0 16px rgba(56,189,248,.25);}
+.body{flex:1;overflow-y:auto;padding:18px 20px;}
+.body::-webkit-scrollbar{width:3px;}
+.body::-webkit-scrollbar-thumb{background:rgba(255,255,255,.08);}
+
+/* ── SHARED COMPONENTS ── */
+.card{background:var(--navy2);border:1px solid var(--border);border-radius:12px;padding:16px 18px;}
+.card-title{font-size:13px;font-weight:700;color:var(--t0);margin-bottom:2px;}
+.card-sub{font-size:11px;color:var(--t3);}
+.label{font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);margin-bottom:5px;}
+.tag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;display:inline-flex;align-items:center;gap:4px;}
+.tg{background:rgba(16,185,129,.10);color:#34D399;border:1px solid rgba(16,185,129,.18);}
+.ty{background:rgba(245,158,11,.10);color:#FCD34D;border:1px solid rgba(245,158,11,.18);}
+.tr{background:rgba(224,92,130,.10);color:#F9A8C9;border:1px solid rgba(224,92,130,.18);}
+.tc{background:rgba(56,189,248,.10);color:var(--cyan);border:1px solid rgba(56,189,248,.18);}
+.ti{background:rgba(99,102,241,.10);color:#A5B4FC;border:1px solid rgba(99,102,241,.18);}
+.tn{background:rgba(255,255,255,.05);color:var(--t2);border:1px solid var(--border);}
+.dot6{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+.mono{font-family:'DM Mono',monospace;}
+
+/* ── PBAR ── */
+.pbar{height:4px;background:rgba(255,255,255,.06);border-radius:99px;overflow:hidden;}
+.pfill{height:100%;border-radius:99px;}
+
+/* ── PULSE DOT ── */
+.pulse{width:7px;height:7px;border-radius:50%;animation:pulseAnim 1.4s ease-in-out infinite;}
+@keyframes pulseAnim{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.4;transform:scale(.7);}}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════
+     FEATURE 1 — SILENT CRM
+════════════════════════════════════ -->
+<div class="ch">
+  <div class="ch-num">Feature 01 · Silent CRM</div>
+  <div class="ch-title">The CRM that fills itself.</div>
+  <div class="ch-desc">No manual input. Ever. Every deal, contact, and conversation auto-populated the moment a reply lands — because Moxcrm is natively connected to Moxcheck, Moxwarm, and Moxsend. When Ahmed replies at 10 AM, his deal exists at 10 AM.</div>
+</div>
+
+<div class="screen">
+<div class="chrome">
+  <div class="dots"><div class="dot" style="background:#FF5F57"></div><div class="dot" style="background:#FFBD2E"></div><div class="dot" style="background:#28C840"></div></div>
+  <div class="url">app.moxcrm.ai/deals</div>
+  <div class="beta">Silent CRM · Live</div>
+</div>
+<div class="shell shell-3 app-h">
+
+  <!-- RAIL -->
+  <div class="rail">
+    <div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+    <div class="ri on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg></div>
+    <div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+    <div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+    <div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+    <div class="rg"></div>
+    <div class="rav">RC</div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sb">
+    <div class="sb-head">
+      <div class="sb-logo">
+        <div class="sb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <div class="sb-brand">MOX<em>CRM</em></div>
+      </div>
+      <div class="sb-srch">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        Search everything...
+      </div>
+    </div>
+    <div class="sb-sec">Pipeline</div>
+    <div class="ni on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>All Deals<span class="nb">14</span></div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Hot Signals<span class="nb" style="background:rgba(16,185,129,.14);color:#34D399;">6</span></div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Closing Soon</div>
+    <div class="sb-sec">Source</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22 2 11 13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>From Moxsend</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Contacts</div>
+    <div class="sb-sec">Intelligence</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>Deal DNA</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 18v-6a9 9 0 0118 0v6"/><path d="M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z"/></svg>Conversation Memory</div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div class="topbar">
+      <div class="tb-title">All Deals</div>
+      <div class="tb-badge">14 deals · auto-populated</div>
+      <div class="tb-r">
+        <!-- Live sync indicator -->
+        <div style="display:flex;align-items:center;gap:6px;padding:4px 10px;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.18);border-radius:99px;">
+          <div class="pulse" style="background:#34D399;"></div>
+          <span style="font-size:11px;font-weight:600;color:#34D399;">Syncing from Moxsend</span>
+        </div>
+        <button class="btn btn-ghost">Filter</button>
+      </div>
+    </div>
+    <div class="body" style="padding:0;">
+
+      <!-- Auto-populated banner -->
+      <div style="background:rgba(56,189,248,.05);border-bottom:1px solid rgba(56,189,248,.10);padding:10px 20px;display:flex;align-items:center;gap:10px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#38BDF8" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+        <span style="font-size:12px;color:var(--cyan);">3 new deals auto-created from Moxsend replies in the last hour</span>
+        <span style="font-size:11px;color:var(--t3);margin-left:auto;">No manual input required</span>
+      </div>
+
+      <!-- Table header -->
+      <div style="display:grid;grid-template-columns:minmax(0,1.8fr) 120px 100px 110px 90px 130px;gap:8px;padding:9px 20px;font-size:9.5px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:var(--t3);border-bottom:1px solid var(--border);">
+        <div>Contact · Company</div><div>Source</div><div>Deal DNA</div><div>Value</div><div>Stage</div><div>Next action</div>
+      </div>
+
+      <!-- Deal rows -->
+      <!-- Deal 1 — HOT -->
+      <div style="display:grid;grid-template-columns:minmax(0,1.8fr) 120px 100px 110px 90px 130px;gap:8px;padding:13px 20px;border-bottom:1px solid var(--border);align-items:center;border-left:3px solid #34D399;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#1E3A5F,#2A4F7C);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--t1);flex-shrink:0;">AA</div>
+          <div>
+            <div style="font-size:13px;font-weight:600;color:var(--t0);">Ahmed Al-Rashid</div>
+            <div style="font-size:11px;color:var(--t3);">Gulf Trade Solutions · Dubai</div>
+          </div>
+        </div>
+        <div><span class="tag tc" style="font-size:9.5px;">Moxsend</span><div style="font-size:10px;color:var(--t3);margin-top:3px;">Reply · 2h ago</div></div>
+        <div>
+          <div style="font-size:16px;font-weight:800;color:#34D399;letter-spacing:-.02em;">94%</div>
+          <div class="pbar" style="margin-top:4px;"><div class="pfill" style="width:94%;background:#34D399;"></div></div>
+        </div>
+        <div style="font-size:13px;font-weight:700;color:var(--t0);">AED 48,000<div style="font-size:10px;color:var(--t3);font-weight:400;">annual</div></div>
+        <div><span class="tag tg">Hot</span></div>
+        <div style="font-size:11.5px;color:var(--cyan);font-weight:500;">Call today ↗</div>
+      </div>
+
+      <!-- Deal 2 -->
+      <div style="display:grid;grid-template-columns:minmax(0,1.8fr) 120px 100px 110px 90px 130px;gap:8px;padding:13px 20px;border-bottom:1px solid var(--border);align-items:center;border-left:3px solid #FCD34D;">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#3B1F5C,#5B2D8A);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--t1);flex-shrink:0;">SM</div>
+          <div>
+            <div style="font-size:13px;font-weight:600;color:var(--t0);">Sara Al-Mansoori</div>
+            <div style="font-size:11px;color:var(--t3);">Mansoori Group · Abu Dhabi</div>
+          </div>
+        </div>
+        <div><span class="tag tc" style="font-size:9.5px;">Moxsend</span><div style="font-size:10px;color:var(--t3);margin-top:3px;">Reply · 3h ago</div></div>
+        <div>
+          <div style="font-size:16px;font-weight:800;color:#FCD34D;letter-spacing:-.02em;">71%</div>
+          <div class="pbar" style="margin-top:4px;"><div class="pfill" style="width:71%;background:#FCD34D;"></div></div>
+        </div>
+        <div style="font-size:13px;font-weight:700;color:var(--t0);">AED 120,000<div style="font-size:10px;color:var(--t3);font-weight:400;">annual</div></div>
+        <div><span class="tag ty">Warm</span></div>
+        <div style="font-size:11.5px;color:#FCD34D;font-weight:500;">Send pricing ↗</div>
+      </div>
+
+      <!-- Deal 3 — new auto -->
+      <div style="display:grid;grid-template-columns:minmax(0,1.8fr) 120px 100px 110px 90px 130px;gap:8px;padding:13px 20px;border-bottom:1px solid var(--border);align-items:center;border-left:3px solid var(--cyan);background:rgba(56,189,248,.03);">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#1A3A2F,#27594A);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--t1);flex-shrink:0;">KS</div>
+          <div>
+            <div style="font-size:13px;font-weight:600;color:var(--t0);">Khalid bin Saeed</div>
+            <div style="font-size:11px;color:var(--t3);">Saeed Capital · Riyadh</div>
+          </div>
+          <span style="font-size:9px;font-weight:700;background:rgba(56,189,248,.14);color:var(--cyan);padding:2px 7px;border-radius:99px;letter-spacing:.06em;">AUTO-CREATED</span>
+        </div>
+        <div><span class="tag tc" style="font-size:9.5px;">Moxsend</span><div style="font-size:10px;color:var(--t3);margin-top:3px;">Reply · 12m ago</div></div>
+        <div>
+          <div style="font-size:16px;font-weight:800;color:var(--cyan);letter-spacing:-.02em;">67%</div>
+          <div class="pbar" style="margin-top:4px;"><div class="pfill" style="width:67%;background:var(--cyan);"></div></div>
+        </div>
+        <div style="font-size:13px;font-weight:700;color:var(--t0);">SAR 95,000<div style="font-size:10px;color:var(--t3);font-weight:400;">annual</div></div>
+        <div><span class="tag tc">Warm</span></div>
+        <div style="font-size:11.5px;color:var(--cyan);font-weight:500;">AI drafting reply…</div>
+      </div>
+
+      <!-- Deal 4 -->
+      <div style="display:grid;grid-template-columns:minmax(0,1.8fr) 120px 100px 110px 90px 130px;gap:8px;padding:13px 20px;border-bottom:1px solid var(--border);align-items:center;border-left:3px solid rgba(255,255,255,.08);">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#2A1A1A,#4A2020);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--t1);flex-shrink:0;">PM</div>
+          <div>
+            <div style="font-size:13px;font-weight:600;color:var(--t0);">Priya Mehta</div>
+            <div style="font-size:11px;color:var(--t3);">TechBridge India · Mumbai</div>
+          </div>
+        </div>
+        <div><span class="tag tc" style="font-size:9.5px;">Moxsend</span><div style="font-size:10px;color:var(--t3);margin-top:3px;">Reply · 1d ago</div></div>
+        <div>
+          <div style="font-size:16px;font-weight:800;color:var(--t2);letter-spacing:-.02em;">44%</div>
+          <div class="pbar" style="margin-top:4px;"><div class="pfill" style="width:44%;background:var(--t3);"></div></div>
+        </div>
+        <div style="font-size:13px;font-weight:700;color:var(--t0);">INR 4,20,000<div style="font-size:10px;color:var(--t3);font-weight:400;">annual</div></div>
+        <div><span class="tag ti">Nurture</span></div>
+        <div style="font-size:11.5px;color:var(--t2);font-weight:500;">Q3 sequence</div>
+      </div>
+
+      <!-- Total row -->
+      <div style="padding:14px 20px;background:rgba(56,189,248,.04);border-top:1px solid rgba(56,189,248,.10);display:flex;align-items:center;gap:20px;">
+        <div style="font-size:11px;font-weight:600;color:var(--t3);">14 deals total</div>
+        <div style="font-size:12px;font-weight:700;color:var(--t0);">Pipeline value: <span style="color:var(--cyan);">AED 2.4M</span></div>
+        <div style="margin-left:auto;font-size:11px;color:var(--t3);">Last synced: <span style="color:#34D399;">just now</span> · Zero manual entries</div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="sep"></div>
+
+<!-- ════════════════════════════════════
+     FEATURE 2 — DEAL DNA
+════════════════════════════════════ -->
+<div class="ch">
+  <div class="ch-num">Feature 02 · Deal DNA</div>
+  <div class="ch-title">Live probability. No guesswork. No human input.</div>
+  <div class="ch-desc">Pipeline stages are fiction. Deal DNA is real. The AI reads every signal — reply speed, tone trajectory, proposal opens, internal forwards — and gives you a live number updated every hour. GCC-aware: a Friday silence is not churn. Ramadan quiet is not dead.</div>
+</div>
+
+<div class="screen">
+<div class="chrome">
+  <div class="dots"><div class="dot" style="background:#FF5F57"></div><div class="dot" style="background:#FFBD2E"></div><div class="dot" style="background:#28C840"></div></div>
+  <div class="url">app.moxcrm.ai/deals/ahmed-al-rashid/dna</div>
+  <div class="beta">Deal DNA · Live</div>
+</div>
+<div class="shell shell-3 app-h">
+  <div class="rail">
+    <div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+    <div class="ri on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+    <div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+    <div class="rg"></div>
+    <div class="rav">RC</div>
+  </div>
+  <div class="sb">
+    <div class="sb-head">
+      <div class="sb-logo">
+        <div class="sb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+        <div class="sb-brand">MOX<em>CRM</em></div>
+      </div>
+      <div class="sb-srch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Search...</div>
+    </div>
+    <div class="sb-sec">Deal</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>Overview</div>
+    <div class="ni on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>Deal DNA</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Conversation Memory</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>Emails</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>Activity Log</div>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#1E3A5F,#2A4F7C);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--t1);">AA</div>
+        <div>
+          <div class="tb-title">Ahmed Al-Rashid · Deal DNA</div>
+        </div>
+        <div class="tb-badge">Gulf Trade Solutions</div>
+      </div>
+      <div class="tb-r">
+        <div style="display:flex;align-items:center;gap:5px;font-size:11px;color:var(--t3);">Updated <span style="color:#34D399;font-weight:600;">4 min ago</span></div>
+      </div>
+    </div>
+    <div class="body">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
+
+        <!-- BIG DNA SCORE -->
+        <div style="background:var(--navy2);border:1px solid rgba(52,211,153,.20);border-radius:14px;padding:22px;position:relative;overflow:hidden;">
+          <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#10B981,#34D399,#10B981);border-radius:14px 14px 0 0;"></div>
+          <div class="label" style="margin-bottom:10px;">Deal DNA Score</div>
+          <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:6px;">
+            <div style="font-size:64px;font-weight:900;letter-spacing:-.05em;color:#34D399;line-height:1;">94</div>
+            <div style="font-size:20px;font-weight:700;color:rgba(52,211,153,.55);">%</div>
+          </div>
+          <div style="font-size:13px;font-weight:600;color:var(--t1);margin-bottom:4px;">Highly likely to close this week</div>
+          <div style="font-size:11px;color:var(--t3);">Based on 7 live signals · GCC-calibrated model</div>
+          <div style="margin-top:14px;display:flex;gap:6px;">
+            <span class="tag tg">Hot signal</span>
+            <span class="tag tg">Proposal opened</span>
+          </div>
+        </div>
+
+        <!-- Signal breakdown -->
+        <div class="card" style="display:flex;flex-direction:column;gap:10px;">
+          <div class="label">Live Signal Breakdown</div>
+
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="font-size:11px;color:var(--t2);width:130px;flex-shrink:0;">Reply speed</div>
+            <div class="pbar" style="flex:1;"><div class="pfill" style="width:92%;background:#34D399;"></div></div>
+            <div style="font-size:11px;font-weight:700;color:#34D399;width:32px;text-align:right;">92%</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="font-size:11px;color:var(--t2);width:130px;flex-shrink:0;">Tone trajectory</div>
+            <div class="pbar" style="flex:1;"><div class="pfill" style="width:88%;background:#34D399;"></div></div>
+            <div style="font-size:11px;font-weight:700;color:#34D399;width:32px;text-align:right;">88%</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="font-size:11px;color:var(--t2);width:130px;flex-shrink:0;">Proposal opens</div>
+            <div class="pbar" style="flex:1;"><div class="pfill" style="width:96%;background:#34D399;"></div></div>
+            <div style="font-size:11px;font-weight:700;color:#34D399;width:32px;text-align:right;">96%</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="font-size:11px;color:var(--t2);width:130px;flex-shrink:0;">Internal forward</div>
+            <div class="pbar" style="flex:1;"><div class="pfill" style="width:80%;background:#FCD34D;"></div></div>
+            <div style="font-size:11px;font-weight:700;color:#FCD34D;width:32px;text-align:right;">80%</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="font-size:11px;color:var(--t2);width:130px;flex-shrink:0;">Reply length trend</div>
+            <div class="pbar" style="flex:1;"><div class="pfill" style="width:85%;background:#34D399;"></div></div>
+            <div style="font-size:11px;font-weight:700;color:#34D399;width:32px;text-align:right;">85%</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="font-size:11px;color:var(--t2);width:130px;flex-shrink:0;">Silence pattern</div>
+            <div class="pbar" style="flex:1;"><div class="pfill" style="width:100%;background:#34D399;"></div></div>
+            <div style="font-size:11px;font-weight:700;color:#34D399;width:32px;text-align:right;">OK</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:10px;">
+            <div style="font-size:11px;color:var(--t2);width:130px;flex-shrink:0;">Decision timeline</div>
+            <div class="pbar" style="flex:1;"><div class="pfill" style="width:90%;background:#34D399;"></div></div>
+            <div style="font-size:11px;font-weight:700;color:#34D399;width:32px;text-align:right;">90%</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GCC Intelligence note + DNA history -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+        <div style="background:rgba(251,191,36,.04);border:1px solid rgba(251,191,36,.14);border-radius:12px;padding:14px 16px;">
+          <div style="display:flex;align-items:center;gap:7px;margin-bottom:8px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <span style="font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#FBBF24;">GCC Intelligence</span>
+          </div>
+          <div style="font-size:12px;color:var(--t2);line-height:1.65;">Ahmed did not reply on Friday. <strong style="color:var(--t1);">This is not disengagement.</strong> Friday prayers are a cultural norm in the Gulf. Our model does not penalise Friday silences. Western CRMs would have dropped this score to 61%.</div>
+        </div>
+        <div class="card">
+          <div class="label" style="margin-bottom:10px;">DNA Score History · 7 days</div>
+          <div style="display:flex;align-items:flex-end;gap:6px;height:60px;">
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="width:100%;border-radius:3px 3px 0 0;background:rgba(56,189,248,.25);" style="height:30px;"></div><div style="font-size:9px;color:var(--t3);">M</div></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="height:38px;"></div></div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;"><div style="height:44px;"></div></div>
+            <!-- inline bars for brevity -->
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+              <div style="flex:1;width:100%;background:rgba(56,189,248,.25);border-radius:3px 3px 0 0;align-self:flex-end;min-height:26px;"></div>
+              <div style="font-size:9px;color:var(--t3);">M</div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+              <div style="flex:1;width:100%;background:rgba(56,189,248,.40);border-radius:3px 3px 0 0;align-self:flex-end;min-height:36px;"></div>
+              <div style="font-size:9px;color:var(--t3);">T</div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+              <div style="flex:1;width:100%;background:rgba(56,189,248,.55);border-radius:3px 3px 0 0;align-self:flex-end;min-height:48px;"></div>
+              <div style="font-size:9px;color:var(--t3);">W</div>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+              <div style="flex:1;width:100%;background:#34D399;border-radius:3px 3px 0 0;align-self:flex-end;min-height:60px;"></div>
+              <div style="font-size:9px;color:#34D399;font-weight:700;">T</div>
+            </div>
+          </div>
+          <div style="font-size:11px;color:var(--t3);margin-top:8px;">Score increased 31pts this week after proposal was forwarded internally</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="sep"></div>
+
+<!-- ════════════════════════════════════
+     FEATURE 3 — CONVERSATION MEMORY
+════════════════════════════════════ -->
+<div class="ch">
+  <div class="ch-num">Feature 03 · Conversation Memory</div>
+  <div class="ch-title">The AI that never forgets what was promised.</div>
+  <div class="ch-desc">Every email thread read from the beginning. Every promise, objection, commitment, and signal extracted and surfaced as a living brief — updated with every new message. Before every call, your salesperson knows everything without reading a single email.</div>
+</div>
+
+<div class="screen">
+<div class="chrome">
+  <div class="dots"><div class="dot" style="background:#FF5F57"></div><div class="dot" style="background:#FFBD2E"></div><div class="dot" style="background:#28C840"></div></div>
+  <div class="url">app.moxcrm.ai/deals/ahmed-al-rashid/memory</div>
+  <div class="beta">Conversation Memory</div>
+</div>
+<div class="shell shell-3 app-h">
+  <div class="rail">
+    <div class="ri on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+    <div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+    <div class="rg"></div><div class="rav">RC</div>
+  </div>
+  <div class="sb">
+    <div class="sb-head">
+      <div class="sb-logo"><div class="sb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div class="sb-brand">MOX<em>CRM</em></div></div>
+      <div class="sb-srch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Search...</div>
+    </div>
+    <div class="sb-sec">Deal</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>Overview</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>Deal DNA</div>
+    <div class="ni on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Conversation Memory</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/></svg>Emails</div>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#1E3A5F,#2A4F7C);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--t1);">AA</div>
+        <div class="tb-title">Conversation Memory</div>
+        <div class="tb-badge">Ahmed Al-Rashid · 8 emails read</div>
+      </div>
+      <div class="tb-r">
+        <div style="display:flex;align-items:center;gap:6px;font-size:11px;color:var(--t3);"><div class="pulse" style="background:var(--cyan);"></div>Updated in real-time</div>
+        <button class="btn btn-pri">Pre-call Brief</button>
+      </div>
+    </div>
+    <div class="body">
+
+      <!-- PRE-CALL BRIEF — THE HERO -->
+      <div style="background:rgba(56,189,248,.05);border:1px solid rgba(56,189,248,.18);border-radius:14px;padding:18px 20px;margin-bottom:14px;">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--cyan)" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <span style="font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);">AI Pre-Call Brief · Generated Now</span>
+        </div>
+        <div style="font-size:13.5px;color:var(--t1);line-height:1.75;font-weight:400;">
+          Ahmed asked about <strong style="color:var(--t0);">GCC-specific pricing</strong> in email 3 — he wants a breakdown by UAE vs Saudi. He mentioned <strong style="color:var(--t0);">budget opens in Q3</strong> but hinted this could move to Q2 if pricing is right. He cc'd his CFO <strong style="color:var(--t0);">Khalid Al-Rashid</strong> in email 6 — Khalid has not replied yet, which is normal in Gulf C-suite dynamics. Ahmed <strong style="color:var(--t0);">opened your proposal 4 times on Tuesday</strong>, including once at 11 PM — high intent signal. His main objection was <strong style="color:var(--t0);">integration with their SAP system</strong> — you promised to send a technical spec by Thursday.
+        </div>
+      </div>
+
+      <!-- Memory cards grid -->
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:14px;">
+        <div class="card">
+          <div class="label" style="color:#34D399;margin-bottom:8px;">What they need</div>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <div style="font-size:12px;color:var(--t1);display:flex;gap:7px;align-items:flex-start;"><div class="dot6" style="background:#34D399;margin-top:4px;flex-shrink:0;"></div>GCC-specific pricing (UAE + Saudi split)</div>
+            <div style="font-size:12px;color:var(--t1);display:flex;gap:7px;align-items:flex-start;"><div class="dot6" style="background:#34D399;margin-top:4px;flex-shrink:0;"></div>SAP integration confirmation</div>
+            <div style="font-size:12px;color:var(--t1);display:flex;gap:7px;align-items:flex-start;"><div class="dot6" style="background:#34D399;margin-top:4px;flex-shrink:0;"></div>On-premise deployment option</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="label" style="color:#F87171;margin-bottom:8px;">Objections raised</div>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <div style="font-size:12px;color:var(--t1);display:flex;gap:7px;align-items:flex-start;"><div class="dot6" style="background:#F87171;margin-top:4px;flex-shrink:0;"></div>SAP integration complexity</div>
+            <div style="font-size:12px;color:var(--t1);display:flex;gap:7px;align-items:flex-start;"><div class="dot6" style="background:#F87171;margin-top:4px;flex-shrink:0;"></div>Budget not confirmed until Q3</div>
+            <div style="font-size:12px;color:var(--t1);display:flex;gap:7px;align-items:flex-start;"><div class="dot6" style="background:#F87171;margin-top:4px;flex-shrink:0;"></div>Team still evaluating Salesforce</div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="label" style="color:#FCD34D;margin-bottom:8px;">You promised</div>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <div style="font-size:12px;color:var(--t1);display:flex;gap:7px;align-items:flex-start;"><div class="dot6" style="background:#FCD34D;margin-top:4px;flex-shrink:0;"></div>Technical SAP spec — <strong style="color:#F87171;">due Thursday</strong></div>
+            <div style="font-size:12px;color:var(--t1);display:flex;gap:7px;align-items:flex-start;"><div class="dot6" style="background:#FCD34D;margin-top:4px;flex-shrink:0;"></div>GCC case study PDF</div>
+            <div style="font-size:12px;color:var(--t1);display:flex;gap:7px;align-items:flex-start;"><div class="dot6" style="background:#FCD34D;margin-top:4px;flex-shrink:0;"></div>Intro to UAE reference customer</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Email timeline -->
+      <div class="card">
+        <div class="label" style="margin-bottom:12px;">Email Thread Memory — 8 exchanges</div>
+        <div style="display:flex;flex-direction:column;gap:0;position:relative;">
+          <div style="position:absolute;left:9px;top:0;bottom:0;width:1px;background:var(--border);"></div>
+          <!-- email entries -->
+          <div style="display:grid;grid-template-columns:20px 1fr auto;gap:10px;padding:8px 0 8px 24px;align-items:start;">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--cyan);margin-top:4px;position:absolute;left:6px;"></div>
+            <div style="font-size:12px;color:var(--t2);">You sent initial email via Moxsend — personalised for Gulf Trade logistics expansion</div>
+            <div style="font-size:10px;color:var(--t3);flex-shrink:0;">Apr 28</div>
+          </div>
+          <div style="display:grid;grid-template-columns:20px 1fr auto;gap:10px;padding:8px 0 8px 24px;align-items:start;position:relative;">
+            <div style="width:8px;height:8px;border-radius:50%;background:#34D399;margin-top:4px;position:absolute;left:6px;"></div>
+            <div style="font-size:12px;color:var(--t2);">Ahmed replied — interested, asked about pricing and implementation timeline</div>
+            <div style="font-size:10px;color:var(--t3);flex-shrink:0;">Apr 29</div>
+          </div>
+          <div style="display:grid;grid-template-columns:20px 1fr auto;gap:10px;padding:8px 0 8px 24px;align-items:start;position:relative;">
+            <div style="width:8px;height:8px;border-radius:50%;background:#FCD34D;position:absolute;left:6px;margin-top:4px;"></div>
+            <div style="font-size:12px;color:var(--t2);">You sent proposal — <strong style="color:var(--t1);">Ahmed opened it 4 times · forwarded to Khalid (CFO)</strong></div>
+            <div style="font-size:10px;color:var(--t3);flex-shrink:0;">May 1</div>
+          </div>
+          <div style="display:grid;grid-template-columns:20px 1fr auto;gap:10px;padding:8px 0 8px 24px;align-items:start;position:relative;">
+            <div style="width:8px;height:8px;border-radius:50%;background:#34D399;position:absolute;left:6px;margin-top:4px;"></div>
+            <div style="font-size:12px;color:var(--t2);">Ahmed replied — confirmed Tuesday call · raised SAP objection</div>
+            <div style="font-size:10px;color:var(--t3);flex-shrink:0;">May 2</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="sep"></div>
+
+<!-- ════════════════════════════════════
+     FEATURE 4+5+6 — HEAT MAP + NEXT BEST ACTION + GCC
+════════════════════════════════════ -->
+<div class="ch">
+  <div class="ch-num">Features 04 · 05 · 06 — Relationship Heat Map · Next Best Action · GCC Intelligence</div>
+  <div class="ch-title">See who is going cold. Do one thing. Built for the Gulf.</div>
+  <div class="ch-desc">Relationship Heat Map shows every contact's warmth level based on real communication data — not what your sales team said. Next Best Action gives your team one task every morning. GCC Intelligence knows a Ramadan silence is a pause, not a loss.</div>
+</div>
+
+<div class="screen">
+<div class="chrome">
+  <div class="dots"><div class="dot" style="background:#FF5F57"></div><div class="dot" style="background:#FFBD2E"></div><div class="dot" style="background:#28C840"></div></div>
+  <div class="url">app.moxcrm.ai/intelligence</div>
+  <div class="beta">AI Intelligence Hub</div>
+</div>
+<div class="shell shell-3 app-h">
+  <div class="rail">
+    <div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+    <div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+    <div class="ri on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+    <div class="rg"></div><div class="rav">RC</div>
+  </div>
+  <div class="sb">
+    <div class="sb-head">
+      <div class="sb-logo"><div class="sb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div><div class="sb-brand">MOX<em>CRM</em></div></div>
+      <div class="sb-srch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Search...</div>
+    </div>
+    <div class="sb-sec">Intelligence</div>
+    <div class="ni on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Intelligence Hub</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 18v-6a9 9 0 0118 0v6"/></svg>Heat Map</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Next Best Action</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>GCC Intelligence</div>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="tb-title">Intelligence Hub</div>
+      <div class="tb-badge">Easehawk Technologies</div>
+      <div class="tb-r">
+        <div style="font-size:11px;color:var(--t3);">Monday, May 4 · 9:14 AM GST</div>
+      </div>
+    </div>
+    <div class="body">
+
+      <!-- NEXT BEST ACTION — HERO CARD -->
+      <div style="background:linear-gradient(135deg,rgba(56,189,248,.10) 0%,rgba(99,102,241,.08) 100%);border:1px solid rgba(56,189,248,.22);border-radius:16px;padding:20px 22px;margin-bottom:14px;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--cyan),var(--indigo));border-radius:16px 16px 0 0;"></div>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+          <div class="pulse" style="background:var(--cyan);"></div>
+          <span style="font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);">Next Best Action · Your one move today</span>
+        </div>
+        <div style="font-size:18px;font-weight:700;color:var(--t0);line-height:1.5;margin-bottom:10px;">Call Ahmed Al-Rashid. His proposal has been open for 72 hours and he cc'd his CFO yesterday. This is the <em style="color:var(--cyan);font-style:normal;">highest-probability action</em> in your pipeline today.</div>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <button class="btn btn-pri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 15z"/></svg>Call now</button>
+          <button class="btn btn-ghost">View deal</button>
+          <div style="margin-left:auto;font-size:11px;color:var(--t3);">Expected value: <span style="color:#34D399;font-weight:700;">AED 48,000</span> · Impact score: <span style="color:var(--cyan);font-weight:700;">98/100</span></div>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+
+        <!-- HEAT MAP -->
+        <div class="card">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+            <div><div class="card-title">Relationship Heat Map</div><div class="card-sub">Real communication data · not what your team typed</div></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:7px;">
+
+            <!-- contact rows -->
+            <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:rgba(52,211,153,.06);border:1px solid rgba(52,211,153,.15);border-radius:9px;">
+              <div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#1E3A5F,#2A4F7C);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--t1);flex-shrink:0;">AA</div>
+              <div style="flex:1;"><div style="font-size:12px;font-weight:600;color:var(--t0);">Ahmed Al-Rashid</div><div style="font-size:10px;color:var(--t3);">Replies in 2h avg · Warming fast</div></div>
+              <div style="display:flex;gap:3px;align-items:center;">
+                <div style="width:8px;height:20px;border-radius:2px;background:#34D399;"></div>
+                <div style="width:8px;height:20px;border-radius:2px;background:#34D399;"></div>
+                <div style="width:8px;height:20px;border-radius:2px;background:#34D399;"></div>
+                <div style="width:8px;height:16px;border-radius:2px;background:#34D399;opacity:.7;"></div>
+                <div style="width:8px;height:12px;border-radius:2px;background:#34D399;opacity:.5;"></div>
+              </div>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:rgba(245,158,11,.05);border:1px solid rgba(245,158,11,.14);border-radius:9px;">
+              <div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#3B1F5C,#5B2D8A);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--t1);flex-shrink:0;">SM</div>
+              <div style="flex:1;"><div style="font-size:12px;font-weight:600;color:var(--t0);">Sara Al-Mansoori</div><div style="font-size:10px;color:var(--t3);">Stable interest · pricing stage</div></div>
+              <div style="display:flex;gap:3px;align-items:center;">
+                <div style="width:8px;height:16px;border-radius:2px;background:#FCD34D;"></div>
+                <div style="width:8px;height:16px;border-radius:2px;background:#FCD34D;"></div>
+                <div style="width:8px;height:20px;border-radius:2px;background:#FCD34D;"></div>
+                <div style="width:8px;height:14px;border-radius:2px;background:#FCD34D;opacity:.7;"></div>
+                <div style="width:8px;height:16px;border-radius:2px;background:#FCD34D;opacity:.6;"></div>
+              </div>
+            </div>
+
+            <!-- COOLING ALERT -->
+            <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:rgba(248,113,113,.06);border:1px solid rgba(248,113,113,.18);border-radius:9px;">
+              <div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#3A1A2A,#5A2535);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--t1);flex-shrink:0;">RH</div>
+              <div style="flex:1;">
+                <div style="font-size:12px;font-weight:600;color:var(--t0);">Rania Hassan</div>
+                <div style="font-size:10px;color:#F87171;font-weight:500;">⚠ Cooling — was 2h replies, now 3 days</div>
+              </div>
+              <div style="display:flex;gap:3px;align-items:center;">
+                <div style="width:8px;height:20px;border-radius:2px;background:#F87171;opacity:.7;"></div>
+                <div style="width:8px;height:14px;border-radius:2px;background:#F87171;opacity:.5;"></div>
+                <div style="width:8px;height:8px;border-radius:2px;background:#F87171;opacity:.4;"></div>
+                <div style="width:8px;height:4px;border-radius:2px;background:#F87171;opacity:.3;"></div>
+                <div style="width:8px;height:4px;border-radius:2px;background:rgba(255,255,255,.10);"></div>
+              </div>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:10px;padding:8px 10px;background:rgba(56,189,248,.04);border:1px solid rgba(56,189,248,.12);border-radius:9px;">
+              <div style="width:26px;height:26px;border-radius:50%;background:linear-gradient(135deg,#1A3A2F,#27594A);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:var(--t1);flex-shrink:0;">KS</div>
+              <div style="flex:1;">
+                <div style="font-size:12px;font-weight:600;color:var(--t0);">Khalid bin Saeed</div>
+                <div style="font-size:10px;color:var(--cyan);font-weight:500;">↑ Re-warming — opened 3 emails this week after 6 months silence</div>
+              </div>
+              <div style="display:flex;gap:3px;align-items:center;">
+                <div style="width:8px;height:4px;border-radius:2px;background:var(--cyan);opacity:.3;"></div>
+                <div style="width:8px;height:4px;border-radius:2px;background:var(--cyan);opacity:.3;"></div>
+                <div style="width:8px;height:8px;border-radius:2px;background:var(--cyan);opacity:.5;"></div>
+                <div style="width:8px;height:14px;border-radius:2px;background:var(--cyan);opacity:.7;"></div>
+                <div style="width:8px;height:18px;border-radius:2px;background:var(--cyan);"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GCC INTELLIGENCE -->
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="background:rgba(251,191,36,.04);border:1px solid rgba(251,191,36,.16);border-radius:12px;padding:14px 16px;">
+            <div style="display:flex;align-items:center;gap:7px;margin-bottom:10px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+              <span style="font-size:10.5px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:#FBBF24;">GCC Intelligence</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="padding:8px 10px;background:rgba(251,191,36,.06);border-radius:7px;">
+                <div style="font-size:11.5px;font-weight:600;color:var(--t0);margin-bottom:2px;">Ramadan pipeline — 4 deals paused</div>
+                <div style="font-size:11px;color:var(--t2);">These deals went quiet during Ramadan. Not dead. Auto-resume sequence activated for Eid +3 days.</div>
+              </div>
+              <div style="padding:8px 10px;background:rgba(251,191,36,.06);border-radius:7px;">
+                <div style="font-size:11.5px;font-weight:600;color:var(--t0);margin-bottom:2px;">Verbal commitment detected — Saeed Capital</div>
+                <div style="font-size:11px;color:var(--t2);">Email language indicates a majlis-style verbal approval. Deal DNA score elevated to 80% — paperwork follows later in GCC culture.</div>
+              </div>
+              <div style="padding:8px 10px;background:rgba(52,211,153,.05);border-radius:7px;border:1px solid rgba(52,211,153,.12);">
+                <div style="font-size:11.5px;font-weight:600;color:#34D399;margin-bottom:2px;">Friday follow-ups — blocked</div>
+                <div style="font-size:11px;color:var(--t2);">3 scheduled follow-ups were auto-rescheduled from Friday to Sunday. The AI never sends on Friday. No manual override needed.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick stats -->
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+            <div class="card" style="text-align:center;padding:14px 12px;">
+              <div style="font-size:28px;font-weight:800;letter-spacing:-.04em;color:#34D399;line-height:1;">+31%</div>
+              <div style="font-size:10.5px;color:var(--t3);margin-top:4px;">Close rate vs. teams using<br>Western CRM models</div>
+            </div>
+            <div class="card" style="text-align:center;padding:14px 12px;">
+              <div style="font-size:28px;font-weight:800;letter-spacing:-.04em;color:var(--cyan);line-height:1;">Zero</div>
+              <div style="font-size:10.5px;color:var(--t3);margin-top:4px;">Manual data entries<br>across 14 active deals</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+</body>
+</html>

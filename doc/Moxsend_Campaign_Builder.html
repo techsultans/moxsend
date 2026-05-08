@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Moxsend — Campaign Builder</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#F4F6F9;
+  --s0:#FFFFFF;
+  --s1:#F8FAFB;
+  --s2:#EEF2F7;
+  --b0:#E2E8F0;
+  --b1:#CBD5E1;
+  --ink:#0F172A;
+  --t1:#1E293B;
+  --t2:#475569;
+  --t3:#94A3B8;
+  --t4:#CBD5E1;
+  --cyan:#0EA5E9;
+  --cyan-l:rgba(14,165,233,.10);
+  --cyan-b:rgba(14,165,233,.20);
+  --indigo:#6366F1;
+  --green:#059669;
+  --green-l:rgba(5,150,105,.08);
+  --amber:#D97706;
+  --rose:#E11D48;
+  --mono:'JetBrains Mono',monospace;
+  --sh0:0 1px 3px rgba(15,23,42,.06),0 1px 2px rgba(15,23,42,.04);
+  --sh1:0 4px 16px rgba(15,23,42,.08),0 2px 4px rgba(15,23,42,.04);
+  --sh2:0 10px 40px rgba(15,23,42,.10),0 4px 8px rgba(15,23,42,.05);
+}
+html,body{height:100%;overflow:hidden;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased;display:flex;flex-direction:column;}
+
+/* ── TOP NAV ── */
+.nav{
+  height:52px;background:var(--ink);
+  display:flex;align-items:center;padding:0 20px;gap:10px;
+  flex-shrink:0;border-bottom:1px solid rgba(255,255,255,.06);
+  position:relative;z-index:50;
+}
+.nav-logo{display:flex;align-items:center;gap:8px;margin-right:24px;}
+.nav-mark{width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,#0EA5E9,#6366F1);display:flex;align-items:center;justify-content:center;}
+.nav-mark svg{width:14px;height:14px;}
+.nav-wm{font-size:15px;font-weight:800;letter-spacing:-.02em;color:#EEF2FF;}
+.nav-wm em{color:#38BDF8;font-style:normal;}
+.nav-btn{
+  height:28px;padding:0 12px;border-radius:6px;
+  font-size:12px;font-weight:600;cursor:pointer;
+  font-family:inherit;border:none;
+  display:inline-flex;align-items:center;gap:5px;transition:all .14s;
+}
+.nav-btn svg{width:11px;height:11px;}
+.nb-ghost{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.10);color:rgba(255,255,255,.65);}
+.nb-ghost:hover{background:rgba(255,255,255,.12);color:#fff;}
+.nb-credits{background:rgba(14,165,233,.15);border:1px solid rgba(14,165,233,.25);color:#38BDF8;}
+.nb-suite{background:linear-gradient(135deg,#6366F1,#818CF8);color:#fff;padding:0 14px;}
+.nav-sep{width:1px;height:20px;background:rgba(255,255,255,.10);}
+.nav-r{margin-left:auto;display:flex;align-items:center;gap:6px;}
+.nav-user{display:flex;align-items:center;gap:7px;padding:4px 10px;border-radius:6px;cursor:pointer;transition:all .14s;}
+.nav-user:hover{background:rgba(255,255,255,.06);}
+.nav-av{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,#6366F1,#A78BFA);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:800;color:#fff;}
+.nav-uname{font-size:12px;font-weight:600;color:rgba(255,255,255,.70);}
+.nav-urole{font-size:9.5px;color:rgba(255,255,255,.30);}
+
+/* ── WORKSPACE BAR ── */
+.wsbar{
+  height:44px;background:var(--s0);border-bottom:1px solid var(--b0);
+  display:flex;align-items:center;padding:0 24px;gap:0;
+  flex-shrink:0;box-shadow:var(--sh0);
+}
+.ws-name{
+  font-size:12.5px;font-weight:700;color:var(--ink);
+  padding-right:20px;border-right:1px solid var(--b0);margin-right:4px;
+}
+.ws-tabs{display:flex;gap:0;}
+.wt{
+  height:44px;padding:0 16px;font-size:12.5px;font-weight:500;
+  color:var(--t3);cursor:pointer;border-bottom:2px solid transparent;
+  display:flex;align-items:center;transition:all .14s;white-space:nowrap;
+}
+.wt:hover{color:var(--t2);}
+.wt.on{color:var(--cyan);border-bottom-color:var(--cyan);font-weight:700;}
+
+/* ── CONTENT ── */
+.content{flex:1;overflow:hidden;display:flex;flex-direction:column;}
+.page-header{
+  padding:18px 24px 14px;background:var(--s0);
+  border-bottom:1px solid var(--b0);flex-shrink:0;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.ph-left{}
+.ph-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:4px;}
+.ph-title{font-size:20px;font-weight:800;letter-spacing:-.03em;color:var(--ink);}
+.ph-sub{font-size:12.5px;color:var(--t3);margin-top:2px;}
+
+/* ── STEPPER ── */
+.stepper-wrap{
+  padding:14px 24px;background:var(--s0);border-bottom:1px solid var(--b0);
+  display:flex;align-items:center;justify-content:space-between;flex-shrink:0;
+}
+.stepper{display:flex;align-items:center;gap:0;flex:1;}
+.step{display:flex;align-items:center;flex:1;}
+.step-inner{
+  display:flex;align-items:center;gap:10px;
+  padding:8px 14px;border-radius:10px;
+  cursor:pointer;transition:all .15s;flex:1;
+}
+.step-inner:hover{background:var(--s2);}
+.step-num{
+  width:26px;height:26px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:800;flex-shrink:0;
+  background:var(--s2);color:var(--t3);
+  border:1.5px solid var(--b0);transition:all .2s;
+}
+.step.done .step-num{background:var(--green-l);color:var(--green);border-color:rgba(5,150,105,.25);}
+.step.active .step-num{background:var(--cyan);color:#fff;border-color:var(--cyan);box-shadow:0 0 0 3px rgba(14,165,233,.15);}
+.step-info{}
+.step-label{font-size:9.5px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:var(--t3);}
+.step.active .step-label{color:var(--cyan);}
+.step.done .step-label{color:var(--green);}
+.step-name{font-size:12.5px;font-weight:600;color:var(--t2);}
+.step.active .step-name{color:var(--ink);font-weight:700;}
+.step-connector{width:24px;height:1px;background:var(--b0);flex-shrink:0;}
+.step.done .step-connector{background:rgba(5,150,105,.25);}
+.credits-badge{
+  display:flex;align-items:center;gap:6px;
+  padding:6px 14px;background:var(--cyan-l);
+  border:1px solid var(--cyan-b);border-radius:99px;
+  font-size:11px;font-weight:700;color:var(--cyan);white-space:nowrap;flex-shrink:0;
+}
+
+/* ── MAIN LAYOUT ── */
+.main-body{flex:1;overflow:hidden;display:grid;}
+.layout-3{grid-template-columns:300px 1fr 280px;}
+
+/* ── LEFT PANEL ── */
+.panel-l{
+  background:var(--s0);border-right:1px solid var(--b0);
+  display:flex;flex-direction:column;overflow:hidden;
+}
+.panel-r{
+  background:var(--s0);border-left:1px solid var(--b0);
+  display:flex;flex-direction:column;overflow:hidden;
+}
+.panel-centre{
+  background:var(--bg);display:flex;flex-direction:column;overflow:hidden;
+}
+.panel-head{
+  padding:14px 18px 12px;border-bottom:1px solid var(--b0);flex-shrink:0;
+}
+.ph-tag{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);margin-bottom:4px;}
+.ph-h{font-size:13px;font-weight:700;color:var(--ink);}
+.ph-d{font-size:11.5px;color:var(--t3);margin-top:2px;line-height:1.5;}
+.panel-scroll{flex:1;overflow-y:auto;padding:14px 16px;}
+.panel-scroll::-webkit-scrollbar{width:3px;}
+.panel-scroll::-webkit-scrollbar-thumb{background:var(--b0);}
+
+/* ── FORM ELEMENTS ── */
+.field{margin-bottom:14px;}
+.fl{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--t3);margin-bottom:5px;}
+.fi{
+  width:100%;height:36px;background:var(--s1);
+  border:1.5px solid var(--b0);border-radius:8px;
+  padding:0 12px;font-family:inherit;font-size:13px;color:var(--ink);
+  outline:none;transition:all .14s;
+}
+.fi:focus{border-color:var(--cyan);background:#fff;box-shadow:0 0 0 3px rgba(14,165,233,.10);}
+.fi::placeholder{color:var(--t4);}
+select.fi{cursor:pointer;color:var(--t2);}
+.fi-desc{font-size:11px;color:var(--t3);margin-top:4px;line-height:1.5;}
+.fi-ta{
+  width:100%;background:var(--s1);border:1.5px solid var(--b0);border-radius:8px;
+  padding:10px 12px;font-family:inherit;font-size:13px;color:var(--ink);
+  outline:none;transition:all .14s;resize:none;line-height:1.6;
+}
+.fi-ta:focus{border-color:var(--cyan);background:#fff;box-shadow:0 0 0 3px rgba(14,165,233,.10);}
+
+/* Tags / pills */
+.tag-row{display:flex;flex-wrap:wrap;gap:6px;}
+.pill{
+  padding:5px 12px;border-radius:99px;
+  font-size:11.5px;font-weight:600;cursor:pointer;
+  border:1.5px solid var(--b0);background:var(--s2);
+  color:var(--t2);transition:all .14s;
+}
+.pill.on{background:var(--cyan-l);border-color:var(--cyan-b);color:var(--cyan);}
+.pill:hover:not(.on){border-color:var(--b1);color:var(--ink);}
+
+/* ── SECTION DIVIDER ── */
+.sdiv{height:1px;background:var(--b0);margin:14px 0;}
+
+/* AI CARD */
+.ai-card{
+  background:linear-gradient(135deg,rgba(14,165,233,.06),rgba(99,102,241,.04));
+  border:1px solid rgba(14,165,233,.18);border-radius:12px;
+  padding:14px;margin-bottom:14px;position:relative;overflow:hidden;
+}
+.ai-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--cyan),var(--indigo));border-radius:12px 12px 0 0;
+}
+.ai-card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
+.ai-label{font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);}
+.ai-model{
+  display:flex;align-items:center;gap:5px;
+  font-size:10px;font-weight:700;color:var(--indigo);
+  background:rgba(99,102,241,.10);border:1px solid rgba(99,102,241,.18);
+  padding:2px 8px;border-radius:99px;
+}
+.ai-title{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:3px;}
+.ai-desc{font-size:11.5px;color:var(--t2);line-height:1.55;}
+.ai-meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;}
+.am-item{background:var(--s0);border:1px solid var(--b0);border-radius:7px;padding:7px 9px;}
+.am-label{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--t3);}
+.am-val{font-size:11.5px;font-weight:600;color:var(--ink);margin-top:1px;}
+
+/* GENERATE BTNS */
+.gen-btn{
+  width:100%;height:36px;border-radius:8px;border:none;cursor:pointer;
+  font-family:inherit;font-size:13px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  transition:all .16s;
+}
+.gen-btn svg{width:13px;height:13px;}
+.gb-pri{background:var(--cyan);color:#fff;margin-bottom:7px;}
+.gb-pri:hover{background:#38BDF8;box-shadow:0 4px 14px rgba(14,165,233,.30);}
+.gb-sec{background:var(--s2);border:1.5px solid var(--b0);color:var(--t2);}
+.gb-sec:hover{border-color:var(--b1);color:var(--ink);}
+
+/* ── SEARCH AREA (Step 1) ── */
+.search-wrap{
+  display:flex;align-items:center;gap:8px;
+  padding:14px 18px;border-bottom:1px solid var(--b0);flex-shrink:0;
+}
+.search-box{
+  flex:1;position:relative;
+}
+.search-box input{
+  width:100%;height:36px;background:var(--s2);
+  border:1.5px solid var(--b0);border-radius:8px;
+  padding:0 12px 0 34px;font-family:inherit;font-size:13px;color:var(--ink);
+  outline:none;transition:all .14s;
+}
+.search-box input:focus{border-color:var(--cyan);background:#fff;}
+.search-box input::placeholder{color:var(--t3);}
+.search-icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:14px;height:14px;color:var(--t3);}
+.filter-btn{
+  height:36px;padding:0 12px;border-radius:8px;
+  font:inherit;font-size:12px;font-weight:600;cursor:pointer;
+  background:var(--s0);border:1.5px solid var(--b0);color:var(--t2);
+  display:flex;align-items:center;gap:5px;transition:all .14s;white-space:nowrap;
+}
+.filter-btn:hover{border-color:var(--b1);}
+.filter-btn svg{width:12px;height:12px;}
+
+/* ── TOOLBAR ── */
+.toolbar{
+  display:flex;align-items:center;gap:6px;
+  padding:10px 18px;border-bottom:1px solid var(--b0);
+  background:var(--s0);flex-shrink:0;
+}
+.tool-btn{
+  height:28px;padding:0 10px;border-radius:6px;
+  font:inherit;font-size:11px;font-weight:600;cursor:pointer;
+  background:var(--s1);border:1px solid var(--b0);color:var(--t2);
+  display:flex;align-items:center;gap:4px;transition:all .13s;
+}
+.tool-btn.active{background:var(--cyan-l);border-color:var(--cyan-b);color:var(--cyan);}
+.tool-btn:hover:not(.active){border-color:var(--b1);color:var(--ink);}
+.tool-btn svg{width:11px;height:11px;}
+.tool-sep{width:1px;height:20px;background:var(--b0);}
+.total-badge{
+  margin-left:auto;font-size:11px;font-weight:600;color:var(--t2);
+  display:flex;align-items:center;gap:6px;
+}
+.tb-num{font-weight:800;color:var(--ink);font-family:var(--mono);}
+
+/* ── TABLE ── */
+.table-wrap{flex:1;overflow-y:auto;}
+.table-wrap::-webkit-scrollbar{width:4px;}
+.table-wrap::-webkit-scrollbar-thumb{background:var(--b0);}
+table{width:100%;border-collapse:collapse;}
+thead th{
+  padding:9px 16px;
+  background:var(--s1);
+  font-size:9.5px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;
+  color:var(--t3);text-align:left;border-bottom:1px solid var(--b0);
+  position:sticky;top:0;z-index:5;white-space:nowrap;
+}
+tbody tr{border-bottom:1px solid var(--b0);cursor:pointer;transition:background .10s;}
+tbody tr:hover{background:var(--s1);}
+tbody tr.sel{background:rgba(14,165,233,.04);}
+tbody td{padding:11px 16px;font-size:12.5px;color:var(--t1);}
+.td-prospect{}
+.td-name{font-weight:600;color:var(--ink);margin-bottom:2px;}
+.td-email{font-size:11px;color:var(--t3);font-family:var(--mono);}
+.td-company{}
+.td-co-name{font-weight:500;color:var(--ink);}
+.td-co-role{font-size:11px;color:var(--t3);}
+.td-loc{font-size:12px;color:var(--t2);}
+.badge{
+  display:inline-block;font-size:10px;font-weight:700;letter-spacing:.06em;
+  padding:2px 8px;border-radius:5px;text-transform:uppercase;
+}
+.bd-fresh{background:rgba(14,165,233,.10);color:var(--cyan);}
+.bd-filtered{background:var(--s2);color:var(--t3);}
+.tl-btn{
+  height:24px;padding:0 10px;border-radius:6px;
+  font:inherit;font-size:10.5px;font-weight:600;cursor:pointer;
+  background:var(--cyan-l);border:1px solid var(--cyan-b);color:var(--cyan);
+  transition:all .13s;
+}
+.tl-btn:hover{background:var(--cyan);color:#fff;}
+.cb{
+  width:15px;height:15px;border-radius:4px;
+  border:1.5px solid var(--b1);background:var(--s0);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;transition:all .13s;
+}
+.cb.checked{background:var(--cyan);border-color:var(--cyan);}
+.cb.checked svg{display:block;}
+.cb svg{display:none;width:10px;height:10px;color:#fff;}
+
+/* ── CREDIT FOOTER ── */
+.credit-footer{
+  padding:14px 18px;background:var(--s0);border-top:1px solid var(--b0);flex-shrink:0;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.cf-left{}
+.cf-label{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);margin-bottom:2px;}
+.cf-val{font-size:16px;font-weight:800;color:var(--ink);letter-spacing:-.02em;}
+.cf-desc{font-size:11px;color:var(--t3);margin-top:2px;}
+.cf-check{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--t2);}
+
+/* ── NAV FOOTER ── */
+.page-footer{
+  padding:14px 24px;background:var(--s0);border-top:1px solid var(--b0);
+  display:flex;align-items:center;justify-content:space-between;flex-shrink:0;
+}
+.pf-back{
+  height:36px;padding:0 20px;border-radius:8px;
+  font:inherit;font-size:13px;font-weight:600;cursor:pointer;
+  background:transparent;border:1.5px solid var(--b0);color:var(--t2);
+  transition:all .14s;
+}
+.pf-back:hover{border-color:var(--b1);color:var(--ink);}
+.pf-continue{
+  height:36px;padding:0 28px;border-radius:8px;
+  font:inherit;font-size:13px;font-weight:700;cursor:pointer;
+  background:var(--ink);color:#fff;border:none;
+  display:flex;align-items:center;gap:7px;transition:all .14s;
+}
+.pf-continue:hover{background:var(--t1);}
+.pf-continue svg{width:13px;height:13px;}
+.pf-info{font-size:12px;color:var(--t3);}
+
+/* ── EMAIL EDITOR ── */
+.editor-wrap{flex:1;display:flex;flex-direction:column;overflow:hidden;margin:16px;background:var(--s0);border-radius:12px;border:1px solid var(--b0);box-shadow:var(--sh0);}
+.editor-top{padding:14px 18px;border-bottom:1px solid var(--b0);}
+.ed-field{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--b0);}
+.ed-field:last-child{border-bottom:none;}
+.ef-label{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--t3);width:60px;flex-shrink:0;}
+.ef-input{
+  flex:1;height:34px;background:transparent;border:none;
+  font-family:inherit;font-size:13.5px;color:var(--ink);outline:none;
+}
+.ef-input::placeholder{color:var(--t4);}
+.ef-badge{
+  height:26px;padding:0 10px;border-radius:6px;
+  font:inherit;font-size:11px;font-weight:600;cursor:pointer;
+  background:var(--s2);border:1px solid var(--b0);color:var(--t2);transition:all .13s;
+}
+.ef-badge:hover{border-color:var(--b1);}
+.editor-tabs{display:flex;gap:0;padding:10px 18px;border-bottom:1px solid var(--b0);}
+.etab{
+  height:30px;padding:0 14px;border-radius:7px;
+  font:inherit;font-size:12px;font-weight:600;cursor:pointer;
+  color:var(--t3);background:transparent;border:none;transition:all .14s;
+}
+.etab.on{background:var(--cyan-l);color:var(--cyan);}
+.etab:hover:not(.on){color:var(--ink);}
+.editor-body{flex:1;padding:14px 18px;overflow-y:auto;}
+.editor-body::-webkit-scrollbar{width:3px;}
+.editor-body::-webkit-scrollbar-thumb{background:var(--b0);}
+.code-area{
+  width:100%;height:100%;min-height:160px;background:transparent;border:none;
+  font-family:var(--mono);font-size:12.5px;color:var(--t1);outline:none;resize:none;line-height:1.7;
+}
+.editor-footer{
+  padding:10px 18px;border-top:1px solid var(--b0);
+  display:flex;align-items:center;gap:16px;
+}
+.ef-stat{font-size:11px;color:var(--t3);}
+.ef-stat strong{font-weight:700;color:var(--t2);font-family:var(--mono);}
+
+/* ── AB TOGGLE ── */
+.ab-toggle{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 16px;background:var(--s1);border:1px solid var(--b0);
+  border-radius:10px;margin-bottom:12px;
+}
+.ab-label{font-size:12px;font-weight:600;color:var(--ink);}
+.ab-sub{font-size:11px;color:var(--t3);}
+.toggle-sw{
+  width:36px;height:20px;border-radius:99px;background:var(--b0);
+  position:relative;cursor:pointer;transition:all .2s;flex-shrink:0;
+}
+.toggle-sw.on{background:var(--cyan);}
+.toggle-sw::after{
+  content:'';position:absolute;top:2px;left:2px;width:16px;height:16px;
+  border-radius:50%;background:#fff;transition:left .2s;box-shadow:0 1px 3px rgba(0,0,0,.2);
+}
+.toggle-sw.on::after{left:18px;}
+
+/* TEMPLATE CARDS */
+.tpl-card{
+  background:var(--s1);border:1px solid var(--b0);border-radius:10px;
+  padding:12px 14px;margin-bottom:8px;cursor:pointer;transition:all .14s;
+}
+.tpl-card:hover{border-color:var(--b1);box-shadow:var(--sh0);}
+.tc-top{display:flex;align-items:center;gap:8px;margin-bottom:5px;}
+.tc-name{font-size:13px;font-weight:700;color:var(--ink);}
+.tc-cat{font-size:9px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;padding:2px 7px;border-radius:99px;background:var(--cyan-l);color:var(--cyan);border:1px solid var(--cyan-b);}
+.tc-preview{font-size:11.5px;color:var(--t3);line-height:1.5;margin-bottom:8px;}
+.tc-btns{display:flex;gap:6px;}
+.tc-btn{
+  height:24px;padding:0 10px;border-radius:6px;
+  font:inherit;font-size:11px;font-weight:600;cursor:pointer;
+  transition:all .13s;
+}
+.tcb-insert{background:var(--s0);border:1px solid var(--b0);color:var(--t2);}
+.tcb-insert:hover{border-color:var(--b1);}
+.tcb-apply{background:var(--cyan);border:none;color:#fff;}
+.tcb-apply:hover{background:#38BDF8;}
+
+/* Merge tag badge */
+.merge-badge{
+  display:inline-flex;align-items:center;
+  background:rgba(99,102,241,.08);border:1px solid rgba(99,102,241,.18);
+  color:var(--indigo);font-size:10.5px;font-weight:700;font-family:var(--mono);
+  padding:1px 7px;border-radius:5px;cursor:pointer;transition:all .13s;
+}
+.merge-badge:hover{background:rgba(99,102,241,.14);}
+
+/* ── PAGINATION ── */
+.pagination{
+  display:flex;align-items:center;gap:6px;padding:10px 18px;
+  background:var(--s0);border-top:1px solid var(--b0);flex-shrink:0;
+}
+.pg-btn{
+  height:28px;min-width:28px;padding:0 8px;border-radius:6px;
+  font:inherit;font-size:12px;font-weight:600;cursor:pointer;
+  background:var(--s1);border:1px solid var(--b0);color:var(--t2);
+  display:flex;align-items:center;justify-content:center;transition:all .13s;
+}
+.pg-btn.on{background:var(--ink);color:#fff;border-color:var(--ink);}
+.pg-btn:hover:not(.on){border-color:var(--b1);}
+.pg-btn svg{width:11px;height:11px;}
+.pg-info{font-size:11.5px;color:var(--t3);margin-left:auto;}
+.pg-show{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--t2);}
+select.pg-sel{
+  height:26px;padding:0 8px;border-radius:6px;
+  font:inherit;font-size:11.5px;background:var(--s1);
+  border:1px solid var(--b0);color:var(--t2);outline:none;cursor:pointer;
+}
+
+/* ── TAB SWITCHER ── */
+.tab-switch{display:flex;gap:0;}
+.ts{display:none;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">
+    <div class="nav-mark">
+      <svg viewBox="0 0 88 88" fill="none">
+        <circle cx="44" cy="44" r="36" stroke="#fff" stroke-width="4.5"/>
+        <path d="M16,56 Q44,10 72,56" fill="none" stroke="#fff" stroke-width="7.5" stroke-linecap="round"/>
+        <polygon points="59,33 75,44 59,55 64,44" fill="#fff"/>
+      </svg>
+    </div>
+    <div class="nav-wm">MOX<em>SEND</em></div>
+  </div>
+  <button class="nav-btn nb-ghost">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
+    MANAGE
+  </button>
+  <div class="nav-sep"></div>
+  <button class="nav-btn nb-ghost">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+    WORKSPACES
+  </button>
+  <div class="nav-sep"></div>
+  <button class="nav-btn nb-credits">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Credits · 1,712
+  </button>
+  <div class="nav-sep"></div>
+  <button class="nav-btn nb-ghost">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+    ENGLISH
+  </button>
+  <div class="nav-r">
+    <div class="nav-user">
+      <div class="nav-av">RC</div>
+      <div>
+        <div class="nav-uname">Rajat Chawla</div>
+        <div class="nav-urole">ADMIN</div>
+      </div>
+    </div>
+    <div class="nav-sep"></div>
+    <button class="nav-btn nb-suite">MOXSUIT ▾</button>
+  </div>
+</nav>
+
+<!-- WORKSPACE BAR -->
+<div class="wsbar">
+  <div class="ws-name">Easehawk Technologies</div>
+  <div class="ws-tabs">
+    <div class="wt">Overview</div>
+    <div class="wt">Senders</div>
+    <div class="wt">Templates</div>
+    <div class="wt">Prospects</div>
+    <div class="wt">Preferences</div>
+    <div class="wt on">Campaigns</div>
+    <div class="wt">Inbox</div>
+    <div class="wt">Deliverability</div>
+    <div class="wt">Safety</div>
+  </div>
+</div>
+
+<!-- TWO SCREENS — TAB SWITCHER -->
+<div style="display:flex;gap:0;padding:0 24px;background:var(--s0);border-bottom:1px solid var(--b0);flex-shrink:0;">
+  <div id="tab1" class="wt on" onclick="showScreen('s1')" style="cursor:pointer;">Step 1 — Audience</div>
+  <div id="tab2" class="wt" onclick="showScreen('s2')" style="cursor:pointer;">Step 2 — Message</div>
+</div>
+
+<!-- ════════════════════
+     SCREEN 1: AUDIENCE
+════════════════════ -->
+<div id="s1" class="content" style="display:flex;">
+
+  <div class="page-header" style="padding:14px 24px;">
+    <div class="ph-left">
+      <div class="ph-label">Campaign Builder</div>
+      <div class="ph-title" style="font-size:17px;">Outbound Campaign
+        <span style="font-size:12px;font-weight:500;color:var(--t3);margin-left:8px;">Build, personalize, and schedule a single campaign flow for any audience.</span>
+      </div>
+    </div>
+    <button class="filter-btn" style="border-color:var(--cyan-b);color:var(--cyan);background:var(--cyan-l);">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6h22M5 12h14M9 18h6"/></svg>
+      Manage Templates
+    </button>
+  </div>
+
+  <!-- STEPPER -->
+  <div class="stepper-wrap">
+    <div class="stepper">
+      <div class="step active">
+        <div class="step-inner">
+          <div class="step-num">01</div>
+          <div class="step-info">
+            <div class="step-label">Step 01</div>
+            <div class="step-name">Audience</div>
+          </div>
+        </div>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step">
+        <div class="step-inner">
+          <div class="step-num">02</div>
+          <div class="step-info"><div class="step-label">Step 02</div><div class="step-name">Message</div></div>
+        </div>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step">
+        <div class="step-inner">
+          <div class="step-num">03</div>
+          <div class="step-info"><div class="step-label">Step 03</div><div class="step-name">Setup & Schedule</div></div>
+        </div>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step">
+        <div class="step-inner">
+          <div class="step-num">04</div>
+          <div class="step-info"><div class="step-label">Step 04</div><div class="step-name">Follow-ups</div></div>
+        </div>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step">
+        <div class="step-inner">
+          <div class="step-num">05</div>
+          <div class="step-info"><div class="step-label">Step 05</div><div class="step-name">Review</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="credits-badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Credits required: 0
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="main-body" style="grid-template-columns:260px 1fr;flex:1;overflow:hidden;">
+
+    <!-- LEFT: FILTERS -->
+    <div class="panel-l">
+      <div class="panel-head">
+        <div class="ph-tag">Recipients</div>
+        <div class="ph-h">Recipient Source</div>
+        <div class="ph-d">Pick where your prospects come from and refine the audience below.</div>
+      </div>
+      <div class="panel-scroll">
+        <div class="field">
+          <div class="fl">Source</div>
+          <select class="fi"><option>🔥 Prospects (Recommended)</option><option>CSV File Upload</option><option>Lead Database</option></select>
+        </div>
+        <div class="sdiv"></div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:var(--t3);margin-bottom:10px;">Filters</div>
+        <div class="field">
+          <div class="fl">Company Size</div>
+          <select class="fi"><option>Any size</option><option>1–10</option><option>11–50</option><option>51–200</option><option>201–500</option><option>500+</option></select>
+        </div>
+        <div class="field">
+          <div class="fl">Country</div>
+          <select class="fi"><option>All countries</option><option>India</option><option>United Arab Emirates</option><option>Saudi Arabia</option><option>United States</option></select>
+        </div>
+        <div class="field">
+          <div class="fl">Industry</div>
+          <select class="fi"><option>All industries</option><option>Technology</option><option>Finance</option><option>Healthcare</option><option>Manufacturing</option></select>
+        </div>
+        <div class="field">
+          <div class="fl">Job Title / Role</div>
+          <input class="fi" type="text" placeholder="e.g. CTO, Head of Engineering"/>
+        </div>
+        <div class="sdiv"></div>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+          <div style="font-size:11px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:var(--t3);">Options</div>
+        </div>
+        <div class="field">
+          <div class="fl">Rate Limit</div>
+          <select class="fi"><option>250ms between sends</option><option>500ms</option><option>1 second</option><option>No limit</option></select>
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;padding:10px 12px;background:var(--s1);border:1px solid var(--b0);border-radius:8px;">
+          <div class="cb checked" onclick="this.classList.toggle('checked')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <div style="font-size:12px;font-weight:600;color:var(--ink);">Only Fresh leads</div>
+            <div style="font-size:10.5px;color:var(--t3);">Skip previously contacted</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: LEAD TABLE -->
+    <div style="display:flex;flex-direction:column;overflow:hidden;">
+
+      <!-- Search + toolbar -->
+      <div class="search-wrap" style="background:var(--s0);">
+        <div class="search-box">
+          <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" placeholder="Search by name, email, company, or designation..."/>
+        </div>
+        <button class="filter-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6h22M5 12h14M9 18h6"/></svg>
+          Filters
+        </button>
+      </div>
+
+      <div class="toolbar">
+        <div class="cb" onclick="this.classList.toggle('checked')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <button class="tool-btn">Clear page</button>
+        <button class="tool-btn active">Clear all</button>
+        <button class="tool-btn">Select all matching</button>
+        <button class="tool-btn">Select in background</button>
+        <div class="tool-sep"></div>
+        <div class="total-badge">
+          <span class="tb-num">43,044</span> total &nbsp;·&nbsp; Page 1 of 2,153
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th style="width:32px;"></th>
+              <th>Prospect</th>
+              <th>Company</th>
+              <th>Location</th>
+              <th>Touches</th>
+              <th>State</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><div class="cb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div></td><td class="td-prospect"><div class="td-name">Arun Chopra</div><div class="td-email">arun@tagtaste.com</div></td><td class="td-company"><div class="td-co-name">Tagtaste Foods Pvt</div><div class="td-co-role">Partner – Industry Collaborations</div></td><td class="td-loc">🇮🇳 India</td><td><span class="badge bd-fresh">Fresh</span></td><td><span class="badge bd-filtered">Filtered</span></td><td><button class="tl-btn">Timeline</button></td></tr>
+            <tr><td><div class="cb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div></td><td class="td-prospect"><div class="td-name">Mary Jino</div><div class="td-email">mary.roopsy@webcardio.com</div></td><td class="td-company"><div class="td-co-name">Webcardio</div><div class="td-co-role">Head of Quality Assurance</div></td><td class="td-loc">🇮🇳 India</td><td><span class="badge bd-fresh">Fresh</span></td><td><span class="badge bd-filtered">Filtered</span></td><td><button class="tl-btn">Timeline</button></td></tr>
+            <tr><td><div class="cb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div></td><td class="td-prospect"><div class="td-name">Manoj Kumar</div><div class="td-email">manoj.kumar@sabsexports.com</div></td><td class="td-company"><div class="td-co-name">Sabs Exports</div><div class="td-co-role">Senior Production Manager</div></td><td class="td-loc">🇮🇳 India</td><td><span class="badge bd-fresh">Fresh</span></td><td><span class="badge bd-filtered">Filtered</span></td><td><button class="tl-btn">Timeline</button></td></tr>
+            <tr><td><div class="cb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div></td><td class="td-prospect"><div class="td-name">Hammond Pereira</div><div class="td-email">hammond.pereira@augnito.ai</div></td><td class="td-company"><div class="td-co-name">Augnito</div><div class="td-co-role">Head of Engineering</div></td><td class="td-loc">🇮🇳 India</td><td><span class="badge bd-fresh">Fresh</span></td><td><span class="badge bd-filtered">Filtered</span></td><td><button class="tl-btn">Timeline</button></td></tr>
+            <tr><td><div class="cb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div></td><td class="td-prospect"><div class="td-name">Abhishek Vermma</div><div class="td-email">abhishek.vermma@rezo.ai</div></td><td class="td-company"><div class="td-co-name">Rezo.ai</div><div class="td-co-role">AVP – Finance</div></td><td class="td-loc">🇮🇳 India</td><td><span class="badge bd-fresh">Fresh</span></td><td><span class="badge bd-filtered">Filtered</span></td><td><button class="tl-btn">Timeline</button></td></tr>
+            <tr><td><div class="cb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div></td><td class="td-prospect"><div class="td-name">Kiran U</div><div class="td-email">kiran@inito.com</div></td><td class="td-company"><div class="td-co-name">Inito</div><div class="td-co-role">Finance Head</div></td><td class="td-loc">🇮🇳 India</td><td><span class="badge bd-fresh">Fresh</span></td><td><span class="badge bd-filtered">Filtered</span></td><td><button class="tl-btn">Timeline</button></td></tr>
+            <tr><td><div class="cb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div></td><td class="td-prospect"><div class="td-name">Vaibhav Malik</div><div class="td-email">vaibhav@synaptic.com</div></td><td class="td-company"><div class="td-co-name">Synaptic</div><div class="td-co-role">Engineering Manager</div></td><td class="td-loc">🇮🇳 India</td><td><span class="badge bd-fresh">Fresh</span></td><td><span class="badge bd-filtered">Filtered</span></td><td><button class="tl-btn">Timeline</button></td></tr>
+            <tr><td><div class="cb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div></td><td class="td-prospect"><div class="td-name">Vikas Nain</div><div class="td-email">vikasnain@pizzawings.co.in</div></td><td class="td-company"><div class="td-co-name">Pizza Wings</div><div class="td-co-role">Head of Business Development</div></td><td class="td-loc">🇮🇳 India</td><td><span class="badge bd-fresh">Fresh</span></td><td><span class="badge bd-filtered">Filtered</span></td><td><button class="tl-btn">Timeline</button></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <div class="pg-show">Show <select class="pg-sel"><option>20</option><option>50</option><option>100</option></select></div>
+        <button class="pg-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="11 17 6 12 11 7"/><polyline points="18 17 13 12 18 7"/></svg></button>
+        <button class="pg-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></button>
+        <button class="pg-btn on">1</button>
+        <button class="pg-btn">2</button>
+        <button class="pg-btn">3</button>
+        <button class="pg-btn">4</button>
+        <button class="pg-btn">5</button>
+        <button class="pg-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>
+        <button class="pg-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="13 17 18 12 13 7"/><polyline points="6 17 11 12 6 7"/></svg></button>
+        <div class="pg-info">Page <strong>1</strong> of 2,153 &nbsp;·&nbsp; 43,044 results</div>
+      </div>
+
+      <!-- Credit footer -->
+      <div class="credit-footer">
+        <div class="cf-left">
+          <div class="cf-label">Credit Preview</div>
+          <div class="cf-val">Estimated: <span style="color:var(--cyan);">0 credits</span></div>
+          <div class="cf-desc">Credits are reserved when you finalize the campaign</div>
+        </div>
+        <div class="cf-check">
+          <div class="cb checked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Exclude previously contacted by default
+        </div>
+      </div>
+
+      <!-- Footer nav -->
+      <div class="page-footer">
+        <button class="pf-back">← Back</button>
+        <div class="pf-info">Step 1 of 5 · Select your audience to continue</div>
+        <button class="pf-continue" onclick="showScreen('s2')">
+          Continue
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════
+     SCREEN 2: MESSAGE
+════════════════════ -->
+<div id="s2" class="content" style="display:none;">
+
+  <div class="page-header" style="padding:14px 24px;">
+    <div class="ph-left">
+      <div class="ph-label">Campaign Builder</div>
+      <div class="ph-title" style="font-size:17px;">Outbound Campaign
+        <span style="font-size:12px;font-weight:500;color:var(--t3);margin-left:8px;">Step 2 · Compose your message with AI personalisation</span>
+      </div>
+    </div>
+    <button class="filter-btn" style="border-color:var(--cyan-b);color:var(--cyan);background:var(--cyan-l);">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6h22M5 12h14M9 18h6"/></svg>
+      Manage Templates
+    </button>
+  </div>
+
+  <!-- STEPPER -->
+  <div class="stepper-wrap">
+    <div class="stepper">
+      <div class="step done">
+        <div class="step-inner">
+          <div class="step-num">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="12" height="12"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="step-info"><div class="step-label">Step 01</div><div class="step-name">Audience</div></div>
+        </div>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step active">
+        <div class="step-inner">
+          <div class="step-num">02</div>
+          <div class="step-info"><div class="step-label">Step 02</div><div class="step-name">Message</div></div>
+        </div>
+        <div class="step-connector"></div>
+      </div>
+      <div class="step"><div class="step-inner"><div class="step-num">03</div><div class="step-info"><div class="step-label">Step 03</div><div class="step-name">Setup & Schedule</div></div></div><div class="step-connector"></div></div>
+      <div class="step"><div class="step-inner"><div class="step-num">04</div><div class="step-info"><div class="step-label">Step 04</div><div class="step-name">Follow-ups</div></div></div><div class="step-connector"></div></div>
+      <div class="step"><div class="step-inner"><div class="step-num">05</div><div class="step-info"><div class="step-label">Step 05</div><div class="step-name">Review</div></div></div></div>
+    </div>
+    <div class="credits-badge">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      Credits required: 20
+    </div>
+  </div>
+
+  <!-- 3-COL BODY -->
+  <div class="main-body layout-3" style="flex:1;overflow:hidden;">
+
+    <!-- LEFT: AI PERSONALISE -->
+    <div class="panel-l">
+      <div class="panel-head" style="background:linear-gradient(135deg,rgba(14,165,233,.04),rgba(99,102,241,.03));">
+        <div class="ph-tag" style="color:var(--cyan);">AI Personalise</div>
+        <div class="ph-h">Generate complete email</div>
+        <div class="ph-d">Use audience signals and selected variables to create a tailored draft fast.</div>
+      </div>
+      <div class="panel-scroll">
+
+        <!-- AI card -->
+        <div class="ai-card">
+          <div class="ai-card-head">
+            <div class="ai-label">AI Personalise · Groq</div>
+            <div class="ai-model">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              Groq
+            </div>
+          </div>
+          <div class="ai-title">Generate a complete subject and email</div>
+          <div class="ai-desc">Groq uses your template or draft plus audience data to create a personalised version in one click.</div>
+          <div class="ai-meta">
+            <div class="am-item"><div class="am-label">Base</div><div class="am-val">Fresh draft</div></div>
+            <div class="am-item"><div class="am-label">Audience</div><div class="am-val">Source: lead</div></div>
+            <div class="am-item"><div class="am-label">Sample lead</div><div class="am-val">Arun Chopra · Tagtaste Foods · India</div></div>
+            <div class="am-item"><div class="am-label">Output</div><div class="am-val">Placeholder-based subject + body</div></div>
+          </div>
+        </div>
+
+        <div class="sdiv"></div>
+
+        <!-- OFFER -->
+        <div class="field">
+          <div class="fl">What are you offering?</div>
+          <input class="fi" type="text" placeholder="e.g. AI-first CRM for fast-moving SaaS teams" style="height:auto;padding:8px 12px;"/>
+        </div>
+
+        <!-- EMAIL LENGTH -->
+        <div class="field">
+          <div class="fl">Email Length</div>
+          <select class="fi">
+            <option>Short — punchy and direct</option>
+            <option selected>Medium — balanced and versatile</option>
+            <option>Long — detailed and thorough</option>
+          </select>
+          <div class="fi-desc">Balanced and versatile — best for most campaigns</div>
+        </div>
+
+        <!-- PERSONALISE WITH -->
+        <div class="field">
+          <div class="fl">Personalise With</div>
+          <div class="fi-desc" style="margin-bottom:8px;">Pick which lead variables the AI should lean on.</div>
+          <div class="tag-row">
+            <div class="pill on">Name</div>
+            <div class="pill on">Company</div>
+            <div class="pill on">Industry</div>
+            <div class="pill on">Region</div>
+            <div class="pill">City</div>
+            <div class="pill">Role</div>
+            <div class="pill">Website</div>
+          </div>
+        </div>
+
+        <!-- EXTRA INSTRUCTIONS -->
+        <div class="field">
+          <div class="fl">Extra Instructions</div>
+          <textarea class="fi-ta" rows="3" placeholder="e.g. Focus on conversion optimization for e-commerce brands in the GCC. Keep it warm, confident, and founder-friendly."></textarea>
+          <div class="fi-desc">Optional — tone, offer angle, CTA style, or anything you want the AI to emphasize.</div>
+        </div>
+
+        <button class="gen-btn gb-pri">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          Generate Email
+        </button>
+        <button class="gen-btn gb-sec">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-4.44L1 14.5"/></svg>
+          Regenerate
+        </button>
+      </div>
+    </div>
+
+    <!-- CENTRE: EMAIL EDITOR -->
+    <div class="panel-centre">
+      <!-- A/B Toggle -->
+      <div style="padding:12px 16px;background:var(--s0);border-bottom:1px solid var(--b0);flex-shrink:0;">
+        <div class="ab-toggle">
+          <div>
+            <div class="ab-label">A/B Testing</div>
+            <div class="ab-sub">Test subject lines and bodies across two variants</div>
+          </div>
+          <div class="toggle-sw" onclick="this.classList.toggle('on')"></div>
+        </div>
+      </div>
+
+      <!-- Editor card -->
+      <div class="editor-wrap">
+        <div class="editor-top">
+          <div class="ed-field">
+            <div class="ef-label">Title</div>
+            <input class="ef-input" type="text" placeholder="Enter campaign title..."/>
+          </div>
+          <div class="ed-field">
+            <div class="ef-label">Subject</div>
+            <input class="ef-input" type="text" placeholder="Enter email subject..."/>
+            <button class="ef-badge">Rewrite Subject</button>
+          </div>
+        </div>
+
+        <!-- Merge tag hint -->
+        <div style="padding:8px 18px;background:rgba(99,102,241,.04);border-bottom:1px solid rgba(99,102,241,.12);display:flex;align-items:center;gap:8px;flex-shrink:0;">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span style="font-size:11.5px;color:var(--indigo);font-weight:500;">Merge tags available:</span>
+          <span class="merge-badge">{{name}}</span>
+          <span class="merge-badge">{{company}}</span>
+          <span class="merge-badge">{{industry}}</span>
+          <span class="merge-badge">{{region}}</span>
+        </div>
+
+        <div class="editor-tabs">
+          <button class="etab on">HTML</button>
+          <button class="etab">Preview</button>
+          <button class="etab">Plain Text</button>
+          <div style="margin-left:auto;display:flex;align-items:center;gap:6px;">
+            <button class="ef-badge" style="height:26px;">Rewrite Body</button>
+          </div>
+        </div>
+
+        <div class="editor-body">
+          <textarea class="code-area" placeholder="Compose in HTML, preview the result, or edit a plain-text version. Type your email here or click Generate to let AI write it for you...
+&#10;Example:
+&lt;h1&gt;Hello {{name}}&lt;/h1&gt;
+&lt;p&gt;I noticed {{company}} is expanding in the GCC region...&lt;/p&gt;">
+          </textarea>
+        </div>
+
+        <div class="editor-footer">
+          <div class="ef-stat">HTML: <strong>0</strong></div>
+          <div class="ef-stat">Plain text: <strong>0</strong></div>
+          <div class="ef-stat">Merge tags: <strong>0</strong></div>
+          <div style="margin-left:auto;display:flex;gap:6px;">
+            <button class="ef-badge" style="height:28px;font-size:11.5px;">↙ Import HTML</button>
+            <button class="ef-badge" style="height:28px;font-size:11.5px;background:var(--s2);">⛶ Fullscreen</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-footer">
+        <button class="pf-back" onclick="showScreen('s1')">← Back</button>
+        <div class="pf-info">Step 2 of 5 · Draft your message to continue</div>
+        <button class="pf-continue">
+          Continue
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- RIGHT: TEMPLATE TOOLS -->
+    <div class="panel-r">
+      <div class="panel-head">
+        <div class="ph-tag">Template Tools</div>
+        <div class="ph-h">Apply or borrow proven structure</div>
+        <div class="ph-d">Choose one full template or insert snippets while you write.</div>
+      </div>
+      <div class="panel-scroll">
+
+        <!-- Use template -->
+        <div class="field">
+          <div class="fl">Use Template (optional)</div>
+          <div style="display:flex;align-items:center;gap:6px;">
+            <select class="fi" style="flex:1;">
+              <option>Select a template...</option>
+              <option>Moxsend Temp</option>
+              <option>Website Development Te...</option>
+              <option>Staffing Temp</option>
+            </select>
+            <button class="filter-btn" style="flex-shrink:0;height:36px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 102.13-4.44L1 14.5"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="sdiv"></div>
+
+        <!-- Quick apply -->
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;">
+          <div class="fl" style="margin-bottom:0;">Quick Apply</div>
+          <div style="display:flex;align-items:center;gap:5px;background:rgba(99,102,241,.10);border:1px solid rgba(99,102,241,.18);border-radius:99px;padding:2px 8px;">
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            <span style="font-size:10px;font-weight:700;color:var(--indigo);">Smart</span>
+          </div>
+        </div>
+        <input class="fi" type="text" placeholder="Search templates by name..." style="margin-bottom:10px;"/>
+
+        <!-- Template cards -->
+        <div class="tpl-card">
+          <div class="tc-top">
+            <div class="tc-name">Moxsend Temp</div>
+            <div class="tc-cat">Marketing</div>
+          </div>
+          <div class="tc-preview">{{First_Name}}, Quick question about your digital outreach strategy at {{company}}…</div>
+          <div class="tc-btns">
+            <button class="tc-btn tcb-insert">Insert body</button>
+            <button class="tc-btn tcb-apply">Apply full template</button>
+          </div>
+        </div>
+
+        <div class="tpl-card">
+          <div class="tc-top">
+            <div class="tc-name">Website Development Te...</div>
+            <div class="tc-cat">Marketing</div>
+          </div>
+          <div class="tc-preview">{{First_Name}}, Is your website turning visitors into customers?</div>
+          <div class="tc-btns">
+            <button class="tc-btn tcb-insert">Insert body</button>
+            <button class="tc-btn tcb-apply">Apply full template</button>
+          </div>
+        </div>
+
+        <div class="tpl-card">
+          <div class="tc-top">
+            <div class="tc-name">Staffing Temp</div>
+            <div class="tc-cat">Marketing</div>
+          </div>
+          <div class="tc-preview">On-Demand Experts for SAP, Salesforce, and custom software projects...</div>
+          <div class="tc-btns">
+            <button class="tc-btn tcb-insert">Insert body</button>
+            <button class="tc-btn tcb-apply">Apply full template</button>
+          </div>
+        </div>
+
+        <div class="tpl-card">
+          <div class="tc-top">
+            <div class="tc-name">text</div>
+            <div class="tc-cat">Marketing</div>
+          </div>
+          <div class="tc-preview">Exploring Opportunities for {{company}} — personalised outreach...</div>
+          <div class="tc-btns">
+            <button class="tc-btn tcb-insert">Insert body</button>
+            <button class="tc-btn tcb-apply">Apply full template</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+function showScreen(id){
+  document.getElementById('s1').style.display = id==='s1' ? 'flex' : 'none';
+  document.getElementById('s2').style.display = id==='s2' ? 'flex' : 'none';
+  document.getElementById('tab1').className = id==='s1' ? 'wt on' : 'wt';
+  document.getElementById('tab2').className = id==='s2' ? 'wt on' : 'wt';
+}
+// Checkbox clicks
+document.querySelectorAll('.cb').forEach(cb=>{
+  cb.addEventListener('click',e=>{e.stopPropagation();cb.classList.toggle('checked');});
+});
+// Tab buttons
+document.querySelectorAll('.etab').forEach(t=>{
+  t.addEventListener('click',()=>{
+    document.querySelectorAll('.etab').forEach(x=>x.classList.remove('on'));
+    t.classList.add('on');
+  });
+});
+// Pagination
+document.querySelectorAll('.pg-btn').forEach(b=>{
+  if(!b.querySelector('svg')) b.addEventListener('click',()=>{
+    document.querySelectorAll('.pg-btn').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+  });
+});
+// Table row selection
+document.querySelectorAll('tbody tr').forEach(tr=>{
+  tr.addEventListener('click',()=>tr.classList.toggle('sel'));
+});
+</script>
+</body>
+</html>

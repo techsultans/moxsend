@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Moxdesk — 3 AI Feature Screens</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#F7F6F2;
+  --s0:#FFFFFF;
+  --s1:#FAFAF8;
+  --s2:#F2F1EE;
+  --b0:#E8E6E0;
+  --b1:#D4D2CB;
+  --navy:#0B1523;
+  --navy2:#142034;
+  --ink:#0F1B2D;
+  --m:#6B7785;
+  --m2:#96A0AA;
+  --cyan:#0EA5E9;
+  --emerald:#059669;
+  --amber:#D97706;
+  --rose:#E11D48;
+  --violet:#7C3AED;
+  --t0:#0F1B2D;
+  --t1:#3D4F61;
+  --t2:#6B7785;
+  --t3:#96A0AA;
+  --sh:0 1px 3px rgba(15,27,45,.07),0 1px 2px rgba(15,27,45,.04);
+  --sh2:0 4px 16px rgba(15,27,45,.09),0 2px 4px rgba(15,27,45,.05);
+  --sh3:0 20px 60px rgba(15,27,45,.12),0 8px 16px rgba(15,27,45,.06);
+}
+html{background:#1A1F2E;}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#1A1F2E;color:var(--ink);-webkit-font-smoothing:antialiased;padding:52px 36px 88px;}
+
+/* ── CHAPTER ── */
+.ch{max-width:1120px;margin:0 auto 22px;}
+.ch-num{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:6px;}
+.ch-title{font-size:24px;font-weight:800;letter-spacing:-.03em;color:#F0F4FF;margin-bottom:4px;}
+.ch-desc{font-size:13px;color:rgba(240,244,255,.42);line-height:1.65;max-width:660px;}
+.sep{max-width:1120px;margin:60px auto;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.08),transparent);}
+
+/* ── SCREEN WRAP ── */
+.screen{max-width:1120px;margin:0 auto;border-radius:18px;overflow:hidden;box-shadow:var(--sh3);}
+
+/* ── CHROME ── */
+.chrome{background:#1C2130;padding:10px 16px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(255,255,255,.06);}
+.dots{display:flex;gap:5px;}
+.dot{width:10px;height:10px;border-radius:50%;}
+.url{flex:1;background:rgba(255,255,255,.06);border-radius:5px;padding:5px 12px;font-size:11px;color:rgba(255,255,255,.28);font-family:'JetBrains Mono',monospace;}
+.b-tag{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;background:rgba(5,150,105,.14);color:#34D399;padding:3px 9px;border-radius:99px;border:1px solid rgba(5,150,105,.22);}
+
+/* ── APP SHELL ── */
+.app{display:grid;background:var(--bg);}
+.app3{grid-template-columns:52px 220px 1fr;}
+.app-h{height:680px;}
+
+/* ── RAIL ── */
+.rail{background:var(--navy);display:flex;flex-direction:column;align-items:center;padding:14px 0;gap:3px;border-right:1px solid rgba(255,255,255,.05);}
+.ri{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.22);cursor:pointer;transition:all .14s;}
+.ri:hover{background:rgba(255,255,255,.07);color:rgba(255,255,255,.65);}
+.ri.on{background:rgba(5,150,105,.18);color:#34D399;}
+.ri svg{width:15px;height:15px;stroke-width:1.7;}
+.rg{flex:1;}
+.rav{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#7C3AED,#A78BFA);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;margin-top:8px;}
+
+/* ── SIDEBAR ── */
+.sb{background:var(--s0);border-right:1px solid var(--b0);display:flex;flex-direction:column;overflow:hidden;box-shadow:1px 0 0 var(--b0);}
+.sb-h{padding:14px 14px 10px;border-bottom:1px solid var(--b0);}
+.sb-logo{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+.sb-ic{width:24px;height:24px;border-radius:7px;background:linear-gradient(135deg,var(--emerald),#34D399);display:flex;align-items:center;justify-content:center;}
+.sb-ic svg{width:13px;height:13px;}
+.sb-brand{font-size:13px;font-weight:800;letter-spacing:-.02em;color:var(--ink);}
+.sb-brand em{color:var(--emerald);font-style:normal;}
+.sb-srch{background:var(--s2);border:1px solid var(--b0);border-radius:7px;padding:6px 10px;display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--t3);}
+.sb-srch svg{width:12px;height:12px;flex-shrink:0;}
+.sb-sec{font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);padding:12px 14px 4px;}
+.ni{display:flex;align-items:center;gap:8px;padding:7px 14px;font-size:12.5px;font-weight:500;color:var(--t2);cursor:pointer;border-left:2px solid transparent;border-radius:0;transition:all .12s;}
+.ni svg{width:14px;height:14px;flex-shrink:0;stroke-width:1.7;}
+.ni:hover{color:var(--ink);background:var(--s2);}
+.ni.on{color:var(--emerald);background:rgba(5,150,105,.06);border-left-color:var(--emerald);font-weight:600;}
+.ni.on svg{color:var(--emerald);}
+.nb{margin-left:auto;font-size:9.5px;font-weight:700;background:rgba(5,150,105,.10);color:var(--emerald);padding:1px 7px;border-radius:99px;}
+.nb-r{background:rgba(225,29,72,.10);color:var(--rose);}
+.nb-a{background:rgba(217,119,6,.10);color:var(--amber);}
+
+/* ── MAIN ── */
+.main{display:flex;flex-direction:column;overflow:hidden;background:var(--bg);}
+.topbar{height:50px;background:var(--s0);border-bottom:1px solid var(--b0);display:flex;align-items:center;padding:0 20px;gap:10px;flex-shrink:0;box-shadow:var(--sh);}
+.tb-t{font-size:14px;font-weight:700;color:var(--ink);letter-spacing:-.02em;}
+.tb-badge{font-size:9.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:3px 9px;border-radius:99px;}
+.tbg{background:rgba(5,150,105,.08);color:var(--emerald);border:1px solid rgba(5,150,105,.18);}
+.tba{background:rgba(217,119,6,.08);color:var(--amber);border:1px solid rgba(217,119,6,.18);}
+.tbr{background:rgba(225,29,72,.07);color:var(--rose);border:1px solid rgba(225,29,72,.16);}
+.tbm{margin-left:auto;display:flex;align-items:center;gap:7px;}
+.btn{height:30px;padding:0 14px;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;border:none;transition:all .15s;display:inline-flex;align-items:center;gap:5px;}
+.btn svg{width:12px;height:12px;}
+.btn-g{background:transparent;border:1px solid var(--b1);color:var(--t1);}
+.btn-g:hover{border-color:var(--t3);background:var(--s2);}
+.btn-p{background:var(--emerald);color:#fff;}
+.btn-p:hover{background:#047857;box-shadow:0 3px 10px rgba(5,150,105,.30);}
+.btn-r{background:var(--rose);color:#fff;}
+.body{flex:1;overflow-y:auto;padding:18px 20px;}
+.body::-webkit-scrollbar{width:3px;}
+.body::-webkit-scrollbar-thumb{background:var(--b0);}
+
+/* ── CARDS ── */
+.card{background:var(--s0);border:1px solid var(--b0);border-radius:12px;padding:16px 18px;box-shadow:var(--sh);}
+.card:hover{box-shadow:var(--sh2);}
+.ct{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:2px;}
+.cs{font-size:11px;color:var(--t3);}
+.lbl{font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);margin-bottom:5px;}
+.tag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:99px;display:inline-flex;align-items:center;gap:4px;}
+.tg{background:rgba(5,150,105,.08);color:var(--emerald);border:1px solid rgba(5,150,105,.16);}
+.ty{background:rgba(217,119,6,.08);color:var(--amber);border:1px solid rgba(217,119,6,.16);}
+.tr{background:rgba(225,29,72,.07);color:var(--rose);border:1px solid rgba(225,29,72,.14);}
+.tc{background:rgba(14,165,233,.08);color:var(--cyan);border:1px solid rgba(14,165,233,.16);}
+.tv{background:rgba(124,58,237,.08);color:var(--violet);border:1px solid rgba(124,58,237,.16);}
+.tn{background:var(--s2);color:var(--t2);border:1px solid var(--b0);}
+.dot6{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+.pbar{height:4px;background:var(--s2);border-radius:99px;overflow:hidden;border:1px solid var(--b0);}
+.pfill{height:100%;border-radius:99px;}
+.mono{font-family:'JetBrains Mono',monospace;}
+.pulse{width:7px;height:7px;border-radius:50%;animation:pa 1.4s ease-in-out infinite;}
+@keyframes pa{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.35;transform:scale(.7);}}
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════
+     SCREEN 1 — CHURN PREDICTION
+════════════════════════ -->
+<div class="ch">
+  <div class="ch-num">AI Feature 01 · Churn Prediction</div>
+  <div class="ch-title">Know 30 days before the customer does.</div>
+  <div class="ch-desc">Five signals monitored simultaneously — response time, ticket tone, login frequency, usage drop, ticket length. When the pattern matches historical churn, the account manager is alerted with a precise health score and a recommended action. No other helpdesk does this.</div>
+</div>
+
+<div class="screen">
+<div class="chrome">
+  <div class="dots"><div class="dot" style="background:#FF5F57"></div><div class="dot" style="background:#FFBD2E"></div><div class="dot" style="background:#28C840"></div></div>
+  <div class="url">app.moxdesk.ai/accounts</div>
+  <div class="b-tag">Churn Prediction · Live</div>
+</div>
+<div class="app app3 app-h">
+
+  <!-- RAIL -->
+  <div class="rail">
+    <div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+    <div class="ri on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+    <div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+    <div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+    <div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+    <div class="rg"></div>
+    <div class="rav">RC</div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sb">
+    <div class="sb-h">
+      <div class="sb-logo">
+        <div class="sb-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+        <div class="sb-brand">MOX<em>DESK</em></div>
+      </div>
+      <div class="sb-srch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Search accounts...</div>
+    </div>
+    <div class="sb-sec">Accounts</div>
+    <div class="ni on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>All Accounts<span class="nb">24</span></div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>At Risk<span class="nb nb-r">4</span></div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>Healthy<span class="nb">18</span></div>
+    <div class="nb-sec" style="font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);padding:12px 14px 4px;">Support</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Open Tickets<span class="nb nb-a">7</span></div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>SLA Dashboard</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Renewal Calendar</div>
+    <div class="nb-sec" style="font-size:9.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t3);padding:12px 14px 4px;">Intelligence</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Churn Prediction</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>Upsell Moments</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>GCC SLA</div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div class="topbar">
+      <div class="tb-t">Account Health</div>
+      <div class="tb-badge tba">4 accounts at risk</div>
+      <div class="tbm">
+        <div style="display:flex;align-items:center;gap:5px;padding:4px 10px;background:rgba(225,29,72,.06);border:1px solid rgba(225,29,72,.16);border-radius:99px;">
+          <div class="pulse" style="background:var(--rose);"></div>
+          <span style="font-size:11px;font-weight:600;color:var(--rose);">Churn alert: Rania Hassan · 28 days</span>
+        </div>
+        <button class="btn btn-g">Export</button>
+      </div>
+    </div>
+
+    <div class="body">
+
+      <!-- CHURN ALERT BANNER -->
+      <div style="background:rgba(225,29,72,.04);border:1px solid rgba(225,29,72,.16);border-radius:12px;padding:14px 18px;margin-bottom:14px;display:flex;align-items:center;gap:14px;">
+        <div style="width:36px;height:36px;border-radius:50%;background:rgba(225,29,72,.10);border:1px solid rgba(225,29,72,.20);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#E11D48" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <div style="flex:1;">
+          <div style="font-size:13px;font-weight:700;color:var(--rose);margin-bottom:2px;">Churn predicted — Cairo Digital · Rania Hassan</div>
+          <div style="font-size:12px;color:var(--t2);">Response time dropped from 4h to 3 days. Last 3 tickets show frustrated tone. Login frequency down 68% vs baseline. Predicted churn in <strong style="color:var(--rose);">28 days</strong> without intervention.</div>
+        </div>
+        <div style="display:flex;gap:6px;flex-shrink:0;">
+          <button class="btn btn-r"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 15z"/></svg>Call now</button>
+          <button class="btn btn-g">Dismiss</button>
+        </div>
+      </div>
+
+      <!-- ACCOUNT TABLE -->
+      <div style="display:grid;grid-template-columns:minmax(0,1.6fr) 100px 180px 120px 110px;gap:8px;padding:8px 16px;font-size:9.5px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:var(--t3);border-bottom:1px solid var(--b0);background:var(--s1);border-radius:10px 10px 0 0;">
+        <div>Account</div><div>Health</div><div>5 Churn Signals</div><div>Renewal</div><div>Action</div>
+      </div>
+
+      <!-- ROW 1 — CRITICAL -->
+      <div style="display:grid;grid-template-columns:minmax(0,1.6fr) 100px 180px 120px 110px;gap:8px;padding:13px 16px;border-bottom:1px solid var(--b0);align-items:center;background:rgba(225,29,72,.02);border-left:3px solid var(--rose);">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#7C1D3A,#B02255);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#fff;flex-shrink:0;">CD</div>
+          <div><div style="font-size:13px;font-weight:600;color:var(--ink);">Cairo Digital</div><div style="font-size:11px;color:var(--t3);">Rania Hassan · Egypt</div></div>
+        </div>
+        <div>
+          <div style="font-size:18px;font-weight:800;color:var(--rose);letter-spacing:-.03em;">22%</div>
+          <div class="pbar" style="margin-top:3px;"><div class="pfill" style="width:22%;background:var(--rose);"></div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:3px;">
+          <div style="display:flex;align-items:center;gap:5px;font-size:10.5px;"><div class="dot6" style="background:var(--rose);"></div><span style="color:var(--t2);">Reply: 4h → 3 days</span></div>
+          <div style="display:flex;align-items:center;gap:5px;font-size:10.5px;"><div class="dot6" style="background:var(--rose);"></div><span style="color:var(--t2);">Tone: frustrated</span></div>
+          <div style="display:flex;align-items:center;gap:5px;font-size:10.5px;"><div class="dot6" style="background:var(--rose);"></div><span style="color:var(--t2);">Logins: −68%</span></div>
+        </div>
+        <div><div style="font-size:12px;font-weight:600;color:var(--rose);">47 days</div><div style="font-size:10px;color:var(--t3);">AED 36,000</div></div>
+        <div><span class="tag tr">Intervene now</span></div>
+      </div>
+
+      <!-- ROW 2 — WARNING -->
+      <div style="display:grid;grid-template-columns:minmax(0,1.6fr) 100px 180px 120px 110px;gap:8px;padding:13px 16px;border-bottom:1px solid var(--b0);align-items:center;border-left:3px solid var(--amber);">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#7C4A1D,#B06A2A);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#fff;flex-shrink:0;">VN</div>
+          <div><div style="font-size:13px;font-weight:600;color:var(--ink);">Nair Exports</div><div style="font-size:11px;color:var(--t3);">Vikram Nair · India</div></div>
+        </div>
+        <div>
+          <div style="font-size:18px;font-weight:800;color:var(--amber);letter-spacing:-.03em;">51%</div>
+          <div class="pbar" style="margin-top:3px;"><div class="pfill" style="width:51%;background:var(--amber);"></div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:3px;">
+          <div style="display:flex;align-items:center;gap:5px;font-size:10.5px;"><div class="dot6" style="background:var(--amber);"></div><span style="color:var(--t2);">Reply: slowing</span></div>
+          <div style="display:flex;align-items:center;gap:5px;font-size:10.5px;"><div class="dot6" style="background:var(--b1);"></div><span style="color:var(--t2);">Tone: neutral</span></div>
+          <div style="display:flex;align-items:center;gap:5px;font-size:10.5px;"><div class="dot6" style="background:var(--amber);"></div><span style="color:var(--t2);">Usage: −32%</span></div>
+        </div>
+        <div><div style="font-size:12px;font-weight:600;color:var(--amber);">62 days</div><div style="font-size:10px;color:var(--t3);">INR 3,20,000</div></div>
+        <div><span class="tag ty">Monitor</span></div>
+      </div>
+
+      <!-- ROW 3 — HEALTHY -->
+      <div style="display:grid;grid-template-columns:minmax(0,1.6fr) 100px 180px 120px 110px;gap:8px;padding:13px 16px;border-bottom:1px solid var(--b0);align-items:center;border-left:3px solid var(--emerald);">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#1A4A30,#27714A);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#fff;flex-shrink:0;">GT</div>
+          <div><div style="font-size:13px;font-weight:600;color:var(--ink);">Gulf Trade Solutions</div><div style="font-size:11px;color:var(--t3);">Ahmed Al-Rashid · Dubai</div></div>
+        </div>
+        <div>
+          <div style="font-size:18px;font-weight:800;color:var(--emerald);letter-spacing:-.03em;">94%</div>
+          <div class="pbar" style="margin-top:3px;"><div class="pfill" style="width:94%;background:var(--emerald);"></div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:3px;">
+          <div style="display:flex;align-items:center;gap:5px;font-size:10.5px;"><div class="dot6" style="background:var(--emerald);"></div><span style="color:var(--t2);">Reply: 1.5h avg</span></div>
+          <div style="display:flex;align-items:center;gap:5px;font-size:10.5px;"><div class="dot6" style="background:var(--emerald);"></div><span style="color:var(--t2);">Tone: positive</span></div>
+          <div style="display:flex;align-items:center;gap:5px;font-size:10.5px;"><div class="dot6" style="background:var(--emerald);"></div><span style="color:var(--t2);">Logins: daily</span></div>
+        </div>
+        <div><div style="font-size:12px;font-weight:600;color:var(--emerald);">180 days</div><div style="font-size:10px;color:var(--t3);">AED 48,000</div></div>
+        <div><span class="tag tg">Healthy</span></div>
+      </div>
+
+      <!-- ROW 4 -->
+      <div style="display:grid;grid-template-columns:minmax(0,1.6fr) 100px 180px 120px 110px;gap:8px;padding:13px 16px;align-items:center;border-left:3px solid var(--emerald);background:var(--s1);">
+        <div style="display:flex;align-items:center;gap:10px;">
+          <div style="width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,#1A2A5C,#2A3E8A);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:800;color:#fff;flex-shrink:0;">MG</div>
+          <div><div style="font-size:13px;font-weight:600;color:var(--ink);">Mansoori Group</div><div style="font-size:11px;color:var(--t3);">Sara Al-Mansoori · Abu Dhabi</div></div>
+        </div>
+        <div>
+          <div style="font-size:18px;font-weight:800;color:var(--emerald);letter-spacing:-.03em;">87%</div>
+          <div class="pbar" style="margin-top:3px;"><div class="pfill" style="width:87%;background:var(--emerald);"></div></div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:3px;">
+          <div style="display:flex;align-items:center;gap:5px;font-size:10.5px;"><div class="dot6" style="background:var(--emerald);"></div><span style="color:var(--t2);">Reply: 3h avg</span></div>
+          <div style="display:flex;align-items:center;gap:5px;font-size:10.5px;"><div class="dot6" style="background:var(--emerald);"></div><span style="color:var(--t2);">Tone: engaged</span></div>
+          <div style="display:flex;align-items:center;gap:5px;font-size:10.5px;"><div class="dot6" style="background:var(--b1);"></div><span style="color:var(--t2);">Usage: stable</span></div>
+        </div>
+        <div><div style="font-size:12px;font-weight:600;color:var(--ink);">210 days</div><div style="font-size:10px;color:var(--t3);">AED 120,000</div></div>
+        <div><span class="tag tg">Healthy</span></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="sep"></div>
+
+<!-- ════════════════════════
+     SCREEN 2 — UPSELL DETECTION
+════════════════════════ -->
+<div class="ch">
+  <div class="ch-num">AI Feature 02 · Upsell Moment Detection</div>
+  <div class="ch-title">The AI reads their problem and finds your opportunity.</div>
+  <div class="ch-desc">Every support ticket is an intelligence signal. When a customer's problem is actually a product limitation that a higher tier would solve, MoxAI flags it as an upsell moment — with the exact line to use, the exact upgrade to offer, and the revenue impact. Silently. Automatically.</div>
+</div>
+
+<div class="screen">
+<div class="chrome">
+  <div class="dots"><div class="dot" style="background:#FF5F57"></div><div class="dot" style="background:#FFBD2E"></div><div class="dot" style="background:#28C840"></div></div>
+  <div class="url">app.moxdesk.ai/tickets/TKT-2841</div>
+  <div class="b-tag">Upsell Detected</div>
+</div>
+<div class="app app3 app-h">
+  <div class="rail">
+    <div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+    <div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+    <div class="ri on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+    <div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+    <div class="rg"></div><div class="rav">RC</div>
+  </div>
+  <div class="sb">
+    <div class="sb-h">
+      <div class="sb-logo"><div class="sb-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><div class="sb-brand">MOX<em>DESK</em></div></div>
+      <div class="sb-srch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Search tickets...</div>
+    </div>
+    <div class="sb-sec">Tickets</div>
+    <div class="ni on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Open Tickets<span class="nb nb-a">7</span></div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>Resolved</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>SLA Breaches<span class="nb nb-r">1</span></div>
+    <div class="sb-sec">Intelligence</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Churn Prediction</div>
+    <div class="ni" style="color:var(--violet);font-weight:600;border-left:2px solid var(--violet);background:rgba(124,58,237,.06);"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" style="color:var(--violet);"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>Upsell Moments<span style="margin-left:auto;font-size:9.5px;font-weight:700;background:rgba(124,58,237,.10);color:var(--violet);padding:1px 7px;border-radius:99px;border:1px solid rgba(124,58,237,.20);">3</span></div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>GCC SLA</div>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex;align-items:center;gap:8px;">
+        <span style="font-size:11px;font-weight:600;color:var(--t3);" class="mono">TKT-2841</span>
+        <div class="tb-t">Cannot export more than 500 contacts at once</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:6px;margin-left:8px;"><span class="tag tn">Open</span><span class="tag tv">Upsell detected</span></div>
+      <div class="tbm">
+        <button class="btn btn-g">Assign</button>
+        <button class="btn" style="background:var(--violet);color:#fff;">Offer Upgrade</button>
+      </div>
+    </div>
+
+    <div class="body">
+      <div style="display:grid;grid-template-columns:1fr 320px;gap:14px;height:100%;">
+
+        <!-- LEFT: ticket thread -->
+        <div style="display:flex;flex-direction:column;gap:12px;">
+
+          <!-- UPSELL INSIGHT — TOP CARD -->
+          <div style="background:rgba(124,58,237,.05);border:1px solid rgba(124,58,237,.18);border-radius:12px;padding:16px 18px;">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A78BFA" stroke-width="2"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+              <span style="font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--violet);">MoxAI Upsell Detection</span>
+              <span style="margin-left:auto;font-size:11px;font-weight:600;color:var(--emerald);">+AED 24,000 opportunity</span>
+            </div>
+            <div style="font-size:13.5px;color:var(--ink);line-height:1.7;margin-bottom:10px;">Ahmed is hitting the <strong>500-contact export limit</strong> on his current plan. This is not a bug — it is a plan limitation. The Pro plan removes all export limits. This is a natural upgrade moment. Suggest it now while the pain is fresh.</div>
+            <div style="background:var(--s0);border:1px solid var(--b0);border-radius:9px;padding:12px 14px;">
+              <div style="font-size:10px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:var(--violet);margin-bottom:6px;">Suggested response line</div>
+              <div style="font-size:13px;color:var(--ink);line-height:1.65;font-style:italic;">"Hi Ahmed, the 500-contact limit is a feature of your current plan. Our Pro plan removes this entirely — and given your Gulf Trade expansion, you would hit this limit often. I can upgrade you now and credit this month's difference. Want me to do that?"</div>
+            </div>
+          </div>
+
+          <!-- Ticket thread -->
+          <div class="card" style="flex:1;">
+            <div class="lbl" style="margin-bottom:12px;">Support Thread</div>
+            <div style="display:flex;flex-direction:column;gap:14px;">
+              <!-- Customer message -->
+              <div style="display:flex;gap:10px;">
+                <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#1E3A5F,#2A4F7C);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;flex-shrink:0;">AA</div>
+                <div style="flex:1;">
+                  <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;">
+                    <div style="font-size:12px;font-weight:600;color:var(--ink);">Ahmed Al-Rashid</div>
+                    <div style="font-size:10px;color:var(--t3);">Today, 9:14 AM</div>
+                  </div>
+                  <div style="background:var(--s2);border:1px solid var(--b0);border-radius:3px 10px 10px 10px;padding:10px 13px;font-size:13px;color:var(--t1);line-height:1.65;">Hi, I'm trying to export our full contact list for the Gulf expansion but it keeps stopping at 500. We have 2,400 contacts in the system. Is this a bug? We need all of them exported urgently for a campaign launching Monday.</div>
+                </div>
+              </div>
+              <!-- AI drafted response -->
+              <div style="display:flex;gap:10px;flex-direction:row-reverse;">
+                <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--emerald),#34D399);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff;flex-shrink:0;">You</div>
+                <div style="flex:1;">
+                  <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px;justify-content:flex-end;">
+                    <div style="font-size:10px;color:var(--t3);">AI-drafted reply · awaiting send</div>
+                    <div style="font-size:12px;font-weight:600;color:var(--ink);">Your team</div>
+                  </div>
+                  <div style="background:rgba(5,150,105,.07);border:1px solid rgba(5,150,105,.18);border-radius:10px 3px 10px 10px;padding:10px 13px;font-size:13px;color:var(--ink);line-height:1.65;position:relative;">
+                    Hi Ahmed, the 500-contact limit is a feature of your current plan. Our Pro plan removes this entirely — and given your Gulf Trade expansion, you would hit this limit often. I can upgrade you now and credit this month's difference. Want me to do that?
+                    <div style="position:absolute;top:8px;right:8px;"><span class="tag tv" style="font-size:9px;">AI drafted</span></div>
+                  </div>
+                  <div style="display:flex;gap:5px;margin-top:6px;justify-content:flex-end;">
+                    <button class="btn btn-p" style="height:26px;font-size:11px;">Send reply</button>
+                    <button class="btn btn-g" style="height:26px;font-size:11px;">Edit first</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: account context -->
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div class="card">
+            <div class="lbl" style="margin-bottom:10px;">Account Context</div>
+            <div style="display:flex;align-items:center;gap:9px;margin-bottom:12px;">
+              <div style="width:36px;height:36px;border-radius:9px;background:linear-gradient(135deg,#1E3A5F,#2A4F7C);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0;">GT</div>
+              <div><div style="font-size:13px;font-weight:700;color:var(--ink);">Gulf Trade Solutions</div><div style="font-size:11px;color:var(--t3);">Dubai · AED 48,000 ARR</div></div>
+            </div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px;">
+              <div style="padding:8px;background:var(--s2);border-radius:7px;"><div style="font-size:9.5px;color:var(--t3);">Current plan</div><div style="font-size:12px;font-weight:700;color:var(--ink);margin-top:2px;">Growth</div></div>
+              <div style="padding:8px;background:var(--s2);border-radius:7px;"><div style="font-size:9.5px;color:var(--t3);">Health score</div><div style="font-size:12px;font-weight:700;color:var(--emerald);margin-top:2px;">94% ↑</div></div>
+              <div style="padding:8px;background:var(--s2);border-radius:7px;"><div style="font-size:9.5px;color:var(--t3);">Contacts used</div><div style="font-size:12px;font-weight:700;color:var(--amber);margin-top:2px;">2,400 / 2,500</div></div>
+              <div style="padding:8px;background:var(--s2);border-radius:7px;"><div style="font-size:9.5px;color:var(--t3);">Renewal</div><div style="font-size:12px;font-weight:700;color:var(--ink);margin-top:2px;">180 days</div></div>
+            </div>
+            <div style="padding:10px;background:rgba(124,58,237,.06);border:1px solid rgba(124,58,237,.16);border-radius:8px;">
+              <div style="font-size:10px;font-weight:700;color:var(--violet);margin-bottom:4px;">Pro Plan Upgrade</div>
+              <div style="font-size:12px;color:var(--t1);">Unlimited contacts · Unlimited exports · Priority SLA</div>
+              <div style="font-size:13px;font-weight:800;color:var(--violet);margin-top:6px;">+AED 24,000 / year</div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="lbl" style="margin-bottom:8px;">Previous Upsell Signals</div>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <div style="font-size:11.5px;color:var(--t2);padding:6px 8px;background:var(--s2);border-radius:6px;">Feb: Hit sender limit (ignored)</div>
+              <div style="font-size:11.5px;color:var(--t2);padding:6px 8px;background:var(--s2);border-radius:6px;">Mar: Asked about API access</div>
+              <div style="font-size:11.5px;color:var(--emerald);padding:6px 8px;background:rgba(5,150,105,.06);border-radius:6px;font-weight:500;">Now: Export limit hit · high urgency</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="sep"></div>
+
+<!-- ════════════════════════
+     SCREEN 3 — GCC SLA INTELLIGENCE
+════════════════════════ -->
+<div class="ch">
+  <div class="ch-num">AI Feature 03 · GCC SLA Intelligence</div>
+  <div class="ch-title">SLA that understands the Gulf working week.</div>
+  <div class="ch-desc">No other helpdesk knows that Friday prayers pause Gulf SLA clocks. Or that the UAE National Day is a public holiday. Or that Ramadan working hours are reduced by law. Moxdesk calculates SLA correctly for every GCC country — so you never breach a commitment you could not have kept, and never miss one you should have caught.</div>
+</div>
+
+<div class="screen">
+<div class="chrome">
+  <div class="dots"><div class="dot" style="background:#FF5F57"></div><div class="dot" style="background:#FFBD2E"></div><div class="dot" style="background:#28C840"></div></div>
+  <div class="url">app.moxdesk.ai/sla/gcc-dashboard</div>
+  <div class="b-tag">GCC SLA · Active</div>
+</div>
+<div class="app app3 app-h">
+  <div class="rail">
+    <div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+    <div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+    <div class="ri"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+    <div class="ri on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+    <div class="rg"></div><div class="rav">RC</div>
+  </div>
+  <div class="sb">
+    <div class="sb-h">
+      <div class="sb-logo"><div class="sb-ic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><div class="sb-brand">MOX<em>DESK</em></div></div>
+      <div class="sb-srch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Search...</div>
+    </div>
+    <div class="sb-sec">SLA Intelligence</div>
+    <div class="ni on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>GCC SLA Dashboard</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Holiday Calendar</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Working Hours</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>SLA Reports</div>
+    <div class="sb-sec">Countries</div>
+    <div class="ni" style="font-size:12px;"><span style="margin-right:4px;">🇦🇪</span> UAE · Dubai / Abu Dhabi</div>
+    <div class="ni" style="font-size:12px;"><span style="margin-right:4px;">🇸🇦</span> Saudi Arabia</div>
+    <div class="ni" style="font-size:12px;"><span style="margin-right:4px;">🇧🇭</span> Bahrain</div>
+    <div class="ni" style="font-size:12px;"><span style="margin-right:4px;">🇶🇦</span> Qatar</div>
+    <div class="ni" style="font-size:12px;"><span style="margin-right:4px;">🇰🇼</span> Kuwait</div>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="tb-t">GCC SLA Intelligence</div>
+      <div class="tb-badge tbg">All SLAs current</div>
+      <div class="tbm">
+        <div style="display:flex;align-items:center;gap:6px;padding:4px 10px;background:rgba(217,119,6,.06);border:1px solid rgba(217,119,6,.18);border-radius:99px;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          <span style="font-size:11px;font-weight:600;color:var(--amber);">UAE National Day in 12 days — SLA clocks paused</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="body">
+
+      <!-- SLA STATS -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px;">
+        <div class="card" style="text-align:center;padding:14px 12px;">
+          <div style="font-size:26px;font-weight:800;letter-spacing:-.04em;color:var(--emerald);">98%</div>
+          <div style="font-size:10.5px;color:var(--t3);margin-top:4px;">SLA compliance<br>this month</div>
+        </div>
+        <div class="card" style="text-align:center;padding:14px 12px;">
+          <div style="font-size:26px;font-weight:800;letter-spacing:-.04em;color:var(--ink);">7</div>
+          <div style="font-size:10.5px;color:var(--t3);margin-top:4px;">Active tickets<br>being tracked</div>
+        </div>
+        <div class="card" style="text-align:center;padding:14px 12px;">
+          <div style="font-size:26px;font-weight:800;letter-spacing:-.04em;color:var(--amber);">3</div>
+          <div style="font-size:10.5px;color:var(--t3);margin-top:4px;">Friday pauses<br>applied this week</div>
+        </div>
+        <div class="card" style="text-align:center;padding:14px 12px;">
+          <div style="font-size:26px;font-weight:800;letter-spacing:-.04em;color:var(--emerald);">0</div>
+          <div style="font-size:10.5px;color:var(--t3);margin-top:4px;">Breaches<br>this month</div>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;">
+
+        <!-- ACTIVE TICKETS WITH GCC SLA -->
+        <div class="card">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+            <div><div class="ct">Live SLA Tracker</div><div class="cs">GCC working hours applied</div></div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+
+            <!-- Ticket 1 — paused -->
+            <div style="padding:10px 12px;border:1px solid rgba(217,119,6,.20);background:rgba(217,119,6,.04);border-radius:9px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5px;">
+                <div style="font-size:12px;font-weight:600;color:var(--ink);">TKT-2839 · Mansoori Group</div>
+                <span class="tag ty">SLA paused</span>
+              </div>
+              <div style="font-size:11.5px;color:var(--t2);margin-bottom:5px;">Login issue reported Thu 4:45 PM GST</div>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <div class="pbar" style="flex:1;"><div class="pfill" style="width:45%;background:var(--amber);"></div></div>
+                <div style="font-size:11px;font-weight:600;color:var(--amber);">3h 12m elapsed</div>
+              </div>
+              <div style="font-size:10.5px;color:var(--amber);margin-top:4px;font-weight:500;">⏸ Clock paused Friday 12PM–2PM prayers · resumes 2PM</div>
+            </div>
+
+            <!-- Ticket 2 — healthy -->
+            <div style="padding:10px 12px;border:1px solid var(--b0);background:var(--s1);border-radius:9px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5px;">
+                <div style="font-size:12px;font-weight:600;color:var(--ink);">TKT-2841 · Gulf Trade Solutions</div>
+                <span class="tag tg">On track</span>
+              </div>
+              <div style="font-size:11.5px;color:var(--t2);margin-bottom:5px;">Export limit issue · 4h SLA</div>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <div class="pbar" style="flex:1;"><div class="pfill" style="width:28%;background:var(--emerald);"></div></div>
+                <div style="font-size:11px;font-weight:600;color:var(--emerald);">1h 8m elapsed · 2h 52m left</div>
+              </div>
+            </div>
+
+            <!-- Ticket 3 — Ramadan -->
+            <div style="padding:10px 12px;border:1px solid rgba(99,102,241,.20);background:rgba(99,102,241,.04);border-radius:9px;">
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:5px;">
+                <div style="font-size:12px;font-weight:600;color:var(--ink);">TKT-2836 · Saeed Capital</div>
+                <span class="tag tv">Ramadan hours</span>
+              </div>
+              <div style="font-size:11.5px;color:var(--t2);margin-bottom:5px;">API documentation request</div>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <div class="pbar" style="flex:1;"><div class="pfill" style="width:60%;background:var(--violet);"></div></div>
+                <div style="font-size:11px;font-weight:600;color:var(--violet);">6h elapsed (Ramadan hours)</div>
+              </div>
+              <div style="font-size:10.5px;color:var(--violet);margin-top:4px;font-weight:500;">🌙 Ramadan: working hours reduced to 6h/day · SLA adjusted</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- GCC CALENDAR + RULES -->
+        <div style="display:flex;flex-direction:column;gap:10px;">
+
+          <!-- What western helpdesks get wrong -->
+          <div style="background:rgba(217,119,6,.04);border:1px solid rgba(217,119,6,.16);border-radius:12px;padding:14px 16px;">
+            <div style="font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin-bottom:10px;">What Western helpdesks get wrong</div>
+            <div style="display:flex;flex-direction:column;gap:7px;">
+              <div style="display:flex;gap:8px;align-items:flex-start;">
+                <div class="dot6" style="background:var(--rose);margin-top:5px;flex-shrink:0;"></div>
+                <div style="font-size:12px;color:var(--t1);">Counting Friday 12–2 PM as breach time<br><span style="color:var(--t3);font-size:11px;">Moxdesk pauses SLA for Friday prayers automatically</span></div>
+              </div>
+              <div style="display:flex;gap:8px;align-items:flex-start;">
+                <div class="dot6" style="background:var(--rose);margin-top:5px;flex-shrink:0;"></div>
+                <div style="font-size:12px;color:var(--t1);">Ignoring UAE National Day (Dec 2–3)<br><span style="color:var(--t3);font-size:11px;">Moxdesk auto-pauses all GCC tickets on 15 national holidays</span></div>
+              </div>
+              <div style="display:flex;gap:8px;align-items:flex-start;">
+                <div class="dot6" style="background:var(--rose);margin-top:5px;flex-shrink:0;"></div>
+                <div style="font-size:12px;color:var(--t1);">Full 8h SLA during Ramadan<br><span style="color:var(--t3);font-size:11px;">Moxdesk reduces to 6h working day by law in KSA, UAE, Bahrain</span></div>
+              </div>
+              <div style="display:flex;gap:8px;align-items:flex-start;">
+                <div class="dot6" style="background:var(--rose);margin-top:5px;flex-shrink:0;"></div>
+                <div style="font-size:12px;color:var(--t1);">Sat–Sun as the weekend for GCC<br><span style="color:var(--t3);font-size:11px;">GCC weekend is Fri–Sat. Moxdesk knows this per country.</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Country SLA rules -->
+          <div class="card">
+            <div class="lbl" style="margin-bottom:10px;">SLA Rules by Country</div>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;background:var(--s2);border-radius:7px;">
+                <span style="font-size:14px;">🇦🇪</span>
+                <div style="flex:1;font-size:12px;color:var(--ink);font-weight:500;">UAE</div>
+                <div style="font-size:11px;color:var(--t3);">Fri–Sat off · Fri 12–2 PM pause · 15 holidays</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;background:var(--s2);border-radius:7px;">
+                <span style="font-size:14px;">🇸🇦</span>
+                <div style="flex:1;font-size:12px;color:var(--ink);font-weight:500;">Saudi Arabia</div>
+                <div style="font-size:11px;color:var(--t3);">Fri–Sat off · Ramadan 6h · 14 holidays</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;background:var(--s2);border-radius:7px;">
+                <span style="font-size:14px;">🇧🇭</span>
+                <div style="flex:1;font-size:12px;color:var(--ink);font-weight:500;">Bahrain</div>
+                <div style="font-size:11px;color:var(--t3);">Fri–Sat off · Fri prayers · 12 holidays</div>
+              </div>
+              <div style="display:flex;align-items:center;gap:8px;padding:7px 10px;background:var(--s2);border-radius:7px;">
+                <span style="font-size:14px;">🇶🇦</span>
+                <div style="flex:1;font-size:12px;color:var(--ink);font-weight:500;">Qatar</div>
+                <div style="font-size:11px;color:var(--t3);">Fri–Sat off · Ramadan hours · 10 holidays</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+</body>
+</html>

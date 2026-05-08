@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Moxcheck — UI/UX Screens</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#F4F6F4;
+  --s0:#FFFFFF;
+  --s1:#F8FAF8;
+  --s2:#EEF2EE;
+  --b0:#DDE5DD;
+  --b1:#C8D5C8;
+  --ink:#0D1F0D;
+  --t1:#2A3D2A;
+  --t2:#5A7060;
+  --t3:#8FA48F;
+  --t4:#B8CBB8;
+  --green:#059669;
+  --green-l:#D1FAE5;
+  --green-b:rgba(5,150,105,.18);
+  --amber:#B45309;
+  --amber-l:#FEF3C7;
+  --amber-b:rgba(180,83,9,.16);
+  --rose:#BE123C;
+  --rose-l:#FFE4E6;
+  --rose-b:rgba(190,18,60,.14);
+  --blue:#1D4ED8;
+  --blue-l:#DBEAFE;
+  --blue-b:rgba(29,78,216,.14);
+  --violet:#6D28D9;
+  --violet-l:#EDE9FE;
+  --violet-b:rgba(109,40,217,.14);
+  --slate:#334155;
+  --mono:'JetBrains Mono',monospace;
+  --sh0:0 1px 2px rgba(13,31,13,.06);
+  --sh1:0 2px 8px rgba(13,31,13,.08),0 1px 2px rgba(13,31,13,.04);
+  --sh2:0 8px 24px rgba(13,31,13,.10),0 2px 4px rgba(13,31,13,.05);
+  --sh3:0 24px 64px rgba(13,31,13,.13),0 8px 16px rgba(13,31,13,.06);
+}
+html{background:#1C2419;}
+body{
+  font-family:'Sora',sans-serif;
+  background:#1C2419;
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  padding:52px 36px 96px;
+}
+
+/* ── PAGE LABELS ── */
+.pg{max-width:1140px;margin:0 auto 24px;}
+.pg-eyebrow{font-size:10px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.30);margin-bottom:8px;}
+.pg-title{font-size:26px;font-weight:800;letter-spacing:-.04em;color:#EEF4EE;margin-bottom:5px;}
+.pg-desc{font-size:13px;color:rgba(238,244,238,.38);line-height:1.7;max-width:680px;}
+.divider{max-width:1140px;margin:64px auto;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.07),transparent);}
+
+/* ── BROWSER CHROME ── */
+.chrome{background:#1A211A;border-radius:14px 14px 0 0;padding:11px 16px;display:flex;align-items:center;gap:10px;}
+.chrome-dots{display:flex;gap:5px;}
+.chrome-dot{width:10px;height:10px;border-radius:50%;}
+.chrome-url{flex:1;background:rgba(255,255,255,.05);border-radius:5px;padding:5px 12px;font-size:11px;color:rgba(255,255,255,.25);font-family:var(--mono);}
+.chrome-tag{font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 9px;border-radius:99px;border:1px solid;}
+
+/* ── APP SHELL ── */
+.screen{max-width:1140px;margin:0 auto;border-radius:14px;overflow:hidden;box-shadow:var(--sh3);}
+.app{background:var(--bg);display:grid;}
+.app-3{grid-template-columns:52px 220px 1fr;}
+.app-h{height:700px;}
+
+/* ── ICON RAIL ── */
+.rail{background:var(--ink);display:flex;flex-direction:column;align-items:center;padding:16px 0;gap:4px;border-right:1px solid rgba(255,255,255,.04);}
+.rl{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.20);cursor:pointer;transition:all .14s;}
+.rl:hover{background:rgba(255,255,255,.07);color:rgba(255,255,255,.60);}
+.rl.on{background:rgba(5,150,105,.20);color:#34D399;}
+.rl svg{width:15px;height:15px;stroke-width:1.8;}
+.rg{flex:1;}
+.rav{width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#374151,#6B7280);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:#fff;margin-top:8px;}
+
+/* ── SIDEBAR ── */
+.sb{background:var(--s0);border-right:1px solid var(--b0);display:flex;flex-direction:column;overflow:hidden;}
+.sb-head{padding:16px 14px 12px;border-bottom:1px solid var(--b0);}
+.sb-logo{display:flex;align-items:center;gap:9px;margin-bottom:12px;}
+.sb-icon{width:26px;height:26px;border-radius:7px;background:var(--ink);display:flex;align-items:center;justify-content:center;}
+.sb-icon svg{width:14px;height:14px;}
+.sb-wm{font-size:14px;font-weight:800;letter-spacing:-.03em;color:var(--ink);}
+.sb-wm em{color:var(--green);font-style:normal;}
+.sb-srch{background:var(--s2);border:1px solid var(--b0);border-radius:8px;padding:7px 10px;display:flex;align-items:center;gap:7px;font-size:12px;color:var(--t3);}
+.sb-srch svg{width:12px;height:12px;flex-shrink:0;}
+.sb-sec{font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);padding:14px 14px 5px;}
+.ni{display:flex;align-items:center;gap:9px;padding:8px 14px;font-size:12.5px;font-weight:500;color:var(--t2);cursor:pointer;border-left:2px solid transparent;transition:all .12s;}
+.ni svg{width:14px;height:14px;flex-shrink:0;stroke-width:1.8;}
+.ni:hover{color:var(--ink);background:var(--s2);}
+.ni.on{color:var(--green);background:rgba(5,150,105,.06);border-left-color:var(--green);font-weight:600;}
+.nb{margin-left:auto;font-size:9.5px;font-weight:700;padding:1px 7px;border-radius:99px;}
+.nb-g{background:var(--green-l);color:var(--green);}
+.nb-a{background:var(--amber-l);color:var(--amber);}
+.nb-r{background:var(--rose-l);color:var(--rose);}
+
+/* ── MAIN AREA ── */
+.main{display:flex;flex-direction:column;overflow:hidden;}
+.topbar{height:52px;background:var(--s0);border-bottom:1px solid var(--b0);display:flex;align-items:center;padding:0 22px;gap:10px;flex-shrink:0;box-shadow:var(--sh0);}
+.tb-title{font-size:14.5px;font-weight:700;color:var(--ink);letter-spacing:-.02em;}
+.tb-chip{font-size:9.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;padding:3px 9px;border-radius:99px;}
+.tc-g{background:var(--green-l);color:var(--green);border:1px solid var(--green-b);}
+.tc-a{background:var(--amber-l);color:var(--amber);border:1px solid var(--amber-b);}
+.tc-b{background:var(--blue-l);color:var(--blue);border:1px solid var(--blue-b);}
+.tc-v{background:var(--violet-l);color:var(--violet);border:1px solid var(--violet-b);}
+.tb-r{margin-left:auto;display:flex;align-items:center;gap:7px;}
+.btn{height:30px;padding:0 14px;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;font-family:'Sora',sans-serif;border:none;transition:all .15s;display:inline-flex;align-items:center;gap:5px;}
+.btn svg{width:12px;height:12px;}
+.btn-g{background:transparent;border:1px solid var(--b1);color:var(--t2);}
+.btn-g:hover{background:var(--s2);border-color:var(--b0);}
+.btn-p{background:var(--ink);color:#fff;}
+.btn-p:hover{background:var(--t1);box-shadow:var(--sh1);}
+.btn-green{background:var(--green);color:#fff;}
+.btn-green:hover{background:#047857;box-shadow:0 4px 12px rgba(5,150,105,.30);}
+.body{flex:1;overflow-y:auto;padding:22px;}
+.body::-webkit-scrollbar{width:3px;}
+.body::-webkit-scrollbar-thumb{background:var(--b1);}
+
+/* ── SHARED COMPONENTS ── */
+.card{background:var(--s0);border:1px solid var(--b0);border-radius:12px;padding:18px 20px;box-shadow:var(--sh0);}
+.card-hover:hover{box-shadow:var(--sh1);transition:box-shadow .15s;}
+.lbl{font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--t3);}
+.tag{font-size:10px;font-weight:700;padding:2px 8px;border-radius:6px;display:inline-flex;align-items:center;gap:4px;letter-spacing:.02em;}
+.tg{background:var(--green-l);color:var(--green);border:1px solid var(--green-b);}
+.ta{background:var(--amber-l);color:var(--amber);border:1px solid var(--amber-b);}
+.tr{background:var(--rose-l);color:var(--rose);border:1px solid var(--rose-b);}
+.tb{background:var(--blue-l);color:var(--blue);border:1px solid var(--blue-b);}
+.tv{background:var(--violet-l);color:var(--violet);border:1px solid var(--violet-b);}
+.tn{background:var(--s2);color:var(--t2);border:1px solid var(--b0);}
+.pbar{height:5px;background:var(--s2);border-radius:99px;overflow:hidden;}
+.pfill{height:100%;border-radius:99px;}
+.dot6{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+.divline{height:1px;background:var(--b0);margin:14px 0;}
+
+/* ── PULSE ANIMATION ── */
+.pulse{animation:pulseA 1.5s ease-in-out infinite;}
+@keyframes pulseA{0%,100%{opacity:1;}50%{opacity:.35;}}
+
+/* ── PROGRESS RING ── */
+.ring-wrap{position:relative;display:inline-flex;align-items:center;justify-content:center;}
+
+/* ── STATUS ICONS ── */
+.status-ic{width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.si-g{background:var(--green-l);}
+.si-a{background:var(--amber-l);}
+.si-r{background:var(--rose-l);}
+.si-b{background:var(--blue-l);}
+.si-v{background:var(--violet-l);}
+
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════
+     SCREEN 1 — UPLOAD & VERIFY
+════════════════════════════════════ -->
+<div class="pg">
+  <div class="pg-eyebrow">Screen 01 of 03 · Moxcheck</div>
+  <div class="pg-title">Upload & Verify</div>
+  <div class="pg-desc">The entry point. Drag a CSV, paste a list, or type a single email. Live processing status as the engine works through the list — MX records, SMTP pings, spam trap detection, domain reputation — all running in parallel. Every field shown here maps directly to a backend API call.</div>
+</div>
+
+<div class="screen">
+<div class="chrome">
+  <div class="chrome-dots">
+    <div class="chrome-dot" style="background:#FF5F57;"></div>
+    <div class="chrome-dot" style="background:#FFBD2E;"></div>
+    <div class="chrome-dot" style="background:#28C840;"></div>
+  </div>
+  <div class="chrome-url">app.moxcheck.ai/verify</div>
+  <div class="chrome-tag" style="background:rgba(5,150,105,.10);color:#059669;border-color:rgba(5,150,105,.22);">Processing · 67%</div>
+</div>
+<div class="app app-3 app-h">
+
+  <!-- RAIL -->
+  <div class="rail">
+    <div class="rl" style="margin-bottom:6px;">
+      <!-- Moxcheck hexagon logo mark -->
+      <svg width="18" height="18" viewBox="0 0 400 400" fill="none">
+        <path d="M200,78 L306,135 L306,249 L200,306 L94,249 L94,135 Z" stroke="#7F77DD" stroke-width="7" stroke-linejoin="round"/>
+        <path d="M142,196 L178,240 L262,148" stroke="#7F77DD" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <div class="rl on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+    <div class="rl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+    <div class="rl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+    <div class="rl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
+    <div class="rg"></div>
+    <div class="rav">RC</div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div class="sb">
+    <div class="sb-head">
+      <div class="sb-logo">
+        <div class="sb-icon">
+          <svg width="14" height="14" viewBox="0 0 400 400" fill="none">
+            <path d="M200,78 L306,135 L306,249 L200,306 L94,249 L94,135 Z" stroke="#fff" stroke-width="9" stroke-linejoin="round"/>
+            <path d="M142,196 L178,240 L262,148" stroke="#fff" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="sb-wm">MOX<em>CHECK</em></div>
+      </div>
+      <div class="sb-srch">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        Search lists...
+      </div>
+    </div>
+    <div class="sb-sec">Verify</div>
+    <div class="ni on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>New Verification<span class="nb nb-g" style="animation:pulseA 1.5s infinite;">Live</span></div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>My Lists<span class="nb nb-g">12</span></div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>History</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Exports</div>
+    <div class="sb-sec">Intelligence</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>Analytics</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Domain Health</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg>API Settings</div>
+
+    <!-- Credits -->
+    <div style="margin:auto 12px 12px;background:var(--s2);border:1px solid var(--b0);border-radius:10px;padding:12px 14px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;">
+        <span style="font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--t3);">Credits used</span>
+        <span style="font-size:12px;font-weight:700;color:var(--ink);">4,491 / 10,000</span>
+      </div>
+      <div class="pbar"><div class="pfill" style="width:44.91%;background:var(--green);"></div></div>
+      <div style="font-size:10px;color:var(--t3);margin-top:5px;">5,509 remaining</div>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div class="main">
+    <div class="topbar">
+      <div class="tb-title">New Verification</div>
+      <div class="tb-chip tc-b">Gulf Campaign · Apr 30</div>
+      <div class="tb-r">
+        <div style="display:flex;align-items:center;gap:6px;padding:5px 11px;background:rgba(5,150,105,.08);border:1px solid rgba(5,150,105,.18);border-radius:99px;">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2.5" class="pulse"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          <span style="font-size:11px;font-weight:600;color:var(--green);">Processing · 67% complete</span>
+        </div>
+        <button class="btn btn-g">Pause</button>
+        <button class="btn btn-p">View results</button>
+      </div>
+    </div>
+
+    <div class="body" style="display:grid;grid-template-columns:1fr 300px;gap:16px;align-content:start;">
+
+      <!-- LEFT: UPLOAD ZONE + PROGRESS -->
+      <div style="display:flex;flex-direction:column;gap:14px;">
+
+        <!-- Upload zone — currently showing processing state -->
+        <div style="background:var(--s0);border:2px dashed var(--b1);border-radius:14px;padding:28px;position:relative;overflow:hidden;">
+          <!-- processed progress overlay -->
+          <div style="position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--s2);">
+            <div style="height:100%;width:67%;background:linear-gradient(90deg,var(--green),#34D399);border-radius:0 2px 2px 0;transition:width .3s;"></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:18px;">
+            <div style="width:44px;height:44px;border-radius:12px;background:var(--green-l);border:1px solid var(--green-b);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <div>
+              <div style="font-size:14px;font-weight:700;color:var(--ink);">gulf_enterprise_leads_apr30.csv</div>
+              <div style="font-size:12px;color:var(--t3);margin-top:2px;font-family:var(--mono);">10,000 emails · uploaded 4 minutes ago · 6.2 MB</div>
+            </div>
+            <div style="margin-left:auto;text-align:right;">
+              <div style="font-size:22px;font-weight:800;color:var(--green);letter-spacing:-.03em;">6,700</div>
+              <div style="font-size:11px;color:var(--t3);">of 10,000 processed</div>
+            </div>
+          </div>
+
+          <!-- Live processing log -->
+          <div style="background:var(--ink);border-radius:10px;padding:14px 16px;font-family:var(--mono);">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;">
+              <div style="width:6px;height:6px;border-radius:50%;background:#34D399;" class="pulse"></div>
+              <span style="font-size:10px;font-weight:600;color:rgba(255,255,255,.35);letter-spacing:.10em;text-transform:uppercase;">Live verification log</span>
+              <span style="margin-left:auto;font-size:10px;color:rgba(255,255,255,.22);">~2m 14s remaining</span>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <div style="display:flex;align-items:center;gap:10px;font-size:11px;">
+                <span style="color:#34D399;width:16px;text-align:center;">✓</span>
+                <span style="color:rgba(255,255,255,.40);width:70px;flex-shrink:0;">ahmed@gt...</span>
+                <span style="color:#34D399;font-weight:500;">Valid · MX live · SMTP confirmed</span>
+                <span style="margin-left:auto;color:rgba(255,255,255,.20);">0.21s</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:11px;">
+                <span style="color:#34D399;width:16px;text-align:center;">✓</span>
+                <span style="color:rgba(255,255,255,.40);width:70px;flex-shrink:0;">sara@man...</span>
+                <span style="color:#34D399;font-weight:500;">Valid · Deliverable</span>
+                <span style="margin-left:auto;color:rgba(255,255,255,.20);">0.18s</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:11px;">
+                <span style="color:#FCD34D;width:16px;text-align:center;">⚠</span>
+                <span style="color:rgba(255,255,255,.40);width:70px;flex-shrink:0;">info@xyz...</span>
+                <span style="color:#FCD34D;font-weight:500;">Catch-all domain · Accept-all server</span>
+                <span style="margin-left:auto;color:rgba(255,255,255,.20);">0.44s</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:11px;">
+                <span style="color:#F87171;width:16px;text-align:center;">✗</span>
+                <span style="color:rgba(255,255,255,.40);width:70px;flex-shrink:0;">user@tem...</span>
+                <span style="color:#F87171;font-weight:500;">Disposable domain · tempmail.com</span>
+                <span style="margin-left:auto;color:rgba(255,255,255,.20);">0.09s</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:11px;">
+                <span style="color:#F87171;width:16px;text-align:center;">✗</span>
+                <span style="color:rgba(255,255,255,.40);width:70px;flex-shrink:0;">noreply@...</span>
+                <span style="color:#F87171;font-weight:500;">Role-based address · Will not receive</span>
+                <span style="margin-left:auto;color:rgba(255,255,255,.20);">0.11s</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:11px;">
+                <span style="color:#A78BFA;width:16px;text-align:center;">⚡</span>
+                <span style="color:rgba(255,255,255,.40);width:70px;flex-shrink:0;">khalid@sc...</span>
+                <span style="color:#A78BFA;font-weight:500;">SMTP timeout · Graylisted · Retrying…</span>
+                <span style="margin-left:auto;color:rgba(255,255,255,.20);">—</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:10px;font-size:11px;opacity:.5;">
+                <span style="color:rgba(255,255,255,.30);width:16px;text-align:center;">·</span>
+                <span style="color:rgba(255,255,255,.25);width:70px;flex-shrink:0;">priya@tb...</span>
+                <span style="color:rgba(255,255,255,.25);">Queued…</span>
+                <span style="margin-left:auto;color:rgba(255,255,255,.15);">—</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Single email quick check -->
+        <div class="card">
+          <div style="font-size:12px;font-weight:600;color:var(--t2);margin-bottom:10px;">Quick single-email check</div>
+          <div style="display:flex;gap:8px;">
+            <input type="text" value="ahmed.rashid@gulftrade.ae" style="flex:1;height:36px;background:var(--s2);border:1px solid var(--b0);border-radius:8px;padding:0 12px;font-family:'Sora',sans-serif;font-size:13px;color:var(--ink);outline:none;" readonly/>
+            <button class="btn btn-green" style="height:36px;padding:0 18px;">Verify</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: LIVE STATS -->
+      <div style="display:flex;flex-direction:column;gap:10px;">
+
+        <!-- Overall progress ring -->
+        <div class="card" style="text-align:center;padding:22px 18px;">
+          <div class="lbl" style="margin-bottom:14px;">Verification Progress</div>
+          <!-- SVG donut progress -->
+          <svg width="110" height="110" viewBox="0 0 110 110" style="display:block;margin:0 auto 12px;">
+            <circle cx="55" cy="55" r="44" fill="none" stroke="#EEF2EE" stroke-width="9"/>
+            <!-- 67% = 276.46 * .67 = 185.2 -->
+            <circle cx="55" cy="55" r="44" fill="none" stroke="#059669" stroke-width="9"
+              stroke-dasharray="185.2 91.26" stroke-dashoffset="0" stroke-linecap="round"
+              transform="rotate(-90 55 55)"/>
+            <text x="55" y="51" text-anchor="middle" font-size="20" font-weight="800" font-family="Sora,sans-serif" fill="#059669">67%</text>
+            <text x="55" y="66" text-anchor="middle" font-size="10" font-family="Sora,sans-serif" fill="#8FA48F">complete</text>
+          </svg>
+          <div style="font-size:12px;color:var(--t3);">6,700 of 10,000 · ~2m left</div>
+        </div>
+
+        <!-- Live counts -->
+        <div class="card" style="padding:14px 16px;">
+          <div class="lbl" style="margin-bottom:10px;">Live results so far</div>
+          <div style="display:flex;flex-direction:column;gap:7px;">
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div class="dot6" style="background:var(--green);"></div>
+              <span style="font-size:12px;color:var(--ink);flex:1;">Valid</span>
+              <span style="font-size:13px;font-weight:700;color:var(--green);font-family:var(--mono);">5,141</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div class="dot6" style="background:var(--amber);"></div>
+              <span style="font-size:12px;color:var(--ink);flex:1;">Risky / Catch-all</span>
+              <span style="font-size:13px;font-weight:700;color:var(--amber);font-family:var(--mono);">738</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div class="dot6" style="background:var(--rose);"></div>
+              <span style="font-size:12px;color:var(--ink);flex:1;">Invalid</span>
+              <span style="font-size:13px;font-weight:700;color:var(--rose);font-family:var(--mono);">688</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div class="dot6" style="background:var(--violet);"></div>
+              <span style="font-size:12px;color:var(--ink);flex:1;">Disposable</span>
+              <span style="font-size:13px;font-weight:700;color:var(--violet);font-family:var(--mono);">133</span>
+            </div>
+            <div class="divline" style="margin:5px 0;"></div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div class="dot6" style="background:var(--t3);"></div>
+              <span style="font-size:12px;color:var(--t2);flex:1;">Pending</span>
+              <span style="font-size:13px;font-weight:700;color:var(--t3);font-family:var(--mono);">3,300</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Speed card -->
+        <div class="card" style="padding:12px 16px;">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+            <div>
+              <div class="lbl" style="margin-bottom:4px;">Speed</div>
+              <div style="font-size:20px;font-weight:800;color:var(--ink);letter-spacing:-.03em;">28/s</div>
+              <div style="font-size:10px;color:var(--t3);">emails / sec</div>
+            </div>
+            <div>
+              <div class="lbl" style="margin-bottom:4px;">Accuracy</div>
+              <div style="font-size:20px;font-weight:800;color:var(--green);letter-spacing:-.03em);">99.4%</div>
+              <div style="font-size:10px;color:var(--t3);">guarantee</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ════════════════════════════════════
+     SCREEN 2 — RESULTS DASHBOARD
+════════════════════════════════════ -->
+<div class="pg">
+  <div class="pg-eyebrow">Screen 02 of 03 · Moxcheck</div>
+  <div class="pg-title">Verification Results</div>
+  <div class="pg-desc">The full breakdown after processing completes. Every email categorised, every issue explained, every row downloadable. Filters let the user pick exactly what to export to Moxsend — valid only, valid + risky, or a custom mix. The deliverability score at the top tells the whole story in one number.</div>
+</div>
+
+<div class="screen">
+<div class="chrome">
+  <div class="chrome-dots"><div class="chrome-dot" style="background:#FF5F57;"></div><div class="chrome-dot" style="background:#FFBD2E;"></div><div class="chrome-dot" style="background:#28C840;"></div></div>
+  <div class="chrome-url">app.moxcheck.ai/results/gulf-campaign-apr30</div>
+  <div class="chrome-tag" style="background:var(--green-l);color:var(--green);border-color:var(--green-b);">Complete · 10,000 verified</div>
+</div>
+<div class="app app-3 app-h">
+  <div class="rail">
+    <div class="rl" style="margin-bottom:6px;"><svg width="18" height="18" viewBox="0 0 400 400" fill="none"><path d="M200,78 L306,135 L306,249 L200,306 L94,249 L94,135 Z" stroke="#7F77DD" stroke-width="7" stroke-linejoin="round"/><path d="M142,196 L178,240 L262,148" stroke="#7F77DD" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="rl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+    <div class="rl on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+    <div class="rl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+    <div class="rl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
+    <div class="rg"></div><div class="rav">RC</div>
+  </div>
+  <div class="sb">
+    <div class="sb-head">
+      <div class="sb-logo"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 400 400" fill="none"><path d="M200,78 L306,135 L306,249 L200,306 L94,249 L94,135 Z" stroke="#fff" stroke-width="9" stroke-linejoin="round"/><path d="M142,196 L178,240 L262,148" stroke="#fff" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="sb-wm">MOX<em>CHECK</em></div></div>
+      <div class="sb-srch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Search results...</div>
+    </div>
+    <div class="sb-sec">Results</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>All Results<span class="nb nb-g">10,000</span></div>
+    <div class="ni on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>Valid Only<span class="nb nb-g">7,584</span></div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>Risky / Catch-all<span class="nb nb-a">1,104</span></div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>Invalid<span class="nb nb-r">935</span></div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M12 5l7 7-7 7"/></svg>Disposable<span class="nb nb-r">197</span></div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Spam Traps<span class="nb nb-r">180</span></div>
+    <div class="sb-sec">Actions</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Export Clean List</div>
+    <div class="ni"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="22 2 11 13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>Send to Moxsend</div>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <div class="tb-title">Gulf Campaign · Apr 30</div>
+      <div class="tb-chip tc-g">7,584 sendable</div>
+      <div class="tb-r">
+        <!-- filter pills -->
+        <div style="display:flex;gap:5px;">
+          <div style="padding:4px 10px;background:var(--green-l);border:1px solid var(--green-b);border-radius:6px;font-size:11px;font-weight:600;color:var(--green);cursor:pointer;">Valid</div>
+          <div style="padding:4px 10px;background:var(--s2);border:1px solid var(--b0);border-radius:6px;font-size:11px;font-weight:500;color:var(--t2);cursor:pointer;">Risky</div>
+          <div style="padding:4px 10px;background:var(--s2);border:1px solid var(--b0);border-radius:6px;font-size:11px;font-weight:500;color:var(--t2);cursor:pointer;">Invalid</div>
+          <div style="padding:4px 10px;background:var(--s2);border:1px solid var(--b0);border-radius:6px;font-size:11px;font-weight:500;color:var(--t2);cursor:pointer;">All</div>
+        </div>
+        <button class="btn btn-g"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>Export CSV</button>
+        <button class="btn btn-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 2 11 13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>Send to Moxsend</button>
+      </div>
+    </div>
+
+    <div class="body">
+      <!-- SCORE CARDS ROW -->
+      <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-bottom:16px;">
+        <div style="background:var(--ink);border-radius:12px;padding:14px 14px;text-align:center;grid-column:span 2;">
+          <div style="font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.30);margin-bottom:8px;">List Deliverability Score</div>
+          <div style="font-size:40px;font-weight:900;letter-spacing:-.05em;color:#34D399;line-height:1;">91<span style="font-size:20px;color:rgba(52,211,153,.55);">%</span></div>
+          <div style="font-size:11px;color:rgba(255,255,255,.30);margin-top:4px;">Excellent · Safe to send</div>
+        </div>
+        <div class="card" style="text-align:center;padding:14px 10px;">
+          <div class="lbl" style="margin-bottom:6px;color:var(--green);">Valid</div>
+          <div style="font-size:22px;font-weight:800;color:var(--green);letter-spacing:-.04em;font-family:var(--mono);">7,584</div>
+          <div style="font-size:10px;color:var(--t3);">75.84%</div>
+        </div>
+        <div class="card" style="text-align:center;padding:14px 10px;">
+          <div class="lbl" style="margin-bottom:6px;color:var(--amber);">Risky</div>
+          <div style="font-size:22px;font-weight:800;color:var(--amber);letter-spacing:-.04em;font-family:var(--mono);">1,104</div>
+          <div style="font-size:10px;color:var(--t3);">11.04%</div>
+        </div>
+        <div class="card" style="text-align:center;padding:14px 10px;">
+          <div class="lbl" style="margin-bottom:6px;color:var(--rose);">Invalid</div>
+          <div style="font-size:22px;font-weight:800;color:var(--rose);letter-spacing:-.04em;font-family:var(--mono);">935</div>
+          <div style="font-size:10px;color:var(--t3);">9.35%</div>
+        </div>
+        <div class="card" style="text-align:center;padding:14px 10px;">
+          <div class="lbl" style="margin-bottom:6px;color:var(--violet);">Disposable</div>
+          <div style="font-size:22px;font-weight:800;color:var(--violet);letter-spacing:-.04em;font-family:var(--mono);">377</div>
+          <div style="font-size:10px;color:var(--t3);">spam traps incl.</div>
+        </div>
+      </div>
+
+      <!-- TABLE -->
+      <div class="card" style="padding:0;overflow:hidden;">
+        <!-- Table header -->
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) 110px 90px 130px 100px 90px 100px;gap:0;padding:10px 18px;background:var(--s1);border-bottom:1px solid var(--b0);font-size:9.5px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;color:var(--t3);">
+          <div>Email address</div><div>Domain</div><div>Status</div><div>Checks passed</div><div>Risk level</div><div>Score</div><div>Action</div>
+        </div>
+
+        <!-- Row 1 — Valid -->
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) 110px 90px 130px 100px 90px 100px;gap:0;padding:12px 18px;border-bottom:1px solid var(--b0);align-items:center;border-left:3px solid var(--green);">
+          <div style="font-size:12.5px;font-weight:500;color:var(--ink);font-family:var(--mono);">ahmed@gulftrade.ae</div>
+          <div style="font-size:11px;color:var(--t2);">gulftrade.ae</div>
+          <div><span class="tag tg">✓ Valid</span></div>
+          <div style="font-size:11px;color:var(--t2);">MX · SMTP · Domain</div>
+          <div><span style="font-size:11px;font-weight:600;color:var(--green);">None</span></div>
+          <div style="font-size:14px;font-weight:800;color:var(--green);font-family:var(--mono);">99</div>
+          <div><button class="btn btn-g" style="height:24px;padding:0 10px;font-size:10px;">Deep scan</button></div>
+        </div>
+
+        <!-- Row 2 — Valid -->
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) 110px 90px 130px 100px 90px 100px;gap:0;padding:12px 18px;border-bottom:1px solid var(--b0);align-items:center;border-left:3px solid var(--green);">
+          <div style="font-size:12.5px;font-weight:500;color:var(--ink);font-family:var(--mono);">sara@mansoori.ae</div>
+          <div style="font-size:11px;color:var(--t2);">mansoori.ae</div>
+          <div><span class="tag tg">✓ Valid</span></div>
+          <div style="font-size:11px;color:var(--t2);">MX · SMTP · Domain</div>
+          <div><span style="font-size:11px;font-weight:600;color:var(--green);">None</span></div>
+          <div style="font-size:14px;font-weight:800;color:var(--green);font-family:var(--mono);">97</div>
+          <div><button class="btn btn-g" style="height:24px;padding:0 10px;font-size:10px;">Deep scan</button></div>
+        </div>
+
+        <!-- Row 3 — Risky -->
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) 110px 90px 130px 100px 90px 100px;gap:0;padding:12px 18px;border-bottom:1px solid var(--b0);align-items:center;background:rgba(180,83,9,.02);border-left:3px solid var(--amber);">
+          <div style="font-size:12.5px;font-weight:500;color:var(--ink);font-family:var(--mono);">info@saeedcap.com</div>
+          <div style="font-size:11px;color:var(--t2);">saeedcap.com</div>
+          <div><span class="tag ta">⚠ Risky</span></div>
+          <div style="font-size:11px;color:var(--t2);">MX · Domain only</div>
+          <div><span style="font-size:11px;font-weight:600;color:var(--amber);">Catch-all</span></div>
+          <div style="font-size:14px;font-weight:800;color:var(--amber);font-family:var(--mono);">61</div>
+          <div><button class="btn btn-g" style="height:24px;padding:0 10px;font-size:10px;">Deep scan</button></div>
+        </div>
+
+        <!-- Row 4 — Risky role-based -->
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) 110px 90px 130px 100px 90px 100px;gap:0;padding:12px 18px;border-bottom:1px solid var(--b0);align-items:center;background:rgba(180,83,9,.02);border-left:3px solid var(--amber);">
+          <div style="font-size:12.5px;font-weight:500;color:var(--ink);font-family:var(--mono);">contact@techb.in</div>
+          <div style="font-size:11px;color:var(--t2);">techb.in</div>
+          <div><span class="tag ta">⚠ Risky</span></div>
+          <div style="font-size:11px;color:var(--t2);">MX · Domain only</div>
+          <div><span style="font-size:11px;font-weight:600;color:var(--amber);">Role-based</span></div>
+          <div style="font-size:14px;font-weight:800;color:var(--amber);font-family:var(--mono);">48</div>
+          <div><button class="btn btn-g" style="height:24px;padding:0 10px;font-size:10px;">Deep scan</button></div>
+        </div>
+
+        <!-- Row 5 — Invalid -->
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) 110px 90px 130px 100px 90px 100px;gap:0;padding:12px 18px;border-bottom:1px solid var(--b0);align-items:center;background:rgba(190,18,60,.02);border-left:3px solid var(--rose);">
+          <div style="font-size:12.5px;font-weight:500;color:var(--ink);font-family:var(--mono);">rania@fakecorp.xyz</div>
+          <div style="font-size:11px;color:var(--t2);">fakecorp.xyz</div>
+          <div><span class="tag tr">✗ Invalid</span></div>
+          <div style="font-size:11px;color:var(--t2);">Domain only</div>
+          <div><span style="font-size:11px;font-weight:600;color:var(--rose);">No MX record</span></div>
+          <div style="font-size:14px;font-weight:800;color:var(--rose);font-family:var(--mono);">0</div>
+          <div><button class="btn btn-g" style="height:24px;padding:0 10px;font-size:10px;">Deep scan</button></div>
+        </div>
+
+        <!-- Row 6 — Disposable -->
+        <div style="display:grid;grid-template-columns:minmax(0,1fr) 110px 90px 130px 100px 90px 100px;gap:0;padding:12px 18px;align-items:center;background:rgba(109,40,217,.02);border-left:3px solid var(--violet);">
+          <div style="font-size:12.5px;font-weight:500;color:var(--ink);font-family:var(--mono);">user1234@tempmail.com</div>
+          <div style="font-size:11px;color:var(--t2);">tempmail.com</div>
+          <div><span class="tag tv">⚡ Disposable</span></div>
+          <div style="font-size:11px;color:var(--t2);">Blocked</div>
+          <div><span style="font-size:11px;font-weight:600;color:var(--violet);">Disposable domain</span></div>
+          <div style="font-size:14px;font-weight:800;color:var(--violet);font-family:var(--mono);">0</div>
+          <div><span style="font-size:10px;color:var(--t3);">Auto-removed</span></div>
+        </div>
+
+        <!-- Pagination -->
+        <div style="padding:12px 18px;background:var(--s1);border-top:1px solid var(--b0);display:flex;align-items:center;gap:10px;">
+          <span style="font-size:11px;color:var(--t3);">Showing 6 of 10,000 · Filtered: Valid (7,584)</span>
+          <div style="display:flex;gap:4px;margin-left:auto;">
+            <button class="btn btn-g" style="height:26px;padding:0 10px;font-size:11px;">← Prev</button>
+            <button class="btn btn-g" style="height:26px;padding:0 10px;font-size:11px;background:var(--ink);color:#fff;border-color:var(--ink);">1</button>
+            <button class="btn btn-g" style="height:26px;padding:0 10px;font-size:11px;">2</button>
+            <button class="btn btn-g" style="height:26px;padding:0 10px;font-size:11px;">3</button>
+            <button class="btn btn-g" style="height:26px;padding:0 10px;font-size:11px;">Next →</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="divider"></div>
+
+<!-- ════════════════════════════════════
+     SCREEN 3 — DEEP SCAN / FORENSIC VIEW
+════════════════════════════════════ -->
+<div class="pg">
+  <div class="pg-eyebrow">Screen 03 of 03 · Moxcheck</div>
+  <div class="pg-title">Deep Scan — Forensic Email Intelligence</div>
+  <div class="pg-desc">The single-email view your developers need to build. Every technical check exposed: MX record lookup, SMTP handshake result, domain age, blacklist status, spam trap history, catch-all detection, and a final deliverability score with the exact reason for every flag. This is what separates Moxcheck from a basic pinger.</div>
+</div>
+
+<div class="screen">
+<div class="chrome">
+  <div class="chrome-dots"><div class="chrome-dot" style="background:#FF5F57;"></div><div class="chrome-dot" style="background:#FFBD2E;"></div><div class="chrome-dot" style="background:#28C840;"></div></div>
+  <div class="chrome-url">app.moxcheck.ai/scan/ahmed@gulftrade.ae</div>
+  <div class="chrome-tag" style="background:var(--green-l);color:var(--green);border-color:var(--green-b);">Score: 99 · Safe to send</div>
+</div>
+<div class="app app-3 app-h">
+  <div class="rail">
+    <div class="rl" style="margin-bottom:6px;"><svg width="18" height="18" viewBox="0 0 400 400" fill="none"><path d="M200,78 L306,135 L306,249 L200,306 L94,249 L94,135 Z" stroke="#7F77DD" stroke-width="7" stroke-linejoin="round"/><path d="M142,196 L178,240 L262,148" stroke="#7F77DD" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="rl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+    <div class="rl on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+    <div class="rl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M18 20V10M12 20V4M6 20v-6"/></svg></div>
+    <div class="rg"></div><div class="rav">RC</div>
+  </div>
+  <div class="sb">
+    <div class="sb-head">
+      <div class="sb-logo"><div class="sb-icon"><svg width="14" height="14" viewBox="0 0 400 400" fill="none"><path d="M200,78 L306,135 L306,249 L200,306 L94,249 L94,135 Z" stroke="#fff" stroke-width="9" stroke-linejoin="round"/><path d="M142,196 L178,240 L262,148" stroke="#fff" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/></svg></div><div class="sb-wm">MOX<em>CHECK</em></div></div>
+      <div class="sb-srch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>Scan another email...</div>
+    </div>
+    <div class="sb-sec">Deep Scan</div>
+    <div class="ni on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>ahmed@gulftrade.ae</div>
+    <div class="sb-sec">Recent Scans</div>
+    <div class="ni" style="font-size:11.5px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="9 11 12 14 22 4"/></svg>sara@mansoori.ae<span class="nb nb-g" style="margin-left:auto;">99</span></div>
+    <div class="ni" style="font-size:11.5px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/></svg>info@saeedcap.com<span class="nb nb-a" style="margin-left:auto;">61</span></div>
+    <div class="ni" style="font-size:11.5px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/></svg>rania@fakecorp.xyz<span class="nb nb-r" style="margin-left:auto;">0</span></div>
+    <div class="sb-sec">From Lists</div>
+    <div class="ni" style="font-size:11.5px;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/></svg>Gulf Campaign · Apr 30</div>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="height:28px;padding:0 12px;background:var(--ink);border-radius:7px;display:flex;align-items:center;font-size:12px;font-weight:600;color:#34D399;font-family:var(--mono);">ahmed@gulftrade.ae</div>
+        <div class="tb-chip tc-g">✓ Valid · Deliverable</div>
+      </div>
+      <div class="tb-r">
+        <span style="font-size:11px;color:var(--t3);">Scanned in 0.38s</span>
+        <button class="btn btn-g">Copy report</button>
+        <button class="btn btn-green">Send to Moxsend</button>
+      </div>
+    </div>
+
+    <div class="body" style="display:grid;grid-template-columns:1fr 280px;gap:14px;align-content:start;">
+
+      <!-- LEFT: ALL CHECKS -->
+      <div style="display:flex;flex-direction:column;gap:12px;">
+
+        <!-- MASTER SCORE -->
+        <div style="background:var(--ink);border-radius:14px;padding:18px 20px;display:flex;align-items:center;gap:20px;">
+          <div style="flex-shrink:0;">
+            <svg width="80" height="80" viewBox="0 0 80 80">
+              <circle cx="40" cy="40" r="32" fill="none" stroke="rgba(255,255,255,.06)" stroke-width="7"/>
+              <circle cx="40" cy="40" r="32" fill="none" stroke="#059669" stroke-width="7"
+                stroke-dasharray="201.06 0" stroke-linecap="round" transform="rotate(-90 40 40)"/>
+              <text x="40" y="36" text-anchor="middle" font-size="20" font-weight="800" font-family="Sora" fill="#34D399">99</text>
+              <text x="40" y="50" text-anchor="middle" font-size="9" font-family="Sora" fill="rgba(255,255,255,.35)">/100</text>
+            </svg>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.30);margin-bottom:6px;">Deliverability Score</div>
+            <div style="font-size:20px;font-weight:800;color:#34D399;margin-bottom:4px;">Safe to send · Highly deliverable</div>
+            <div style="font-size:12px;color:rgba(255,255,255,.35);font-family:var(--mono);">ahmed@gulftrade.ae · Verified 0.38s ago</div>
+          </div>
+          <div style="margin-left:auto;display:flex;flex-direction:column;gap:6px;text-align:right;">
+            <span class="tag tg">MX verified</span>
+            <span class="tag tg">SMTP confirmed</span>
+            <span class="tag tg">Domain active 4y</span>
+          </div>
+        </div>
+
+        <!-- TECHNICAL CHECKS GRID -->
+        <div class="card">
+          <div class="lbl" style="margin-bottom:14px;">Technical verification checks</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+
+            <!-- MX Record -->
+            <div style="padding:12px 14px;background:var(--green-l);border:1px solid var(--green-b);border-radius:10px;">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+                <div class="status-ic si-g"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span style="font-size:12px;font-weight:700;color:var(--ink);">MX Record</span>
+                <span style="margin-left:auto;font-size:10px;font-weight:600;color:var(--green);">PASS</span>
+              </div>
+              <div style="font-size:11px;color:var(--t2);font-family:var(--mono);">gulftrade.ae → mx.google.com</div>
+              <div style="font-size:10.5px;color:var(--t2);margin-top:4px;">Priority: 10 · TTL: 3600s</div>
+            </div>
+
+            <!-- SMTP -->
+            <div style="padding:12px 14px;background:var(--green-l);border:1px solid var(--green-b);border-radius:10px;">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+                <div class="status-ic si-g"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span style="font-size:12px;font-weight:700;color:var(--ink);">SMTP Handshake</span>
+                <span style="margin-left:auto;font-size:10px;font-weight:600;color:var(--green);">250 OK</span>
+              </div>
+              <div style="font-size:11px;color:var(--t2);font-family:var(--mono);">RCPT TO: ← 250 OK</div>
+              <div style="font-size:10.5px;color:var(--t2);margin-top:4px;">Mailbox confirmed · not catch-all</div>
+            </div>
+
+            <!-- Domain Age -->
+            <div style="padding:12px 14px;background:var(--green-l);border:1px solid var(--green-b);border-radius:10px;">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+                <div class="status-ic si-g"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span style="font-size:12px;font-weight:700;color:var(--ink);">Domain Age</span>
+                <span style="margin-left:auto;font-size:10px;font-weight:600;color:var(--green);">PASS</span>
+              </div>
+              <div style="font-size:11px;color:var(--t2);font-family:var(--mono);">Registered: Jan 14, 2021</div>
+              <div style="font-size:10.5px;color:var(--t2);margin-top:4px;">4 years, 2 months old · trusted</div>
+            </div>
+
+            <!-- Blacklist -->
+            <div style="padding:12px 14px;background:var(--green-l);border:1px solid var(--green-b);border-radius:10px;">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+                <div class="status-ic si-g"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span style="font-size:12px;font-weight:700;color:var(--ink);">Blacklist Check</span>
+                <span style="margin-left:auto;font-size:10px;font-weight:600;color:var(--green);">CLEAN</span>
+              </div>
+              <div style="font-size:11px;color:var(--t2);">0 / 42 blacklists</div>
+              <div style="font-size:10.5px;color:var(--t2);margin-top:4px;">Checked: Spamhaus, SURBL, Barracuda</div>
+            </div>
+
+            <!-- Spam Trap -->
+            <div style="padding:12px 14px;background:var(--green-l);border:1px solid var(--green-b);border-radius:10px;">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+                <div class="status-ic si-g"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span style="font-size:12px;font-weight:700;color:var(--ink);">Spam Trap</span>
+                <span style="margin-left:auto;font-size:10px;font-weight:600;color:var(--green);">NONE</span>
+              </div>
+              <div style="font-size:11px;color:var(--t2);">Not a known trap address</div>
+              <div style="font-size:10.5px;color:var(--t2);margin-top:4px;">Database: 2.4M known traps</div>
+            </div>
+
+            <!-- Disposable -->
+            <div style="padding:12px 14px;background:var(--green-l);border:1px solid var(--green-b);border-radius:10px;">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
+                <div class="status-ic si-g"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+                <span style="font-size:12px;font-weight:700;color:var(--ink);">Disposable Domain</span>
+                <span style="margin-left:auto;font-size:10px;font-weight:600;color:var(--green);">CLEAN</span>
+              </div>
+              <div style="font-size:11px;color:var(--t2);">gulftrade.ae is not disposable</div>
+              <div style="font-size:10.5px;color:var(--t2);margin-top:4px;">Checked against 12,400 domains</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- RAW DNS / SMTP output -->
+        <div class="card" style="padding:14px 18px;">
+          <div class="lbl" style="margin-bottom:10px;">Raw technical output</div>
+          <div style="background:var(--ink);border-radius:9px;padding:13px 15px;font-family:var(--mono);font-size:11px;line-height:1.9;">
+            <div style="color:rgba(255,255,255,.30);">→ DNS lookup: gulftrade.ae</div>
+            <div style="color:#34D399;">← MX 10 mx.google.com. [TTL 3600]</div>
+            <div style="color:rgba(255,255,255,.30);margin-top:4px;">→ SMTP connect: mx.google.com:25</div>
+            <div style="color:#34D399;">← 220 mx.google.com ESMTP ready</div>
+            <div style="color:rgba(255,255,255,.30);">→ EHLO moxcheck.ai</div>
+            <div style="color:#34D399;">← 250-mx.google.com Hello</div>
+            <div style="color:rgba(255,255,255,.30);">→ MAIL FROM: &lt;verify@moxcheck.ai&gt;</div>
+            <div style="color:#34D399;">← 250 OK</div>
+            <div style="color:rgba(255,255,255,.30);">→ RCPT TO: &lt;ahmed@gulftrade.ae&gt;</div>
+            <div style="color:#34D399;">← 250 OK — mailbox exists and accepts mail</div>
+            <div style="color:rgba(255,255,255,.30);">→ QUIT</div>
+            <div style="color:rgba(255,255,255,.30);margin-top:4px;"># Total time: 0.38s · Verdict: VALID</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: SUMMARY PANEL -->
+      <div style="display:flex;flex-direction:column;gap:10px;">
+
+        <div class="card">
+          <div class="lbl" style="margin-bottom:10px;">Domain intelligence</div>
+          <div style="display:flex;flex-direction:column;gap:8px;">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 10px;background:var(--s2);border-radius:7px;">
+              <span style="font-size:11.5px;color:var(--t1);">Domain</span>
+              <span style="font-size:11.5px;font-weight:600;color:var(--ink);font-family:var(--mono);">gulftrade.ae</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 10px;background:var(--s2);border-radius:7px;">
+              <span style="font-size:11.5px;color:var(--t1);">Registrar</span>
+              <span style="font-size:11.5px;font-weight:600;color:var(--ink);">AEDA</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 10px;background:var(--s2);border-radius:7px;">
+              <span style="font-size:11.5px;color:var(--t1);">Created</span>
+              <span style="font-size:11.5px;font-weight:600;color:var(--ink);">Jan 14, 2021</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 10px;background:var(--s2);border-radius:7px;">
+              <span style="font-size:11.5px;color:var(--t1);">Expires</span>
+              <span style="font-size:11.5px;font-weight:600;color:var(--ink);">Jan 14, 2027</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 10px;background:var(--s2);border-radius:7px;">
+              <span style="font-size:11.5px;color:var(--t1);">Mail provider</span>
+              <span style="font-size:11.5px;font-weight:600;color:var(--ink);">Google Workspace</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 10px;background:var(--s2);border-radius:7px;">
+              <span style="font-size:11.5px;color:var(--t1);">SPF record</span>
+              <span style="font-size:11.5px;font-weight:600;color:var(--green);">Valid ✓</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 10px;background:var(--s2);border-radius:7px;">
+              <span style="font-size:11.5px;color:var(--t1);">DMARC</span>
+              <span style="font-size:11.5px;font-weight:600;color:var(--green);">p=reject ✓</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:7px 10px;background:var(--s2);border-radius:7px;">
+              <span style="font-size:11.5px;color:var(--t1);">DKIM</span>
+              <span style="font-size:11.5px;font-weight:600;color:var(--green);">Configured ✓</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="lbl" style="margin-bottom:10px;">Recommendation</div>
+          <div style="padding:12px 14px;background:var(--green-l);border:1px solid var(--green-b);border-radius:9px;margin-bottom:8px;">
+            <div style="font-size:12.5px;font-weight:700;color:var(--green);margin-bottom:4px;">✓ Safe to send</div>
+            <div style="font-size:11.5px;color:var(--t1);line-height:1.6;">This email is fully verified, the domain is healthy and trusted, and the mailbox is confirmed to accept mail. Include in your Moxsend campaign with confidence.</div>
+          </div>
+          <button class="btn btn-green" style="width:100%;height:34px;justify-content:center;font-size:13px;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 2 11 13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            Send to Moxsend
+          </button>
+        </div>
+
+        <div class="card" style="padding:12px 14px;">
+          <div class="lbl" style="margin-bottom:8px;">Check breakdown</div>
+          <div style="display:flex;flex-direction:column;gap:5px;">
+            <div style="display:flex;align-items:center;gap:7px;font-size:11.5px;"><div class="dot6" style="background:var(--green);"></div><span style="flex:1;color:var(--t1);">Format valid</span><span style="color:var(--green);font-weight:600;">+5</span></div>
+            <div style="display:flex;align-items:center;gap:7px;font-size:11.5px;"><div class="dot6" style="background:var(--green);"></div><span style="flex:1;color:var(--t1);">MX record found</span><span style="color:var(--green);font-weight:600;">+20</span></div>
+            <div style="display:flex;align-items:center;gap:7px;font-size:11.5px;"><div class="dot6" style="background:var(--green);"></div><span style="flex:1;color:var(--t1);">SMTP 250 OK</span><span style="color:var(--green);font-weight:600;">+40</span></div>
+            <div style="display:flex;align-items:center;gap:7px;font-size:11.5px;"><div class="dot6" style="background:var(--green);"></div><span style="flex:1;color:var(--t1);">Not catch-all</span><span style="color:var(--green);font-weight:600;">+15</span></div>
+            <div style="display:flex;align-items:center;gap:7px;font-size:11.5px;"><div class="dot6" style="background:var(--green);"></div><span style="flex:1;color:var(--t1);">Domain age 4y+</span><span style="color:var(--green);font-weight:600;">+10</span></div>
+            <div style="display:flex;align-items:center;gap:7px;font-size:11.5px;"><div class="dot6" style="background:var(--green);"></div><span style="flex:1;color:var(--t1);">Blacklist clean</span><span style="color:var(--green);font-weight:600;">+9</span></div>
+            <div style="height:1px;background:var(--b0);margin:4px 0;"></div>
+            <div style="display:flex;align-items:center;gap:7px;font-size:12px;font-weight:700;"><span style="flex:1;color:var(--ink);">Total score</span><span style="color:var(--green);">99 / 100</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+</body>
+</html>
