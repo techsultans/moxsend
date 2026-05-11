@@ -1,4 +1,5 @@
 import PageShell from '@/components/PageShell'
+import PolicyContent from '@/components/PolicyContent'
 import { getDictionary, isValidLocale } from '@/lib/i18n'
 import { notFound } from 'next/navigation'
 
@@ -27,8 +28,7 @@ export default async function LocalizedTerms({ params }) {
             <span className="chip-text">{terms.chip}</span>
           </div>
 
-          <h1 className="about-title">{terms.title}</h1>
-          <p className="type-body about-copy">{terms.body}</p>
+          <PolicyContent content={terms} />
         </div>
       </main>
     </PageShell>

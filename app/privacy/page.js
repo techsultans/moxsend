@@ -1,4 +1,5 @@
 import PageShell from '@/components/PageShell'
+import PolicyContent from '@/components/PolicyContent'
 import { defaultLocale, getDictionary } from '@/lib/i18n'
 
 export default function PrivacyPage() {
@@ -24,8 +25,7 @@ export default function PrivacyPage() {
             <span className="chip-text">{privacy.chip}</span>
           </div>
 
-          <h1 className="about-title">{privacy.title}</h1>
-          <p className="type-body about-copy">{privacy.body}</p>
+          <PolicyContent content={privacy} />
         </div>
       </main>
     </PageShell>
